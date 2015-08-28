@@ -30,4 +30,30 @@
 	  var minusculo = new String(me.value);
 	  var maiusculo = minusculo.toUpperCase();
 	  me.value = maiusculo;	  
-	}			
+	}	
+	
+	//CONSULTA AJAX
+	function consultaAJAX( ) {	
+		var servicoHttp = "../webServices/cotacoes.php";				
+		
+		var altura = document.getElementById('altura');										
+		var largura = document.getElementById('largura');								
+		var peso = document.getElementById('peso');								
+		var comprimento = document.getElementById('comprimento');								
+		var qtdCaixas = document.getElementById('qtdCaixas');								
+		var valor = document.getElementById('valor');										
+		
+		jsonParametros = {incluirCotacao: 'sim',  altura: altura.value, largura: largura.value, peso: peso.value, comprimento: comprimento.value, qtdCaixas: qtdCaixas.value, valor: valor.value};
+	
+		var $xhr = $.getJSON(servicoHttp, jsonParametros);		
+		
+			
+		$xhr.done(function(resultadoXml) {
+			alert('ok');
+		});
+
+		$xhr.fail(function(data) {
+			alert(data.responseText);
+		});	
+		
+	}	

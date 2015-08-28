@@ -14,6 +14,7 @@
 	<script type="text/javascript" src="../js/jquery.js"></script>	
 	<script type="text/javascript" src="../js/jquery-ui.js"></script>	
 	<script type="text/javascript" src="../js/scriptsCotacoes.js"></script>	
+	<script type="text/javascript" src="../js/scriptsCidades.js"></script>	
 </head>
 <body>
 
@@ -35,7 +36,7 @@
 									</tr>								
 									<tr>								
 										<td>					
-											<select tabindex="14" onfocus="focus_Blur(this, 'yellow');" onblur="focus_Blur(this, 'white');" id="ufCliente">  
+											<select tabindex="14" onfocus="focus_Blur(this, 'yellow');" onblur="focus_Blur(this, 'white');" id="ufCliente" onChange="">  
 												<option value="PE">PE</option>			
 												<option value="AC">AC</option>			
 												<option value="AL">AL</option>			
@@ -146,22 +147,22 @@
 							</tr>						
 							<tr style="border: 1px solid;">	
 								<td>								
-									<input type="text" size="7" tabindex="1" type="text" onfocus="focus_Blur(this, 'yellow');"onblur="focus_Blur(this, 'white');" id="tempConsulta" value="">
+									<input type="text" size="7" tabindex="1" type="text" onfocus="focus_Blur(this, 'yellow');"onblur="focus_Blur(this, 'white');" value="" id="altura" name="altura">
 								</td>					
 								<td >													
-									<input type="text" size="7" tabindex="1" type="text" onfocus="focus_Blur(this, 'yellow');"onblur="focus_Blur(this, 'white');" id="tempConsulta" value="">
+									<input type="text" size="7" tabindex="1" type="text" onfocus="focus_Blur(this, 'yellow');"onblur="focus_Blur(this, 'white');" value=""  id="largura" name="largura">
 								</td>  														
 								<td>								
-									<input type="text" size="7" tabindex="1" type="text" onfocus="focus_Blur(this, 'yellow');"onblur="focus_Blur(this, 'white');" id="tempConsulta" value="">
+									<input type="text" size="7" tabindex="1" type="text" onfocus="focus_Blur(this, 'yellow');"onblur="focus_Blur(this, 'white');" value="" id="peso" name="peso">
 								</td>					
 								<td >													
-									<input type="text" size="10" tabindex="1" type="text" onfocus="focus_Blur(this, 'yellow');"onblur="focus_Blur(this, 'white');" id="tempConsulta" value="">
+									<input type="text" size="10" tabindex="1" type="text" onfocus="focus_Blur(this, 'yellow');"onblur="focus_Blur(this, 'white');" value="" id="comprimento" name="comprimento">
 								</td>  								
 								<td>								
-									<input type="text" size="7" tabindex="1" type="text" onfocus="focus_Blur(this, 'yellow');"onblur="focus_Blur(this, 'white');" id="tempConsulta" value="">
+									<input type="text" size="7" tabindex="1" type="text" onfocus="focus_Blur(this, 'yellow');"onblur="focus_Blur(this, 'white');" value=""  id="qtdCaixas" name="qtdCaixas">
 								</td>															
 								<td style="border-right: 1px solid;">									
-									<input type="text" size="7" tabindex="1" type="text" onfocus="focus_Blur(this, 'yellow');"onblur="focus_Blur(this, 'white');" id="tempConsulta" value="">
+									<input type="text" size="7" tabindex="1" type="text" onfocus="focus_Blur(this, 'yellow');"onblur="focus_Blur(this, 'white');"  value=""  id="valor" name="valor">
 								</td>								
 							</tr>
 					</table>	
@@ -351,7 +352,7 @@
 							
 					  </table>	
 					  </br>					  
-					   <a href="#dialog" name="cliente" id="incluir" ><input type="image" src='../img/incluirBtn.png' id="btnIncluir"></a>					   
+					   <input type="image" src='../img/incluirBtn.png' id="btnIncluir" onClick="consultaAJAX()">
 					   <a href="#dialog" name="cliente" id="alterar" ><input type="image" src='../img/alterarBtn.png' id="btnAlterar"></a>
 					   &nbsp;
 					   &nbsp;					   

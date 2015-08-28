@@ -1,25 +1,13 @@
-//ENVIA CONSULTA CLIENTE
-	function dadosCliente(tabelaDefinida, diretorio, telefone, qtdClientes, eventoClick, me){	
-		clearInterval(aguardaDigitar);
-	
-		var argumento = "";
-		if (typeof me != "undefined"){	
-			argumento = me.value;
-		}
-		
-		iniciaVariaveisClientes();		
-		
-		// PREENCHE UMA LINHA INDICANDO QUE ESTÁ PROCURANDO...
-		linhaConsulta("yellow", "black", "CONSULTANDO...", tabelaDefinida, telefone);																				
+	//CONSULTA CIDADES
+	function listarCidades(idComboCidade, idComboUf){															
+		var comboUf = document.getElementById(idComboUf);
+		var comboCidade = document.getElementById(idComboCidade);
+		var ufPesquisada = comboUf.value;
 		//PREENCHE A TABELA			
-		$.getJSON(diretorio+'ajaxClientes.php?consultaClientes=sim&qtdClientes='+qtdClientes+'&search=',{'argumento': argumento, ajax: 'true'}, function(j){		
-			try{
-				//LIMPAR LINHA DE ESPERA
-				for (var z = 1; z < 20; z++) {				
-					var trApagada = document.getElementById('trCliente0');
-					if (trApagada != null)	
-						document.getElementById(tabelaDefinida).removeChild(trApagada);								
-				}					
+		$.getJSON('../webServices/cidades.php?consultaCidades=sim&search=',{'consultaUf': ufPesquisada, ajax: 'true'}, function(j){		
+		//	try{
+				comboCidade.empty();
+				/*
 				//PREENCHE A CONSULTA
 				if (j.length>0){
 					todosClientes = j;
@@ -50,5 +38,6 @@
 				// PREENCHE UMA LINHA INDICANDO QUE NADA FOI ENCONTRADO!
 				linhaConsulta("red", "black", "? NADA ENCONTRADO ?", tabelaDefinida, telefone);						
 			}	
+			*/
 		});						
 	}
