@@ -1,5 +1,5 @@
 <?php
-  require_once("banco.php");  
+  require_once("/../banco.php");  
   require_once("cidade.php");  
 
   class CidadeSql {  
