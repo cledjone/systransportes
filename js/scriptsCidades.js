@@ -4,7 +4,7 @@
 		var comboCidade = document.getElementById(idComboCidade);
 		var ufPesquisada = comboUf.value;
 		//PREENCHE A TABELA			
-		$.getJSON('../webServices/cidades.php?consultaCidades=sim&search=',{'consultaUf': ufPesquisada, ajax: 'true'}, function(j){		
+		$.getJSON('../webServices/cidadeWebService.php?consultaCidades=sim&search=',{'consultaUf': ufPesquisada, ajax: 'true'}, function(j){		
 		//	try{
 				comboCidade.empty();
 				/*

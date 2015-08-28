@@ -34,7 +34,7 @@
 	
 	//CONSULTA AJAX
 	function consultaAJAX( ) {	
-		var servicoHttp = "../webServices/cotacoes.php";				
+		var servicoHttp = "../webServices/cotacaoWebService.php";				
 		
 		var altura = document.getElementById('altura');										
 		var largura = document.getElementById('largura');								
