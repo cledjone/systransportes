@@ -28,20 +28,20 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="../index.html">Principal</a>
+                        <a href="../index.php">Principal</a>
                     </li>
 					<li>
-                        <a href="frota.html">LOGÍSTICA</a>
+                        <a href="frota.php">LOGÍSTICA</a>
                     </li>   
                     <li>
-                        <a href="about.html">Sobre</a>
+                        <a href="about.php">Sobre</a>
                     </li>               
                     <li>
-                        <a href="contact.html">Fale Conosco</a>
+                        <a href="contact.php">Fale Conosco</a>
                     </li>
 					 <li>
-                        <a href="login.html">Login</a><!--Ajeitar-->
-                    </li>					
+                        <a href="login.php">Login</a><!--Ajeitar-->
+                    </li>				
                 </ul>
             </div>
     </nav>

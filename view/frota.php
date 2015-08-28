@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SysTransportes</title>
+    <title>SysTransporte</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="../css/bootstrap.min.css" rel="stylesheet">
@@ -47,26 +47,26 @@
                     <span class="icon-bar"></span>
                 </button>
                 <!-- navbar-brand is hidden on larger screens, but visible when the menu is collapsed -->
-                <a class="navbar-brand" href="index.html">SysTransportes</a>
+                 <a class="navbar-brand" href="index.php">SysTransportes</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li>
-                        <a href="../index.html">Principal</a>
+					<li>
+                        <a href="../index.php">Principal</a>
                     </li>
 					<li>
-                        <a href="frota.html">LOGÍSTICA</a>
+                        <a href="frota.php">LOGÍSTICA</a>
                     </li>   
                     <li>
-                        <a href="about.html">Sobre</a>
+                        <a href="about.php">Sobre</a>
                     </li>               
                     <li>
-                        <a href="contact.html">Fale Conosco</a>
+                        <a href="contact.php">Fale Conosco</a>
                     </li>
 					 <li>
-                        <a href="login.html">Login</a><!--Ajeitar-->
-                    </li>		
+                        <a href="login.php">Login</a><!--Ajeitar-->
+                    </li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -78,70 +78,29 @@
 
         <div class="row">
             <div class="box">
+                
                 <div class="col-lg-12">
                     <hr>
-                    <h2 class="intro-text text-center">Sobre<strong> SysTransportes</strong>
-                    </h2>
+                    <h2 class="intro-text text-center">Nossa <strong> forta</strong> e nossa <strong>logística</strong></h2>
                     <hr>
                 </div>
-                <div class="col-md-6">
-                    <img class="img-responsive img-border-left" src="../img/LogoSysTrasnporte.jpg" alt="">
-                </div>
-                <div class="col-md-6">
-                    <p>A SysTransportes é uma empresa criada em 2015 para prestar serviço de transporte rodoviário de cargas.</p>
-					<p>O time SysTransportes é composto por profissionais experientes do mercado de transporte rodoviário.</p> 
-					<p>Prestamos serviços de entregas aos clientes de nossos clientes com atendimento exclusivo, informação em tempo real e comprometimento.</p>
-					<p>Investimos em estrutura de ponta, tecnologia e segurançapara garantir nosso crescimento e consolidação como futura maior e melhor empresa de nosso segmento de atuação.</p>
-					
-                </div>
+				
+                <h3>Frota</h3>
+                <p>Com uma frota própria, nossos veículos são rastreados e monitorados via satélite, permitindo ao cliente
+                segurança e informação no acompanhamento da sua carga. Entrega eficiente desde grandes cargas a pequenas encomendas.</p>
+                
+                <h3>Logística</h3>
+                <p>Nosso maior compromisso é evitar avarias e entregar as encomendas no prazo correto, atendendo sempre as necessidade de
+                nosso clientes. Trabalhamos com coleta e distribuição de cargas.</p>
+                
+                
+                
+             
                 <div class="clearfix"></div>
             </div>
         </div>
 
-        <div class="row">
-            <div class="box">
-                <div class="col-lg-12">
-                    <hr>
-                    <h2 class="intro-text text-center">Nossa<strong> Equipe</strong>
-                    </h2>
-                    <hr>
-                </div>
-                <div class="col-sm-4 text-center">
-                    <img class="img-responsive" src="../img/PessoaUm.jpg" alt="">
-                    <h3>Ramos Tavares
-                        <small>Dretor</small>
-                    </h3>
-                </div>
-                <div class="col-sm-4 text-center">
-                    <img class="img-responsive" src="../img/PessoaDois.jpg" alt="">
-                    <h3>Amanda Rodrigues
-                        <small>Gerente Geral</small>
-                    </h3>
-                </div>
-                <div class="col-sm-4 text-center">
-                    <img class="img-responsive" src="../img/PessoaTres.jpg" alt="">
-                    <h3>Felipe Coutinho
-                        <small>Supervisor</small>
-                    </h3>
-                </div>
-                <div class="clearfix"></div>
-            </div>
-        </div>
 
-    </div>
-    <!-- /.container 
-
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <p>Copyright &copy; Your Website 2014</p>
-                </div>
-            </div>
-        </div>
-    </footer>
-	-->
-    <!-- jQuery -->
     <script src="../js/jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->

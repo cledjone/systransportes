@@ -40,25 +40,25 @@
                     <span class="icon-bar"></span>
                 </button>
                 <!-- navbar-brand is hidden on larger screens, but visible when the menu is collapsed -->
-                <a class="navbar-brand" href="index.html">SysTransporte</a>
+                <a class="navbar-brand" href="index.php">SysTransporte</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="view\home\index.html">Principal</a>
+                        <a href="index.php">Principal</a>
                     </li>
 					<li>
-                        <a href="view\home\frota.html">LOGÍSTICA</a>
+                        <a href="view\frota.php">LOGÍSTICA</a>
                     </li>   
                     <li>
-                        <a href="view\home\about.html">Sobre</a>
+                        <a href="view\about.php">Sobre</a>
                     </li>               
                     <li>
-                        <a href="view\home\contact.html">Fale Conosco</a>
+                        <a href="view\contact.php">Fale Conosco</a>
                     </li>
 					 <li>
-                        <a href="view\home\login.html">Login</a><!--Ajeitar-->
+                        <a href="view\login.php">Login</a><!--Ajeitar-->
                     </li>					
                 </ul>
             </div>
