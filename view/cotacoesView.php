@@ -36,7 +36,8 @@
 									</tr>								
 									<tr>								
 										<td>					
-											<select tabindex="14" onfocus="focus_Blur(this, 'yellow');" onblur="focus_Blur(this, 'white');" id="ufCliente" onChange="">  
+											<select tabindex="14" onfocus="focus_Blur(this, 'yellow');" onblur="focus_Blur(this, 'white');" id="ufOrigem" onChange="consultaCidades('cidadeOrigem', 'ufOrigem')">  
+												<option value="">??</option>			
 												<option value="PE">PE</option>			
 												<option value="AC">AC</option>			
 												<option value="AL">AL</option>			
@@ -67,7 +68,7 @@
 											</select>
 										</td>								
 										<td>							
-											<select onfocus="focus_Blur(this, 'yellow');" tabindex="7" onblur="focus_Blur(this, 'white');" id="cidOrigem" name="cidOrigem"  onChange="juntaCidadeUf()">
+											<select onfocus="focus_Blur(this, 'yellow');" tabindex="7" onblur="focus_Blur(this, 'white');" id="cidadeOrigem" name="cidadeOrigem"  onChange="juntaCidadeUf()">
 												<option size="35" value="">ESCOLHA O ESTADO ORIGEM</option>									
 											</select>																	
 										</td>																	
@@ -90,7 +91,8 @@
 									</tr>								
 									<tr>								
 										<td>					
-											<select tabindex="14" onfocus="focus_Blur(this, 'yellow');" onblur="focus_Blur(this, 'white');" id="ufCliente">  
+											<select tabindex="14" onfocus="focus_Blur(this, 'yellow');" onblur="focus_Blur(this, 'white');" id="ufDestino" onChange="consultaCidades('cidadeDestino', 'ufDestino')" value="??">  
+												<option value="">??</option>			
 												<option value="PE">PE</option>			
 												<option value="AC">AC</option>			
 												<option value="AL">AL</option>			
@@ -121,7 +123,7 @@
 											</select>
 										</td>								
 										<td>							
-											<select onfocus="focus_Blur(this, 'yellow');" tabindex="7" onblur="focus_Blur(this, 'white');" id="cidDestino" name="cidDestino"  onChange="juntaCidadeUf()">
+											<select onfocus="focus_Blur(this, 'yellow');" tabindex="7" onblur="focus_Blur(this, 'white');" id="cidadeDestino" name="cidadeDestino"  onChange="juntaCidadeUf()">
 												<option size="35" value="">ESCOLHA O ESTADO DESTINO</option>									
 											</select>																	
 										</td>																	
