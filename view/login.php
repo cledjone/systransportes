@@ -64,7 +64,7 @@
 			</div>
 			
 			<div id="cadastro">
-				<a href="cadastro.html">Cadastre-se</a>
+				<a href="cadastro.php">Cadastre-se</a>
 			</div>			
 			
 		</div>
