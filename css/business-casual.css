@@ -6,17 +6,8 @@
 
 tr.itens:hover {
     background-color: #61C1D6;
-	cursor:  pointer;
+	cursor:  pointer; 
 }
-
-/*Acrecido por josenaldo*/
-.divDimensoes{
-        width: 1180px;
-        margin-left: 50px;
-
-}
-
-
 
 #contato_centro{
 	margin: 0 auto;
@@ -26,7 +17,7 @@ tr.itens:hover {
 #login{
 	margin: 0 auto;
 	width: 100px;
-
+	
 }
 
 #cadastro{
@@ -34,8 +25,8 @@ tr.itens:hover {
 }
 
 .box_login {
-	position: absolute;
-	left: 35%;
+	position: absolute; 
+	left: 35%; 
 	top: 50%;
     margin-bottom: 20px;
     padding: 30px 15px;
@@ -44,7 +35,7 @@ tr.itens:hover {
 }
 
 
-
+ 
 body {
     font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
     background: url('../img/ImagemFundoSysTrasnporte.jpg') no-repeat center center fixed;
@@ -205,8 +196,6 @@ footer p {
         border: none;
         background: #fff;
         background: rgba(255,255,255,0.9);
-        width: 1180px;
-        margin-left: 50px;
     }
 
     .nav>li>a {
@@ -244,9 +233,8 @@ SCROLLBAR-TRACK-COLOR:#FAFAFA;
 SCROLLBAR-HIGHLIGHT-COLOR:#656565;
 SCROLLBAR-SHADOW-COLOR:#656565;
 SCROLLBAR-3DLIGHT-COLOR:#FAFAFA;
-SCROLLBAR-DARKSHADOW-COLOR:#FAFAFA;
+SCROLLBAR-DARKSHADOW-COLOR:#FAFAFA;	
 }
-
 td {
 	text-align: center;
 	font-family:Tahoma, Arial, Helvetica, sans-serif;

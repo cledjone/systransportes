@@ -10,7 +10,7 @@
 	private $peso;  
 	private $comprimento;  	
 	private $quantidadeCaixas;  	
-	private $prazo;
+	private $prazo;  
         
     public function setId($l) {
       $this->id = trim($l);
