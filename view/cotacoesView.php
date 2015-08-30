@@ -91,7 +91,7 @@
 									</tr>								
 									<tr>								
 										<td>					
-											<select tabindex="14" onfocus="focus_Blur(this, 'yellow');" onblur="focus_Blur(this, 'white');" id="ufDestino" onChange="consultaCidades('cidadeDestino', 'ufDestino')" value="??">  
+											<select tabindex="14" onfocus="focus_Blur(this, 'yellow');" onblur="focus_Blur(this, 'white');" id="ufDestino" onChange="consultaCidades('cidadeDestino', 'ufDestino')" >  
 												<option value="">??</option>			
 												<option value="PE">PE</option>			
 												<option value="AC">AC</option>			
