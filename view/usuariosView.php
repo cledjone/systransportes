@@ -27,33 +27,38 @@
         <script type="text/javascript" src="../js/scriptsCidades.js">
                         
         </script>
+
+        <script language="JavaScript" type="text/javascript" src="../js/cidades-estados.js"></script>
     </head>
     
     <body>
         <!-- CAIXA DADOS USUÁRIOS-->
         <div id="dialogUsuario-form" title="CADASTRO DE USUÁRIOS">
-            <form>
-                <table style="width: 100%">
+
+
+
+<form class="form-horizontal">
+<table style="width: 100%">
                     <tr>
                         <td>
                             Nome:
                         </td>
                         <td>
-                            <input type="text" size="30" tabindex="1" type="text" onfocus="focus_Blur(this, 'yellow');"
+                            <input type="text" size="30" tabindex="1" type="text" onfocus="focus_Blur(this, '#E0FFFF');"
                             onblur="focus_Blur(this, 'white');" value="" id="nome" name="nome">
                         </td>
                         <td>
                             Razão Social:
                         </td>
                         <td>
-                            <input type="text" size="30" tabindex="1" type="text" onfocus="focus_Blur(this, 'yellow');"
+                            <input type="text" size="30" tabindex="1" type="text" onfocus="focus_Blur(this, '#E0FFFF');"
                             onblur="focus_Blur(this, 'white');" value="" id="razaoSocial" name="razaoSocial">
                         </td>
                         <td>
                             Nome Fantasia:
                         </td>
                         <td>
-                            <input type="text" size="30" tabindex="1" type="text" onfocus="focus_Blur(this, 'yellow');"
+                            <input type="text" size="30" tabindex="1" type="text" onfocus="focus_Blur(this, '#E0FFFF');"
                             onblur="focus_Blur(this, 'white');" value="" id="fantasia" name="fantasia">
                         </td>
                     </tr>
@@ -62,21 +67,21 @@
                             CPF/CNPJ:
                         </td>
                         <td>
-                            <input type="text" size="30" tabindex="1" type="text" onfocus="focus_Blur(this, 'yellow');"
+                            <input type="text" size="30" tabindex="1" type="text" onfocus="focus_Blur(this, '#E0FFFF');"
                             onblur="focus_Blur(this, 'white');" value="" id="cpfcnpj" name="cpfcnpj">
                         </td>
                         <td>
                             E-mail:
                         </td>
                         <td>
-                            <input type="text" size="30" tabindex="1" type="text" onfocus="focus_Blur(this, 'yellow');"
+                            <input type="text" size="30" tabindex="1" type="text" onfocus="focus_Blur(this, '#E0FFFF');"
                             onblur="focus_Blur(this, 'white');" value="" id="email" name="email">
                         </td>
                         <td>
                             Telefone 1:
                         </td>
                         <td>
-                            <input type="text" size="30" tabindex="1" type="text" onfocus="focus_Blur(this, 'yellow');"
+                            <input type="text" size="30" tabindex="1" type="text" onfocus="focus_Blur(this, '#E0FFFF');"
                             onblur="focus_Blur(this, 'white');" value="" id="telefone1" name="telefone1">
                         </td>
                     </tr>
@@ -85,21 +90,21 @@
                             Telefone 2:
                         </td>
                         <td>
-                            <input type="text" size="30" tabindex="1" type="text" onfocus="focus_Blur(this, 'yellow');"
+                            <input type="text" size="30" tabindex="1" type="text" onfocus="focus_Blur(this, '#E0FFFF');"
                             onblur="focus_Blur(this, 'white');" value="" id="telefone2" name="telefone2">
                         </td>
                         <td>
                             Logradouro:
                         </td>
                         <td>
-                            <input type="text" size="30" tabindex="1" type="text" onfocus="focus_Blur(this, 'yellow');"
+                            <input type="text" size="30" tabindex="1" type="text" onfocus="focus_Blur(this, '#E0FFFF');"
                             onblur="focus_Blur(this, 'white');" value="" id="logradouro" name="logradouro">
                         </td>
                         <td>
                             Bairro:
                         </td>
                         <td>
-                            <input type="text" size="30" tabindex="1" type="text" onfocus="focus_Blur(this, 'yellow');"
+                            <input type="text" size="30" tabindex="1" type="text" onfocus="focus_Blur(this, '#E0FFFF');"
                             onblur="focus_Blur(this, 'white');" value="" id="bairro" name="bairro">
                         </td>
                     </tr>
@@ -108,36 +113,88 @@
                             CEP:
                         </td>
                         <td>
-                            <input type="text" size="30" tabindex="1" type="text" onfocus="focus_Blur(this, 'yellow');"
+                            <input type="text" size="30" tabindex="1" type="text" onfocus="focus_Blur(this, '#E0FFFF');"
                             onblur="focus_Blur(this, 'white');" value="" id="cep" name="cep">
                         </td>
+
+                        <td>
+                            Estado:
+                        </td>
+                        <td>
+                        <select tabindex="14"  onfocus="focus_Blur(this, '#E0FFFF');" onblur="focus_Blur(this, 'white');" id="ufDestino" onChange="consultaCidades('cidadeDestino', 'ufDestino')" >  
+                                                <option value="">Escolha seu estado</option>            
+                                                <option value="PE">PE</option>          
+                                                <option value="AC">AC</option>          
+                                                <option value="AL">AL</option>          
+                                                <option value="AM">AM</option>          
+                                                <option value="AP">AP</option>          
+                                                <option value="BA">BA</option>          
+                                                <option value="CE">CE</option>          
+                                                <option value="DF">DF</option>          
+                                                <option value="ES">ES</option>          
+                                                <option value="GO">GO</option>          
+                                                <option value="MA">MA</option>          
+                                                <option value="MG">MG</option>          
+                                                <option value="MS">MS</option>          
+                                                <option value="MT">MT</option>          
+                                                <option value="PA">PA</option>          
+                                                <option value="PB">PB</option>          
+                                                <option value="PI">PI</option>          
+                                                <option value="PR">PR</option>          
+                                                <option value="RJ">RJ</option>          
+                                                <option value="RN">RN</option>          
+                                                <option value="RO">RO</option>          
+                                                <option value="RR">RR</option>          
+                                                <option value="RS">RS</option>          
+                                                <option value="SC">SC</option>
+                                                <option value="SE">SE</option>
+                                                <option value="SP">SP</option>          
+                                                <option value="TO">TO</option>          
+                                            </select>
+                        </td>
+                        <td>
+                            Cidade:
+                        </td>
+                        <td>
+                        <select onfocus="focus_Blur(this, '#E0FFFF');" tabindex="7" onblur="focus_Blur(this, 'white');" id="cidadeDestino" name="cidadeDestino"  onChange="juntaCidadeUf()">
+                            <option size="35" value="">Escolha sua cidade</option>                                    
+                        </select>
+                        </td>
+
+                    </tr>
+
+                    <tr>
                         <td>
                             Login:
                         </td>
                         <td>
-                            <input type="text" size="30" tabindex="1" type="text" onfocus="focus_Blur(this, 'yellow');"
+                            <input type="text" size="30" tabindex="1" type="text" onfocus="focus_Blur(this, '#E0FFFF');"
                             onblur="focus_Blur(this, 'white');" value="" id="login" name="login">
                         </td>
                         <td>
                             Senha:
                         </td>
                         <td>
-                            <input type="text" size="30" tabindex="1" type="text" onfocus="focus_Blur(this, 'yellow');"
+                            <input type="text" size="30" tabindex="1" type="text" onfocus="focus_Blur(this, '#E0FFFF');"
                             onblur="focus_Blur(this, 'white');" value="" id="senha" name="senha">
                         </td>
-                    </tr>
 
-                    <tr>
                         <td>
                             Perfil Usuário:
                         </td>
                         <td>
-                            <input type="text" size="30" tabindex="1" type="text" onfocus="focus_Blur(this, 'yellow');"
-                            onblur="focus_Blur(this, 'white');" value="" id="idPerfil" name="idPerfil">
+                            <select  id="idPerfil" name="idPerfil">
+                                    <option value="0">Escolha seu Perfil</option>
+                                    <option value="1">Cliente</option>
+                                    <option value="2">Observador</option>
+                                    <option value="3">Atendente</option>
+                                    <option value="4">Motorista</option>
+                                </select>
                         </td>
                     </tr>
                 </table>
-            </form>
+    </form>
+      
             <center>
                 </br>
                 </br>

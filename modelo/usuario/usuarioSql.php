@@ -10,7 +10,7 @@
 	  
 	  //Atributo da tabela usuário
 	  //$idUsuario = '1';
-      //$codCidade = 109991;//mysql_real_escape_string($u->getObjCidadeOrigem()->getCodigo(), $conexao);
+      $codCidade = 109991;//mysql_real_escape_string($u->getObjCidadeOrigem()->getCodigo(), $conexao);
 	  $idPerfil = mysql_real_escape_string($usuario->getIdPerfil(), $conexao);      
 	  $nome = mysql_real_escape_string($usuario->getNome(), $conexao);      
 	  $razaoSocial = mysql_real_escape_string($usuario->getRazaoSocial(), $conexao);      
@@ -28,7 +28,7 @@
 	  $senha = mysql_real_escape_string($usuario->getSenha(), $conexao);    
   
   	  //Insert para a tabela de Usuários do banco de dados
-	  $sql = "insert into usuarios (idPerfil, nome, razaoSocial, fantasia, cpfcnpj, email, telefone1, telefone2, logradouro, bairro, cep, login, senha) values ($idPerfil, '$nome', '$razaoSocial', '$fantasia', '$cpfcnpj', '$email', '$telefone1', '$telefone2', '$logradouro', '$bairro', '$cep', '$login', '$senha')";	  
+	  $sql = "insert into usuarios (codCidade, idPerfil, nome, razaoSocial, fantasia, cpfcnpj, email, telefone1, telefone2, logradouro, bairro, cep, login, senha) values ($codCidade, $idPerfil, '$nome', '$razaoSocial', '$fantasia', '$cpfcnpj', '$email', '$telefone1', '$telefone2', '$logradouro', '$bairro', '$cep', '$login', '$senha')";	  
       $resultado = @mysql_query($sql, $conexao);
 
        //echo($sql);	

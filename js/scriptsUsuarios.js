@@ -26,7 +26,7 @@
 		dialogUsuario.dialog( "open" );			
 	}	
 	
-	// MUDAR A COR DA CAIXA DE TEXTO E COLOCA TUDO EM MAIUSCULO
+	// MUDAR A COR DA CAIXA DE TEXTO E COLOCA TUDO EM MAIUSCULOs
 	function focus_Blur(me, cor) {	 
 	  me.style.background = cor;	 
 	  me.style.color = "black";	
