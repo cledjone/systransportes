@@ -54,7 +54,7 @@
 							<a href="index.php">Principal</a>
 						</li>
 						<li>
-							<a href="view/frota.php">LOGÍSTICA</a>
+							<a href="view/frota.php">Logística</a>
 						</li>
 						<li>
 							<a href="view/about.php">Sobre</a>
@@ -78,11 +78,6 @@
 				<div class="box">
 					<div class="col-lg-12 text-center">
 						<div id="carousel-example-generic" class="carousel slide">
-							<!-- Indicators -->
-							<ol class="carousel-indicators hidden-xs">
-								<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-							</ol>
-
 							<!-- Wrapper for slides -->
 							<div class="carousel-inner"></div>
 							<h2 class="brand-before"><small>Sejam Bem vindos!!</small></h2>
@@ -133,17 +128,7 @@
 		</footer>
 		-->
 		<!-- jQuery -->
-		<script src="js/jquery.js"></script>
 
-		<!-- Bootstrap Core JavaScript -->
-		<script src="js/bootstrap.min.js"></script>
-
-		<!-- Script to Activate the Carousel -->
-		<script>
-			$('.carousel').carousel({
-				interval : 5000 //changes the speed
-			})
-		</script>
 
 	</body>
 

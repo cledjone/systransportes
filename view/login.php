@@ -15,6 +15,7 @@
 		<script type="text/javascript" src="../js/jquery-ui.js"></script>
 		<script type="text/javascript" src="../js/scriptsCotacoes.js"></script>
 		<script type="text/javascript" src="../js/scriptsCidades.js"></script>
+		<script type="text/javascript" src="../js/scriptsLoginUsuario.js"></script>
 	</head>
 	<body>
 
@@ -32,7 +33,7 @@
 						<a href="../index.php">Principal</a>
 					</li>
 					<li>
-						<a href="frota.php">LOGÍSTICA</a>
+						<a href="frota.php">Logística</a>
 					</li>
 					<li>
 						<a href="about.php">Sobre</a>
@@ -63,19 +64,17 @@
 					<input type="password" name="senha" id="senha" size="11">
 					<br />
 					<br />
-					<input type="image" src='../img/loginBtn.png' id="btnIncluir" onClick="" /><br>
+					<input type="image" src='../img/loginBtn.png' id="btnIncluir" onClick="validarUsuario;" />
+					<br>
 					<br />
 					<br />
 					<table>
-					<tr class="itens" onClick="exibeCotacao();">
-						<td><font size="3" color="green">Cadastre-se</font> </td>
-					</tr>
+						<tr class="itens" onClick="exibeCotacao();">
+							<td><font size="3" color="green">Cadastre-se</font></td>
+						</tr>
+					</table>
 
-				</table>
-					
 				</div>
-
-				
 
 			</div>
 
@@ -83,55 +82,240 @@
 
 		<!--  CAIXA DADOS LOGINUSUARIO-->
 		<div id="dialogCotacao-form" title="CADASTRO DE USUARIOS">
+			</br>
+
 			<center>
+				<table style="width: 70%">
+                    <tr>
+                        <td>
+                            <p align="justify"><font size="2">Nome:</font></p>
+                        </td>
+						<td>
+							&nbsp;
+						</td>
+                        <td>
+                            <p align="justify"><font size="2"><input type="text" size="30" tabindex="1" type="text" onfocus="focus_Blur(this, '#E0FFFF');"
+                            onblur="focus_Blur(this, 'white');" value="" id="nome" name="nome"></font></p>
+                        </td>
+					<tr>
+					</tr>
+                        <td>
+                            <p align="justify"><font size="2">Razão Social:</font></p>
+                        </td>
+						<td>
+							&nbsp;
+						</td>
+                        <td>
+                            <p align="justify"><font size="2"><input type="text" size="30" tabindex="1" type="text" onfocus="focus_Blur(this, '#E0FFFF');"
+                            onblur="focus_Blur(this, 'white');" value="" id="razaoSocial" name="razaoSocial"></font></p>
+                        </td>
+					<tr>
+					</tr>
+                        <td>
+                            <p align="justify"><font size="2">Nome Fantasia:</font></p>
+                        </td>
+						<td>
+							&nbsp;
+						</td>
+                        <td>
+                            <p align="justify"><font size="2"><input type="text" size="30" tabindex="1" type="text" onfocus="focus_Blur(this, '#E0FFFF');"
+                            onblur="focus_Blur(this, 'white');" value="" id="fantasia" name="fantasia"></font></p>
+                        </td>
+					<tr>
+					</tr>
+                        <td>
+                            <p align="justify"><font size="2">CPF/CNPJ:</font></p>
+                        </td>
+						<td>
+							&nbsp;
+						</td>
+                        <td>
+                            <p align="justify"><font size="2"><input type="text" size="30" tabindex="1" type="text" onfocus="focus_Blur(this, '#E0FFFF');"
+                            onblur="focus_Blur(this, 'white');" value="" id="cpfcnpj" name="cpfcnpj"></font></p>
+                        </td>
+					<tr>
+					</tr>
+                        <td>
+                            <p align="justify"><font size="2">E-mail:</font></p>
+                        </td>
+						<td>
+							&nbsp;
+						</td>
+                        <td>
+                            <p align="justify"><font size="2"><input type="text" size="30" tabindex="1" type="text" onfocus="focus_Blur(this, '#E0FFFF');"
+                            onblur="focus_Blur(this, 'white');" value="" id="email" name="email"></font></p>
+                        </td>
+					<tr>
+					</tr>
+                        <td>
+                            <p align="justify"><font size="2">Telefone 1:</font></p>
+                        </td>
+						<td>
+							&nbsp;
+						</td>
+                        <td>
+                            <p align="justify"><font size="2"><input type="text" size="30" tabindex="1" type="text" onfocus="focus_Blur(this, '#E0FFFF');"
+                            onblur="focus_Blur(this, 'white');" value="" id="telefone1" name="telefone1"></font></p>
+                        </td>
+					<tr>
+					</tr>
+                        <td>
+                            <p align="justify"><font size="2">Telefone 2:</font></p>
+                        </td>
+						<td>
+							&nbsp;
+						</td>
+                        <td>
+                           <p align="justify"><font size="2"><input type="text" size="30" tabindex="1" type="text" onfocus="focus_Blur(this, '#E0FFFF');"
+                            onblur="focus_Blur(this, 'white');" value="" id="telefone2" name="telefone2"></font></p>
+                        </td>
+					<tr>
+					</tr>
+                        <td>
+                            <p align="justify"><font size="2">Logradouro:</font></p>
+                        </td>
+						<td>
+							&nbsp;
+						</td>
+                        <td>
+                            <p align="justify"><font size="2"><input type="text" size="30" tabindex="1" type="text" onfocus="focus_Blur(this, '#E0FFFF');"
+                            onblur="focus_Blur(this, 'white');" value="" id="logradouro" name="logradouro"></font></p>
+                        </td>
+					<tr>
+					</tr>
+                        <td>
+                            <p align="justify"><font size="2">Bairro:</font></p>
+                        </td>
+						<td>
+							&nbsp;
+						</td>
+                        <td>
+                            <p align="justify"><font size="2"><input type="text" size="30" tabindex="1" type="text" onfocus="focus_Blur(this, '#E0FFFF');"
+                            onblur="focus_Blur(this, 'white');" value="" id="bairro" name="bairro"></font></p>
+                        </td>
+					<tr>
+					</tr>
+                        <td>
+                            <p align="justify"><font size="2">CEP:</font></p>
+                        </td>
+						<td>
+							&nbsp;
+						</td>
+                        <td>
+                            <p align="justify"><font size="2"><input type="text" size="30" tabindex="1" type="text" onfocus="focus_Blur(this, '#E0FFFF');"
+                            onblur="focus_Blur(this, 'white');" value="" id="cep" name="cep"></font></p>
+                        </td>
+					<tr>
+					</tr>
+                        <td>
+                            <p align="justify"><font size="2">Estado:</font></p>
+                        </td>
+						<td>
+							&nbsp;
+						</td>
+                        <td>
+                        <p align="justify"><font size="2"><select tabindex="14"  onfocus="focus_Blur(this, '#E0FFFF');" onblur="focus_Blur(this, 'white');" 
+						id="ufDestino" onChange="consultaCidades('cidadeDestino', 'ufDestino')" >  
+                                                <option value="">Escolha seu estado</option>            
+                                                <option value="PE">PE</option>          
+                                                <option value="AC">AC</option>          
+                                                <option value="AL">AL</option>          
+                                                <option value="AM">AM</option>          
+                                                <option value="AP">AP</option>          
+                                                <option value="BA">BA</option>          
+                                                <option value="CE">CE</option>          
+                                                <option value="DF">DF</option>          
+                                                <option value="ES">ES</option>          
+                                                <option value="GO">GO</option>          
+                                                <option value="MA">MA</option>          
+                                                <option value="MG">MG</option>          
+                                                <option value="MS">MS</option>          
+                                                <option value="MT">MT</option>          
+                                                <option value="PA">PA</option>          
+                                                <option value="PB">PB</option>          
+                                                <option value="PI">PI</option>          
+                                                <option value="PR">PR</option>          
+                                                <option value="RJ">RJ</option>          
+                                                <option value="RN">RN</option>          
+                                                <option value="RO">RO</option>          
+                                                <option value="RR">RR</option>          
+                                                <option value="RS">RS</option>          
+                                                <option value="SC">SC</option>
+                                                <option value="SE">SE</option>
+                                                <option value="SP">SP</option>          
+                                                <option value="TO">TO</option>          
+                                            </select></font></p>
+                        </td>
+					<tr>
+					</tr>
+                        <td>
+                            <p align="justify"><font size="2">Cidade:</font></p>
+                        </td>
+						<td>
+							&nbsp;
+						</td>
+                        <td>
+                        <p align="justify"><font size="2"><select onfocus="focus_Blur(this, '#E0FFFF');" tabindex="7" onblur="focus_Blur(this, 'white');" 
+						id="cidadeDestino" name="cidadeDestino"  onChange="juntaCidadeUf()">
+                            <option size="35" value="">Escolha sua cidade</option></font></p>                                
+                        </select>
+                        </td>
+					<tr>
+					</tr>
+                        <td>
+                            <p align="justify"><font size="2">Login:</font></p>
+                        </td>
+						<td>
+							&nbsp;
+						</td>
+                        <td>
+                            <p align="justify"><font size="2"><input type="text" size="30" tabindex="1" type="text" onfocus="focus_Blur(this, '#E0FFFF');"
+                            onblur="focus_Blur(this, 'white');" value="" id="login" name="login"></font></p>
+                        </td>
+					<tr>
+					</tr>
+                        <td>
+                            <p align="justify"><font size="2">Senha:</font></p>
+                        </td>
+						<td>
+							&nbsp;
+						</td>
+                        <td>
+                            <p align="justify"><font size="2"><input type="text" size="30" tabindex="1" type="text" onfocus="focus_Blur(this, '#E0FFFF');"
+                            onblur="focus_Blur(this, 'white');" value="" id="senha" name="senha"></font></p>
+                        </td>
+					<tr>
+					</tr>
+                        <td>
+                            <p align="justify"><font size="2">Perfil Usuário:</font></p>
+                        </td>
+						<td>
+							&nbsp;
+						</td>
+                        <td>
+						<p align="justify"><font size="2"><font size="2">
+                            <select  id="idPerfil" name="idPerfil">
+                                    <option value="0">Escolha seu Perfil</option>
+                                    <option value="1">Cliente</option>
+                                    <option value="2">Observador</option>
+                                    <option value="3">Atendente</option>
+                                    <option value="4">Motorista</option>
+                                </select>
+								</font></p>
+                        </td>
+                    </tr>
+                </table>
 
 				</br>
-				<table style="border: 1px solid;" class="itens" onClick="exibeCotacao();">
-					<tr>
-						<td colspan="20" style="border: 1px solid;">
-						<center>
-							<font color="red" size="4">DADOS DO USUARIO:</font>
-						</center></td>
-					</tr>
-					<tr style="border: 1px solid;">
-						<td width="80">CPF/CNPJ</td>
-						<td width="80">Nome</td>
-						<td width="80">Email</td>
-						<td width="80">Logradouro</td>
-						<td width="80">Bairro</td>
-						<td width="80">CEP</td>
-					</tr>
-					<tr style="border: 1px solid;">
-						<td>
-						<input type="text" size="10" tabindex="1" type="text" onfocus="focus_Blur(this, 'yellow');"onblur="focus_Blur(this, 'white');" value="" id="cpfcnpj" name="cpfcnpj">
-						</td>
-						<td >
-						<input type="text" size="10" tabindex="1" type="text" onfocus="focus_Blur(this, 'yellow');"onblur="focus_Blur(this, 'white');" value=""  id="nome" name="nome">
-						</td>
-						<td>
-						<input type="text" size="7" tabindex="1" type="text" onfocus="focus_Blur(this, 'yellow');"onblur="focus_Blur(this, 'white');" value="" id="email" name="email">
-						</td>
-						<td >
-						<input type="text" size="10" tabindex="1" type="text" onfocus="focus_Blur(this, 'yellow');"onblur="focus_Blur(this, 'white');" value="" id="logradouro" name="logradouro">
-						</td>
-						<td>
-						<input type="text" size="7" tabindex="1" type="text" onfocus="focus_Blur(this, 'yellow');"onblur="focus_Blur(this, 'white');" value=""  id="bairro" name="bairro">
-						</td>
-						<td style="border-right: 1px solid;">
-						<input type="text" size="7" tabindex="1" type="text" onfocus="focus_Blur(this, 'yellow');"onblur="focus_Blur(this, 'white');"  value=""  id="cep" name="cep">
-						</td>
-					</tr>
-				</table>
+
 				</br>
-				</table>
-				</br>
-				<input type="image" src='../img/incluirBtn.png' id="btnIncluir" onClick="consultaAJAX()">
+
+				<input type="image" src='../img/incluirBtn.png' id="btnIncluir" onClick="">
 				<a href="#dialog" name="cliente" id="alterar" >
 				<input type="image" src='../img/alterarBtn.png' id="btnAlterar">
 				</a>
 				&nbsp;
-				&nbsp;
-				<input type="image" src='../img/sairBtn.png' onClick="fechaClientes();">
+				<input type="image" src='../img/sairBtn.png' onClick="">
 			</center>
 		</div>
 	</body>
