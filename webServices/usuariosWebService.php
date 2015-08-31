@@ -23,7 +23,8 @@
 		$usuario->setLogradouro($logradouro); 
 		$usuario->setBairro($bairro); 
 		$usuario->setCep($cep); 
-
+		$usuario->setObjCidade($codCidade); 
+				
 		$usuario->setLogin($login); 
 		$usuario->setSenha($senha); 				
 		

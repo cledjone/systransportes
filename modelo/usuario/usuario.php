@@ -30,14 +30,11 @@
   }	
 
   //Código Cidade
-  public function setObjCidade($cidade) {
-       $this->objObjCidade = $cidade;
+  public function setObjCidade($codCidade) {
+    $this->codCidade = trim($codCidade);
   }
 
   public function getObjCidade() {     
-    if($this->objObjCidade == null){
-      $this->objObjCidade = new Cidade();
-    }   
     return $this->codCidade;
   } 
 
