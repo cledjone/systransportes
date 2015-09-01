@@ -1,159 +1,143 @@
-	//CAIXA DE CONSULTAS
-	$(function()
-	{
-		var dialogUsuario;
-		dialogGeral = $( "#dialogUsuario-form" )
-		.dialog(
-		{
-			autoOpen : false,
-			height : 480,
-			width : 680,
-			modal : true,
-		});
-	});
-
-//EXIBE Usuários
-function exibeUsuario(user) {
-	$("#btnIncluir").show(50);
-	$("#btnAlterar").hide(50);
+	//CAIXA DE CONSULTAS 
+	 $(function() { 
+		var dialogUsuario;        
+		dialogGeral = $( "#dialogUsuario-form" ).dialog({
+		  autoOpen: false,
+		  height: 370,
+		  width: 950,
+		  modal: true,      
+		});   	  		 	
+	});		
 	
-	 if (typeof user == "undefined"){
-	 $("#btnAlterar").hide("slow");
-	 }
-	 else {
-	 $("#btnIncluir").hide("slow");
-	 }
+	//EXIBE Usuários
+	function exibeUsuario(me) {					
+		$("#btnIncluir").show(50);			   												
+		$("#btnAlterar").hide(50);			   												
+		/*
+		if (typeof me == "undefined"){				
+			$("#btnAlterar").hide("slow");								
+		} 
+		else {
+			$("#btnIncluir").hide("slow");				
+		}*/
 
-	var dialogUsuario;
-	dialogUsuario = $( "#dialogUsuario-form" ).dialog({});
-	dialogUsuario.dialog( "open" );
-}
+		var dialogUsuario;        					
+		dialogUsuario = $( "#dialogUsuario-form" ).dialog({});   					
+		dialogUsuario.dialog( "open" );			
+	}	
+	
+	// MUDAR A COR DA CAIXA DE TEXTO E COLOCA TUDO EM MAIUSCULOs
+	function focus_Blur(me, cor) {	 
+	  me.style.background = cor;	 
+	  me.style.color = "black";	
+	  var minusculo = new String(me.value);
+	  var maiusculo = minusculo.toUpperCase();
+	  me.value = maiusculo;	  
+	}	
+	
+	//CONSULTA AJAX
+	function consultaAJAX( ) {	
+		var servicoHttp = "../webServices/usuariosWebService.php";				
+		
+		var idPerfil = document.getElementById('idPerfil');										
+		var nome = document.getElementById('nome');								
+		var razaoSocial = document.getElementById('razaoSocial');								
+		var fantasia = document.getElementById('fantasia');								
+		var cpfcnpj = document.getElementById('cpfcnpj');								
+		var email = document.getElementById('email');	
+		var telefone1 = document.getElementById('telefone1');								
+		var telefone2 = document.getElementById('telefone2');								
+		var logradouro = document.getElementById('logradouro');								
+		var bairro = document.getElementById('bairro');								
+		var cep = document.getElementById('cep');			
+		var codCidade = document.getElementById('cidadeDestino').value;
+		codCidade = codCidade.substring(0, 7);
+		var login = document.getElementById('login');					
+		var senha = document.getElementById('senha');							
+		
+		jsonParametros = {incluirUsuario: 'sim',  idPerfil: idPerfil.value, nome: nome.value, razaoSocial: razaoSocial.value, fantasia: fantasia.value, cpfcnpj: cpfcnpj.value, email: email.value, telefone1: telefone1.value, telefone2: telefone2.value, logradouro: logradouro.value, bairro: bairro.value, cep: cep.value, login: login.value, senha: senha.value, codCidade};
+	
+		var $xhr = $.getJSON(servicoHttp, jsonParametros);		
+		
+			
+		$xhr.done(function(resultadoXml) {
+			alert('Usuário inserido com sucesso!');
+		});
 
-// MUDAR A COR DA CAIXA DE TEXTO E COLOCA TUDO EM MAIUSCULOs
-function focus_Blur(user, cor) {
-	user.style.background = cor;
-	user.style.color = "black";
-	var minusculo = new String(user.value);
-	var maiusculo = minusculo.toUpperCase();
-	user.value = maiusculo;
-}
+		$xhr.fail(function(data) {
+			alert(data.responseText);
+		});	
+		
+	}	
 
-//INSERÇÃO AJAX
-function consultaAJAX() {
-	var servicoHttp = "../webServices/usuariosWebService.php";
+	function validarCampos() {
+		var idPerfil = document.getElementById('idPerfil');										
+		var nome = document.getElementById('nome');								
+		var razaoSocial = document.getElementById('razaoSocial');								
+		var fantasia = document.getElementById('fantasia');								
+		var cpfcnpj = document.getElementById('cpfcnpj');								
+		var email = document.getElementById('email');	
+		var telefone1 = document.getElementById('telefone1');								
+		var telefone2 = document.getElementById('telefone2');								
+		var logradouro = document.getElementById('logradouro');								
+		var bairro = document.getElementById('bairro');								
+		var cep = document.getElementById('cep');			
+		var codCidade = document.getElementById('cidadeDestino').value;
+		codCidade = codCidade.substring(0, 7);
+		var login = document.getElementById('login');					
+		var senha = document.getElementById('senha');
 
-	var idPerfil = docuusernt.getEleuserntById('idPerfil');
-	var nouser = docuusernt.getEleuserntById('nouser');
-	var razaoSocial = docuusernt.getEleuserntById('razaoSocial');
-	var fantasia = docuusernt.getEleuserntById('fantasia');
-	var cpfcnpj = docuusernt.getEleuserntById('cpfcnpj');
-	var email = docuusernt.getEleuserntById('email');
-	var telefone1 = docuusernt.getEleuserntById('telefone1');
-	var telefone2 = docuusernt.getEleuserntById('telefone2');
-	var logradouro = docuusernt.getEleuserntById('logradouro');
-	var bairro = docuusernt.getEleuserntById('bairro');
-	var cep = docuusernt.getEleuserntById('cep');
-
-	var login = docuusernt.getEleuserntById('login');
-	var senha = docuusernt.getEleuserntById('senha');
-
-	jsonParausertros = {
-		incluirUsuario : 'sim',
-		idPerfil : idPerfil.value,
-		nouser : nouser.value,
-		razaoSocial : razaoSocial.value,
-		fantasia : fantasia.value,
-		cpfcnpj : cpfcnpj.value,
-		email : email.value,
-		telefone1 : telefone1.value,
-		telefone2 : telefone2.value,
-		logradouro : logradouro.value,
-		bairro : bairro.value,
-		cep : cep.value,
-		login : login.value,
-		senha : senha.value
-	};
-
-	var $xhr = $.getJSON(servicoHttp, jsonParausertros);
-
-	$xhr.done(function(resultadoXml) {
-		alert('Usuário inserido com sucesso!');
-	});
-
-	$xhr.fail(function(data) {
-		alert(data.responseText);
-	});
-}
-
-//CONSULTA USUARIO
-function consultaUsuario()
-{
-	var $labelLogin;
-	var $labelSenha;
-
-	$.ajax({
-		type : "post",
-		url : "../webServices/usuariosWebService.php",
-		dataType : "json",
-		data : {
-			login : $("#loginId").val(),
-			senha : $("#senhaId").val(),
-			tipo : "consultar"
-		},
-		cache : false,
-
-		success : function(data)
-		{
-
-			if (data.sucesso != undefined)
-			{
-				alert(data.sucesso);
-
-			}
-			else
-			{
-				alert(data.erro);
-
-			}
-
+		if (idPerfil.value.length == 0) {
+			alert('Por favor, informe o id do usuário');
+			return;	
+		} 
+		if (nome.value.length == 0) {
+			alert('Por favor, informe o id do usuário');
+			return;	
+		} 
+		if (razaoSocial.value.length == 0) {
+			alert('Por favor, informe o nome do usuário');
+			return;	
+		} 
+		if (fantasia.value.length == 0) {
+			alert('Por favor, informe a marca fantasia do usuário');
+			return;	
+		} 
+		if (cpfcnpj.value.length == 0) {
+			alert('Por favor, informe o cpf/cnpj do usuário');
+			return;	
+		} 
+		if (email.value.length == 0) {
+			alert('Por favor, informe o email do usuário');
+			return;	
+		} 
+		if (telefone1.value.length == 0) {
+			alert('Por favor, informe o email do usuário');
+			return;	
 		}
-	});
-}
-
-
-//Validar Campos
-function validaUsuario()
-{
-/*
-
-	$login = docuusernt . getEleuserntById('loginId') . value;
-		$senha = docuusernt . getEleuserntById('senhaId') . value;
-
-		if ($login == "" || $login < 6)
-		{
-			alert('Preencha o campo login com no mínimo 6 caracteres!');
-			formLogin.divLogin.login.loginId.focus();
-			return false;
+		if (telefone2.value.length == 0) {
+			alert('Por favor, informe o email do usuário');
+			return;	
 		}
-		if ($senha == "" || $senha < 6)
-		{
-			alert('Preencha o campo senha com no mínimo 6 caracteres!');
-			formLogin.divLogin.login.senhaId.focus();
-			return false;
+		if (logradouro.value.length == 0) {
+			alert('Por favor, informe o email do usuário');
+			return;	
 		}
-*/
-}
+		if (bairro.value.length == 0) {
+			alert('Por favor, informe o email do usuário');
+			return;	
+		}
+		if (cpf.value.length == 0) {
+			alert('Por favor, informe o email do usuário');
+			return;	
+		}
+		if (logradouro.value.length == 0) {
+			alert('Por favor, informe o email do usuário');
+			return;	
+		}
+		if (logradouro.value.length == 0) {
+			alert('Por favor, informe o email do usuário');
+			return;	
+		}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+	}
