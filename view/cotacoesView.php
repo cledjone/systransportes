@@ -450,7 +450,7 @@
 										<center><font color="green" >STATUS:</font></center>										
 									</td> 																		
 								</tr>																
-								<tr class="itens" onClick="exibeCotacao();">
+								<tr class="itensCotacao" onClick="exibeCotacao();">
 									<td>
 												RECIFE - PE
 									</td> 															
@@ -476,7 +476,7 @@
 												APROVADO
 									</td> 																		
 								</tr>								
-								<tr class="itens" onClick="exibeCotacao();">
+								<tr class="itensCotacao" onClick="exibeCotacao();">
 									<td>
 												RECIFE - PE
 									</td> 															
@@ -502,7 +502,7 @@
 												APROVADO
 									</td> 		
 								</tr>			
-								<tr class="itens" onClick="exibeCotacao();">
+								<tr class="itensCotacao" onClick="exibeCotacao();">
 									<td>
 												RECIFE - PE
 									</td> 															
@@ -528,7 +528,7 @@
 												APROVADO
 									</td> 																		
 								</tr>																
-								<tr class="itens" onClick="exibeCotacao();">
+								<tr class="itensCotacao" onClick="exibeCotacao();">
 									<td>
 												RECIFE - PE
 									</td> 															
@@ -554,7 +554,7 @@
 												APROVADO
 									</td> 																		
 								</tr>								
-								<tr class="itens" onClick="exibeCotacao();">
+								<tr class="itensCotacao" onClick="exibeCotacao();">
 									<td>
 												RECIFE - PE
 									</td> 															
@@ -580,7 +580,7 @@
 												APROVADO
 									</td> 																		
 								</tr>								
-								<tr class="itens" onClick="exibeCotacao();">
+								<tr class="itensCotacao" onClick="exibeCotacao();">
 									<td>
 												RECIFE - PE
 									</td> 															
@@ -606,7 +606,7 @@
 												APROVADO
 									</td> 																		
 								</tr>								
-								<tr class="itens" onClick="exibeCotacao();">
+								<tr class="itensCotacao" onClick="exibeCotacao();">
 									<td>
 												RECIFE - PE
 									</td> 															
@@ -632,7 +632,7 @@
 												APROVADO
 									</td> 																		
 								</tr>								
-								<tr class="itens" onClick="exibeCotacao();">
+								<tr class="itensCotacao" onClick="exibeCotacao();">
 									<td>
 												RECIFE - PE
 									</td> 															
@@ -658,7 +658,7 @@
 												APROVADO
 									</td> 																		
 								</tr>								
-								<tr class="itens" onClick="exibeCotacao();">
+								<tr class="itensCotacao" onClick="exibeCotacao();">
 									<td>
 												RECIFE - PE
 									</td> 															
@@ -684,7 +684,7 @@
 												APROVADO
 									</td> 																		
 								</tr>								
-								<tr class="itens" onClick="exibeCotacao();">
+								<tr class="itensCotacao" onClick="exibeCotacao();">
 									<td>
 												RECIFE - PE
 									</td> 															

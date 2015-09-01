@@ -1,63 +1,66 @@
-//CAIXA DE CONSULTAS
-$(function() {
-	var dialogUsuario;
-	dialogGeral = $("#dialogUsuario-form").dialog({
-		autoOpen : false,
-		height : 370,
-		width : 950,
-		modal : true,
+	//CAIXA DE CONSULTAS
+	$(function()
+	{
+		var dialogUsuario;
+		dialogGeral = $( "#dialogUsuario-form" )
+		.dialog(
+		{
+			autoOpen : false,
+			height : 480,
+			width : 680,
+			modal : true,
+		});
 	});
-});
 
 //EXIBE Usuários
-function exibeUsuario(me) {
+function exibeUsuario(user) {
 	$("#btnIncluir").show(50);
 	$("#btnAlterar").hide(50);
-	/*
-	 if (typeof me == "undefined"){
+	
+	 if (typeof user == "undefined"){
 	 $("#btnAlterar").hide("slow");
 	 }
 	 else {
 	 $("#btnIncluir").hide("slow");
-	 }*/
+	 }
 
 	var dialogUsuario;
-	dialogUsuario = $("#dialogUsuario-form").dialog({});
-	dialogUsuario.dialog("open");
+	dialogUsuario = $( "#dialogUsuario-form" ).dialog({});
+	dialogUsuario.dialog( "open" );
 }
 
 // MUDAR A COR DA CAIXA DE TEXTO E COLOCA TUDO EM MAIUSCULOs
-function focus_Blur(me, cor) {
-	me.style.background = cor;
-	me.style.color = "black";
-	var minusculo = new String(me.value);
+function focus_Blur(user, cor) {
+	user.style.background = cor;
+	user.style.color = "black";
+	var minusculo = new String(user.value);
 	var maiusculo = minusculo.toUpperCase();
-	me.value = maiusculo;
+	user.value = maiusculo;
 }
 
 //INSERÇÃO AJAX
 function consultaAJAX() {
 	var servicoHttp = "../webServices/usuariosWebService.php";
 
-	var idPerfil = document.getElementById('idPerfil');
-	var nome = document.getElementById('nome');
-	var razaoSocial = document.getElementById('razaoSocial');
-	var fantasia = document.getElementById('fantasia');
-	var cpfcnpj = document.getElementById('cpfcnpj');
-	var email = document.getElementById('email');
-	var telefone1 = document.getElementById('telefone1');
-	var telefone2 = document.getElementById('telefone2');
-	var logradouro = document.getElementById('logradouro');
-	var bairro = document.getElementById('bairro');
-	var cep = document.getElementById('cep');
+	var idPerfil = docuusernt.getEleuserntById('idPerfil');
+	var nouser = docuusernt.getEleuserntById('nouser');
+	var razaoSocial = docuusernt.getEleuserntById('razaoSocial');
+	var fantasia = docuusernt.getEleuserntById('fantasia');
+	var cpfcnpj = docuusernt.getEleuserntById('cpfcnpj');
+	var email = docuusernt.getEleuserntById('email');
+	var telefone1 = docuusernt.getEleuserntById('telefone1');
+	var telefone2 = docuusernt.getEleuserntById('telefone2');
+	var logradouro = docuusernt.getEleuserntById('logradouro');
+	var bairro = docuusernt.getEleuserntById('bairro');
+	var cep = docuusernt.getEleuserntById('cep');
 
-	var login = document.getElementById('login');
-	var senha = document.getElementById('senha');
+	var login = docuusernt.getEleuserntById('login');
+	var senha = docuusernt.getEleuserntById('senha');
 
-	jsonParametros = {
+	jsonParausertros = {
 		incluirUsuario : 'sim',
 		idPerfil : idPerfil.value,
-		nome : nome.value,
+		nouser : nouser.value,
 		razaoSocial : razaoSocial.value,
 		fantasia : fantasia.value,
 		cpfcnpj : cpfcnpj.value,
@@ -71,7 +74,7 @@ function consultaAJAX() {
 		senha : senha.value
 	};
 
-	var $xhr = $.getJSON(servicoHttp, jsonParametros);
+	var $xhr = $.getJSON(servicoHttp, jsonParausertros);
 
 	$xhr.done(function(resultadoXml) {
 		alert('Usuário inserido com sucesso!');
@@ -123,8 +126,8 @@ function validaUsuario()
 {
 /*
 
-	$login = document . getElementById('loginId') . value;
-		$senha = document . getElementById('senhaId') . value;
+	$login = docuusernt . getEleuserntById('loginId') . value;
+		$senha = docuusernt . getEleuserntById('senhaId') . value;
 
 		if ($login == "" || $login < 6)
 		{

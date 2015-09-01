@@ -13,8 +13,8 @@
 		<link href="http://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic" rel="stylesheet" type="text/css">
 		<script type="text/javascript" src="../js/jquery.js"></script>
 		<script type="text/javascript" src="../js/jquery-ui.js"></script>
-		<script type="text/javascript" src="../js/scriptsCotacoes.js"></script>
-		<script type="text/javascript" src="../js/scriptsCidades.js"></script>
+		<!--  <script type="text/javascript" src="../js/scriptsCotacoes.js"></script>  
+		<script type="text/javascript" src="../js/scriptsCidades.js"></script>  -->
 		<script type="text/javascript" src="../js/scriptsUsuarios.js"></script>
 	</head>
 	<body>
@@ -48,7 +48,7 @@
 			</div>
 		</nav>
 
-		<form method="POST" action="login.php" >
+		<form method="POST" action="" >
 			<div class="box divDimensoes">
 				<div class="col-lg-12">
 					<hr>
@@ -71,23 +71,21 @@
 					<br />
 
 					<table>
-						<tr class="itens" onClick="exibeCotacao();">
+						<tr class="itens" onClick="exibeUsuario();">
 							<td><font size="3" color="green">Cadastre-se</font></td>
 						</tr>
 					</table>
-
 				</div>
-
 			</div>
-
 		</form>
-
+		
 		<!--  CAIXA DADOS LOGINUSUARIO-->
-		<div id="dialogCotacao-form" title="CADASTRO DE USUARIOS">
+		<div id="dialogUsuario-form" title="Cadastro de Usuários" style="align: center">
 			</br>
 
 			<center>
-				<table style="width: 70%">
+				<table style="width: 100%">
+				<tr>
                     <tr>
                         <td>
                             <p align="justify"><font size="2">Nome:</font></p>
@@ -99,8 +97,7 @@
                             <p align="justify"><font size="2"><input type="text" size="30" tabindex="1" type="text" onfocus="focus_Blur(this, '#E0FFFF');"
                             onblur="focus_Blur(this, 'white');" value="" id="nome" name="nome"></font></p>
                         </td>
-					<tr>
-					</tr>
+
                         <td>
                             <p align="justify"><font size="2">Razão Social:</font></p>
                         </td>
@@ -112,6 +109,7 @@
                             onblur="focus_Blur(this, 'white');" value="" id="razaoSocial" name="razaoSocial"></font></p>
                         </td>
 					<tr>
+
 					</tr>
                         <td>
                             <p align="justify"><font size="2">Nome Fantasia:</font></p>
@@ -123,8 +121,7 @@
                             <p align="justify"><font size="2"><input type="text" size="30" tabindex="1" type="text" onfocus="focus_Blur(this, '#E0FFFF');"
                             onblur="focus_Blur(this, 'white');" value="" id="fantasia" name="fantasia"></font></p>
                         </td>
-					<tr>
-					</tr>
+
                         <td>
                             <p align="justify"><font size="2">CPF/CNPJ:</font></p>
                         </td>
@@ -147,8 +144,7 @@
                             <p align="justify"><font size="2"><input type="text" size="30" tabindex="1" type="text" onfocus="focus_Blur(this, '#E0FFFF');"
                             onblur="focus_Blur(this, 'white');" value="" id="email" name="email"></font></p>
                         </td>
-					<tr>
-					</tr>
+
                         <td>
                             <p align="justify"><font size="2">Telefone 1:</font></p>
                         </td>
@@ -171,8 +167,7 @@
                            <p align="justify"><font size="2"><input type="text" size="30" tabindex="1" type="text" onfocus="focus_Blur(this, '#E0FFFF');"
                             onblur="focus_Blur(this, 'white');" value="" id="telefone2" name="telefone2"></font></p>
                         </td>
-					<tr>
-					</tr>
+
                         <td>
                             <p align="justify"><font size="2">Logradouro:</font></p>
                         </td>
@@ -195,8 +190,7 @@
                             <p align="justify"><font size="2"><input type="text" size="30" tabindex="1" type="text" onfocus="focus_Blur(this, '#E0FFFF');"
                             onblur="focus_Blur(this, 'white');" value="" id="bairro" name="bairro"></font></p>
                         </td>
-					<tr>
-					</tr>
+
                         <td>
                             <p align="justify"><font size="2">CEP:</font></p>
                         </td>
@@ -248,8 +242,7 @@
                                                 <option value="TO">TO</option>
                                             </select></font></p>
                         </td>
-					<tr>
-					</tr>
+
                         <td>
                             <p align="justify"><font size="2">Cidade:</font></p>
                         </td>
@@ -274,8 +267,7 @@
                             <p align="justify"><font size="2"><input type="text" size="30" tabindex="1" type="text" onfocus="focus_Blur(this, '#E0FFFF');"
                             onblur="focus_Blur(this, 'white');" value="" id="login" name="login"></font></p>
                         </td>
-					<tr>
-					</tr>
+
                         <td>
                             <p align="justify"><font size="2">Senha:</font></p>
                         </td>
@@ -320,6 +312,30 @@
 				<input type="image" src='../img/sairBtn.png' onClick="">
 			</center>
 		</div>
+		
+				<!--  CAIXA FINAL ESCURER CONFIRMAR-->
+			<div id="boxes"> 
+				<div id="dialog" class="window"> 
+					<table align="center">
+						<tr>
+							<td id="acaoCliente" colspan="2">
+								
+							</td>
+						</tr>												
+						<tr>
+							<td  colspan="2">
+								&nbsp;								
+							</td>
+						</tr>												
+						<tr id="botoesFinais">
+							
+						</tr>
+					</table>					
+				</div> 
+				<div id="mask"></div> 
+			</div> 
+			<div id="overDiv" style="position:absolute; visibility:hidden; z-index:1000;"></div>			
+	<!-- FIM DAS CAIXAS -->
 	</body>
 </html>
 
