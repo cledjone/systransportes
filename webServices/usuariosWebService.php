@@ -1,5 +1,4 @@
 <?php
-<<<<<<< HEAD
 	require_once("../modelo/usuario/usuarioSql.php");   	
 	session_start();   	
 	
@@ -7,15 +6,6 @@
 	extract ($_SESSION);	
 
 	//CONSULTA USUÁRIO
-=======
-require_once ("../modelo/usuario/usuarioSql.php");
-session_start();
-
-extract($_REQUEST);
-extract($_SESSION);
-
-//CONSULTA USUÁRIO
->>>>>>> origin/master
 	if (isset($_GET["incluirUsuario"])) {			
 		
 		//Classe de Usuário
@@ -48,42 +38,7 @@ extract($_SESSION);
 		
 		echo(json_encode($resultado ));			
 	
-<<<<<<< HEAD
 	}		
 ?>
 	
 	
-=======
-	}
-}
-
-//CONSULTA lOGINUSUÁRIO
-if (isset($_POST["tipo"])) {
-
-	if ($_POST["tipo"] == "consultar") {
-
-		$resultado = array();
-
-		if (isset($_POST["login"]) && $_POST["login"] == "")
-		{
-			$resultado["erro"] = "Preencha o campo login!";			
-		}
-		else if (isset($_POST["senha"]) && $_POST["senha"] == "")
-		{
-			$resultado["erro"] = "Preencha o campo senha!";
-		}
-		else
-		{
-			$usuario = new Usuario();
-
-			$usuario -> setLogin($_POST["login"]);
-			$usuario -> setSenha($_POST["senha"]);
-
-			$resultado["sucesso"] = usuarioSql::login($usuario);
-		}
-
-		echo json_encode($resultado);
-	}
-}
-?>
->>>>>>> origin/master
