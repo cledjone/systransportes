@@ -14,7 +14,10 @@
 		$cotacao->setLargura($largura); 
 		$cotacao->setPeso($peso); 
 		$cotacao->setComprimento($comprimento); 
-		$cotacao->setQuantidadeCaixas($qtdCaixas); 				
+		$cotacao->setQuantidadeCaixas($qtdCaixas); 	
+			
+		$cotacao->setObjCidadeOrigem($objCidadeOrigem); 
+		$cotacao->setObjCidadeDestino($objCidadeDestino); 			
 		echo('1');
 		if (CotacaoSql::adicionar($cotacao)){
 			$resultado[] = array(				

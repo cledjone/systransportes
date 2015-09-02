@@ -1,6 +1,6 @@
 <?php
   class Cotacao {
-    private $id;    
+  private $id;    
 	private $objCidadeOrigem;  	
 	private $objCidadeDestino;  	
 	private $valorCarga;  
@@ -20,25 +20,19 @@
       return $this->id;
     }	
 	
-	public function setObjCidadeOrigem($cidade) {
-		   $this->objObjCidadeOrigem = $cidade;
+	public function setObjCidadeOrigem($objCidadeOrigem) {
+		   $this->objCidadeOrigem = trim($objCidadeOrigem);
 	}
 
 	public function getObjCidadeOrigem() {     
-		if($this->objObjCidadeOrigem == null){
-			$this->objObjCidadeOrigem = new Cidade();
-		}		
 		return $this->objCidadeOrigem;
 	}     
 	
-	public function setObjCidadeDestino($cidade) {
-		   $this->objObjCidadeDestino = $cidade;
+	public function setObjCidadeDestino($objCidadeDestino) {
+		   $this->objCidadeDestino = trim($objCidadeDestino);
 	}
 
 	public function getObjCidadeDestino() {     
-		if($this->objObjCidadeDestino == null){
-			$this->objObjCidadeDestino = new Cidade();
-		}		
 		return $this->objCidadeDestino;
 	}     
 	

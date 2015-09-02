@@ -24,12 +24,13 @@
 	  $cep = mysql_real_escape_string($usuario->getCep(), $conexao);  
 	  $codCidade = mysql_real_escape_string($usuario->getObjCidade(), $conexao);  
 
+
 	  //Login e senha do usuário    
 	  $login = mysql_real_escape_string($usuario->getLogin(), $conexao);     
 	  $senha = mysql_real_escape_string($usuario->getSenha(), $conexao);    
   
   	  //Insert para a tabela de Usuários do banco de dados
-	  $sql = "insert into usuarios (idPerfil, nome, razaoSocial, fantasia, cpfcnpj, email, telefone1, telefone2, logradouro, bairro, cep, login, senha, codCidade) values ($idPerfil, '$nome', '$razaoSocial', '$fantasia', '$cpfcnpj', '$email', '$telefone1', '$telefone2', '$logradouro', '$bairro', '$cep', '$login', '$senha', $codCidade)";	  
+	  $sql = "insert into usuarios (codCidade, idPerfil, nome, razaoSocial, fantasia, cpfcnpj, email, telefone1, telefone2, logradouro, bairro, cep, login, senha) values ($codCidade, $idPerfil, '$nome', '$razaoSocial', '$fantasia', '$cpfcnpj', '$email', '$telefone1', '$telefone2', '$logradouro', '$bairro', '$cep', '$login', '$senha')";	  
       $resultado = @mysql_query($sql, $conexao);
 
        //echo($sql);	

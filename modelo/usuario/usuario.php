@@ -27,7 +27,7 @@
     
   public function getId() {
     return $this->id;
-  }	
+  }
 
   //Código Cidade
   public function setObjCidade($codCidade) {
@@ -36,7 +36,7 @@
 
   public function getObjCidade() {     
     return $this->codCidade;
-  } 
+  } 	
 
   //Id Perfil
 	public function setIdPerfil($idPerfil) {

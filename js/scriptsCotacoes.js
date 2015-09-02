@@ -3,23 +3,17 @@
 		var dialogCotacao;        
 		dialogGeral = $( "#dialogCotacao-form" ).dialog({
 		  autoOpen: false,
-		  height: 620,
-		  width: 630,
+		  height: 370,
+		  width: 550,
 		  modal: true,      
 		});   	  		 	
 	});		
 	
-	function fecharTela(){		
-		var dialogCotacao;        							
-		dialogCotacao = $( "#dialogCotacao-form" ).dialog({});   					
-		dialogCotacao.dialog( "close" );			
-	}
-	
-	//EXIBE Cotações
-	function exibeCotacao(cota) {					
+	//EXIBE CLIENTES
+	function exibeCotacao(me) {					
 		$("#btnIncluir").show(50);			   												
 		$("#btnAlterar").show(50);			   												
-		if (typeof cota == "undefined"){				
+		if (typeof me == "undefined"){				
 			$("#btnAlterar").hide("slow");								
 		} else {
 			$("#btnIncluir").hide("slow");				
@@ -30,28 +24,33 @@
 	}	
 	
 	// MUDAR A COR DA CAIXA DE TEXTO E COLOCA TUDO EM MAIUSCULO
-	function focus_Blur(cota, cor) {	 
-	  cota.style.background = cor;	 
-	  cota.style.color = "black";	
-	  var minusculo = new String(cota.value);
+	function focus_Blur(me, cor) {	 
+	  me.style.background = cor;	 
+	  me.style.color = "black";	
+	  var minusculo = new String(me.value);
 	  var maiusculo = minusculo.toUpperCase();
-	  cota.value = maiusculo;	  
+	  me.value = maiusculo;	  
 	}	
 	
 	//CONSULTA AJAX
 	function consultaAJAX( ) {	
 		var servicoHttp = "../webServices/cotacaoWebService.php";				
 		
-		var altura = docucotant.getElecotantById('altura');										
-		var largura = docucotant.getElecotantById('largura');								
-		var peso = docucotant.getElecotantById('peso');								
-		var compricotanto = docucotant.getElecotantById('compricotanto');								
-		var qtdCaixas = docucotant.getElecotantById('qtdCaixas');								
-		var valor = docucotant.getElecotantById('valor');										
+		var altura = document.getElementById('altura');										
+		var largura = document.getElementById('largura');								
+		var peso = document.getElementById('peso');								
+		var comprimento = document.getElementById('comprimento');								
+		var qtdCaixas = document.getElementById('qtdCaixas');								
+		var valor = document.getElementById('valor');		
+
+		var objCidadeOrigem = document.getElementById('cidadeOrigem').value;	
+		objCidadeOrigem = objCidadeOrigem.substring(0,7);							
+		var objCidadeDestino = document.getElementById('cidadeDestino').value;									
+		objCidadeDestino = objCidadeDestino.substring(0,7);	
 		
-		jsonParacotatros = {incluirCotacao: 'sim',  altura: altura.value, largura: largura.value, peso: peso.value, compricotanto: compricotanto.value, qtdCaixas: qtdCaixas.value, valor: valor.value};
+		jsonParametros = {incluirCotacao: 'sim',  altura: altura.value, largura: largura.value, peso: peso.value, comprimento: comprimento.value, qtdCaixas: qtdCaixas.value, valor: valor.value, objCidadeOrigem, objCidadeDestino};
 	
-		var $xhr = $.getJSON(servicoHttp, jsonParacotatros);		
+		var $xhr = $.getJSON(servicoHttp, jsonParametros);		
 		
 			
 		$xhr.done(function(resultadoXml) {
@@ -62,8 +61,8 @@
 			alert(data.responseText);
 		});	
 		
-	}		
-	
+	}	
+
 	//VALIDAÇÃO DE DINHEIRO
 	function MascaraMoeda(objTextBox, SeparadorMilesimo, SeparadorDecimal, e){
       var sep = 0;
