@@ -6,8 +6,8 @@ extract($_REQUEST);
 extract($_SESSION);
 
 //INSERIR USUÁRIO
-if (isset($_POST["tipo"])) {
-	if ($_POST["tipo"] == "incluir") {
+if (isset($_GET["tipo"])) {
+	if ($_GET["tipo"] == "incluir") {
 
 		//Classe de Usuário
 		$usuario = new Usuario();
@@ -39,17 +39,17 @@ if (isset($_POST["tipo"])) {
 }
 
 //CONSULTA lOGINUSUÁRIO
-if (isset($_POST["tipo"])) {
+if (isset($_GET["tipo"])) {
 
-	if ($_POST["tipo"] == "consultar") {
+	if ($_GET["tipo"] == "consultar") {
 
 		$resultado = array();
 
-		if (isset($_POST["login"]) && $_POST["login"] == "")
+		if (isset($_GET["login"]) && $_GET["login"] == "")
 		{
 			$resultado["erro"] = "Preencha o campo login!";			
 		}
-		else if (isset($_POST["senha"]) && $_POST["senha"] == "")
+		else if (isset($_GET["senha"]) && $_GET["senha"] == "")
 		{
 			$resultado["erro"] = "Preencha o campo senha!";
 		}
@@ -57,10 +57,21 @@ if (isset($_POST["tipo"])) {
 		{
 			$usuario = new Usuario();
 
-			$usuario -> setLogin($_POST["login"]);
-			$usuario -> setSenha($_POST["senha"]);
+			$usuario -> setLogin($_GET["login"]);
+			$usuario -> setSenha($_GET["senha"]);
 
-			$resultado["sucesso"] = usuarioSql::login($usuario);
+			$resultadoLogin =  usuarioSql::login($usuario);
+			
+			if ($resultadoLogin){
+				$_SESSION["login"] = $login;
+				setcookie("login", "", time() + 3600);
+				$resultado = "Bem-vindo sr. ".$login;
+			}else {				
+				$resultado = "Login/Senha não confere!";
+			}
+				
+			
+			
 		}
 
 		echo json_encode($resultado);

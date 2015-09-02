@@ -117,6 +117,9 @@ function consultaUsuario()
 			}
 
 		}
+		error: function( data ) {											
+			alert('Falha Interna, Contate o Suporte');
+		}
 	});
 }
 

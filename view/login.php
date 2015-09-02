@@ -1,3 +1,7 @@
+<?php
+	session_start();
+	print_r($_SESSION);
+?>
 <html>
 	<head>
 		<meta charset="utf-8">
@@ -48,7 +52,7 @@
 			</div>
 		</nav>
 
-		<form method="POST" action="" >
+		<form method="GET" action="" >
 			<div class="box divDimensoes">
 				<div class="col-lg-12">
 					<hr>

@@ -10,14 +10,17 @@
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/business-casual.css" rel="stylesheet">    
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
-    <link href="http://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic" rel="stylesheet" type="text/css">	
 	<script type="text/javascript" src="../js/jquery.js"></script>	
 	<script type="text/javascript" src="../js/jquery-ui.js"></script>	
 	<script type="text/javascript" src="../js/scriptsCotacoes.js"></script>	
 	<script type="text/javascript" src="../js/scriptsCidades.js"></script>	
+	  <!-- Parâmetro sensor é utilizado somente em dispositivos com GPS -->
+    <script src="http://maps.google.com/maps/api/js?sensor=false"></script> 
 </head>
 <body>
-
+	<input name="pesquisaOrigem" type="hidden" id="txtOrigem" class="field" value="S&atilde;o Paulo" />
+	<input name="pesquisaDestino" type="hidden" id="txtDestino" class="field" value="Rio de Janeiro" />
 	<!--  CAIXA DADOS COTACAO-->
 			<div id="dialogCotacao-form" title="CADASTRO DE COTAÇÕES">			  								
 					<center>					  
@@ -149,22 +152,22 @@
 							</tr>						
 							<tr style="border: 1px solid;">	
 								<td>								
-									<input type="text" size="7" tabindex="1" type="text" onfocus="focus_Blur(this, 'yellow');"onblur="focus_Blur(this, 'white');" value="" id="altura" name="altura">
+									<input type="text" size="7" tabindex="1" type="text" onfocus="focus_Blur(this, 'yellow');"onblur="focus_Blur(this, 'white');" value="" id="altura" name="altura"  onKeyPress="return(MascaraMoeda(this,'.',',',event))">
 								</td>					
 								<td >													
-									<input type="text" size="7" tabindex="1" type="text" onfocus="focus_Blur(this, 'yellow');"onblur="focus_Blur(this, 'white');" value=""  id="largura" name="largura">
+									<input type="text" size="7" tabindex="1" type="text" onfocus="focus_Blur(this, 'yellow');"onblur="focus_Blur(this, 'white');" value=""  id="largura" name="largura"  onKeyPress="return(MascaraMoeda(this,'.',',',event))">
 								</td>  														
 								<td>								
-									<input type="text" size="7" tabindex="1" type="text" onfocus="focus_Blur(this, 'yellow');"onblur="focus_Blur(this, 'white');" value="" id="peso" name="peso">
+									<input type="text" size="7" tabindex="1" type="text" onfocus="focus_Blur(this, 'yellow');"onblur="focus_Blur(this, 'white');" value="" id="peso" name="peso"  onKeyPress="return(MascaraMoeda(this,'.',',',event))">
 								</td>					
 								<td >													
-									<input type="text" size="10" tabindex="1" type="text" onfocus="focus_Blur(this, 'yellow');"onblur="focus_Blur(this, 'white');" value="" id="comprimento" name="comprimento">
+									<input type="text" size="10" tabindex="1" type="text" onfocus="focus_Blur(this, 'yellow');"onblur="focus_Blur(this, 'white');" value="" id="comprimento" name="comprimento"  onKeyPress="return(MascaraMoeda(this,'.',',',event))">
 								</td>  								
 								<td>								
-									<input type="text" size="7" tabindex="1" type="text" onfocus="focus_Blur(this, 'yellow');"onblur="focus_Blur(this, 'white');" value=""  id="qtdCaixas" name="qtdCaixas">
+									<input type="text" size="7" tabindex="1" type="text" onfocus="focus_Blur(this, 'yellow');"onblur="focus_Blur(this, 'white');" value=""  id="qtdCaixas" name="qtdCaixas" onKeyPress="return(mascaraInteiro())">
 								</td>															
 								<td style="border-right: 1px solid;">									
-									<input type="text" size="7" tabindex="1" type="text" onfocus="focus_Blur(this, 'yellow');"onblur="focus_Blur(this, 'white');"  value=""  id="valor" name="valor">
+									<input type="text" size="7" tabindex="1" type="text" onfocus="focus_Blur(this, 'yellow');"  value=""  id="valor" name="valor"  onKeyPress="return(MascaraMoeda(this,'.',',',event))"  onBlur="CalculaDistancia()">
 								</td>								
 							</tr>
 					</table>	
@@ -177,188 +180,41 @@
 							</td> 															
 							</tr>
 							<tr style="border: 1px solid;" height="20">			
+								<td width="80">DISTANCIA </td>
 								<td width="80">FRETE<sup><font color="red"><b>*</b></font></sup> </td>
 								<td width="80" style="border-right: 1px solid;">PRAZO</td>								
 							</tr>						
 							<tr style="border: 1px solid;">	
 								<td>								
-									<input type="text" size="7" tabindex="1" type="text" onfocus="focus_Blur(this, 'yellow');"onblur="focus_Blur(this, 'white');" id="tempConsulta" value="">
+									<input name="distancia" readonly="readonly" type="text" id="txtDistancia" value="" /> 	  
+								</td>					
+								<td>								
+									<input type="text" size="7" tabindex="1" type="text" onfocus="focus_Blur(this, 'yellow');"onblur="focus_Blur(this, 'white');" id="valorFrete" value="">
 								</td>					
 								<td style="border-right: 1px solid;">													
-									<input type="text" size="7" tabindex="1" type="text" onfocus="focus_Blur(this, 'yellow');"onblur="focus_Blur(this, 'white');" id="tempConsulta" value="">
+									<input name="tempo" readonly="readonly" type="text" id="txtTempo" value="" />	 
 								</td>  																						
 							</tr>
 					</table>
-					</center>		
-							
-							
-						<!--
-							
-							
-							<tr>
-								<td>
-									<input type="text" size="3" type="text" id="codigoCliente" readonly>
-								</td>
-								<td>
-									<select tabindex="0" onfocus="focus_Blur(this, 'yellow');" onblur="focus_Blur(this, 'white');" id="juridicaCliente" tabindex="0" onChange="mudaFormJuridica()">  
-										<option value="F">F</option>			
-										<option value="J">J</option>			
-									</select>
-								</td>
-								<td>
-									<input type="text" size="31" tabindex="1" type="text" onfocus="focus_Blur(this, 'yellow');"onblur="focus_Blur(this, 'white');" id="nomeCliente">
-								</td>
-								<td>
-									<input type="text" size="31" tabindex="2" type="text" onfocus="focus_Blur(this, 'yellow');"onblur="focus_Blur(this, 'white');" id="apelidoCliente">
-								</td>
-							</tr>
-						</table>
-						<table width="100%">
-							<tr>
-								<td id="tituloNascimentoCliente">
-									NASCIMENTO
-								</td>
-								<td id="formCPFCliente">
-									CPF
-								</td>								
-								<td id="formRGCliente">
-									RG
-								</td>
-								<td id="tituloTelefoneCliente">
-									TELEFONE
-								</td>
-								<td id="tituloCelularCliente">
-									CELULAR
-								</td>
-							</tr>
-							<tr>
-								<td>									
-									<input type="text" size="7" tabindex="3" type="text" onfocus="focus_Blur(this, 'yellow');"onblur="focus_Blur(this, 'white');" id="nascimentoCliente" onKeyPress="mascaraData(this);" maxlength="10">
-								</td>
-								<td>
-									<input type="text" size="12" tabindex="4" type="text" onfocus="focus_Blur(this, 'yellow');"onblur="focus_Blur(this, 'white');" id="cpfCliente">
-								</td>
-								<td>
-									<input type="text" size="10" tabindex="5" type="text" onfocus="focus_Blur(this, 'yellow');"onblur="focus_Blur(this, 'white');" id="rgCliente">
-								</td>
-								<td>
-									<input type="text" size="16" tabindex="6" type="text" onfocus="focus_Blur(this, 'yellow');"onblur="focus_Blur(this, 'white');" id="telefoneCliente">
-								</td>
-								<td>
-									<input type="text" size="15" tabindex="7" type="text" onfocus="focus_Blur(this, 'yellow');"onblur="focus_Blur(this, 'white');" id="celularCliente">									
-								</td>
-							</tr>
+					</center>						
+					
+      <label for="txtDistancia"><strong>Dist&acirc;ncia</strong></label>
+      
+      <label for="txtTempo"><strong>Tempo</strong></label>
+      
+      
 
-					  </table>	
-					  <table width="100%">
-							<tr>
-								<td id="tituloEnderecoCliente">
-									ENDERECO
-								</td>
-								<td id="tituloNumeroCliente">
-									NUMERO
-								</td>								
-								<td id="tituloBairroCliente">
-									BAIRRO
-								</td>							
-							</tr>
-							<tr>
-								<td>									
-									<input type="text" size="37" tabindex="8" type="text" onfocus="focus_Blur(this, 'yellow');"onblur="focus_Blur(this, 'white');" id="enderecoCliente"  maxlength="50">
-								</td>
-								<td>
-									<input type="text" size="4" tabindex="9" type="text" onfocus="focus_Blur(this, 'yellow');"onblur="focus_Blur(this, 'white');" id="numeroCliente">
-								</td>
-								<td>
-									<input type="text" size="30" tabindex="10" type="text" onfocus="focus_Blur(this, 'yellow');"onblur="focus_Blur(this, 'white');" id="bairroCliente">
-								</td>								
-							</tr>							
-						</table>
-						<table width="100%">
-							<tr>								
-								<td id="tituloCidadeCliente">
-									CIDADE
-								</td>								
-								<td id="tituloReferenciaCliente">
-									REFERENCIA
-								</td>								
-							</tr>
-							<tr>								
-								<td>
-									<input type="text" size="37" tabindex="11" type="text" onfocus="focus_Blur(this, 'yellow');"onblur="focus_Blur(this, 'white');" id="cidadeCliente">
-								</td>								
-								<td>
-									<input type="text" size="38" tabindex="12" type="text" onfocus="focus_Blur(this, 'yellow');"onblur="focus_Blur(this, 'white');" id="referenciaCliente">
-								</td>								
-							</tr>
-					  </table>	
-					  <table width="100%">
-							<tr>								
-								<td id="tituloAdicionalCliente">
-									DADOS ADICIONAIS
-								</td>
-								<td id="tituloUfCliente">
-									UF
-								</td>
-								<td id="tituloCepCliente">
-									CEP
-								</td>
-								<td id="tituloCadastroCliente">
-									CADASTRO
-								</td>
-							</tr>
-							<tr>								
-								<td>
-									<input type="text" size="48" tabindex="13" type="text" onfocus="focus_Blur(this, 'yellow');"onblur="focus_Blur(this, 'white');" id="adicionalCliente">
-								</td>
-								<td>
-									<select tabindex="14" onfocus="focus_Blur(this, 'yellow');" onblur="focus_Blur(this, 'white');" id="ufCliente" tabindex="0">  
-										<option value="PE">PE</option>			
-										<option value="AC">AC</option>			
-										<option value="AL">AL</option>			
-										<option value="AM">AM</option>			
-										<option value="AP">AP</option>			
-										<option value="BA">BA</option>			
-										<option value="CE">CE</option>			
-										<option value="DF">DF</option>			
-										<option value="ES">ES</option>			
-										<option value="GO">GO</option>			
-										<option value="MA">MA</option>			
-										<option value="MG">MG</option>			
-										<option value="MS">MS</option>			
-										<option value="MT">MT</option>			
-										<option value="PA">PA</option>			
-										<option value="PB">PB</option>			
-										<option value="PI">PI</option>			
-										<option value="PR">PR</option>			
-										<option value="RJ">RJ</option>			
-										<option value="RN">RN</option>			
-										<option value="RO">RO</option>			
-										<option value="RR">RR</option>			
-										<option value="RS">RS</option>			
-										<option value="SC">SC</option>
-										<option value="SE">SE</option>
-										<option value="SP">SP</option>			
-										<option value="TO">TO</option>			
-									</select>
-								</td>
-								<td>
-									<input type="text" size="7" tabindex="15" type="text" onfocus="focus_Blur(this, 'yellow');"onblur="focus_Blur(this, 'white');" id="cepCliente">
-								</td>
-								<td>
-									<input type="text" size="7" type="text"  id="cadastroCliente" readonly>
-								</td>
-							</tr>
 
-							-->
-							
-					  </table>	
+<div style="padding: 10px 0 0; clear: both">
+      <iframe width="550" scrolling="no" height="220" frameborder="0" id="map" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?saddr=S&atilde;o Paulo&daddr=Rio de Janeiro&output=embed"></iframe>
+    </div>			
+					  
 					  </br>					  
 					   <input type="image" src='../img/incluirBtn.png' id="btnIncluir" onClick="consultaAJAX()">
 					   <a href="#dialog" name="cliente" id="alterar" ><input type="image" src='../img/alterarBtn.png' id="btnAlterar"></a>
 					   &nbsp;
 					   &nbsp;					   
-					   <input type="image" src='../img/sairBtn.png' onClick="fechaClientes();">
+					   <input type="image" src='../img/sairBtn.png' onClick="fecharTela();">
 					</center>				  								
 				</div>	
 		<!--  CAIXA FINAL ESCURER CONFIRMAR-->
@@ -717,68 +573,7 @@
 				</table>
 			</center>
 		</div>
-	</div>	
-		<!--  CAIXA NOME CLIENTE
-	<div class="container">
-        <div class="row">
-            <div class="box">                    
-					<div class="col-lg-12">
-						<hr>
-						  <h2 class="intro-text text-center">Cotação</h2>
-						</hr>
-					</div>			
-					<table>
-						<tr>
-							<td>				
-								
-							</td>	
-							<td>
-								<		  
-							</td>	
-						</tr>
-					</table>
-					
-				</div>
-			</div>
-		</div>
-	<div class="container">
-        <div class="row">
-            <div class="box">         
-				<center>
-					<div class="col-lg-12">						
-						<h2 class="intro-text text-center">Estimativa</h2>						
-					</div>			
-					<table>
-						<tr>								
-							<td>
-								<table style="border: 1px solid;" width="100%">
-									<tr>
-										<td colspan="20" style="border: 1px solid;"> 
-											<center><font color="red" size="4">VALORES ESTIMADOS:</font></center>
-										</td> 															
-									</tr>
-									<tr>			
-										<td>FRETE</td>
-										<td>PRAZO</td>										
-									</tr>						
-									<tr>	
-										<td>								
-											<input type="text" size="7" tabindex="1" type="text" onfocus="focus_Blur(this, 'yellow');"onblur="focus_Blur(this, 'white');" id="tempConsulta" value="">
-										</td>					
-										<td >													
-											<input type="text" size="7" tabindex="1" type="text" onfocus="focus_Blur(this, 'yellow');"onblur="focus_Blur(this, 'white');" id="tempConsulta" value="">
-										</td>  																								
-									</tr>
-								</table>			  
-							</td>	
-						</tr>
-					</table>
-					</center>
-				</div>
-			</div>
-		</div>
-		-->
-</body>
+	</div>		
 </html>
 
 
