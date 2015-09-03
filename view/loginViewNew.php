@@ -118,7 +118,7 @@
                                             <a href="loginViewNew.php">Meu Perfil</a>
                                         </li>
                                         <li>
-                                            <a href="usuarioViewCadastroNew.php">Registrar-se</a>
+                                            <a href="usuarioViewCadastroPessoaFisicaJuridicaNew.php">Registrar-se</a>
                                         </li>
                                     </ul>
                                 </li>

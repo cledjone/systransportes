@@ -3,7 +3,7 @@
 
   //Atributos
   private $id;    
-	private $idPerfil;
+  private $idPerfil;
   private $nome;  
   private $razaoSocial;  
   private $fantasia;  

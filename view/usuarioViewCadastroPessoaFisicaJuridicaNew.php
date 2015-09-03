@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
     
     <head>
         <meta charset="utf-8">
@@ -20,7 +20,7 @@
         <script type="text/javascript" src="../js/scriptsCidades.js"> </script>
 
 
-        <style type="text/css">
+ <style type="text/css">
             body{ background-image: url("http://noticias.prestumseguros.com.br/wp-content/uploads/2013/12/seguro-caminhao.jpg");
             } 
             .transparent-style{ background-color: #000000; opacity: .9; }
@@ -82,78 +82,53 @@
                         </div>
                         <div id="navbar" class="navbar-collapse collapse">
                             <ul class="nav navbar-nav">
+                                
                                 <li class="active">
                                     <a href="../index.php" class="">Home</a>
                                 </li>
-                                <li class=" dropdown">
-                                    <a href="aboutViewNew.php" class="dropdown-toggle " >Empresa</a>
-                                <li class=" dropdown">
-                                    <a href="frotaViewNew.php" class="dropdown-toggle " >Atuação</a>
+                               
+                             </ul>
                                 </li>
-                                <li class=" dropdown">
-                                    <a href="cotacaoViewCadastroNew.php" class="dropdown-toggle " >Cotação</a>
-                                </li>
-                                <li class=" dropdown">
-                                    <a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button"
-                                    aria-haspopup="true" aria-expanded="false">Serviços <span class="caret"></span></a>
-                                    <ul class="dropdown-menu">
-                                        <li>
-                                            <a href="#">View Staff</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Add New</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class=" dropdown">
-                                    <a href="contactViewNew.php" class="dropdown-toggle " >Contatos</a>
-                                </li>
+                              
                             </ul>
-                            <ul class="nav navbar-nav pull-right">
-                                <li class=" dropdown">
-                                    <a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button"
-                                    aria-haspopup="true" aria-expanded="false">Signed in as  <span class="caret"></span></a>
-                                    <ul class="dropdown-menu">
-                                        <li>
-                                            <a href="loginViewNew.php">Meu Perfil</a>
-                                        </li>
-                                        <li>
-                                            <a href="usuarioViewCadastroPessoaFisicaJuridicaNew.php">Registrar-se</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="">
-                                    <a href="#">Logout</a>
-                                </li>
-                            </ul>
+                           
                         </div>
                     </div>
                 </nav>
             </div>
         </div>
 
-
-                <div class="navbar-wrapper">
+        <div class="navbar-wrapper">
+            <div class="container-fluid">
                 <nav class="navbar">
-                    <div class="container">                        
+                    <div class="container">
+                        <div class="navbar-header">
+                        </div>
+                        <div id="navbar" class="navbar-collapse collapse">
+                            <!--Botoes aqui pessoa fisica e juridica-->
 
-                            <hr>
-                            <center>                         
-                            <h1 class="brand-name">SOBRE A SYSTRANSPORTES</h1>                   
-                            </center>
-                            <hr>
-                            <h4>
-                            A SysTransportes é uma empresa criada em 2015 para prestar serviço de transporte rodoviário de cargas.
+                              
 
-                            O time SysTransportes é composto por profissionais experientes do mercado de transporte rodoviário.
+                                <div class="botoes">
+                                <a href="usuarioViewCadastroPessoaJuridicaNew.php"
+                                class="btn btn-large btn-primary float-left" style="float:left: ;">Pessoa Juridica</a>
 
-                            Prestamos serviços de entregas aos clientes de nossos clientes com atendimento exclusivo, informação em tempo real e comprometimento.
 
-                            Investimos em estrutura de ponta, tecnologia e segurançapara garantir nosso crescimento e consolidação como futura maior e melhor empresa de nosso segmento de atuação.
-                            </h4>
-                            <br><br><br><br><br><br>
+
+                                
+                                 <a href="usuarioViewCadastroPessoaFisicaNew.php" 
+                                class="btn btn-large btn-primary float-left" style="float:left: ;">Pessoa Fisica</a>
+                                </div>
+
+
+
+
+
+
+                        </div>
                     </div>
                 </nav>
+            </div>
         </div>
     </body>
 

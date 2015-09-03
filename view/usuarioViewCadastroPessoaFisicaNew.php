@@ -85,46 +85,7 @@
                                 <li class="active">
                                     <a href="../index.php" class="">Home</a>
                                 </li>
-                                <li class=" dropdown">
-                                    <a href="aboutViewNew.php" class="dropdown-toggle " >Empresa</a>
-                                <li class=" dropdown">
-                                    <a href="frotaViewNew.php" class="dropdown-toggle " >Atuação</a>
-                                </li>
-                                <li class=" dropdown">
-                                    <a href="cotacaoViewCadastroNew.php" class="dropdown-toggle " >Cotação</a>
-                                </li>
-                                <li class=" dropdown">
-                                    <a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button"
-                                    aria-haspopup="true" aria-expanded="false">Serviços <span class="caret"></span></a>
-                                    <ul class="dropdown-menu">
-                                        <li>
-                                            <a href="#">View Staff</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Add New</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class=" dropdown">
-                                    <a href="contactViewNew.php" class="dropdown-toggle " >Contatos</a>
-                                </li>
-                            </ul>
-                            <ul class="nav navbar-nav pull-right">
-                                <li class=" dropdown">
-                                    <a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button"
-                                    aria-haspopup="true" aria-expanded="false">Signed in as  <span class="caret"></span></a>
-                                    <ul class="dropdown-menu">
-                                        <li>
-                                            <a href="loginViewNew.php">Meu Perfil</a>
-                                        </li>
-                                        <li>
-                                            <a href="usuarioViewCadastroNew.php">Registrar-se</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="">
-                                    <a href="#">Logout</a>
-                                </li>
+                                
                             </ul>
                         </div>
                     </div>
@@ -142,6 +103,10 @@
                             <ul class="nav navbar-nav">
                                 <div id="topo-esquerda">
                                 <form method="post" action="">
+
+                                    <center><h1>Cadastro de pessoa fisica</h1></center>
+
+
                                     <br><br>
                                     <b>Nome:</b>
                                     <br>
