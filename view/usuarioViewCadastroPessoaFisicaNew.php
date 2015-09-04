@@ -97,74 +97,70 @@
             <div class="container-fluid">
                 <nav class="navbar">
                     <div class="container">
-                        <div class="navbar-header">
-                        </div>
-                        <div id="navbar" class="navbar-collapse collapse">
                             <ul class="nav navbar-nav">
-                                <div id="topo-esquerda">
-                                <form method="post" action="">
+                                
+<form>
 
-                                    <center><h1>Cadastro de pessoa fisica</h1></center>
+<table>
+    <!--Dados Pessoais -->
+    <h2>Dados Pessoais</h1>
+    
+    <tr>
+        <td>Nome Completo</td>
+    </tr>
+    <tr>
+        <td>
+            <input type="text" name="" size="96" required="required" class="form-control" placeholder="Nome Completo" tabindex="1" type="text" onfocus="focus_Blur(this, '#E0FFFF');" onblur="focus_Blur(this, 'white');">
+        </td>
+    </tr>
+</table>
+<table>
+    <tr>
+        <td>CPF</td>
+        <td>RG</td> 
+        <td>Orgão Expedidor</td>
+    </tr>
+    <tr>
+        <td> <input type="text" name="" size="30" required="required" class="form-control" placeholder="CPF" tabindex="1" type="text" onfocus="focus_Blur(this, '#E0FFFF');" onblur="focus_Blur(this, 'white');"></td>
+        <td> <input type="text" name="" size="30" required="required" class="form-control" placeholder="RG" tabindex="1" type="text" onfocus="focus_Blur(this, '#E0FFFF');" onblur="focus_Blur(this, 'white');"></td> 
+        <td> <input type="text" name="" size="20" required="required" class="form-control" placeholder="Orgão Expedidor" tabindex="1" type="text" onfocus="focus_Blur(this, '#E0FFFF');" onblur="focus_Blur(this, 'white');"></td>
+    </tr>
+</table>
+<table>
+    <!--Endereço -->
+    <h2>Endereço</h2>
 
-
-                                    <br><br>
-                                    <b>Nome:</b>
-                                    <br>
-                                    <input type="text" required="required" size="50" class="form-control" placeholder="Digíte seu nome completo" tabindex="1" type="text" onfocus="focus_Blur(this, '#E0FFFF');"
-                                    onblur="focus_Blur(this, 'white');" value="" id="nome" name="nome">
-                                    <br>
-                                    <b>Razão Social:</b>
-                                    <br>
-                                    <input type="text" size="50" class="form-control" placeholder="Digíte sua razão social" tabindex="1" type="text" onfocus="focus_Blur(this, '#E0FFFF');"
-                                    onblur="focus_Blur(this, 'white');" value="" id="razaoSocial" name="razaoSocial">
-                                    <br>
-                                    <b>Fantasia:</b>
-                                    <br>
-                                    <input type="text" size="50" class="form-control" placeholder="Digíte um nome fantasia" tabindex="1" type="text" onfocus="focus_Blur(this, '#E0FFFF');"
-                                    onblur="focus_Blur(this, 'white');" value="" id="fantasia" name="fantasia">
-                                    <br>
-                                    <b>CPF/CNPJ:</b>
-                                    <br>
-                                    <input type="text" required="required" size="50" class="form-control" placeholder="Digíte seu CPF/CNPJ" tabindex="1" type="text" onfocus="focus_Blur(this, '#E0FFFF');"
-                                    onblur="focus_Blur(this, 'white');" value="" id="cpfcnpj" name="cpfcnpj">
-                                    <br>
-                                    <b>Email:</b>
-                                    <br>
-                                    <input type="email" required="required" size="50" class="form-control" placeholder="Digíte seu e-mail" tabindex="1" type="text" onfocus="focus_Blur(this, '#E0FFFF');"
-                                    onblur="focus_Blur(this, 'white');" value="" id="email" name="email">
-                                    <br>
-                                </div>
-                                <div id="topo-direita">
-                                    <b>Telefone 1:</b>
-                                    <br>
-                                    <input type="tel" required="required" size="50" class="form-control" placeholder="Digíte seu telefone 1" tabindex="1" type="text" onfocus="focus_Blur(this, '#E0FFFF');"
-                                    onblur="focus_Blur(this, 'white');" value="" id="telefone1" name="telefone1">
-                                    <br>
-                                    <b>Telefone 2:</b>
-                                    <br>
-                                    <input type="tel" size="50" class="form-control" placeholder="Digíte seu telefone 2" tabindex="1" type="text" onfocus="focus_Blur(this, '#E0FFFF');"
-                                    onblur="focus_Blur(this, 'white');" value="" id="telefone2" name="telefone2">
-                                    <br>
-                                    <b>Logradouro:</b>
-                                    <br>
-                                    <input type="text" required="required" size="50" class="form-control" placeholder="Digíte seu logradouro" tabindex="1" type="text" onfocus="focus_Blur(this, '#E0FFFF');"
-                                    onblur="focus_Blur(this, 'white');" value="" id="logradouro" name="logradouro">
-                                    <br>
-                                    <b>Bairro:</b>
-                                    <br>
-                                    <input type="text" required="required" size="50" class="form-control" placeholder="Digíte seu bairro" tabindex="1" type="text" onfocus="focus_Blur(this, '#E0FFFF');"
-                                    onblur="focus_Blur(this, 'white');" value="" id="bairro" name="bairro">
-                                    <br>
-                                    <b>CEP:</b>
-                                    <br>
-                                    <input type="text" required="required" size="50" class="form-control" placeholder="Digíte seu CEP" tabindex="1" type="text" onfocus="focus_Blur(this, '#E0FFFF');"
-                                    onblur="focus_Blur(this, 'white');" value="" id="cep" name="cep">
-                                    <br>
-                                    <b>Estado:</b>
-                                    </tr>                               
-                                    <tr>                                
-                                        <td>                    
-                                            <select tabindex="14" required="required" class="form-control" onfocus="focus_Blur(this, '#E0FFFF');" onblur="focus_Blur(this, 'white');" id="ufDestino" onChange="consultaCidades('cidadeDestino', 'ufDestino')" >  
+    <tr>
+        <td>CEP</td>
+        <td>Logradouro</td>
+    </tr>
+    <tr>
+        <td>
+            <input type="text" name="" size="30" required="required" class="form-control" placeholder="CEP" tabindex="1" type="text" onfocus="focus_Blur(this, '#E0FFFF');" onblur="focus_Blur(this, 'white');">
+            <td> <input type="text" name="" size="58" required="required" class="form-control" placeholder="Logradouro" tabindex="1" type="text" onfocus="focus_Blur(this, '#E0FFFF');" onblur="focus_Blur(this, 'white');"></td>
+        </td>
+    </tr>
+</table>
+<table>
+    <tr>
+        <td>Número</td>
+        <td>Bairro</td>
+        <td>Complemento</td> 
+    </tr>
+    <tr>
+        <td> <input type="text" name=""size="30" required="required" class="form-control" placeholder="Número" tabindex="1" type="text" onfocus="focus_Blur(this, '#E0FFFF');" onblur="focus_Blur(this, 'white');"></td> 
+        <td> <input type="text" name="" size="20" required="required" class="form-control" placeholder="Bairro" tabindex="1" type="text" onfocus="focus_Blur(this, '#E0FFFF');" onblur="focus_Blur(this, 'white');"></td>
+        <td> <input type="text" name=""size="30" required="required" class="form-control" placeholder="Complemento" tabindex="1" type="text" onfocus="focus_Blur(this, '#E0FFFF');" onblur="focus_Blur(this, 'white');"></td> 
+    </tr>
+</table>
+<table>
+    <tr>       
+        <td>Estado</td> 
+        <td>Cidade</td>
+    </tr>
+    <tr>
+        <td> 
+             <select tabindex="1" required="required" class="form-control" onfocus="focus_Blur(this, '#E0FFFF');" onblur="focus_Blur(this, 'white');" id="ufDestino" onChange="consultaCidades('cidadeDestino', 'ufDestino')" >  
                                                 <option value="">Escolha seu Estado</option>            
                                                 <option value="PE">PE</option>          
                                                 <option value="AC">AC</option>          
@@ -194,51 +190,60 @@
                                                 <option value="SP">SP</option>          
                                                 <option value="TO">TO</option>          
                                             </select>
-                                        </td>
-                                        <br>                               
-                                        <td> 
-                                        </b><b>Cidade:</b>
-                                        <br>                           
-                                            <select onfocus="focus_Blur(this, '#E0FFFF');" required="required" class="form-control" tabindex="7" onblur="focus_Blur(this, 'white');" id="cidadeDestino" name="cidadeDestino"  onChange="juntaCidadeUf()">
-                                                <option size="35" value="">Escolha sua Cidade</option>                                    
-                                            </select>
-                                            <br>                                                                   
-                                        </td>                                                                   
-                                    </tr>
-                                </div>
-                                <br>
-                                <b>Login:</b>
-                                <br>
-                                <input type="text" required="required" size="50" class="form-control" placeholder="Digíte um login para seu usuário" tabindex="1" type="text" onfocus="focus_Blur(this, '#E0FFFF');"
-                                onblur="focus_Blur(this, 'white');" value="" id="login" name="login">
-                                <br>
-                                <b>Senha:</b>
-                                <br>
-                                <input type="text" required="required" size="50" class="form-control" placeholder="Digíte uma senha para seu usuário" tabindex="1" type="text" onfocus="focus_Blur(this, '#E0FFFF');"
-                                onblur="focus_Blur(this, 'white');" value="" id="senhaInicial" name="senhaInicial">
-                                <br>
-                                <b>Confirme sua Senha:</b>
-                                <br>
-                                <input type="text" required="required" size="50" class="form-control" placeholder="Confirme sua senha" tabindex="1" type="text" onfocus="focus_Blur(this, '#E0FFFF');"
-                                onblur="focus_Blur(this, 'white');" value="" id="senha" name="senha">
-                                <br>
-                                <b>Perfil do Usuário:</b>
-                                <br>
-                                <select class="form-control" required="required" id="idPerfil" name="idPerfil">
-                                    <option value="0">Escolha seu Perfil</option>
-                                    <option value="1">Cliente</option>
-                                    <option value="2">Observador</option>
-                                    <option value="3">Atendente</option>
-                                    <option value="4">Motorista</option>
-                                </select>
-                                <br>
 
-                                <input type="submit" value="CRIAR CONTA" id="btnIncluir" onClick="consultaAJAX()">
-                                <input type="Reset" value="Limpar Dados"> 
-                                <br><br><br>
-                                </form> 
+
+        </td> 
+        <td> 
+            <select onfocus="focus_Blur(this, '#E0FFFF');" required="required" class="form-control" tabindex="7" onblur="focus_Blur(this, 'white');" id="cidadeDestino" name="cidadeDestino"  onChange="juntaCidadeUf()">
+                <option size="30" value="">Escolha sua Cidade</option>                                    
+            </select>
+
+
+        </td>
+    </tr>
+</table>
+
+<table>
+    <!--Contato -->
+    <h2 >Contato</h2>
+
+    <tr>
+        <td>E-mail</td>
+        <td>Telefone Resiencial</td> 
+        <td>Telefone Celular</td>
+    </tr>
+    <tr>
+        <td> <input type="email" name="" size="40" required="required" class="form-control" placeholder="E-mail" tabindex="1" type="text" onfocus="focus_Blur(this, '#E0FFFF');" onblur="focus_Blur(this, 'white');"></td>
+        <td> <input type="text" name="" size="20" required="required" class="form-control" placeholder="Telefone Residencial" tabindex="1" type="text" onfocus="focus_Blur(this, '#E0FFFF');" onblur="focus_Blur(this, 'white');"></td> 
+        <td> <input type="text" name="" size="20" required="required" class="form-control" placeholder="Telefone Celular" tabindex="1" type="text" onfocus="focus_Blur(this, '#E0FFFF');" onblur="focus_Blur(this, 'white');"></td>
+    </tr>
+</table>
+
+<table>
+    <!--Login/Senha -->
+    <h2>Login/Senha</h2>
+        <select class="form-control" required="required" id="idPerfil" name="idPerfil" disabled><option value="1">Pessoa Física</option></select>
+
+    <tr>
+        <td>Usuário</td>
+        <td>Senha</td> 
+        <td>Confirmar Senha</td>
+    </tr>
+    <tr>
+        <td> <input type="text" name="" size="30" required="required" class="form-control" placeholder="Usuário" tabindex="1" type="text" onfocus="focus_Blur(this, '#E0FFFF');" onblur="focus_Blur(this, 'white');"></td>
+        <td> <input type="text" name="" size="25" required="required" class="form-control" placeholder="Senha" tabindex="1" type="text" onfocus="focus_Blur(this, '#E0FFFF');" onblur="focus_Blur(this, 'white');"></td> 
+        <td> <input type="text" name="" size="25" required="required" class="form-control" placeholder="Confirme  sua senha" tabindex="1" type="text" onfocus="focus_Blur(this, '#E0FFFF');" onblur="focus_Blur(this, 'white');"></td>
+
+
+    </tr>
+</table>
+<br>
+<button type="button" class="btn btn-primary">Cadastrar</button>
+<br><br><br><br>
+
+</form>
+
                             </ul>
-                        </div>
                     </div>
                 </nav>
             </div>
