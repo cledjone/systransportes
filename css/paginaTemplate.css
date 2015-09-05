@@ -1,5 +1,6 @@
 body{ background-image: url("http://noticias.prestumseguros.com.br/wp-content/uploads/2013/12/seguro-caminhao.jpg");
             } 
+            
             .transparent-style{ background-color: #000000; opacity: .9; }
             .navbar,
             .dropdown-menu{ background:rgba(255,255,255,0.75); border-bottom: 3px solid transparent; } 
