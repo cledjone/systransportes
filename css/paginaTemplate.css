@@ -3,7 +3,7 @@ body{ background-image: url("http://noticias.prestumseguros.com.br/wp-content/up
           
             .transparent-style{ background-color: #000000; opacity: .9; }
             .navbar,
-            .dropdown-menu{ background:rgba(255,255,255,0.75); border-bottom: 3px solid transparent; } 
+            .dropdown-menu{ background:rgba(255,255,255,0.90); border-bottom: 3px solid transparent; } 
             .nav>li>a,
             .dropdown-menu>li>a:focus, 
             .dropdown-menu>li>a:hover, 
