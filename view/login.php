@@ -126,26 +126,27 @@
                                     <div class="panel-body">
                                         <div class="row">
                                             <div class="col-lg-12">
-                                                <form id="login-form" action="#" method="post"
-                                                role="form" style="display: block;">
+                                                <form id="login-form" action="#" method="post"role="form" style="display: block;">
+                                                    
                                                     <div class="form-group">
                                                         <input type="text" size="30" class="form-control" placeholder="Digíte seu usuário de acesso"
-                                                        tabindex="1" type="text" onfocus="focus_Blur(this, '#E0FFFF');" onblur="focus_Blur(this, 'white');"
+                                                        type="text" onfocus="focus_Blur(this, '#E0FFFF');" onblur="focus_Blur(this, 'white');"
                                                         value="" id="nome" name="nome">
+                                                    
                                                     </div>
+                                                    
                                                     <div class="form-group">
                                                         <input type="password" size="30" class="form-control" placeholder="Digíte sua senha"
-                                                        tabindex="1" type="text" onfocus="focus_Blur(this, '#E0FFFF');" onblur="focus_Blur(this, 'white');"
+                                                        type="text" onfocus="focus_Blur(this, '#E0FFFF');" onblur="focus_Blur(this, 'white');"
                                                         value="" id="razaoSocial" name="razaoSocial">
                                                     </div>
+                                                    
                                                     <div class="form-group">
-                                                        <div class="row">
-                                                            <div class="col-sm-6 col-sm-offset-3">
-                                                                <input type="submit" name="login-submit" id="login-submit" tabindex="4"
-                                                                class="form-control btn btn-login" value="Acessar">
-                                                            </div>
-                                                        </div>
+                                                        <center>
+                                                            <input type="submit" name="" id="" value="Acessar" class="btn btn-lg btn-primary" class="btn btn-default">
+                                                        </center>
                                                     </div>
+
                                                     <div class="form-group">
                                                         <div class="row">
                                                             <div class="col-lg-12">
@@ -155,6 +156,7 @@
                                                             </div>
                                                         </div>
                                                     </div>
+
                                                 </form>
                                                 <form id="register-form" method="post"
                                                 role="form" style="display: none;">

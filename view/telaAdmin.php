@@ -104,21 +104,21 @@
         </li>
         <li>
         <a class="btn btn-lg btn-success " href="#">
-        <i class="glyphicon glyphicon-dashboard pull-left"></i><span>Cotação<br><small>Lorem ipsum dolor</small></span></a> 
+        <i class="glyphicon glyphicon-folder-close pull-left"></i><span>Cotação<br><small>Lorem ipsum dolor</small></span></a> 
             
         </li>
         <li>
         <a class="btn btn-lg btn-danger" href="#">
-        <i class="glyphicon glyphicon-tasks pull-left"></i><span>Veiculos<br><small>Lorem ipsum dolor</small></span></a> 
+        <i class="glyphicon glyphicon-road pull-left"></i><span>Veiculos<br><small>Lorem ipsum dolor</small></span></a> 
             
         </li>
         <li>
         <a class="btn btn-lg btn-warning" href="#">
-        <i class="glyphicon glyphicon-search pull-left"></i><span>Carga<br><small>Lorem ipsum dolor</small></span></a> 
+        <i class="glyphicon glyphicon-shopping-cart pull-left"></i><span>Carga<br><small>Lorem ipsum dolor</small></span></a> 
         </li>
         <li>
         <a class="btn btn-lg btn-info" href="#">
-        <i class="glyphicon glyphicon-list pull-left"></i><span>Oportunidades<br><small>Lorem ipsum dolor</small></span></a> 
+        <i class="glyphicon glyphicon-usd pull-left"></i><span>Oportunidades<br><small>Lorem ipsum dolor</small></span></a> 
         </li>
     </ul>
     
