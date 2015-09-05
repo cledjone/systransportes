@@ -1,6 +1,10 @@
 <?php
+  require_once("/../usuario/usuario.php");  
+  require_once("/../cidade/cidade.php");  
+  
   class Cotacao {
-  private $id;    
+	private $id;    
+	private $objUsuario;  	
 	private $objCidadeOrigem;  	
 	private $objCidadeDestino;  	
 	private $valorCarga;  
@@ -11,6 +15,10 @@
 	private $comprimento;  	
 	private $quantidadeCaixas;  	
 	private $prazo;
+	private $descricao;
+	private $aprovadoCliente;
+	private $aprovadoAtendente;
+	private $status;
         
     public function setId($l) {
       $this->id = trim($l);
@@ -20,21 +28,40 @@
       return $this->id;
     }	
 	
+	public function setObjUsuario($objUsuario) {
+		   $this->objUsuario = trim($objUsuario);
+	}
+	
+	public function getObjUsuario() {     
+		if($this->objUsuario == null){
+			$this->objUsuario = new Usuario();
+		}		
+		return $this->objUsuario;
+	}	
+	
+	
 	public function setObjCidadeOrigem($objCidadeOrigem) {
 		   $this->objCidadeOrigem = trim($objCidadeOrigem);
 	}
-
+	
 	public function getObjCidadeOrigem() {     
+		if($this->objCidadeOrigem == null){
+			$this->objCidadeOrigem = new Cidade();
+		}		
 		return $this->objCidadeOrigem;
-	}     
+	}	
 	
 	public function setObjCidadeDestino($objCidadeDestino) {
 		   $this->objCidadeDestino = trim($objCidadeDestino);
 	}
 
 	public function getObjCidadeDestino() {     
+		if($this->objCidadeDestino == null){
+			$this->objCidadeDestino = new Cidade();
+		}		
 		return $this->objCidadeDestino;
-	}     
+	}	
+	
 	
 	public function setValorCarga($l) {
       $this->valorCarga = trim($l);
@@ -100,6 +127,37 @@
       return $this->prazo;
     }	
 	
+	public function setDescricao($l) {
+      $this->descricao = trim($l);
+    }
+    
+    public function getDescricao() {
+      return $this->descricao;
+    }	
+		
+	public function setAprovadoCliente($l) {
+      $this->aprovadoCliente = trim($l);
+    }
+    
+    public function getAprovadoCLiente() {
+      return $this->aprovadoCliente;
+    }	
+	
+	public function setAprovadoAtendente($l) {
+      $this->aprovadoAtendente = trim($l);
+    }
+    
+    public function getAprovadoAtendente() {
+      return $this->aprovadoAtendente;
+    }	
+	
+	public function setStatus($l) {
+      $this->status = trim($l);
+    }
+    
+    public function getStatus() {
+      return $this->status;
+    }		
 	
   }
 ?>
