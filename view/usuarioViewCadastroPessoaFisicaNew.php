@@ -110,7 +110,7 @@
     </tr>
     <tr>
         <td>
-            <input type="text" name="" size="96" required="required" class="form-control" placeholder="Nome Completo" tabindex="1" type="text" onfocus="focus_Blur(this, '#E0FFFF');" onblur="focus_Blur(this, 'white');">
+            <input type="text" id="nomeCompleto" name="" size="96" required="required" class="form-control" placeholder="Nome Completo" tabindex="1" type="text" onfocus="focus_Blur(this, '#E0FFFF');" onblur="focus_Blur(this, 'white');">
         </td>
     </tr>
 </table>
@@ -121,9 +121,9 @@
         <td><b>Orgão Expedidor</b></td>
     </tr>
     <tr>
-        <td> <input type="text" name="" size="30" required="required" class="form-control" placeholder="CPF" tabindex="1" type="text" onfocus="focus_Blur(this, '#E0FFFF');" onblur="focus_Blur(this, 'white');"></td>
-        <td> <input type="text" name="" size="30" required="required" class="form-control" placeholder="RG" tabindex="1" type="text" onfocus="focus_Blur(this, '#E0FFFF');" onblur="focus_Blur(this, 'white');"></td> 
-        <td> <input type="text" name="" size="20" required="required" class="form-control" placeholder="Orgão Expedidor" tabindex="1" type="text" onfocus="focus_Blur(this, '#E0FFFF');" onblur="focus_Blur(this, 'white');"></td>
+        <td> <input type="text" id="cpf" name="" size="30" required="required" class="form-control" placeholder="CPF" tabindex="1" type="text" onfocus="focus_Blur(this, '#E0FFFF');" onblur="focus_Blur(this, 'white');"></td>
+        <td> <input type="text" id="rg"name="" size="30" required="required" class="form-control" placeholder="RG" tabindex="1" type="text" onfocus="focus_Blur(this, '#E0FFFF');" onblur="focus_Blur(this, 'white');"></td> 
+        <td> <input type="text" id="orgaoExpedidor" name="" size="20" required="required" class="form-control" placeholder="Orgão Expedidor" tabindex="1" type="text" onfocus="focus_Blur(this, '#E0FFFF');" onblur="focus_Blur(this, 'white');"></td>
     </tr>
 </table>
 <table>
@@ -136,8 +136,8 @@
     </tr>
     <tr>
         <td>
-            <input type="text" name="" size="30" required="required" class="form-control" placeholder="CEP" tabindex="1" type="text" onfocus="focus_Blur(this, '#E0FFFF');" onblur="focus_Blur(this, 'white');">
-            <td> <input type="text" name="" size="58" required="required" class="form-control" placeholder="Logradouro" tabindex="1" type="text" onfocus="focus_Blur(this, '#E0FFFF');" onblur="focus_Blur(this, 'white');"></td>
+            <input type="text" id="cep" name="" size="30" required="required" class="form-control" placeholder="CEP" tabindex="1" type="text" onfocus="focus_Blur(this, '#E0FFFF');" onblur="focus_Blur(this, 'white');">
+            <td> <input type="text" id="logradouro" name="" size="58" required="required" class="form-control" placeholder="Logradouro" tabindex="1" type="text" onfocus="focus_Blur(this, '#E0FFFF');" onblur="focus_Blur(this, 'white');"></td>
         </td>
     </tr>
 </table>
@@ -148,9 +148,9 @@
         <td><b>Complemento</b></td> 
     </tr>
     <tr>
-        <td> <input type="text" name=""size="30" required="required" class="form-control" placeholder="Número" tabindex="1" type="text" onfocus="focus_Blur(this, '#E0FFFF');" onblur="focus_Blur(this, 'white');"></td> 
-        <td> <input type="text" name="" size="20" required="required" class="form-control" placeholder="Bairro" tabindex="1" type="text" onfocus="focus_Blur(this, '#E0FFFF');" onblur="focus_Blur(this, 'white');"></td>
-        <td> <input type="text" name=""size="30" required="required" class="form-control" placeholder="Complemento" tabindex="1" type="text" onfocus="focus_Blur(this, '#E0FFFF');" onblur="focus_Blur(this, 'white');"></td> 
+        <td> <input type="text" id="numero" name=""size="30" required="required" class="form-control" placeholder="Número" tabindex="1" type="text" onfocus="focus_Blur(this, '#E0FFFF');" onblur="focus_Blur(this, 'white');"></td> 
+        <td> <input type="text" id="bairro" name="" size="20" required="required" class="form-control" placeholder="Bairro" tabindex="1" type="text" onfocus="focus_Blur(this, '#E0FFFF');" onblur="focus_Blur(this, 'white');"></td>
+        <td> <input type="text" id="complemento" name=""size="30" required="required" class="form-control" placeholder="Complemento" tabindex="1" type="text" onfocus="focus_Blur(this, '#E0FFFF');" onblur="focus_Blur(this, 'white');"></td> 
     </tr>
 </table>
 <table>
@@ -213,9 +213,9 @@
         <td><b>Telefone Celular</b></td>
     </tr>
     <tr>
-        <td> <input type="email" name="" size="40" required="required" class="form-control" placeholder="E-mail" tabindex="1" type="text" onfocus="focus_Blur(this, '#E0FFFF');" onblur="focus_Blur(this, 'white');"></td>
-        <td> <input type="text" name="" size="20" required="required" class="form-control" placeholder="Telefone Residencial" tabindex="1" type="text" onfocus="focus_Blur(this, '#E0FFFF');" onblur="focus_Blur(this, 'white');"></td> 
-        <td> <input type="text" name="" size="20" required="required" class="form-control" placeholder="Telefone Celular" tabindex="1" type="text" onfocus="focus_Blur(this, '#E0FFFF');" onblur="focus_Blur(this, 'white');"></td>
+        <td> <input type="email" id="" name="email" size="40" required="required" class="form-control" placeholder="E-mail" tabindex="1" type="text" onfocus="focus_Blur(this, '#E0FFFF');" onblur="focus_Blur(this, 'white');"></td>
+        <td> <input type="text" id="" name="telefone1" size="20" required="required" class="form-control" placeholder="Telefone Residencial" tabindex="1" type="text" onfocus="focus_Blur(this, '#E0FFFF');" onblur="focus_Blur(this, 'white');"></td> 
+        <td> <input type="text" id="" name="telefone2" size="20" required="required" class="form-control" placeholder="Telefone Celular" tabindex="1" type="text" onfocus="focus_Blur(this, '#E0FFFF');" onblur="focus_Blur(this, 'white');"></td>
     </tr>
 </table>
 
@@ -230,16 +230,16 @@
         <td><b>Confirmar Senha</b></td>
     </tr>
     <tr>
-        <td> <input type="text" name="" size="30" required="required" class="form-control" placeholder="Usuário" tabindex="1" type="text" onfocus="focus_Blur(this, '#E0FFFF');" onblur="focus_Blur(this, 'white');"></td>
-        <td> <input type="text" name="" size="25" required="required" class="form-control" placeholder="Senha" tabindex="1" type="text" onfocus="focus_Blur(this, '#E0FFFF');" onblur="focus_Blur(this, 'white');"></td> 
-        <td> <input type="text" name="" size="25" required="required" class="form-control" placeholder="Confirme  sua senha" tabindex="1" type="text" onfocus="focus_Blur(this, '#E0FFFF');" onblur="focus_Blur(this, 'white');"></td>
+        <td> <input type="text" id="login" name="" size="30" required="required" class="form-control" placeholder="Usuário" tabindex="1" type="text" onfocus="focus_Blur(this, '#E0FFFF');" onblur="focus_Blur(this, 'white');"></td>
+        <td> <input type="text" size="25" required="required" class="form-control" placeholder="Senha" tabindex="1" type="text" onfocus="focus_Blur(this, '#E0FFFF');" onblur="focus_Blur(this, 'white');"></td> 
+        <td> <input type="text" id="senha" name="" size="25" required="required" class="form-control" placeholder="Confirme  sua senha" tabindex="1" type="text" onfocus="focus_Blur(this, '#E0FFFF');" onblur="focus_Blur(this, 'white');"></td>
 
 
     </tr>
 </table>
 <br>
-<button type="button" class="btn btn-primary">Cadastrar</button>
-<br><br><br><br>
+    <input type="submit" id="btnIncluir" onClick="consultaAJAX()"> 
+    <br><br><br><br>
 
 </form>
 

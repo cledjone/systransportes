@@ -106,9 +106,8 @@
                         </div>
                         <div id="navbar" class="navbar-collapse collapse">
                             <!--Botoes aqui pessoa fisica e juridica-->
-
-                              
-
+                        <br>
+                        <center>        
                                 <div class="botoes">
                                 <a href="usuarioViewCadastroPessoaJuridicaNew.php"
                                 class="btn btn-large btn-primary float-left" style="float:left: ;">Pessoa Juridica</a>
@@ -119,12 +118,8 @@
                                  <a href="usuarioViewCadastroPessoaFisicaNew.php" 
                                 class="btn btn-large btn-primary float-left" style="float:left: ;">Pessoa Fisica</a>
                                 </div>
-
-
-
-
-
-
+                        </center>
+                        <br>
                         </div>
                     </div>
                 </nav>

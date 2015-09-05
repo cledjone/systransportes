@@ -4,16 +4,24 @@
   //Atributos
   private $id;    
   private $idPerfil;
-  private $nome;  
+  private $nomeCompleto;  
   private $razaoSocial;  
-  private $fantasia;  
-  private $cpfcnpj;  
+  private $nomeFantasia; 
+  private $tipoEmpresa;
+  private $rg;
+  private $orgaoExpedidor;
+  private $cpf; 
+  private $cnpj;  
+
   private $email;  
   private $telefone1;  
   private $telefone2;   
-  private $logradouro;    
-  private $bairro;  
+  
   private $cep;
+  private $logradouro;    
+  private $bairro;
+  private $numero;
+  private $complemento;
   private $codCidade;
 
   private $login;
@@ -29,15 +37,6 @@
     return $this->id;
   }
 
-  //Código Cidade
-  public function setObjCidade($codCidade) {
-    $this->codCidade = trim($codCidade);
-  }
-
-  public function getObjCidade() {     
-    return $this->codCidade;
-  } 	
-
   //Id Perfil
 	public function setIdPerfil($idPerfil) {
     $this->idPerfil = trim($idPerfil);
@@ -46,12 +45,12 @@
     return $this->idPerfil;
   }	
 	
-	//nome
-  public function setNome($nome) {
-    $this->nome = trim($nome);
+	//Nome Completo
+  public function setNomeCompleto($nomeCompleto) {
+    $this->nomeCompleto = trim($nomeCompleto);
   }
-  public function getNome() {
-    return $this->nome;
+  public function getNomeCompleto() {
+    return $this->nomeCompleto;
   } 
 
   //Razao Social
@@ -62,20 +61,52 @@
     return $this->razaoSocial;
   } 
 
-  //Fantasia
-  public function setFantasia($fantasia) {
-    $this->fantasia = trim($fantasia);
+  //Nome Fantasia
+  public function setnomeFantasia($nomeFantasia) {
+    $this->nomeFantasia = trim($nomeFantasia);
   }
-  public function getFantasia() {
-    return $this->fantasia;
+  public function getnomeFantasia() {
+    return $this->nomeFantasia;
   } 
 
-  //CPF/CNPJ
-  public function setCpfCnpj($cpfcnpj) {
-    $this->cpfcnpj = trim($cpfcnpj);
+  //Tipo de Empresa
+  public function setTipoEmpresa($tipoEmpresa) {
+    $this->tipoEmpresa = trim($tipoEmpresa);
   }
-  public function getCpfCnpj() {
-    return $this->cpfcnpj;
+  public function getTipoEmpresa() {
+    return $this->tipoEmpresa;
+  } 
+
+  //RG
+  public function setRg($rg) {
+    $this->rg = trim($rg);
+  }
+  public function getRg() {
+    return $this->rg;
+  } 
+
+  //Orgão Expedidor
+  public function setOrgaoExpedidor($orgaoExpedidor) {
+    $this->orgaoExpedidor = trim($orgaoExpedidor);
+  }
+  public function getOrgaoExpedidor() {
+    return $this->orgaoExpedidor;
+  } 
+
+    //CPF
+  public function setCpf($cpf) {
+    $this->cpf = trim($cpf);
+  }
+  public function getCpf() {
+    return $this->cpf;
+  } 
+
+    //CNPJ
+  public function setCnpj($cnpj) {
+    $this->cnpj = trim($cnpj);
+  }
+  public function getCnpj() {
+    return $this->cnpj;
   } 
 
   //Email
@@ -118,6 +149,22 @@
     return $this->bairro;
   } 
 
+  //Número
+  public function setNumero($numero) {
+    $this->numero = trim($numero);
+  }
+  public function getNumero() {
+    return $this->numero;
+  } 
+
+  //Complemento
+  public function setComplemento($complemento) {
+    $this->complemento = trim($complemento);
+  }
+  public function getComplemento() {
+    return $this->complemento;
+  } 
+
   //CEP
   public function setCep($cep) {
     $this->cep = trim($cep);
@@ -125,6 +172,15 @@
   public function getCep() {
     return $this->cep;
   } 
+
+  //Código Cidade
+  public function setCodCidade($codCidade) {
+    $this->codCidade = trim($codCidade);
+  }
+
+  public function getCodCidade() {     
+    return $this->codCidade;
+  }   
 
   //login
   public function setLogin($login) {
@@ -141,8 +197,6 @@
   public function getSenha() {
     return $this->senha;
   } 
-
-
 
   }
 ?>

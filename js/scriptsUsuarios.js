@@ -39,24 +39,32 @@
 	function consultaAJAX( ) {	
 		var servicoHttp = "../webServices/usuariosWebService.php";				
 		
-		var idPerfil = document.getElementById('idPerfil');										
-		var nome = document.getElementById('nome');								
-		var razaoSocial = document.getElementById('razaoSocial');								
-		var fantasia = document.getElementById('fantasia');								
-		var cpfcnpj = document.getElementById('cpfcnpj');								
-		var email = document.getElementById('email');	
-		var telefone1 = document.getElementById('telefone1');								
-		var telefone2 = document.getElementById('telefone2');								
-		var logradouro = document.getElementById('logradouro');								
-		var bairro = document.getElementById('bairro');								
-		var cep = document.getElementById('cep');			
+		var idPerfil = document.getElementById('idPerfil').value;										
+		var nomeCompleto = document.getElementById('nomeCompleto').value;								
+		var razaoSocial = document.getElementById('razaoSocial').value;								
+		var nomeFantasia = document.getElementById('nomeFantasia').value;								
+		var tipoEmpresa = document.getElementById('tipoEmpresa').value;								
+		var rg = document.getElementById('rg').value;
+		var orgaoExpedidor = document.getElementById('orgaoExpedidor').value;
+		var cpf = document.getElementById('cpf').value;
+		var cnpj = document.getElementById('cnpj').value;
+
+		var email = document.getElementById('email').value;	
+		var telefone1 = document.getElementById('telefone1').value;								
+		var telefone2 = document.getElementById('telefone2').value;
+
+		var logradouro = document.getElementById('logradouro').value;								
+		var bairro = document.getElementById('bairro').value;
+		var numero = document.getElementById('numero').value;								
+		var complemento = document.getElementById('complemento').value;																
+		var cep = document.getElementById('cep').value;			
 		var codCidade = document.getElementById('cidadeDestino').value;
 		codCidade = codCidade.substring(0,7);
 
-		var login = document.getElementById('login');								
-		var senha = document.getElementById('senha');							
+		var login = document.getElementById('login').value;								
+		var senha = document.getElementById('senha').value;							
 		
-		jsonParametros = {incluirUsuario: 'sim',  idPerfil: idPerfil.value, nome: nome.value, razaoSocial: razaoSocial.value, fantasia: fantasia.value, cpfcnpj: cpfcnpj.value, email: email.value, telefone1: telefone1.value, telefone2: telefone2.value, logradouro: logradouro.value, bairro: bairro.value, cep: cep.value, login: login.value, senha: senha.value, codCidade};
+		jsonParametros = {incluirUsuario: 'sim',  idPerfil,nomeCompleto,razaoSocial,nomeFantasia,tipoEmpresa,rg,orgaoExpedidor,cpf,cnpj,email,telefone1,telefone2,logradouro,bairro,numero,complemento,cep,codCidade,login,senha};
 	
 		var $xhr = $.getJSON(servicoHttp, jsonParametros);		
 		
