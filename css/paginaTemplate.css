@@ -1,6 +1,12 @@
 body{ background-image: url("http://noticias.prestumseguros.com.br/wp-content/uploads/2013/12/seguro-caminhao.jpg");
             } 
-          
+
+  .ds-btn li{ list-style:none; float:left; padding:10px; }
+  .ds-btn li a span{padding-left:15px;padding-right:5px;width:100%;display:inline-block; text-align:left;}
+  .ds-btn li a span small{width:100%; display:inline-block; text-align:left;}
+
+
+
             .transparent-style{ background-color: #000000; opacity: .9; }
             .navbar,
             .dropdown-menu{ background:rgba(255,255,255,0.70); border-bottom: 3px solid transparent; } 
@@ -37,6 +43,24 @@ body{ background-image: url("http://noticias.prestumseguros.com.br/wp-content/up
 
     padding-top: 90px;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

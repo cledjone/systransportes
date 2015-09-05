@@ -161,12 +161,18 @@
                                                     <center>
                                                         <div class="form-group">
                                                             <div class="row">
-                                                                <center>
-                                                                    <div>
-                                                                        <a href="usuarioCadastroPJ.php">Pessoa Juridica</a>
-                                                                        <a href="usuarioCadastroPF.php">Pessoa Fisica</a>
-                                                                </center>
-                                                            </div>
+                                                                
+                                                                <ul class="ds-btn">
+                                                                    <li>
+                                                                    <a class="btn btn-lg btn-info" href="usuarioCadastroPF.php">
+                                                                    <i class="glyphicon glyphicon-user pull-left"></i><span>Pessoa Física<br><small>Cadastre-se como PF</small></span></a> 
+                                                                    </li>
+
+                                                                    <li>
+                                                                    <a class="btn btn-lg btn-info" href="usuarioCadastroPJ.php">
+                                                                    <i class="glyphicon glyphicon-user pull-left"></i><span>Pessoa Jurídica<br><small>Cadastre-se como PJ</small></span></a> 
+                                                                    </li>
+                                                                </ul>    
                                                         </div>
                                                     </center>
                                                 </form>
