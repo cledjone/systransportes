@@ -86,12 +86,12 @@
                                     <a href="../index.php" class="">Home</a>
                                 </li>
                                 <li class=" dropdown">
-                                    <a href="aboutViewNew.php" class="dropdown-toggle " >Empresa</a>
+                                    <a href="about.php" class="dropdown-toggle " >Empresa</a>
                                 <li class=" dropdown">
-                                    <a href="frotaViewNew.php" class="dropdown-toggle " >Atuação</a>
+                                    <a href="frota.php" class="dropdown-toggle " >Atuação</a>
                                 </li>
                                 <li class=" dropdown">
-                                    <a href="cotacaoViewCadastroNew.php" class="dropdown-toggle " >Cotação</a>
+                                    <a href="cotacaoCadastro.php" class="dropdown-toggle " >Cotação</a>
                                 </li>
                                 <li class=" dropdown">
                                     <a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button"
@@ -106,7 +106,7 @@
                                     </ul>
                                 </li>
                                 <li class=" dropdown">
-                                    <a href="contactViewNew.php" class="dropdown-toggle " >Contatos</a>
+                                    <a href="contact.php" class="dropdown-toggle " >Contatos</a>
                                 </li>
                             </ul>
                             <ul class="nav navbar-nav pull-right">
@@ -115,10 +115,7 @@
                                     aria-haspopup="true" aria-expanded="false">Signed in as  <span class="caret"></span></a>
                                     <ul class="dropdown-menu">
                                         <li>
-                                            <a href="loginViewNew.php">Meu Perfil</a>
-                                        </li>
-                                        <li>
-                                            <a href="usuarioViewCadastroPessoaFisicaJuridicaNew.php">Registrar-se</a>
+                                            <a href="login.php">Meu Perfil</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -133,25 +130,54 @@
         </div>
 
 
-                <div class="navbar-wrapper">
+        <div class="navbar-wrapper">
                 <nav class="navbar">
                     <div class="container">                        
-
+                            
+                            <center>
                             <hr>
-                            <center>                         
-                            <h1 class="brand-name">SOBRE A SYSTRANSPORTES</h1>                   
+                            <h2>CONTATO SYSTRANSPORTES</h2>
+                            <hr>
+                            
+                            <h4>Telefone: 55 - (81)98768-7786</h4>
+                            <h4>Email: systransporte@gmail.com</h4>
+                            <h4>Endereço: 1000 Avenida Recife Vila Tamadare</h4>
                             </center>
-                            <hr>
-                            <h4>
-                            A SysTransportes é uma empresa criada em 2015 para prestar serviço de transporte rodoviário de cargas.
+                            
+                            <br><br>
+                    </div>
+                </nav>
+        </div>
 
-                            O time SysTransportes é composto por profissionais experientes do mercado de transporte rodoviário.
+        <div class="navbar-wrapper">
+                <nav class="navbar">
+                    <div class="container">                        
+                            
+                        <hr>
+                        <h2 class="intro-text text-center"><strong>Formulario</strong> para contato </h2>
+                        <hr>
+                        <p>
+                            SysTransportes tem um enorme prazer de levar suas mecadorias para onde voçê precisar e com grande sastifação que nossa empresa faz isso e da melhor forma possivel e contamos com seu feedback para melhorar nosso trabalho.
+                        </p>
+                        <form role="form">
+                            <div class="row">
+                                <div class="form-group col-lg-4">
+                                    <label>Nome</label>
+                                    <input type="text" class="form-control">
+                                </div>
 
-                            Prestamos serviços de entregas aos clientes de nossos clientes com atendimento exclusivo, informação em tempo real e comprometimento.
 
-                            Investimos em estrutura de ponta, tecnologia e segurançapara garantir nosso crescimento e consolidação como futura maior e melhor empresa de nosso segmento de atuação.
-                            </h4>
-                            <br><br><br><br><br><br>
+                                <div class="form-group col-lg-12">
+                                    <label>Descrição</label>
+                                    <textarea class="form-control" rows="6"></textarea>
+                                </div>
+                                <div class="form-group col-lg-12">
+                                    <input type="hidden" name="save" value="contact">
+                                    <button type="submit" class="btn btn-default">
+                                        Enviar
+                                    </button>
+                                </div>
+                            </div>
                     </div>
                 </nav>
         </div>

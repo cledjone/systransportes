@@ -37,7 +37,8 @@
 	  $senha = mysql_real_escape_string($usuario->getSenha(), $conexao);    
   
   	  //Insert para a tabela de Usuários do banco de dados
-	  $sql = "insert into usuarios (idPerfil, nomeCompleto, razaoSocial, nomeFantasia, tipoEmpresa, rg, orgaoExpedidor, cpf, cnpj, email, telefone1, telefone2, logradouro, bairro, numero, complemento, cep, codCidade, login, senha) values ($idPerfil, $'nomeCompleto', $'razaoSocial', '$nomeFantasia', '$tipoEmpresa', '$rg', '$orgaoExpedidor', '$cpj','$cnpj', $email', '$telefone1', '$telefone2', '$logradouro', '$bairro', '$numero', '$complemento', '$cep', codCidade , '$login', '$senha')";	  
+	  $sql = "insert into usuarios (idPerfil, nomeCompleto, razaoSocial, nomeFantasia, tipoEmpresa, rg, orgaoExpedidor, cpf, cnpj, email, telefone1, telefone2, logradouro, bairro, numero, complemento, cep, codCidade, login, senha) values ($idPerfil, '$nomeCompleto', '$razaoSocial', '$nomeFantasia', '$tipoEmpresa', '$rg', '$orgaoExpedidor', '$cpf','$cnpj', '$email', '$telefone1', '$telefone2', '$logradouro', '$bairro', '$numero', '$complemento', '$cep', $codCidade , '$login', '$senha')";	  
+      //echo ($sql);
       $resultado = @mysql_query($sql, $conexao);
 
        //echo($sql);	

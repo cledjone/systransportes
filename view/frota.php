@@ -61,7 +61,7 @@
     </head>
     
     <body>
-            <div class="navbar-wrapper">
+        <div class="navbar-wrapper">
             <div class="container-fluid">
                 <nav class="navbar">
                     <div class="container">
@@ -86,12 +86,12 @@
                                     <a href="../index.php" class="">Home</a>
                                 </li>
                                 <li class=" dropdown">
-                                    <a href="aboutViewNew.php" class="dropdown-toggle " >Empresa</a>
+                                    <a href="about.php" class="dropdown-toggle " >Empresa</a>
                                 <li class=" dropdown">
-                                    <a href="frotaViewNew.php" class="dropdown-toggle " >Atuação</a>
+                                    <a href="frota.php" class="dropdown-toggle " >Atuação</a>
                                 </li>
                                 <li class=" dropdown">
-                                    <a href="cotacaoViewCadastroNew.php" class="dropdown-toggle " >Cotação</a>
+                                    <a href="cotacaoCadastro.php" class="dropdown-toggle " >Cotação</a>
                                 </li>
                                 <li class=" dropdown">
                                     <a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button"
@@ -106,7 +106,7 @@
                                     </ul>
                                 </li>
                                 <li class=" dropdown">
-                                    <a href="contactViewNew.php" class="dropdown-toggle " >Contatos</a>
+                                    <a href="contact.php" class="dropdown-toggle " >Contatos</a>
                                 </li>
                             </ul>
                             <ul class="nav navbar-nav pull-right">
@@ -115,10 +115,7 @@
                                     aria-haspopup="true" aria-expanded="false">Signed in as  <span class="caret"></span></a>
                                     <ul class="dropdown-menu">
                                         <li>
-                                            <a href="loginViewNew.php">Meu Perfil</a>
-                                        </li>
-                                        <li>
-                                            <a href="usuarioViewCadastroPessoaFisicaJuridicaNew.php">Registrar-se</a>
+                                            <a href="login.php">Meu Perfil</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -136,51 +133,28 @@
         <div class="navbar-wrapper">
                 <nav class="navbar">
                     <div class="container">                        
-                            
-                            <center>
-                            <hr>
-                            <h2>CONTATO SYSTRANSPORTES</h2>
-                            <hr>
-                            
-                            <h4>Telefone: 55 - (81)98768-7786</h4>
-                            <h4>Email: systransporte@gmail.com</h4>
-                            <h4>Endereço: 1000 Avenida Recife Vila Tamadare</h4>
-                            </center>
-                            
-                            <br><br>
+
+                    <div class="col-lg-12">
+
+                        <hr>
+                        <h2 class="intro-text text-center">Nossa <strong> frota</strong> e nossa <strong>logística</strong></h2>
+                        <hr>
                     </div>
-                </nav>
-        </div>
 
-        <div class="navbar-wrapper">
-                <nav class="navbar">
-                    <div class="container">                        
-                            
-                        <hr>
-                        <h2 class="intro-text text-center"><strong>Formulario</strong> para contato </h2>
-                        <hr>
-                        <p>
-                            SysTransportes tem um enorme prazer de levar suas mecadorias para onde voçê precisar e com grande sastifação que nossa empresa faz isso e da melhor forma possivel e contamos com seu feedback para melhorar nosso trabalho.
-                        </p>
-                        <form role="form">
-                            <div class="row">
-                                <div class="form-group col-lg-4">
-                                    <label>Nome</label>
-                                    <input type="text" class="form-control">
-                                </div>
+                    <h3>Frota</h3>
+                    <p>
+                        Com uma frota própria, nossos veículos são rastreados e monitorados via satélite, permitindo ao cliente
+                        segurança e informação no acompanhamento da sua carga. Entrega eficiente desde grandes cargas a pequenas encomendas.
+                    </p>
 
+                    <h3>Logística</h3>
+                    <p>
+                        Nosso maior compromisso é evitar avarias e entregar as encomendas no prazo correto, atendendo sempre as necessidade de
+                        nosso clientes. Trabalhamos com coleta e distribuição de cargas.
+                    </p>
 
-                                <div class="form-group col-lg-12">
-                                    <label>Descrição</label>
-                                    <textarea class="form-control" rows="6"></textarea>
-                                </div>
-                                <div class="form-group col-lg-12">
-                                    <input type="hidden" name="save" value="contact">
-                                    <button type="submit" class="btn btn-default">
-                                        Enviar
-                                    </button>
-                                </div>
-                            </div>
+                    <div class="clearfix"></div>
+                    <br><br>
                     </div>
                 </nav>
         </div>

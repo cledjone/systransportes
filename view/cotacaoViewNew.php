@@ -86,12 +86,12 @@
                                     <a href="../index.php" class="">Home</a>
                                 </li>
                                 <li class=" dropdown">
-                                    <a href="aboutViewNew.php" class="dropdown-toggle " >Empresa</a>
+                                    <a href="about.php" class="dropdown-toggle " >Empresa</a>
                                 <li class=" dropdown">
-                                    <a href="frotaViewNew.php" class="dropdown-toggle " >Atuação</a>
+                                    <a href="frota.php" class="dropdown-toggle " >Atuação</a>
                                 </li>
                                 <li class=" dropdown">
-                                    <a href="cotacaoViewCadastroNew.php" class="dropdown-toggle " >Cotação</a>
+                                    <a href="cotacaoCadastro.php" class="dropdown-toggle " >Cotação</a>
                                 </li>
                                 <li class=" dropdown">
                                     <a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button"
@@ -106,7 +106,7 @@
                                     </ul>
                                 </li>
                                 <li class=" dropdown">
-                                    <a href="contactViewNew.php" class="dropdown-toggle " >Contatos</a>
+                                    <a href="contact.php" class="dropdown-toggle " >Contatos</a>
                                 </li>
                             </ul>
                             <ul class="nav navbar-nav pull-right">
@@ -115,10 +115,7 @@
                                     aria-haspopup="true" aria-expanded="false">Signed in as  <span class="caret"></span></a>
                                     <ul class="dropdown-menu">
                                         <li>
-                                            <a href="loginViewNew.php">Meu Perfil</a>
-                                        </li>
-                                        <li>
-                                            <a href="usuarioViewCadastroNew.php">Registrar-se</a>
+                                            <a href="login.php">Meu Perfil</a>
                                         </li>
                                     </ul>
                                 </li>
