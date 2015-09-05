@@ -103,27 +103,32 @@
 
 <table>
     <!--Dados Pessoais -->
-    <h2>Dados Pessoais</h1>
+    <h2>Dados Jurídica</h1>
     
     <tr>
-        <td>Nome Completo</td>
+        <td><b>Razão Social</b></td>
     </tr>
     <tr>
         <td>
-            <input type="text" name="" size="96" required="required" class="form-control" placeholder="Nome Completo" tabindex="1" type="text" onfocus="focus_Blur(this, '#E0FFFF');" onblur="focus_Blur(this, 'white');">
+            <input type="text" name="" size="95" required="required" class="form-control" placeholder="Razão Social" tabindex="1" type="text" onfocus="focus_Blur(this, '#E0FFFF');" onblur="focus_Blur(this, 'white');">
         </td>
     </tr>
 </table>
 <table>
     <tr>
-        <td>CPF</td>
-        <td>RG</td> 
-        <td>Orgão Expedidor</td>
+        <td><b>Nome Fantasia</b></td> 
+        <td><b>CNPJ</b></td>
+        <td><b>Tipo de Empresa</b></td>
     </tr>
     <tr>
-        <td> <input type="text" name="" size="30" required="required" class="form-control" placeholder="CPF" tabindex="1" type="text" onfocus="focus_Blur(this, '#E0FFFF');" onblur="focus_Blur(this, 'white');"></td>
-        <td> <input type="text" name="" size="30" required="required" class="form-control" placeholder="RG" tabindex="1" type="text" onfocus="focus_Blur(this, '#E0FFFF');" onblur="focus_Blur(this, 'white');"></td> 
-        <td> <input type="text" name="" size="20" required="required" class="form-control" placeholder="Orgão Expedidor" tabindex="1" type="text" onfocus="focus_Blur(this, '#E0FFFF');" onblur="focus_Blur(this, 'white');"></td>
+        <td> <input type="text" name="" size="30" required="required" class="form-control" placeholder="Nome Fantasia" tabindex="1" type="text" onfocus="focus_Blur(this, '#E0FFFF');" onblur="focus_Blur(this, 'white');"></td>
+        <td> <input type="text" name="" size="30" required="required" class="form-control" placeholder="CNPJ" tabindex="1" type="text" onfocus="focus_Blur(this, '#E0FFFF');" onblur="focus_Blur(this, 'white');"></td> 
+        <td><select class="form-control" required="required" id="idPerfil" name="idPerfil">
+            <option value="1">--- Selecione o tipo ---</option>
+            <option value="1">Empresa Privada</option>
+            <option value="1">Empresa Publica</option>
+        </select></td>
+
     </tr>
 </table>
 <table>
@@ -131,8 +136,8 @@
     <h2>Endereço</h2>
 
     <tr>
-        <td>CEP</td>
-        <td>Logradouro</td>
+        <td><b>CEP</b></td>
+        <td><b>Logradouro</b></td>
     </tr>
     <tr>
         <td>
@@ -143,9 +148,9 @@
 </table>
 <table>
     <tr>
-        <td>Número</td>
-        <td>Bairro</td>
-        <td>Complemento</td> 
+        <td><b>Número</b></td>
+        <td><b>Bairro</b></td>
+        <td><b>Complemento</b></td> 
     </tr>
     <tr>
         <td> <input type="text" name=""size="30" required="required" class="form-control" placeholder="Número" tabindex="1" type="text" onfocus="focus_Blur(this, '#E0FFFF');" onblur="focus_Blur(this, 'white');"></td> 
@@ -155,8 +160,8 @@
 </table>
 <table>
     <tr>       
-        <td>Estado</td> 
-        <td>Cidade</td>
+        <td><b>Estado</b></td> 
+        <td><b>Cidade</b></td>
     </tr>
     <tr>
         <td> 
@@ -208,9 +213,9 @@
     <h2 >Contato</h2>
 
     <tr>
-        <td>E-mail</td>
-        <td>Telefone Resiencial</td> 
-        <td>Telefone Celular</td>
+        <td><b>E-mail</b></td>
+        <td><b>Telefone Resiencial</b></td> 
+        <td><b>Telefone Celular</b></td>
     </tr>
     <tr>
         <td> <input type="email" name="" size="40" required="required" class="form-control" placeholder="E-mail" tabindex="1" type="text" onfocus="focus_Blur(this, '#E0FFFF');" onblur="focus_Blur(this, 'white');"></td>
@@ -222,12 +227,12 @@
 <table>
     <!--Login/Senha -->
     <h2>Login/Senha</h2>
-        <select class="form-control" required="required" id="idPerfil" name="idPerfil" disabled><option value="1">Pessoa Física</option></select>
+        <select class="form-control" required="required" id="idPerfil" name="idPerfil" disabled><option value="2">Pessoa Jurídica</option></select>
 
     <tr>
-        <td>Usuário</td>
-        <td>Senha</td> 
-        <td>Confirmar Senha</td>
+        <td><b>Usuário</b></td>
+        <td><b>Senha</b></td> 
+        <td><b>Confirmar Senha</b></td>
     </tr>
     <tr>
         <td> <input type="text" name="" size="30" required="required" class="form-control" placeholder="Usuário" tabindex="1" type="text" onfocus="focus_Blur(this, '#E0FFFF');" onblur="focus_Blur(this, 'white');"></td>
