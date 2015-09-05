@@ -13,17 +13,24 @@
 
 		//Atributos da classe Usuário/Valores 
 		$usuario->setIdPerfil($idPerfil); 
-		$usuario->setNome($nome); 
+		$usuario->setNomeCompleto($nomeCompleto); 
 		$usuario->setRazaoSocial($razaoSocial); 
-		$usuario->setFantasia($fantasia); 
-		$usuario->setCpfCnpj($cpfcnpj); 
+		$usuario->setnomeFantasia($nomeFantasia); 
+		$usuario->setTipoEmpresa($tipoEmpresa); 
+		$usuario->setRg($rg); 
+		$usuario->setOrgaoExpedidor($orgaoExpedidor); 
+		$usuario->setCpf($cpf); 
+		$usuario->setCnpj($cnpj); 
+
 		$usuario->setEmail($email); 
 		$usuario->setTelefone1($telefone1); 
 		$usuario->setTelefone2($telefone2); 
 		$usuario->setLogradouro($logradouro); 
 		$usuario->setBairro($bairro); 
+		$usuario->setComplemento($complemento); 
+		$usuario->setNumero($numero); 
 		$usuario->setCep($cep); 
-		$usuario->setObjCidade($codCidade); 
+		$usuario->setCodCidade($codCidade); 
 
 		$usuario->setLogin($login); 
 		$usuario->setSenha($senha); 				

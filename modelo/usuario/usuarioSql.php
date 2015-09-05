@@ -10,19 +10,26 @@
 	  
 	  //Atributo da tabela usuário
 	  //$idUsuario = '1';
-      //$codCidade = 109991;//mysql_real_escape_string($u->getObjCidadeOrigem()->getCodigo(), $conexao);
 	  $idPerfil = mysql_real_escape_string($usuario->getIdPerfil(), $conexao);      
-	  $nome = mysql_real_escape_string($usuario->getNome(), $conexao);      
+	  $nomeCompleto = mysql_real_escape_string($usuario->getNomeCompleto(), $conexao);      
 	  $razaoSocial = mysql_real_escape_string($usuario->getRazaoSocial(), $conexao);      
-	  $fantasia = mysql_real_escape_string($usuario->getFantasia(), $conexao);      
-	  $cpfcnpj = mysql_real_escape_string($usuario->getCpfCnpj(), $conexao);      
+	  $nomeFantasia = mysql_real_escape_string($usuario->getnomeFantasia(), $conexao);      
+	  $tipoEmpresa = mysql_real_escape_string($usuario->getTipoEmpresa(), $conexao);     
+	  $rg = mysql_real_escape_string($usuario->getRg(), $conexao);      
+	  $orgaoExpedidor = mysql_real_escape_string($usuario->getOrgaoExpedidor(), $conexao);
+	  $cpf = mysql_real_escape_string($usuario->getCpf(), $conexao);
+	  $cnpj = mysql_real_escape_string($usuario->getCnpj(), $conexao);
+
 	  $email = mysql_real_escape_string($usuario->getEmail(), $conexao);      
 	  $telefone1 = mysql_real_escape_string($usuario->getTelefone1(), $conexao);     
 	  $telefone2 = mysql_real_escape_string($usuario->getTelefone2(), $conexao); 
+
 	  $logradouro = mysql_real_escape_string($usuario->getLogradouro(), $conexao);     
 	  $bairro = mysql_real_escape_string($usuario->getBairro(), $conexao);
+	  $numero = mysql_real_escape_string($usuario->getNumero(), $conexao);
+	  $complemento = mysql_real_escape_string($usuario->getComplemento(), $conexao);
 	  $cep = mysql_real_escape_string($usuario->getCep(), $conexao);  
-	  $codCidade = mysql_real_escape_string($usuario->getObjCidade(), $conexao);  
+	  $codCidade = mysql_real_escape_string($usuario->getCodCidade(), $conexao);  
 
 
 	  //Login e senha do usuário    
@@ -30,7 +37,8 @@
 	  $senha = mysql_real_escape_string($usuario->getSenha(), $conexao);    
   
   	  //Insert para a tabela de Usuários do banco de dados
-	  $sql = "insert into usuarios (codCidade, idPerfil, nome, razaoSocial, fantasia, cpfcnpj, email, telefone1, telefone2, logradouro, bairro, cep, login, senha) values ($codCidade, $idPerfil, '$nome', '$razaoSocial', '$fantasia', '$cpfcnpj', '$email', '$telefone1', '$telefone2', '$logradouro', '$bairro', '$cep', '$login', '$senha')";	  
+	  $sql = "insert into usuarios (idPerfil, nomeCompleto, razaoSocial, nomeFantasia, tipoEmpresa, rg, orgaoExpedidor, cpf, cnpj, email, telefone1, telefone2, logradouro, bairro, numero, complemento, cep, codCidade, login, senha) values ($idPerfil, '$nomeCompleto', '$razaoSocial', '$nomeFantasia', '$tipoEmpresa', '$rg', '$orgaoExpedidor', '$cpf','$cnpj', '$email', '$telefone1', '$telefone2', '$logradouro', '$bairro', '$numero', '$complemento', '$cep', $codCidade , '$login', '$senha')";	  
+      //echo ($sql);
       $resultado = @mysql_query($sql, $conexao);
 
        //echo($sql);	

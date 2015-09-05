@@ -10,7 +10,8 @@
 
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
-
+        <link rel="stylesheet" type="text/css" href="../css/paginaTemplate.css">
+        
         <script src="http://code.jquery.com/jquery-1.11.1.min.js"> </script>
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"> </script>
 
@@ -19,49 +20,10 @@
         <script type="text/javascript" src="../js/scriptsUsuarios.js"> </script>
         <script type="text/javascript" src="../js/scriptsCidades.js"> </script>
 
-
-        <style type="text/css">
-            body{ background-image: url("http://noticias.prestumseguros.com.br/wp-content/uploads/2013/12/seguro-caminhao.jpg");
-            } 
-            .transparent-style{ background-color: #000000; opacity: .9; }
-            .navbar,
-            .dropdown-menu{ background:rgba(255,255,255,0.75); border-bottom: 3px solid transparent; } 
-            .nav>li>a,
-            .dropdown-menu>li>a:focus, 
-            .dropdown-menu>li>a:hover, 
-            .dropdown-menu>li>a,
-            .dropdown-menu>li{ border-bottom: 3px solid transparent; } 
-            .nav>li>a:focus,
-            .nav>li>a:hover,.nav .open>a, .nav .open>a:focus, .nav .open>a:hover, 
-            .dropdown-menu>li>a:focus,
-            .dropdown-menu>li>a:hover{ border-bottom: 3px solid transparent; background:rgba(245,255,255,0.10); } 
-            .navbar a, 
-            .dropdown-menu>li>a, 
-            .dropdown-menu>li>a:focus, 
-            .dropdown-menu>li>a:hover{ color: #071B39; } 
-            .dropdown-menu{ -webkit-box-shadow: none; box-shadow:none;} 
-            .nav li:hover:nth-child(8n+1), 
-            .nav li.active:nth-child(8n+1){ border-bottom: #C4E17F 3px solid; } 
-            .nav li:hover:nth-child(8n+2), 
-            .nav li.active:nth-child(8n+2){border-bottom: #F7FDCA 3px solid; } 
-            .nav li:hover:nth-child(8n+3), 
-            .nav li .active:nth-child(8n+3){ border-bottom: #FECF71 3px solid; } 
-            .nav li:hover:nth-child(8n+4),
-            .nav li.active:nth-child(8n+4){ border-bottom: #F0776C 3px solid; } 
-            .nav li:hover:nth-child(8n+5), 
-            .nav li.active:nth-child(8n+5){ border-bottom: #DB9DBE 3px solid; } 
-            .nav li:hover:nth-child(8n+6), 
-            .nav li.active:nth-child(8n+6){ border-bottom: #C49CDE 3px solid; } 
-            .nav li:hover:nth-child(8n+7), 
-            .nav li.active:nth-child(8n+7){ border-bottom: #669AE1 3px solid; } 
-            .nav li:hover:nth-child(8n+8),
-            .nav li.active:nth-child(8n+8){ border-bottom: #62C2E4 3px solid; }
-        </style>
-
     </head>
     
     <body>
-         <div class="navbar-wrapper">
+        <div class="navbar-wrapper">
             <div class="container-fluid">
                 <nav class="navbar">
                     <div class="container">
@@ -86,12 +48,12 @@
                                     <a href="../index.php" class="">Home</a>
                                 </li>
                                 <li class=" dropdown">
-                                    <a href="aboutViewNew.php" class="dropdown-toggle " >Empresa</a>
+                                    <a href="about.php" class="dropdown-toggle " >Empresa</a>
                                 <li class=" dropdown">
-                                    <a href="frotaViewNew.php" class="dropdown-toggle " >Atuação</a>
+                                    <a href="frota.php" class="dropdown-toggle " >Atuação</a>
                                 </li>
                                 <li class=" dropdown">
-                                    <a href="cotacaoViewCadastroNew.php" class="dropdown-toggle " >Cotação</a>
+                                    <a href="cotacaoCadastro.php" class="dropdown-toggle " >Cotação</a>
                                 </li>
                                 <li class=" dropdown">
                                     <a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button"
@@ -106,7 +68,7 @@
                                     </ul>
                                 </li>
                                 <li class=" dropdown">
-                                    <a href="contactViewNew.php" class="dropdown-toggle " >Contatos</a>
+                                    <a href="contact.php" class="dropdown-toggle " >Contatos</a>
                                 </li>
                             </ul>
                             <ul class="nav navbar-nav pull-right">
@@ -115,10 +77,7 @@
                                     aria-haspopup="true" aria-expanded="false">Signed in as  <span class="caret"></span></a>
                                     <ul class="dropdown-menu">
                                         <li>
-                                            <a href="loginViewNew.php">Meu Perfil</a>
-                                        </li>
-                                        <li>
-                                            <a href="usuarioViewCadastroPessoaFisicaJuridicaNew.php">Registrar-se</a>
+                                            <a href="login.php">Meu Perfil</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -137,21 +96,27 @@
                 <nav class="navbar">
                     <div class="container">                        
 
-                                    <center>
-                                    <br><br>
-                                    <b>Login:</b>
-                                    <br>
-                                    <input type="text" size="30" class="form-control" placeholder="Digíte seu usuário de acesso" tabindex="1" type="text" onfocus="focus_Blur(this, '#E0FFFF');"
-                                    onblur="focus_Blur(this, 'white');" value="" id="nome" name="nome">
-                                    <br>
-                                    <b>Senha:</b>
-                                    <br>
-                                    <input type="text" size="30" class="form-control" placeholder="Digíte sua senha" tabindex="1" type="text" onfocus="focus_Blur(this, '#E0FFFF');"
-                                    onblur="focus_Blur(this, 'white');" value="" id="razaoSocial" name="razaoSocial">
-                                    <br>
-                                    <input type="submit" size="80" value="Entrar" id="btnEntrar" onClick=""> 
-                                    <br><br>                                   
-                                    </center>
+                    <div class="col-lg-12">
+
+                        <hr>
+                        <h2 class="intro-text text-center">Nossa <strong> frota</strong> e nossa <strong>logística</strong></h2>
+                        <hr>
+                    </div>
+
+                    <h3>Frota</h3>
+                    <p>
+                        Com uma frota própria, nossos veículos são rastreados e monitorados via satélite, permitindo ao cliente
+                        segurança e informação no acompanhamento da sua carga. Entrega eficiente desde grandes cargas a pequenas encomendas.
+                    </p>
+
+                    <h3>Logística</h3>
+                    <p>
+                        Nosso maior compromisso é evitar avarias e entregar as encomendas no prazo correto, atendendo sempre as necessidade de
+                        nosso clientes. Trabalhamos com coleta e distribuição de cargas.
+                    </p>
+
+                    <div class="clearfix"></div>
+                    <br><br>
                     </div>
                 </nav>
         </div>

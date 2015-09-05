@@ -25,7 +25,7 @@
             } 
             .transparent-style{ background-color: #000000; opacity: .9; }
             .navbar,
-            .dropdown-menu{ background:rgba(255,255,255,0.75); border-bottom: 3px solid transparent; } 
+            .dropdown-menu{ background:rgba(255,255,255,0.70); border-bottom: 3px solid transparent; } 
             .nav>li>a,
             .dropdown-menu>li>a:focus, 
             .dropdown-menu>li>a:hover, 
@@ -86,12 +86,12 @@
                                     <a href="index.php" class="">Home</a>
                                 </li>
                                 <li class=" dropdown">
-                                    <a href="view/aboutViewNew.php" class="dropdown-toggle " >Empresa</a>
+                                    <a href="view/about.php" class="dropdown-toggle " >Empresa</a>
                                 <li class=" dropdown">
-                                    <a href="view/frotaViewNew.php" class="dropdown-toggle " >Atuação</a>
+                                    <a href="view/frota.php" class="dropdown-toggle " >Atuação</a>
                                 </li>
                                 <li class=" dropdown">
-                                    <a href="view/cotacaoViewCadastroNew.php" class="dropdown-toggle " >Cotação</a>
+                                    <a href="view/cotacaoCadastro.php" class="dropdown-toggle " >Cotação</a>
                                 </li>
                                 <li class=" dropdown">
                                     <a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button"
@@ -106,7 +106,7 @@
                                     </ul>
                                 </li>
                                 <li class=" dropdown">
-                                    <a href="view/contactViewNew.php" class="dropdown-toggle " >Contatos</a>
+                                    <a href="view/contact.php" class="dropdown-toggle " >Contatos</a>
                                 </li>
                             </ul>
                             <ul class="nav navbar-nav pull-right">
@@ -115,11 +115,9 @@
                                     aria-haspopup="true" aria-expanded="false">Signed in as  <span class="caret"></span></a>
                                     <ul class="dropdown-menu">
                                         <li>
-                                            <a href="view/loginViewNew.php">Meu Perfil</a>
+                                            <a href="view/login.php">Meu Perfil</a>
                                         </li>
-                                        <li>
-                                            <a href="view/usuarioViewCadastroPessoaFisicaJuridicaNew.php">Registrar-se</a>
-                                        </li>
+
                                     </ul>
                                 </li>
                                 <li class="">
