@@ -162,13 +162,9 @@
                                                         <div class="form-group">
                                                             <div class="row">
                                                                 <center>
-                                                                    <div class="botoes">
-                                                                        <a href="usuarioCadastroPJ.php" class="btn btn-large btn-primary float-left"
-                                                                        style="float:left: ;">Pessoa Juridica</a>
-                                                                        <a href="usuarioCadastroPF.php" class="btn btn-large btn-primary float-left"
-                                                                        style="float:left: ;">Pessoa Fisica</a>
-
-                                                                    </div>
+                                                                    <div>
+                                                                        <a href="usuarioCadastroPJ.php">Pessoa Juridica</a>
+                                                                        <a href="usuarioCadastroPF.php">Pessoa Fisica</a>
                                                                 </center>
                                                             </div>
                                                         </div>
