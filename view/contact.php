@@ -111,6 +111,10 @@
                 </nav>
         </div>
 
+<?php
+$nome = $_POST['nome'];
+?>
+
         <div class="navbar-wrapper">
                 <nav class="navbar">
                     <div class="container">                        
@@ -135,9 +139,7 @@
                                 </div>
                                 <div class="form-group col-lg-12">
                                     <input type="hidden" name="save" value="contact">
-                                    <button type="submit" class="btn btn-default">
-                                        Enviar
-                                    </button>
+                                    <button type="submit" class="btn btn-default">Enviar</button>
                                 </div>
                             </div>
                     </div>

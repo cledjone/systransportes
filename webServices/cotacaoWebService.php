@@ -9,7 +9,7 @@
 	if (isset($_GET["incluirCotacao"]) || isset($_GET["alterarCotacao"])) {			
 		$cotacao = new Cotacao();	
 		if (isset($_GET["alterarCotacao"]))
-			$cotacao->setId($idCotacao); 
+		$cotacao->setId($idCotacao); 
 		$cotacao->getObjUsuario()->setId($idUsuario);	
 		$cotacao->getObjCidadeOrigem()->setCodigo($codCidadeOrigem);
 		$cotacao->getObjCidadeDestino()->setCodigo($codCidadeDestino);

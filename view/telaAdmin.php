@@ -98,7 +98,7 @@
             
         </li>
         <li>
-        <a class="btn btn-lg btn-primary" href="#">
+        <a class="btn btn-lg btn-primary" href="telaAdminusuarios.php">
         <i class="glyphicon glyphicon-user pull-left"></i><span>Usuário<br><small>Usuários do Sistema</small></span></a> 
             
         </li>
