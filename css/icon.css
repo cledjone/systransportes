@@ -1,6 +1,27 @@
 .icon-blank{
 	background:url('icons/blank.gif') no-repeat center center;
 }
+
+
+
+.icon-delete-icon{
+	background:url('icons/delete_icon.png') no-repeat center center;
+}
+.icon-save-as-icon{
+	background:url('icons/save_as_icon.png') no-repeat center center;
+}
+.icon-users-add-icon{
+	background:url('icons/users_add_icon.png') no-repeat center center;
+}
+.icon-male-user-add{
+	background:url('icons/male_user_add.png') no-repeat center center;
+}
+.icon-add-icon{
+	background:url('icons/add_icon.png') no-repeat center center;
+}
+
+
+
 .icon-add{
 	background:url('icons/edit_add.png') no-repeat center center;
 }

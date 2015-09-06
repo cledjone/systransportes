@@ -95,11 +95,11 @@
             </thead>
          </table>
          <div id="toolbar">
-            <a href="usuarioCadastroPF.php" class="easyui-linkbutton" iconCls="icon-add" plain="true">Criar PF</a>
-            <a href="usuarioCadastroPJ.php" class="easyui-linkbutton" iconCls="icon-add" plain="true">Criar PJ</a>
-            <a href="usuarioCadastroFuncionario.php" class="easyui-linkbutton" iconCls="icon-add" plain="true">Criar Funcionário</a>
-            <a href="#" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="javascript:$('#dg').edatagrid('destroyRow')">Deletar</a>
-            <a href="#" class="easyui-linkbutton" iconCls="icon-save" plain="true" onclick="javascript:$('#dg').edatagrid('saveRow')">Editar/Salvar</a>
+            <a href="usuarioCadastroPF.php" class="easyui-linkbutton" iconCls="icon-male-user-add" plain="true">Criar PF</a>
+            <a href="usuarioCadastroPJ.php" class="easyui-linkbutton" iconCls="icon-male-user-add" plain="true">Criar PJ</a>
+            <a href="usuarioCadastroFuncionario.php" class="easyui-linkbutton" iconCls="icon-users-add-icon" plain="true">Criar Funcionário</a>
+            <a href="#" class="easyui-linkbutton" iconCls="icon-delete-icon" plain="true" onclick="javascript:$('#dg').edatagrid('destroyRow')">Deletar</a>
+            <a href="#" class="easyui-linkbutton" iconCls="icon-save-as-icon" plain="true" onclick="javascript:$('#dg').edatagrid('saveRow')">Editar/Salvar</a>
             <a href="#" class="easyui-linkbutton" iconCls="icon-undo" plain="true" onclick="javascript:$('#dg').edatagrid('cancelRow')">Cancelar</a>
          </div>
          </div>
