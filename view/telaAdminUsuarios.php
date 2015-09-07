@@ -34,10 +34,10 @@
          $(function(){
              $("div.easyui-layout").layout();
              $('#dg').edatagrid({
-                 url: 'get_cadastroclientes.php',
-                 saveUrl: 'save_cadastroclientes.php',
-                 updateUrl: 'update_cadastroclientes.php',
-                 destroyUrl: 'destroy_cadastroclientes.php',
+                 url: 'getCadastroAdmin.php',
+                 saveUrl: 'saveCadastroAdmin.php',
+                 updateUrl: 'updateCadastroAdmin.php',
+                 destroyUrl: 'destroyCadastroAdmin.php',
                  fitColumns: true
              });
              var dg = $('#dg');
@@ -71,7 +71,7 @@
             rownumbers="true" fitColumns="true" resizable="true">
             <thead>
                <tr>
-                  <th field="perfil" width="33" editor="text">Perfil</th>
+                  <th field="perfil" width="50" editor="{type:'validatebox',options:{required:true}}">Perfil</th>
                   <th field="nomeCompleto" width="70" editor="text">Nome.C</th>
                   <th field="razaoSocial" width="50" editor="text">Razão.S</th>
                   <th field="nomeFantasia" width="50" editor="text">Nome.F</th>
@@ -80,28 +80,25 @@
                   <th field="orgaoExpedidor" width="50" editor="text">Orgão.E</th>
                   <th field="cpf" width="50" editor="text">CPF</th>
                   <th field="cnpj" width="50" editor="text">CNPJ</th>
-                  <th field="email" width="50" editor="text">E-mail</th>
-                  <th field="telefone1" width="50" editor="text">Tel.1</th>
+                  <th field="email" width="50" editor="{type:'validatebox',options:{validType:'email'}}">E-mail</th>
+                  <th field="telefone1" width="50" editor="{type:'validatebox',options:{required:true}}">Tel.1</th>
                   <th field="telefone2" width="50" editor="text">Tel.2</th>
-                  <th field="logradouro" width="50" editor="text">Lograd.</th>
-                  <th field="bairro" width="50" editor="text">Bairro</th>
-                  <th field="numero" width="30" editor="text">Nm</th>
+                  <th field="logradouro" width="50" editor="{type:'validatebox',options:{required:true}}">Lograd.</th>
+                  <th field="bairro" width="50" editor="{type:'validatebox',options:{required:true}}">Bairro</th>
+                  <th field="numero" width="30" editor="{type:'validatebox',options:{required:true}}">Nm</th>
                   <th field="complemento" width="50" editor="text">Compl.</th>
-                  <th field="uf" width="30" editor="text">UF</th>
-                  <th field="cidade" width="50" editor="text">Cidade</th>
-                  <th field="cep" width="50" editor="text">CEP</th>
-                  <th field="login" width="50" editor="text">Login</th>
-                  <th field="senha" width="50" editor="text">Senha</th>
+                  <th field="uf" width="30" editor="{type:'validatebox',options:{required:true}}">UF</th>
+                  <th field="cidade" width="50" editor="{type:'validatebox',options:{required:true}}">Cidade</th>
+                  <th field="cep" width="50" editor="{type:'validatebox',options:{required:true}}">CEP</th>
+                  <th field="login" width="50" editor="{type:'validatebox',options:{required:true}}">Login</th>
+                  <th field="senha" width="50" editor="{type:'validatebox',options:{required:true}}">Senha</th>
                </tr>
             </thead>
          </table>
          <div id="toolbar">
-            <a href="usuarioCadastroPF.php" class="easyui-linkbutton" iconCls="icon-male-user-add" plain="true">Criar PF</a>
-            <a href="usuarioCadastroPJ.php" class="easyui-linkbutton" iconCls="icon-male-user-add" plain="true">Criar PJ</a>
-            <a href="usuarioCadastroFuncionario.php" class="easyui-linkbutton" iconCls="icon-users-add-icon" plain="true">Criar Funcionário</a>
-            <a href="#" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="javascript:$('#dg').edatagrid('addRow')">Novo</a>
-            <a href="#" class="easyui-linkbutton" iconCls="icon-delete-icon" plain="true" onclick="javascript:$('#dg').edatagrid('destroyRow')">Deletar</a>
+            <a href="#" class="easyui-linkbutton" iconCls="icon-users-add-icon" plain="true" onclick="javascript:$('#dg').edatagrid('addRow')">Criar Usuário</a>
             <a href="#" class="easyui-linkbutton" iconCls="icon-save-as-icon" plain="true" onclick="javascript:$('#dg').edatagrid('saveRow')">Editar/Salvar</a>
+            <a href="#" class="easyui-linkbutton" iconCls="icon-delete-icon" plain="true" onclick="javascript:$('#dg').edatagrid('destroyRow')">Deletar</a>
             <a href="#" class="easyui-linkbutton" iconCls="icon-undo" plain="true" onclick="javascript:$('#dg').edatagrid('cancelRow')">Cancelar</a>
          </div>
          </div>
