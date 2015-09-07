@@ -1,5 +1,6 @@
 <?php
 
+$perfil = $_REQUEST['perfil'];
 $nomeCompleto = $_REQUEST['nomeCompleto'];
 $razaoSocial = $_REQUEST['razaoSocial'];
 $nomeFantasia = $_REQUEST['nomeFantasia'];
@@ -15,15 +16,18 @@ $logradouro = $_REQUEST['logradouro'];
 $bairro = $_REQUEST['bairro'];
 $numero = $_REQUEST['numero'];
 $complemento = $_REQUEST['complemento'];
+$uf = $_REQUEST['uf'];
+$cidade = $_REQUEST['cidade'];
 $cep = $_REQUEST['cep'];
 $login = $_REQUEST['login'];
 $senha = $_REQUEST['senha'];
 include 'conn.php';
 
-$sql = "insert into usuarios(nomeCompleto,razaoSocial,nomeFantasia,tipoEmpresa,rg,orgaoExpedidor,cpf,cnpj,email,telefone1,telefone2,logradouro,bairro,numero,complemento,cep,login,senha) values('$nomeCompleto','$razaoSocial','$nomeFantasia','$tipoEmpresa','$rg','$orgaoExpedidor','$cpf','$cnpj','$email','$telefone2','$logradouro','$bairro','$numero','$complemento','$cep','$login','$senha')";
+$sql = "insert into usuarios(perfil,nomeCompleto,razaoSocial,nomeFantasia,tipoEmpresa,rg,orgaoExpedidor,cpf,cnpj,email,telefone1,telefone2,logradouro,bairro,numero,complemento,uf,cidade,cep,login,senha) values('$perfil','$nomeCompleto','$razaoSocial','$nomeFantasia','$tipoEmpresa','$rg','$orgaoExpedidor','$cpf','$cnpj','$email','$telefone1','$telefone2','$logradouro','$bairro','$numero','$complemento','$uf','$cidade','$cep','$login','$senha')";
 @mysql_query($sql);
 echo json_encode(array(
 	'id' => mysql_insert_id(),
+	'perfil' => $perfil,
 	'nomeCompleto' => $nomeCompleto,
 	'razaoSocial' => $razaoSocial,
 	'nomeFantasia' => $nomeFantasia,
@@ -39,6 +43,8 @@ echo json_encode(array(
 	'bairro' => $bairro,
 	'numero' => $numero,
 	'complemento' => $complemento,
+	'uf' => $uf,
+	'cidade' => $cidade,
 	'cep' => $cep,
 	'login' => $login,
 	'senha' => $senha

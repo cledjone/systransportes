@@ -12,7 +12,7 @@
 		$usuario = new Usuario();	
 
 		//Atributos da classe Usuário/Valores 
-		$usuario->setIdPerfil($idPerfil); 
+		$usuario->setPerfil($perfil); 
 		$usuario->setNomeCompleto($nomeCompleto); 
 		$usuario->setRazaoSocial($razaoSocial); 
 		$usuario->setnomeFantasia($nomeFantasia); 
@@ -30,7 +30,8 @@
 		$usuario->setComplemento($complemento); 
 		$usuario->setNumero($numero); 
 		$usuario->setCep($cep); 
-		$usuario->setCodCidade($codCidade); 
+		$usuario->setUf($uf); 
+		$usuario->setCidade($cidade); 
 
 		$usuario->setLogin($login); 
 		$usuario->setSenha($senha); 				

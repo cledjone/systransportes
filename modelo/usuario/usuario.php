@@ -3,7 +3,7 @@
 
   //Atributos
   private $id;    
-  private $idPerfil;
+  private $perfil;
   private $nomeCompleto;  
   private $razaoSocial;  
   private $nomeFantasia; 
@@ -22,7 +22,8 @@
   private $bairro;
   private $numero;
   private $complemento;
-  private $codCidade;
+  private $uf;
+  private $cidade;
 
   private $login;
   private $senha;
@@ -37,12 +38,12 @@
     return $this->id;
   }
 
-  //Id Perfil
-	public function setIdPerfil($idPerfil) {
-    $this->idPerfil = trim($idPerfil);
+  //Perfil
+	public function setPerfil($perfil) {
+    $this->perfil = trim($perfil);
   }
-  public function getIdPerfil() {
-    return $this->idPerfil;
+  public function getPerfil() {
+    return $this->perfil;
   }	
 	
 	//Nome Completo
@@ -171,16 +172,25 @@
   }
   public function getCep() {
     return $this->cep;
+  }   
+
+  //uf
+  public function setUf($uf) {
+    $this->uf = trim($uf);
+  }
+  public function getUf() {
+    return $this->uf;
   } 
 
-  //Código Cidade
-  public function setCodCidade($codCidade) {
-    $this->codCidade = trim($codCidade);
+  //cidade
+  public function setCidade($cidade) {
+    $this->cidade = trim($cidade);
   }
+  public function getCidade() {
+    return $this->cidade;
+  } 
 
-  public function getCodCidade() {     
-    return $this->codCidade;
-  }   
+
 
   //login
   public function setLogin($login) {

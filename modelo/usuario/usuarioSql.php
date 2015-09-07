@@ -10,7 +10,7 @@
 	  
 	  //Atributo da tabela usuário
 	  //$idUsuario = '1';
-	  $idPerfil = mysql_real_escape_string($usuario->getIdPerfil(), $conexao);      
+	  $perfil = mysql_real_escape_string($usuario->getPerfil(), $conexao);      
 	  $nomeCompleto = mysql_real_escape_string($usuario->getNomeCompleto(), $conexao);      
 	  $razaoSocial = mysql_real_escape_string($usuario->getRazaoSocial(), $conexao);      
 	  $nomeFantasia = mysql_real_escape_string($usuario->getnomeFantasia(), $conexao);      
@@ -29,15 +29,15 @@
 	  $numero = mysql_real_escape_string($usuario->getNumero(), $conexao);
 	  $complemento = mysql_real_escape_string($usuario->getComplemento(), $conexao);
 	  $cep = mysql_real_escape_string($usuario->getCep(), $conexao);  
-	  $codCidade = mysql_real_escape_string($usuario->getCodCidade(), $conexao);  
-
+	  $uf = mysql_real_escape_string($usuario->getUf(), $conexao);
+	  $cidade = mysql_real_escape_string($usuario->getCidade(), $conexao);
 
 	  //Login e senha do usuário    
 	  $login = mysql_real_escape_string($usuario->getLogin(), $conexao);     
 	  $senha = mysql_real_escape_string($usuario->getSenha(), $conexao);    
   
   	  //Insert para a tabela de Usuários do banco de dados
-	  $sql = "insert into usuarios (idPerfil, nomeCompleto, razaoSocial, nomeFantasia, tipoEmpresa, rg, orgaoExpedidor, cpf, cnpj, email, telefone1, telefone2, logradouro, bairro, numero, complemento, cep, codCidade, login, senha) values ($idPerfil, '$nomeCompleto', '$razaoSocial', '$nomeFantasia', '$tipoEmpresa', '$rg', '$orgaoExpedidor', '$cpf','$cnpj', '$email', '$telefone1', '$telefone2', '$logradouro', '$bairro', '$numero', '$complemento', '$cep', $codCidade , '$login', '$senha')";	  
+	  $sql = "insert into usuarios (perfil, nomeCompleto, razaoSocial, nomeFantasia, tipoEmpresa, rg, orgaoExpedidor, cpf, cnpj, email, telefone1, telefone2, logradouro, bairro, numero, complemento, cep, uf, cidade, login, senha) values ('$perfil', '$nomeCompleto', '$razaoSocial', '$nomeFantasia', '$tipoEmpresa', '$rg', '$orgaoExpedidor', '$cpf','$cnpj', '$email', '$telefone1', '$telefone2', '$logradouro', '$bairro', '$numero', '$complemento', '$cep','$uf','$cidade', '$login', '$senha')";	  
       //echo ($sql);
       $resultado = @mysql_query($sql, $conexao);
 

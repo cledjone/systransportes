@@ -71,8 +71,7 @@
             rownumbers="true" fitColumns="true" resizable="true">
             <thead>
                <tr>
-                  <th field="idPerfil" width="33" editor="text">Perfil</th>
-                  <th field="codCidade" width="65" editor="text">Cod.Cidade</th>
+                  <th field="perfil" width="33" editor="text">Perfil</th>
                   <th field="nomeCompleto" width="70" editor="text">Nome.C</th>
                   <th field="razaoSocial" width="50" editor="text">Razão.S</th>
                   <th field="nomeFantasia" width="50" editor="text">Nome.F</th>
@@ -88,6 +87,8 @@
                   <th field="bairro" width="50" editor="text">Bairro</th>
                   <th field="numero" width="30" editor="text">Nm</th>
                   <th field="complemento" width="50" editor="text">Compl.</th>
+                  <th field="uf" width="30" editor="text">UF</th>
+                  <th field="cidade" width="50" editor="text">Cidade</th>
                   <th field="cep" width="50" editor="text">CEP</th>
                   <th field="login" width="50" editor="text">Login</th>
                   <th field="senha" width="50" editor="text">Senha</th>
@@ -98,6 +99,7 @@
             <a href="usuarioCadastroPF.php" class="easyui-linkbutton" iconCls="icon-male-user-add" plain="true">Criar PF</a>
             <a href="usuarioCadastroPJ.php" class="easyui-linkbutton" iconCls="icon-male-user-add" plain="true">Criar PJ</a>
             <a href="usuarioCadastroFuncionario.php" class="easyui-linkbutton" iconCls="icon-users-add-icon" plain="true">Criar Funcionário</a>
+            <a href="#" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="javascript:$('#dg').edatagrid('addRow')">Novo</a>
             <a href="#" class="easyui-linkbutton" iconCls="icon-delete-icon" plain="true" onclick="javascript:$('#dg').edatagrid('destroyRow')">Deletar</a>
             <a href="#" class="easyui-linkbutton" iconCls="icon-save-as-icon" plain="true" onclick="javascript:$('#dg').edatagrid('saveRow')">Editar/Salvar</a>
             <a href="#" class="easyui-linkbutton" iconCls="icon-undo" plain="true" onclick="javascript:$('#dg').edatagrid('cancelRow')">Cancelar</a>

@@ -386,14 +386,14 @@
                                     <h2>
                                         Login/Senha
                                     </h2>
-                                    <select class="form-control" required="required" id="idPerfil" name="idPerfil">
+                                    <select class="form-control" required="required" id="perfil" name="perfil">
                                         <option value="5">
                                             --- Escolha um Perfil ---
                                         </option>
-                                        <option value="3">
+                                        <option value="Atendente">
                                             Atendente
                                         </option>
-                                        <option value="4">
+                                        <option value="Motorista">
                                             Motorista
                                         </option>
                                     </select>

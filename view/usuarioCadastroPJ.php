@@ -354,9 +354,9 @@
                                     <h2>
                                         Login/Senha
                                     </h2>
-                                    <select class="form-control" required="required" id="idPerfil" name="idPerfil"
+                                    <select class="form-control" required="required" id="perfil" name="perfil"
                                     disabled>
-                                        <option value="2">
+                                        <option value="Pessoa Jurídica">
                                             Pessoa Jurídica
                                         </option>
                                     </select>

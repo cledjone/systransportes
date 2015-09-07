@@ -4,8 +4,7 @@
 //$conexao = Conexao::getInstance()->getConexao();
 
 $id = intval($_REQUEST['id']);
-$idPerfil = $_REQUEST['idPerfil'];
-$codCidade = $_REQUEST['codCidade'];
+$perfil = $_REQUEST['perfil'];
 $nomeCompleto = $_REQUEST['nomeCompleto'];
 $razaoSocial = $_REQUEST['razaoSocial'];
 $nomeFantasia = $_REQUEST['nomeFantasia'];
@@ -21,19 +20,20 @@ $logradouro = $_REQUEST['logradouro'];
 $bairro = $_REQUEST['bairro'];
 $numero = $_REQUEST['numero'];
 $complemento = $_REQUEST['complemento'];
+$uf = $_REQUEST['uf'];
+$cidade = $_REQUEST['cidade'];
 $cep = $_REQUEST['cep'];
 $login = $_REQUEST['login'];
 $senha = $_REQUEST['senha'];
 
 include 'conn.php';
 
-$sql = "update usuarios set idPerfil=$idPerfil,codCidade=$codCidade,nomeCompleto='$nomeCompleto',razaoSocial='$razaoSocial',nomeFantasia='$nomeFantasia',tipoEmpresa='$tipoEmpresa',rg='$rg',orgaoExpedidor='$orgaoExpedidor',cpf='$cpf',cnpj='$cnpj',email='$email',telefone1='$telefone1' telefone2='$telefone2',logradouro='$logradouro',bairro='$bairro',numero='$numero',complemento='$complemento',cep='$cep' login='$senha'  where id=$id";
+$sql = "update usuarios set perfil='$perfil',nomeCompleto='$nomeCompleto',razaoSocial='$razaoSocial',nomeFantasia='$nomeFantasia',tipoEmpresa='$tipoEmpresa',rg='$rg',orgaoExpedidor='$orgaoExpedidor',cpf='$cpf',cnpj='$cnpj',email='$email',telefone1='$telefone1',telefone2='$telefone2',logradouro='$logradouro',bairro='$bairro',numero='$numero',complemento='$complemento',uf='$uf',cidade='$cidade',cep='$cep',login='$login',senha='$senha'  where id=$id";
 @mysql_query($sql);
 echo json_encode(array(
 	'id' => $id,
-	'idPerfil' => $idPerfil,
-	'codCidade' => $codCidade,
-	'razaoSocial' => $razaoSocial,
+	'perfil' => $perfil,
+	'nomeCompleto' => $nomeCompleto,
 	'razaoSocial' => $razaoSocial,
 	'nomeFantasia' => $nomeFantasia,
 	'tipoEmpresa' => $tipoEmpresa,
@@ -48,6 +48,8 @@ echo json_encode(array(
 	'bairro' => $bairro,
 	'numero' => $numero,
 	'complemento' => $complemento,
+	'uf' => $uf,
+	'cidade' => $cidade,
 	'cep' => $cep,
 	'login' => $login,
 	'senha' => $senha

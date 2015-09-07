@@ -66,6 +66,7 @@
                     <div class="container">
                         <ul class="nav navbar-nav">
                             <form>
+                                
                                 <table>
                                     <!--Dados Pessoais -->
                                     <h2>
@@ -347,9 +348,9 @@
                                     <h2>
                                         Login/Senha
                                     </h2>
-                                    <select class="form-control" required="required" id="idPerfil" name="idPerfil"
+                                    <select class="form-control" required="required" id="perfil" name="perfil"
                                     disabled>
-                                        <option value="1">
+                                        <option value="Pessoa Física">
                                             Pessoa Física
                                         </option>
                                     </select>
@@ -394,6 +395,7 @@
                                 <br>
                                 <br>
                                 <br>
+
                             </form>
                         </ul>
                     </div>
