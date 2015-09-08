@@ -112,7 +112,7 @@
         </div>
 
 <?php
-$nome = $_POST['nome'];
+
 ?>
 
         <div class="navbar-wrapper">

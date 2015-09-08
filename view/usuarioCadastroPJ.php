@@ -68,7 +68,7 @@
                                 <table>
                                     <!--Dados Pessoais -->
                                     <h2>
-                                        Dados Jurídica
+                                        Dados Pessoa Jurídica
                                         </h1>
                                         <tr>
                                             <td>
