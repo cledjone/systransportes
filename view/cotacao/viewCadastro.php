@@ -1,0 +1,290 @@
+<?php	
+	extract ($_REQUEST);
+?>
+<html lang="en">    
+    <head>
+        <meta charset="utf-8">        
+        <title>SysTransportes</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">                        
+		<link href="../../css/style.css" rel="stylesheet" type="text/css" charset="utf-8" />
+		<script type="text/javascript" src="../../js/jquery.js"> </script>		
+		<script type="text/javascript" src="../../js/scriptsCotacoes.js"> </script>		
+		<script type="text/javascript" src="../../js/scriptsCidades.js"> </script>		
+		<script type="text/javascript" src="../../js/validacoes.js"> </script>		
+    </head>    
+    <body onload="consultaCotacao('<?php echo($idCotacao); ?>')">
+         <div class="navbar-wrapper">
+            <div class="container-fluid">
+                <nav class="navbar">
+                    <div class="container">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                            data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                                <span class="sr-only">
+                                    Toggle navigation
+                                </span>
+                                <span class="icon-bar">
+                                </span>
+                                <span class="icon-bar">
+                                </span>
+                                <span class="icon-bar">
+                                </span>
+                            </button>
+                            <a class="navbar-brand" href="#">SysTransportes</a>
+                        </div>
+                        <div id="navbar" class="navbar-collapse collapse">
+                            <ul class="nav navbar-nav">
+                                <li class="active">
+                                    <a href="../index.php" class="">Home</a>
+                                </li>
+                                <li class=" dropdown">
+                                    <a href="aboutViewNew.php" class="dropdown-toggle " >Empresa</a>
+                                <li class=" dropdown">
+                                    <a href="frotaViewNew.php" class="dropdown-toggle " >Atuação</a>
+                                </li>
+                                <li class=" dropdown">
+                                    <a href="cotacaoViewCadastroNew.php" class="dropdown-toggle " >Cotação</a>
+                                </li>
+                                <li class=" dropdown">
+                                    <a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button"
+                                    aria-haspopup="true" aria-expanded="false">Serviços <span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <a href="#">View Staff</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Add New</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class=" dropdown">
+                                    <a href="contactViewNew.php" class="dropdown-toggle " >Contatos</a>
+                                </li>
+                            </ul>
+                            <ul class="nav navbar-nav pull-right">
+                                <li class=" dropdown">
+                                    <a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button"
+                                    aria-haspopup="true" aria-expanded="false">Signed in as  <span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <a href="loginViewNew.php">Meu Perfil</a>
+                                        </li>
+                                        <li>
+                                            <a href="usuarioViewCadastroNew.php">Registrar-se</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="">
+                                    <a href="#">Logout</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <div class="navbar-wrapper">
+			<nav class="navbar">
+				<div class="container">                        
+					<div class="container">        
+						<div class="box">         						
+							<center>
+							<br><br>    
+								<div class="col-lg-12">                     
+									<b><font color="red" size="4">CADASTRO DE COTAÇÕES</font></b>                       
+								</div>          
+							<br><br><br>
+							<table>
+								<tr>
+									<td>
+									  <table style="border: 1px solid;">
+											<tr>
+												<td colspan="2" style="border: 1px solid;">
+													<b><font size="3" color="red">ORIGEM</font></b>
+												</td>																	
+											</tr>																				
+											<tr>								
+												<td>UF</td>			
+												<td>Cidade</td>																		
+											</tr>								
+											<tr>								
+												<td>					
+													<select tabindex="14" onfocus="focus_Blur(this, 'yellow');" onblur="focus_Blur(this, 'white');" id="ufOrigem" onChange="consultaCidades('cidadeOrigem', 'ufOrigem','0','Escolha a Cidade!')">  
+														<option value="">??</option>			
+														<option value="PE">PE</option>			
+														<option value="AC">AC</option>			
+														<option value="AL">AL</option>			
+														<option value="AM">AM</option>			
+														<option value="AP">AP</option>			
+														<option value="BA">BA</option>			
+														<option value="CE">CE</option>			
+														<option value="DF">DF</option>			
+														<option value="ES">ES</option>			
+														<option value="GO">GO</option>			
+														<option value="MA">MA</option>			
+														<option value="MG">MG</option>			
+														<option value="MS">MS</option>			
+														<option value="MT">MT</option>			
+														<option value="PA">PA</option>			
+														<option value="PB">PB</option>			
+														<option value="PI">PI</option>			
+														<option value="PR">PR</option>			
+														<option value="RJ">RJ</option>			
+														<option value="RN">RN</option>			
+														<option value="RO">RO</option>			
+														<option value="RR">RR</option>			
+														<option value="RS">RS</option>			
+														<option value="SC">SC</option>
+														<option value="SE">SE</option>
+														<option value="SP">SP</option>			
+														<option value="TO">TO</option>			
+													</select>
+												</td>								
+												<td>							
+													<select onfocus="focus_Blur(this, 'yellow');" tabindex="7" onblur="focus_Blur(this, 'white');" id="cidadeOrigem" name="cidadeOrigem"  onChange="juntaCidadeUf()">
+														<option size="35" value="">ESCOLHA O ESTADO ORIGEM</option>									
+													</select>																	
+												</td>																	
+											</tr>						
+										</table>
+									</td>
+									<td>
+										&nbsp;&nbsp;&nbsp;
+									</td>
+									<td>
+									  <table style="border: 1px solid;">
+											<tr>
+												<td colspan="2"  style="border: 1px solid;">
+													<b><font size="3" color="red">DESTINO</font></b>
+												</td>																	
+											</tr>																				
+											<tr>								
+												<td>UF</td>			
+												<td>Cidade</td>																		
+											</tr>								
+											<tr>								
+												<td>					
+													<select tabindex="14" onfocus="focus_Blur(this, 'yellow');" onblur="focus_Blur(this, 'white');" id="ufDestino" onChange="consultaCidades('cidadeDestino', 'ufDestino', '0','Escolha a Cidade!')" >  
+														<option value="">??</option>			
+														<option value="PE">PE</option>			
+														<option value="AC">AC</option>			
+														<option value="AL">AL</option>			
+														<option value="AM">AM</option>			
+														<option value="AP">AP</option>			
+														<option value="BA">BA</option>			
+														<option value="CE">CE</option>			
+														<option value="DF">DF</option>			
+														<option value="ES">ES</option>			
+														<option value="GO">GO</option>			
+														<option value="MA">MA</option>			
+														<option value="MG">MG</option>			
+														<option value="MS">MS</option>			
+														<option value="MT">MT</option>			
+														<option value="PA">PA</option>			
+														<option value="PB">PB</option>			
+														<option value="PI">PI</option>			
+														<option value="PR">PR</option>			
+														<option value="RJ">RJ</option>			
+														<option value="RN">RN</option>			
+														<option value="RO">RO</option>			
+														<option value="RR">RR</option>			
+														<option value="RS">RS</option>			
+														<option value="SC">SC</option>
+														<option value="SE">SE</option>
+														<option value="SP">SP</option>			
+														<option value="TO">TO</option>			
+													</select>
+												</td>								
+												<td>							
+													<select onfocus="focus_Blur(this, 'yellow');" tabindex="7" onblur="focus_Blur(this, 'white');" id="cidadeDestino" name="cidadeDestino"  onChange="juntaCidadeUf()">
+														<option size="35" value="">ESCOLHA O ESTADO DESTINO</option>									
+													</select>																	
+												</td>																	
+											</tr>						
+										</table>
+									</td>
+								</tr>
+							</table>
+							</br>
+							<table style="border: 1px solid;">
+								<tr>
+									<td colspan="20" style="border: 1px solid;"> 
+										<center><font color="red" size="4">DADOS DA CARGA:</font></center>
+									</td> 															
+									</tr>
+									<tr style="border: 1px solid;">			
+										<td width="80">Altura</td>
+										<td width="80">Largura</td>
+										<td width="80">Peso</td>
+										<td width="80">Comprimento</td>
+										<td width="80">QtdCaixas</td>						
+										<td width="80">Valor</td>						
+									</tr>						
+									<tr style="border: 1px solid;">	
+										<td>								
+											<input type="text" size="7" tabindex="1" type="text" onfocus="focus_Blur(this, 'yellow');"onblur="focus_Blur(this, 'white');" value="" id="altura" name="altura"  onKeyPress="return(MascaraMoeda(this,'.',',',event))">
+										</td>					
+										<td >													
+											<input type="text" size="7" tabindex="1" type="text" onfocus="focus_Blur(this, 'yellow');"onblur="focus_Blur(this, 'white');" value=""  id="largura" name="largura"  onKeyPress="return(MascaraMoeda(this,'.',',',event))">
+										</td>  														
+										<td>								
+											<input type="text" size="7" tabindex="1" type="text" onfocus="focus_Blur(this, 'yellow');"onblur="focus_Blur(this, 'white');" value="" id="peso" name="peso"  onKeyPress="return(MascaraMoeda(this,'.',',',event))">
+										</td>					
+										<td >													
+											<input type="text" size="10" tabindex="1" type="text" onfocus="focus_Blur(this, 'yellow');"onblur="focus_Blur(this, 'white');" value="" id="comprimento" name="comprimento"  onKeyPress="return(MascaraMoeda(this,'.',',',event))">
+										</td>  								
+										<td>								
+											<input type="text" size="7" tabindex="1" type="text" onfocus="focus_Blur(this, 'yellow');"onblur="focus_Blur(this, 'white');" value=""  id="qtdCaixas" name="qtdCaixas" onKeyPress="return(mascaraInteiro())">
+										</td>															
+										<td style="border-right: 1px solid;">									
+											<input type="text" size="7" tabindex="1" type="text" onfocus="focus_Blur(this, 'yellow');"  value=""  id="valor" name="valor"  onKeyPress="return(MascaraMoeda(this,'.',',',event))"  onBlur="CalculaDistancia()">
+										</td>								
+									</tr>
+							</table>	
+							</br>
+							<center>
+							<table style="border: 1px solid;">
+								<tr>
+									<td colspan="20" style="border: 1px solid;"> 
+										<center><font color="red" size="4">TOTAL:</font></center>
+									</td> 															
+									</tr>
+									<tr style="border: 1px solid;" height="20">			
+										<td width="80">DISTANCIA </td>
+										<td width="80">FRETE<sup><font color="red"><b>*</b></font></sup> </td>
+										<td width="80" style="border-right: 1px solid;">PRAZO</td>								
+									</tr>						
+									<tr style="border: 1px solid;">	
+										<td>								
+											<input name="distancia" readonly="readonly" type="text" id="txtDistancia" value="" /> 	  
+										</td>					
+										<td>								
+											<input type="text" size="7" tabindex="1" type="text" onfocus="focus_Blur(this, 'yellow');"onblur="focus_Blur(this, 'white');" id="valorFrete" value="">
+										</td>					
+										<td style="border-right: 1px solid;">													
+											<input name="tempo" readonly="readonly" type="text" id="txtTempo" value="" />	 
+										</td>  																						
+									</tr>
+							</table>
+							</center>						
+							
+			  <label for="txtDistancia"><strong>Dist&acirc;ncia</strong></label>
+			  
+			  <label for="txtTempo"><strong>Tempo</strong></label>
+			  </br>						
+							<input type="hidden" id="idCotacao" value="<?php echo($idCotacao);?>">						 	
+							<input type="hidden" id="txtOrigem" value="">						 	
+							<input type="hidden" id="txtDestino" value="">						 	
+							<input type="image" src='../../img/<?php echo($acao);?>Btn.png' onClick="crudCotacao('<?php echo($acao);?>')">
+							<input type="image" src='../../img/sairBtn.png' id="btnSair" onClick="irPara('viewConsulta.php','consultar')">
+							</center>
+						</div>
+					</div>
+                </div>
+            </nav>
+        </div>
+    </body>
+</html>            
+                    
+                

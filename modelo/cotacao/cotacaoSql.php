@@ -44,8 +44,7 @@
 	  $aprovadoCliente = mysql_real_escape_string($u->getAprovadoCliente(), $conexao);   
 	  $aprovadoAtendente = mysql_real_escape_string($u->getAprovadoAtendente(), $conexao);   
 	  $status = mysql_real_escape_string($u->getStatus(), $conexao);   
-	  $sql = "update cotacoes set idUsuario=$idUsuario, codCidadeOrigem=$codCidadeOrigem, codCidadeDestino=$codCidadeDestino, valorCarga=$valorCarga, valorFrete=$valorFrete, altura=$altura, largura=$largura, peso=$peso, comprimento=$comprimento, quantidadeCaixa=$quantidadeCaixas, prazo=$prazo, descricao='$descricao', aprovadoCliente=$aprovadoCliente, aprovadoAtendente=$aprovadoAtendente, status=$status where id=$id";
-	  echo($sql);	  
+	  $sql = "update cotacoes set idUsuario=$idUsuario, codCidadeOrigem=$codCidadeOrigem, codCidadeDestino=$codCidadeDestino, valorCarga=$valorCarga, valorFrete=$valorFrete, altura=$altura, largura=$largura, peso=$peso, comprimento=$comprimento, quantidadeCaixa=$quantidadeCaixas, prazo=$prazo, descricao='$descricao', aprovadoCliente=$aprovadoCliente, aprovadoAtendente=$aprovadoAtendente, status=$status where id=$id";	  
       $resultado = @mysql_query($sql, $conexao);
       return ($resultado === true);
     }
@@ -59,14 +58,31 @@
       return ($resultado === true);
     }
 	
+	public static function aprovar(Cotacao $u) {
+      $conexao = Conexao::getInstance()->getConexao();     	 
+	  $aprovadoCliente = mysql_real_escape_string($u->getAprovadoCliente(), $conexao);   
+	  $aprovadoAtendente = mysql_real_escape_string($u->getAprovadoAtendente(), $conexao);   
+	  $idCotacao = mysql_real_escape_string($u->getId(), $conexao);   
+	  $sql = "update cotacoes set ";
+	  if ($aprovadoCliente=1){
+		$sql .= "aprovadoCliente=1 ";
+	   } else {		
+		$sql .= "aprovadoAtendente=1 ";
+	   }
+	  $sql .="where id=$idCotacao";	 
+	  echo($sql);
+      $resultado = @mysql_query($sql, $conexao);
+      return ($resultado === true);
+    }
+	
 	public static function consultar(Cotacao $busca) {
       $conexao = Conexao::getInstance()->getConexao();	
 	  $idCotacao = mysql_real_escape_string($busca->getId(), $conexao);      	  
-      $sql = "Select cotacoes.id, cotacoes.idUsuario, usuarios.nome as usuario, cotacoes.codCidadeOrigem, origem.descricao as cidadeOrigem, origem.uf as ufOrigem, cotacoes.codCidadeDestino, destino.descricao as cidadeDestino, destino.uf as ufDestino, cotacoes.valorCarga, cotacoes.valorFrete, cotacoes.altura, cotacoes.largura, cotacoes.peso, cotacoes.comprimento, cotacoes.prazo, cotacoes.quantidadeCaixa, cotacoes.descricao, cotacoes.prazo, cotacoes.aprovadoCliente, cotacoes.aprovadoAtendente, cotacoes.status, cotacoes.aprovadoCliente, cotacoes.aprovadoAtendente, cotacoes.status from cotacoes inner join usuarios on cotacoes.idUsuario= usuarios.id inner join  cidades as origem on origem.codigo=cotacoes.codCidadeOrigem inner join  cidades as destino on destino.codigo=cotacoes.codCidadeOrigem where (1=1)";
+      $sql = "Select cotacoes.id, cotacoes.idUsuario, usuarios.nome as usuario, cotacoes.codCidadeOrigem, origem.descricao as cidadeOrigem, origem.uf as ufOrigem, cotacoes.codCidadeDestino, destino.descricao as cidadeDestino, destino.uf as ufDestino, cotacoes.valorCarga, cotacoes.valorFrete, cotacoes.altura, cotacoes.largura, cotacoes.peso, cotacoes.comprimento, cotacoes.prazo, cotacoes.quantidadeCaixa, cotacoes.descricao, cotacoes.prazo, cotacoes.aprovadoCliente, cotacoes.aprovadoAtendente, cotacoes.status, cotacoes.aprovadoCliente, cotacoes.aprovadoAtendente, cotacoes.status from cotacoes inner join usuarios on cotacoes.idUsuario= usuarios.id inner join  cidades as origem on origem.codigo=cotacoes.codCidadeOrigem inner join  cidades as destino on destino.codigo=cotacoes.codCidadeDestino where (1=1)";
 	  
-	  if ($busca->getBuscaCodigo())  
-		$sql .= " and cotacoes.id = $idCotacao";  		      
-	  
+	  if ($busca->getId())  
+		$sql .= " and cotacoes.id = $idCotacao";  		      	  
+	 
       $resultado = @mysql_query($sql, $conexao);	      
       if ($resultado) {
         $retorno = array();
@@ -74,7 +90,7 @@
           $u = new Cotacao();          
           $u->setId($linha["id"]);          		  
 		  $u->getObjUsuario()->setId($linha["idUsuario"]);		  
-		  $u->getObjUsuario()->setNome($linha["usuario"]);		            
+		  $u->getObjUsuario()->setNomeCompleto($linha["usuario"]);		            
 		  $u->getObjCidadeOrigem()->setCodigo($linha["codCidadeOrigem"]);		  
 		  $u->getObjCidadeOrigem()->setDescricao($linha["cidadeOrigem"]);		  
 		  $u->getObjCidadeOrigem()->setUf($linha["ufOrigem"]);		  

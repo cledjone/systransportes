@@ -1,13 +1,14 @@
 	//VARIAVEIS UTEIS
 	var contaNumero = 0;
 	var contaLinha = 0;
+	var idCotacao = 0;
 	var aguardaDigitar; 	
 	var webServiceCotacao = '../../webServices/cotacaoWebService.php';	
 	
-	//VALIDA DIGITAÇÃO DO CAMPO DE CONSULTAS DA COTAÇÃO
-	function consultaCotacao(campoDigitado) {			   		 
+	//CONSULTA COTAÇÕES
+	function consultaCotacoes(campoDigitado) {			   		 
 		var realizaConsulta=false;
-		var argumento = "";
+		var argumento = "";		
 		if (typeof campoDigitado != "undefined"){
 			if (campoDigitado.value.length!=contaNumero){
 				contaNumero = campoDigitado.value.length; 						
@@ -24,6 +25,14 @@
 			clearTimeout(aguardaDigitar);						
 			aguardaDigitar = setInterval(function(){acessoWebService(jsonParametros, webServiceCotacao);},1000);				
 		}	
+	}
+	
+	//CONSULTA COTACAO POR CODIGO
+	function consultaCotacao(idCotacao) {	
+		if (idCotacao>0){
+			var jsonParametros = {consultaCotacao: 'sim', idCotacao: idCotacao};					
+			acessoWebService(jsonParametros, webServiceCotacao);						
+		}
 	}
 	
 	
@@ -66,15 +75,16 @@
 		
 		if (acao=='incluir'){
 			jsonParametros = {incluirCotacao: 'sim', idUsuario: idUsuario, aprovadoAtendente: aprovadoAtendente, aprovadoCliente: aprovadoCliente, descricao: descricao, valorFrete: valorFrete, prazo: prazo, altura: altura, largura: largura, peso: peso, comprimento: comprimento, quantidadeCaixas: qtdCaixas.value, valorCarga: valorCarga, codCidadeOrigem: codCidadeOrigem, codCidadeDestino: codCidadeDestino, status: status};	
-		}
-		/*
+		}		
 		if (acao=='alterar'){
-			jsonParametros = {alterarCotacao: 'sim',  altura: altura.value, largura: largura.value, peso: peso.value, comprimento: comprimento.value, qtdCaixas: qtdCaixas.value, valor: valor.value, objCidadeOrigem, objCidadeDestino};	
-		}
+			jsonParametros = {alterarCotacao: 'sim', idCotacao: idCotacao.value, idUsuario: idUsuario, aprovadoAtendente: aprovadoAtendente, aprovadoCliente: aprovadoCliente, descricao: descricao, valorFrete: valorFrete, prazo: prazo, altura: altura, largura: largura, peso: peso, comprimento: comprimento, quantidadeCaixas: qtdCaixas.value, valorCarga: valorCarga, codCidadeOrigem: codCidadeOrigem, codCidadeDestino: codCidadeDestino, status: status};	
+		}		
 		if (acao=='cancelar'){
-			jsonParametros = {statusCotacao: 'sim',  altura: altura.value, largura: largura.value, peso: peso.value, comprimento: comprimento.value, qtdCaixas: qtdCaixas.value, valor: valor.value, objCidadeOrigem, objCidadeDestino};	
-		}
-		*/
+			jsonParametros = {statusCotacao: 'sim',  status: 0, idCotacao: idCotacao.value};	
+		}		
+		if (acao=='aprovar'){
+			jsonParametros = {aprovarCotacao: 'sim', idCotacao: idCotacao.value, aprovadoCliente: 1};	
+		}		
 		acessoWebService(jsonParametros, webServiceCotacao);
 		
 	}
@@ -102,24 +112,59 @@
 			for (var i = 0; i < resultadoXml.length; i++) {													
 				var trLinha = document.createElement("tr");
 				trLinha.setAttribute("class", "itens");
-				trLinha.setAttribute("onClick", "selecionaCotacao('viewCadastro.php',this)");			
+				trLinha.setAttribute("onClick", "selecionaCotacao(this)");			
 				trLinha.name = resultadoXml[i].id;
-				trLinha.id = 'trLinha'+(contaLinha);				
-				trLinha.innerHTML = '<td><image src="../../img/delete.gif" onclick=\"removeCte(this)\" name=\"$i\"></td><td id="idCotacao'+contaLinha+'">'+resultadoXml[i].id+'</td><td>'+(resultadoXml[i].cidadeOrigem).substr(0,20)+'</td><td>'+resultadoXml[i].ufOrigem+'</td><td>'+(resultadoXml[i].cidadeDestino).substr(0,20)+'</td><td>'+resultadoXml[i].ufDestino+'</td><td>'+resultadoXml[i].valorCarga+'</td><td>'+resultadoXml[i].valorFrete+'</td><td>'+resultadoXml[i].prazo+'</td><td>'+resultadoXml[i].status+'</td>';
-				document.getElementById('tabelaConsulta').appendChild(trLinha);	
-				contaLinha++;		
+				trLinha.id = 'trLinha'+(resultadoXml[i].id);				
+				trLinha.innerHTML = '<td id="idCotacao'+resultadoXml[i].id+'">'+resultadoXml[i].id+'</td><td>'+(resultadoXml[i].cidadeOrigem).substr(0,20)+'</td><td>'+resultadoXml[i].ufOrigem+'</td><td>'+(resultadoXml[i].cidadeDestino).substr(0,20)+'</td><td>'+resultadoXml[i].ufDestino+'</td><td>'+resultadoXml[i].valorCarga+'</td><td>'+resultadoXml[i].valorFrete+'</td><td>'+resultadoXml[i].prazo+'</td><td>'+resultadoXml[i].status+'</td>';
+				document.getElementById('tabelaConsulta').appendChild(trLinha);					
 			}
-		}		
-	}	
-
+		}
+		if (resultadoXml[0].resultado=='idCotacao'){					
+			var qtdCaixas = document.getElementById('qtdCaixas');										
+			var caixaPesquisaOrigem = document.getElementById('txtOrigem');		
+			var cidadeOrigem = document.getElementById('cidadeOrigem');				
+			var ufOrigem = document.getElementById('ufOrigem');				
+			var caixaPesquisaDestino = document.getElementById('txtDestino');
+			var cidadeDestino = document.getElementById('cidadeDestino');			
+			var ufDestino = document.getElementById('ufDestino');			
+			var altura = document.getElementById('altura');				
+			var largura = document.getElementById('largura');											
+			var peso = document.getElementById('peso');											
+			var comprimento = document.getElementById('comprimento');													
+			var valorCarga = document.getElementById('valor');								
+			var valorFrete = document.getElementById('valorFrete');								
+			var descricao = document.getElementById('descricao');
+			qtdCaixas.value = resultadoXml[0].quantidadeCaixas;			
+			ufOrigem.value = resultadoXml[0].ufOrigem;	
+			consultaCidades('cidadeOrigem', 'ufOrigem', resultadoXml[0].codCidadeOrigem, resultadoXml[0].cidadeOrigem);						
+			ufDestino.value = resultadoXml[0].ufDestino;			
+			consultaCidades('cidadeDestino', 'ufDestino', resultadoXml[0].codCidadeDestino, resultadoXml[0].cidadeDestino);						
+			altura.value = resultadoXml[0].altura;			
+			largura.value = resultadoXml[0].largura;			
+			peso.value = resultadoXml[0].peso;			
+			comprimento.value = resultadoXml[0].comprimento;			
+			valorCarga.value = resultadoXml[0].valorCarga;						
+			valorFrete.value = resultadoXml[0].valorFrete;			
+			//descricao.value = resultadoXml[0].descricao;			
+			caixaPesquisaOrigem.value = resultadoXml[0].cidadeOrigem+' '+ufOrigem.value;
+			caixaPesquisaDestino.value = resultadoXml[0].cidadeDestino+' '+ufDestino.value;	
+			
+		}
+	}			
 
 	//SELECIONA COTACAO
-	function selecionaCotacao(paginaSelecionada, cotacaoSelecionada){	
-		var idCotacao="";
-		if (typeof cotacaoSelecionada != "undefined"){
-		 idCotacao= '?idCotacao='+cotacaoSelecionada.name;					
-		}
-		window.location.href = paginaSelecionada+idCotacao;
+	function selecionaCotacao(cotacaoSelecionada){				
+	  if (idCotacao!=0){
+	    var restauraCor = document.getElementById('trLinha'+(idCotacao));
+		restauraCor.style.background = '#E8EBE8';
+	  }	
+	  cotacaoSelecionada.style.background = 'yellow';
+	  idCotacao= cotacaoSelecionada.name;							
+	}	
+	
+	//MUDA DE PÁGINA
+	function irPara(paginaSelecionada, acao){			
+		window.location.href = paginaSelecionada+'?idCotacao='+idCotacao+'&acao='+acao;
 	}	
 		
 	

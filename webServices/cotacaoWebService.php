@@ -24,6 +24,8 @@
 		$cotacao->setDescricao($descricao); 	
 		$cotacao->setAprovadoCliente($aprovadoCliente); 	
 		$cotacao->setAprovadoAtendente($aprovadoAtendente); 	
+		if (isset($_GET["incluirCotacao"]))
+			$status = 1;
 		$cotacao->setStatus($status); 	
 	}
 		
@@ -57,17 +59,35 @@
 		echo( json_encode( $resultado ) );				
 	}			
 	
+	if (isset($_GET["aprovarCotacao"])){
+		$cotacao = new Cotacao();				
+		$cotacao->setId($idCotacao);
+		if (isset($_GET["aprovadoCliente"])) 		
+			$cotacao->setAprovadoCliente(1); 	
+		if (isset($_GET["aprovadoAtendente"])) 		
+			$cotacao->setAprovadoAtendente(1); 	
+		if (CotacaoSql::aprovar($cotacao)){
+			$resultado[] = array(				
+				'resultado'	=>  'ok',						
+			);			
+		}			
+		echo( json_encode( $resultado ) );				
+	}			
+	
 	//CONSULTAR COTACOES
 	if (isset($_GET["consultaCotacao"])) {			
+		$resultadoConsulta ='consulta'; 
 		$cotacao = new Cotacao();		
-		if (isset($_GET["idCotacao"])) 
+		if (isset($_GET["idCotacao"])){ 
 			$cotacao->setId($idCotacao); 
+			$resultadoConsulta ='idCotacao'; 
+		}
 		$listaCotacoes = CotacaoSql::consultar($cotacao);
 		for ($i=0; $i<count($listaCotacoes); $i++ ){					
 			$resultado[] = array(				
 				'id'	=>  $listaCotacoes[$i]->getId(),					
 				'idUsuario'	=>   $listaCotacoes[$i]->getObjUsuario()->getId(),				
-				'usuario'	=>  $listaCotacoes[$i]->getObjUsuario()->getNome(),				
+				'usuario'	=>  $listaCotacoes[$i]->getObjUsuario()->getNomeCompleto(),				
 				'codCidadeOrigem'	=>   $listaCotacoes[$i]->getObjCidadeOrigem()->getCodigo(),				
 				'cidadeOrigem'	=>  $listaCotacoes[$i]->getObjCidadeOrigem()->getDescricao(),				
 				'ufOrigem'	=>  $listaCotacoes[$i]->getObjCidadeOrigem()->getUf(),				
@@ -86,7 +106,7 @@
 				'aprovadoCliente'	=>  $listaCotacoes[$i]->getAprovadoCliente(),					
 				'aprovadoAtendente'	=>  $listaCotacoes[$i]->getAprovadoAtendente(),					
 				'status'	=>  $listaCotacoes[$i]->getStatus(),									
-				'resultado'	=>  'consulta',									
+				'resultado'	=>  $resultadoConsulta,									
 			);
 		}		
 		
