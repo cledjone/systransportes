@@ -1,13 +1,127 @@
-	//CAIXA DE CONSULTAS 
-	 $(function() { 
-		var dialogCotacao;        
-		dialogGeral = $( "#dialogCotacao-form" ).dialog({
-		  autoOpen: false,
-		  height: 370,
-		  width: 550,
-		  modal: true,      
-		});   	  		 	
-	});		
+	//VARIAVEIS UTEIS
+	var contaNumero = 0;
+	var contaLinha = 0;
+	var aguardaDigitar; 	
+	var webServiceCotacao = '../../webServices/cotacaoWebService.php';	
+	
+	//VALIDA DIGITAÇÃO DO CAMPO DE CONSULTAS DA COTAÇÃO
+	function consultaCotacao(campoDigitado) {			   		 
+		var realizaConsulta=false;
+		var argumento = "";
+		if (typeof campoDigitado != "undefined"){
+			if (campoDigitado.value.length!=contaNumero){
+				contaNumero = campoDigitado.value.length; 						
+				campoDigitado.style.background = "black";	 			
+				campoDigitado.style.color = "white";
+				argumento = campoDigitado.value;				
+				realizaConsulta=true;
+			}
+		} else {
+			realizaConsulta=true;				
+		}			
+		if (realizaConsulta){	
+			var jsonParametros = {consultaCotacao: 'sim', argumento: argumento};			
+			clearTimeout(aguardaDigitar);						
+			aguardaDigitar = setInterval(function(){acessoWebService(jsonParametros, webServiceCotacao);},1000);				
+		}	
+	}
+	
+	
+	//VALIDA DIGITAÇÃO DO CAMPO DE CONSULTAS DA COTAÇÃO
+	function crudCotacao(acao) {			
+		var idCotacao = document.getElementById('idCotacao');								
+		var qtdCaixas = document.getElementById('qtdCaixas');										
+		var cidadeOrigem = document.getElementById('cidadeOrigem').value;	
+		var codCidadeOrigem = cidadeOrigem.substring(0,7);							
+		var cidadeDestino = document.getElementById('cidadeDestino').value;
+		var codCidadeDestino = cidadeDestino.substring(0,7);						
+		
+		var altura = document.getElementById('altura');	
+		var tira_Virgula = altura.value.replace(".", "");
+		altura = tira_Virgula.replace("," ,".");	
+		
+		var largura = document.getElementById('largura');								
+		var tira_Virgula = largura.value.replace(".", "");
+		largura = tira_Virgula.replace("," ,".");	
+	  
+		var peso = document.getElementById('peso');								
+		var tira_Virgula = peso.value.replace(".", "");
+		peso = tira_Virgula.replace("," ,".");	
+		
+		var comprimento = document.getElementById('comprimento');										
+		var tira_Virgula = comprimento.value.replace(".", "");
+		comprimento = tira_Virgula.replace("," ,".");	
+		
+		var valorCarga = document.getElementById('valor');		
+		var tira_Virgula = valorCarga.value.replace(".", "");
+		valorCarga = tira_Virgula.replace("," ,".");	
+			
+		var prazo = '0';
+		var valorFrete = '0';
+		var descricao = 'nada';
+		var aprovadoCliente = 0;
+		var aprovadoAtendente = 0;		
+		var idUsuario = 1;		
+		var status = 1;		
+		
+		if (acao=='incluir'){
+			jsonParametros = {incluirCotacao: 'sim', idUsuario: idUsuario, aprovadoAtendente: aprovadoAtendente, aprovadoCliente: aprovadoCliente, descricao: descricao, valorFrete: valorFrete, prazo: prazo, altura: altura, largura: largura, peso: peso, comprimento: comprimento, quantidadeCaixas: qtdCaixas.value, valorCarga: valorCarga, codCidadeOrigem: codCidadeOrigem, codCidadeDestino: codCidadeDestino, status: status};	
+		}
+		/*
+		if (acao=='alterar'){
+			jsonParametros = {alterarCotacao: 'sim',  altura: altura.value, largura: largura.value, peso: peso.value, comprimento: comprimento.value, qtdCaixas: qtdCaixas.value, valor: valor.value, objCidadeOrigem, objCidadeDestino};	
+		}
+		if (acao=='cancelar'){
+			jsonParametros = {statusCotacao: 'sim',  altura: altura.value, largura: largura.value, peso: peso.value, comprimento: comprimento.value, qtdCaixas: qtdCaixas.value, valor: valor.value, objCidadeOrigem, objCidadeDestino};	
+		}
+		*/
+		acessoWebService(jsonParametros, webServiceCotacao);
+		
+	}
+	
+	
+	
+	//ACESSO AO WEBSERVICE
+	function acessoWebService(jsonParametros, nomeWebService) {		
+		clearInterval(aguardaDigitar);
+		var $xhr = $.getJSON(nomeWebService, jsonParametros);			
+			
+		$xhr.done(function(resultadoXml) {
+			trataResultadoWebService(resultadoXml);
+		});
+
+		$xhr.fail(function(data) {
+			alert(data.responseText);			
+		});	
+		
+	}			
+	
+	//TRATA RESULTADO WEBSERVICE
+	function trataResultadoWebService(resultadoXml) {	
+		if (resultadoXml[0].resultado=='consulta'){
+			for (var i = 0; i < resultadoXml.length; i++) {													
+				var trLinha = document.createElement("tr");
+				trLinha.setAttribute("class", "itens");
+				trLinha.setAttribute("onClick", "selecionaCotacao('viewCadastro.php',this)");			
+				trLinha.name = resultadoXml[i].id;
+				trLinha.id = 'trLinha'+(contaLinha);				
+				trLinha.innerHTML = '<td><image src="../../img/delete.gif" onclick=\"removeCte(this)\" name=\"$i\"></td><td id="idCotacao'+contaLinha+'">'+resultadoXml[i].id+'</td><td>'+(resultadoXml[i].cidadeOrigem).substr(0,20)+'</td><td>'+resultadoXml[i].ufOrigem+'</td><td>'+(resultadoXml[i].cidadeDestino).substr(0,20)+'</td><td>'+resultadoXml[i].ufDestino+'</td><td>'+resultadoXml[i].valorCarga+'</td><td>'+resultadoXml[i].valorFrete+'</td><td>'+resultadoXml[i].prazo+'</td><td>'+resultadoXml[i].status+'</td>';
+				document.getElementById('tabelaConsulta').appendChild(trLinha);	
+				contaLinha++;		
+			}
+		}		
+	}	
+
+
+	//SELECIONA COTACAO
+	function selecionaCotacao(paginaSelecionada, cotacaoSelecionada){	
+		var idCotacao="";
+		if (typeof cotacaoSelecionada != "undefined"){
+		 idCotacao= '?idCotacao='+cotacaoSelecionada.name;					
+		}
+		window.location.href = paginaSelecionada+idCotacao;
+	}	
+		
 	
 	//EXIBE CLIENTES
 	function exibeCotacao(me) {					
@@ -23,214 +137,8 @@
 		dialogCotacao.dialog( "open" );			
 	}	
 	
-	// MUDAR A COR DA CAIXA DE TEXTO E COLOCA TUDO EM MAIUSCULO
-	function focus_Blur(me, cor) {	 
-	  me.style.background = cor;	 
-	  me.style.color = "black";	
-	  var minusculo = new String(me.value);
-	  var maiusculo = minusculo.toUpperCase();
-	  me.value = maiusculo;	  
-	}	
 	
-	//CONSULTA AJAX
-	function consultaAJAX( ) {	
-		var servicoHttp = "../webServices/cotacaoWebService.php";				
-		
-		var altura = document.getElementById('altura');										
-		var largura = document.getElementById('largura');								
-		var peso = document.getElementById('peso');								
-		var comprimento = document.getElementById('comprimento');								
-		var qtdCaixas = document.getElementById('qtdCaixas');								
-		var valor = document.getElementById('valor');		
-
-		var objCidadeOrigem = document.getElementById('cidadeOrigem').value;	
-		objCidadeOrigem = objCidadeOrigem.substring(0,7);							
-		var objCidadeDestino = document.getElementById('cidadeDestino').value;									
-		objCidadeDestino = objCidadeDestino.substring(0,7);	
-		
-		jsonParametros = {incluirCotacao: 'sim',  altura: altura.value, largura: largura.value, peso: peso.value, comprimento: comprimento.value, qtdCaixas: qtdCaixas.value, valor: valor.value, objCidadeOrigem, objCidadeDestino};
 	
-		var $xhr = $.getJSON(servicoHttp, jsonParametros);		
-		
-			
-		$xhr.done(function(resultadoXml) {
-			alert('ok');
-		});
-
-		$xhr.fail(function(data) {
-			alert(data.responseText);
-		});	
-		
-	}	
-
-	//VALIDAÇÃO DE DINHEIRO
-	function MascaraMoeda(objTextBox, SeparadorMilesimo, SeparadorDecimal, e){
-      var sep = 0;
-      var key = '';
-      var i = j = 0;
-      var len = len2 = 0;
-      var strCheck = '0123456789';
-      var aux = aux2 = '';
-      var whichCode = (window.Event) ? e.which : e.keyCode;
-       if (whichCode == 13) return true;
-      key = String.fromCharCode(whichCode); // Valor para o código da Chave
-      if (strCheck.indexOf(key) == -1) return false; // Chave inválida
-      len = objTextBox.value.length;
-      for(i = 0; i < len; i++)
-        if ((objTextBox.value.charAt(i) != '0') && (objTextBox.value.charAt(i) != SeparadorDecimal)) break;
-        aux = '';
-      for(; i < len; i++)
-        if (strCheck.indexOf(objTextBox.value.charAt(i))!=-1) aux += objTextBox.value.charAt(i);
-        aux += key;
-        len = aux.length;
-      if (len == 0) objTextBox.value = '';
-      if (len == 1) objTextBox.value = '0'+ SeparadorDecimal + '0' + aux;
-      if (len == 2) objTextBox.value = '0'+ SeparadorDecimal + aux;
-      if
-	  (len > 2) {
-        aux2 = '';
-        for (j = 0, i = len - 3; i >= 0; i--) {
-            if (j == 3) {
-                aux2 += SeparadorMilesimo;
-                j = 0;
-            }
-            aux2 += aux.charAt(i);
-            j++;
-        }
-        objTextBox.value = '';
-        len2 = aux2.length;
-        for (i = len2 - 1; i >= 0; i--)
-        objTextBox.value += aux2.charAt(i);
-        objTextBox.value += SeparadorDecimal + aux.substr(len - 2, len);
-      }
-      return false;
-    }
-
-	//FORMATA DE FORMA GENERICA OS CAMPOS
-    function formataCampo(campo, Mascara, evento) { 
-        var boleanoMascara; 
-        
-        var Digitato = evento.keyCode;
-        exp = /\-|\.|\/|\(|\)| /g
-        campoSoNumeros = campo.value.toString().replace( exp, "" ); 
-   
-        var posicaoCampo = 0;    
-        var NovoValorCampo="";
-        var TamanhoMascara = campoSoNumeros.length;; 
-        
-        if (Digitato != 8) { // backspace 
-                for(i=0; i<= TamanhoMascara; i++) { 
-                        boleanoMascara  = ((Mascara.charAt(i) == "-") || (Mascara.charAt(i) == ".")
-                                                                || (Mascara.charAt(i) == "/")) 
-                        boleanoMascara  = boleanoMascara || ((Mascara.charAt(i) == "(") 
-                                                                || (Mascara.charAt(i) == ")") || (Mascara.charAt(i) == " ")) 
-                        if (boleanoMascara) { 
-                                NovoValorCampo += Mascara.charAt(i); 
-                                  TamanhoMascara++;
-                        }else { 
-                                NovoValorCampo += campoSoNumeros.charAt(posicaoCampo); 
-                                posicaoCampo++; 
-                          }              
-                  }      
-                campo.value = NovoValorCampo;
-                  return true; 
-        }else { 
-                return true; 
-        }
-    }		
-	
-	//VALIDA NUMERO SE É INTEIRO
-    function mascaraInteiro(){
-        if (event.keyCode < 48 || event.keyCode > 57){
-                event.returnValue = false;
-                return false;
-        }
-        return true;
-    }	 
-
-	//ADICIONA MASCARA DE DATA
-    function mascaraData(data){
-        if(mascaraInteiro(data)==false){
-                event.returnValue = false;
-        }       
-        return formataCampo(data, '00/00/0000', event);
-     } 
-	 
-
-	// EXIBE MENSAGEM PARA DATA INVÁLIDA
-	function mensagemData(data){	  
-	  if (verificaData(data)==false){
-	    alert ('A Data Digitada e Invalida!');	
-	  } 
-	}		
-
-	//TESTA DATA DIGITADA
-	function verificaData(cData) {
-        var data = cData.value;       
-        var dia = data.substr(0,2)
-        var mes = data.substr (3,2)
-        var ano = data.substr (6,4)     
-        if (ano < 1900) {
-          return false;
-        }
-        if (ano > 2050)     {
-         return false;
-        }
-        switch (mes) {
-          case '01':
-        if  (dia <= 31) 
-         return (true);
-         break;
-          case '02':
-        if  (dia <= 29) 
-         return (true);
-         break;
-          case '03':
-        if  (dia <= 31) 
-         return (true);
-         break;
-          case '04':
-        if  (dia <= 30) 
-         return (true);
-         break;
-          case '05':
-        if  (dia <= 31) 
-         return (true);
-         break;
-          case '06':
-        if  (dia <= 30) 
-         return (true);
-         break;
-         case '07':
-        if  (dia <= 31) 
-         return (true);
-         break;
-         case '08':
-        if  (dia <= 31) 
-         return (true);
-         break;
-         case '09':
-        if  (dia <= 30) 
-         return (true);
-         break;
-         case '10':
-        if  (dia <= 31) 
-         return (true);
-         break;
-         case '11':
-        if  (dia <= 30) 
-         return (true);
-         break;
-         case '12':
-        if  (dia <= 31) 
-         return (true);
-         break;
-        }
-        {
-          return false;
-        }
-        return true; 
-    }
 	
 	
 	// PEGAS AS CAIXAS DE DIGITAÇAO E CONCATENA NO CAMPO DE CONSULTA OCULTO
@@ -343,38 +251,8 @@
         }
       }
 	  
-	  //FORMATAR MOEDA
-	function moeda(valor, casas, separdor_decimal, separador_milhar){ 
-	 
-	 var valor_total = parseInt(valor * (Math.pow(10,casas)));
-	 var inteiros =  parseInt(parseInt(valor * (Math.pow(10,casas))) / parseFloat(Math.pow(10,casas)));
-	 var centavos = parseInt(parseInt(valor * (Math.pow(10,casas))) % parseFloat(Math.pow(10,casas)));
-	 
-	  
-	 if(centavos%10 == 0 && centavos+"".length<2 ){
-	  centavos = centavos+"0";
-	 }else if(centavos<10){
-	  centavos = "0"+centavos;
-	 }
-	  
-	 var milhares = parseInt(inteiros/1000);
-	 inteiros = inteiros % 1000; 
-	 
-	 var retorno = "";
-	 
-	 if(milhares>0){
-	  retorno = milhares+""+separador_milhar+""+retorno
-	  if(inteiros == 0){
-	   inteiros = "000";
-	  } else if(inteiros < 10){
-	   inteiros = "00"+inteiros; 
-	  } else if(inteiros < 100){
-	   inteiros = "0"+inteiros; 
-	  }
-	 }
-	  retorno += inteiros+""+separdor_decimal+""+centavos;
-	 
-	 
-	 return retorno;
-	 
-	}
+	  /*  
+	  	var servicoHttp = "../webServices/cotacaoWebService.php";				
+		
+		
+		*/

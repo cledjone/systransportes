@@ -30,7 +30,7 @@
 	if (isset($_GET["incluirCotacao"])){
 		if (CotacaoSql::adicionar($cotacao)){
 			$resultado[] = array(				
-				'ok'	=>  'ok',						
+				'resultado'	=>  'ok',						
 			);			
 		}			
 		echo( json_encode( $resultado ) );				
@@ -39,7 +39,7 @@
 	if (isset($_GET["alterarCotacao"])){
 		if (CotacaoSql::alterar($cotacao)){
 			$resultado[] = array(				
-				'ok'	=>  'ok',						
+				'resultado'	=>  'ok',						
 			);			
 		}			
 		echo( json_encode( $resultado ) );				
@@ -51,7 +51,7 @@
 		$cotacao->setStatus($status); 	
 		if (CotacaoSql::mudarStatus($cotacao)){
 			$resultado[] = array(				
-				'ok'	=>  'ok',						
+				'resultado'	=>  'ok',						
 			);			
 		}			
 		echo( json_encode( $resultado ) );				
@@ -60,6 +60,8 @@
 	//CONSULTAR COTACOES
 	if (isset($_GET["consultaCotacao"])) {			
 		$cotacao = new Cotacao();		
+		if (isset($_GET["idCotacao"])) 
+			$cotacao->setId($idCotacao); 
 		$listaCotacoes = CotacaoSql::consultar($cotacao);
 		for ($i=0; $i<count($listaCotacoes); $i++ ){					
 			$resultado[] = array(				
@@ -84,6 +86,7 @@
 				'aprovadoCliente'	=>  $listaCotacoes[$i]->getAprovadoCliente(),					
 				'aprovadoAtendente'	=>  $listaCotacoes[$i]->getAprovadoAtendente(),					
 				'status'	=>  $listaCotacoes[$i]->getStatus(),									
+				'resultado'	=>  'consulta',									
 			);
 		}		
 		

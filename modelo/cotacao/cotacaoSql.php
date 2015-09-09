@@ -44,7 +44,8 @@
 	  $aprovadoCliente = mysql_real_escape_string($u->getAprovadoCliente(), $conexao);   
 	  $aprovadoAtendente = mysql_real_escape_string($u->getAprovadoAtendente(), $conexao);   
 	  $status = mysql_real_escape_string($u->getStatus(), $conexao);   
-	  $sql = "update cotacoes set idUsuario=$idUsuario, codCidadeOrigem=$codCidadeOrigem, codCidadeDestino=$codCidadeDestino, valorCarga=$valorCarga, valorFrete=$valorFrete, altura=$altura, largura=$largura, peso=$peso, comprimento=$comprimento, quantidadeCaixa=$quantidadeCaixas, prazo=$prazo, descricao='$descricao', aprovadoCliente=$aprovadoCliente, aprovadoAtendente=$aprovadoAtendente, status=$status where id=$id";	 
+	  $sql = "update cotacoes set idUsuario=$idUsuario, codCidadeOrigem=$codCidadeOrigem, codCidadeDestino=$codCidadeDestino, valorCarga=$valorCarga, valorFrete=$valorFrete, altura=$altura, largura=$largura, peso=$peso, comprimento=$comprimento, quantidadeCaixa=$quantidadeCaixas, prazo=$prazo, descricao='$descricao', aprovadoCliente=$aprovadoCliente, aprovadoAtendente=$aprovadoAtendente, status=$status where id=$id";
+	  echo($sql);	  
       $resultado = @mysql_query($sql, $conexao);
       return ($resultado === true);
     }
@@ -59,8 +60,12 @@
     }
 	
 	public static function consultar(Cotacao $busca) {
-      $conexao = Conexao::getInstance()->getConexao();	  
+      $conexao = Conexao::getInstance()->getConexao();	
+	  $idCotacao = mysql_real_escape_string($busca->getId(), $conexao);      	  
       $sql = "Select cotacoes.id, cotacoes.idUsuario, usuarios.nome as usuario, cotacoes.codCidadeOrigem, origem.descricao as cidadeOrigem, origem.uf as ufOrigem, cotacoes.codCidadeDestino, destino.descricao as cidadeDestino, destino.uf as ufDestino, cotacoes.valorCarga, cotacoes.valorFrete, cotacoes.altura, cotacoes.largura, cotacoes.peso, cotacoes.comprimento, cotacoes.prazo, cotacoes.quantidadeCaixa, cotacoes.descricao, cotacoes.prazo, cotacoes.aprovadoCliente, cotacoes.aprovadoAtendente, cotacoes.status, cotacoes.aprovadoCliente, cotacoes.aprovadoAtendente, cotacoes.status from cotacoes inner join usuarios on cotacoes.idUsuario= usuarios.id inner join  cidades as origem on origem.codigo=cotacoes.codCidadeOrigem inner join  cidades as destino on destino.codigo=cotacoes.codCidadeOrigem where (1=1)";
+	  
+	  if ($busca->getBuscaCodigo())  
+		$sql .= " and cotacoes.id = $idCotacao";  		      
 	  
       $resultado = @mysql_query($sql, $conexao);	      
       if ($resultado) {
