@@ -1,0 +1,51 @@
+<?php
+	require_once("../modelo/veiculo/veiculoSql.php");   	
+	session_start();   	
+	
+	extract ($_REQUEST);
+	extract ($_SESSION);
+
+	if (isset($_GET["incluirVeiculo"])){
+		if (VeiculoSql::adicionar($veiculo)){
+			$resultado[] = array(				
+				'ok'	=>  'ok',						
+			);			
+		}			
+		echo( json_encode( $resultado ) );				
+	}			
+	
+	if (isset($_GET["alterarVeiculo"])){
+		if (VeiculoSql::alterar($veiculo)){
+			$resultado[] = array(				
+				'ok'	=>  'ok',						
+			);			
+		}			
+		echo( json_encode( $resultado ) );				
+	}	
+
+	if (isset($_GET["removerVeiculo"])){
+		if (VeiculoSql::remover($veiculo)){
+			$resultado[] = array(				
+				'ok'	=>  'ok',						
+			);			
+		}			
+		echo( json_encode( $resultado ) );				
+	}
+
+
+	if (isset($_GET["consultaVeiculo"])) {			
+		$veiculo = new Veiculo();		
+		$listarVeiculos = VeiculoSql::pesquisar($veiculo);
+		for ($i = 0; $i < count($listaCotacoes); $i++) {					
+			$resultado[] = array(				
+				'placa'	=>  $listarVeiculos[$i] -> getPlaca(),
+				'capacidadeKg'	=>  $listarVeiculos[$i] -> getCapacidadeKg(),	
+				'capacidadeM3'	=>  $listarVeiculos[$i] -> getCapacidadeM3(),	
+				'ano'	=>  $listarVeiculos[$i] -> getAno(),	
+				'tipo'	=>  $listarVeiculos[$i] -> getTipo(),									
+			);
+		}			
+		echo( json_encode( $resultado ) );		
+	}
+
+?>
