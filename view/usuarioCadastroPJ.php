@@ -138,18 +138,18 @@
                                         </td>
                                         <td>
                                             <input type="text" 
-                                            id="cnpj" 
-                                            onKeyPress="MascaraCNPJ(this);"
-                                            maxlength="14"
-                                            name="" 
-                                            size="14"
-                                            required="required" 
-                                            class="form-control"
-                                            placeholder="CNPJ" 
-                                            tabindex="1" 
-                                            type="text" 
-                                            onfocus="focus_Blur(this, '#E0FFFF');"
-                                            onblur="focus_Blur(this, 'white');">
+                                                    id="cnpj" 
+                                                    onKeyPress="MascaraCNPJ(this);"
+                                                    maxlength="14"
+                                                    name="" 
+                                                    size="14"
+                                                    required="required" 
+                                                    class="form-control"
+                                                    placeholder="CNPJ" 
+                                                    tabindex="1" 
+                                                    type="text" 
+                                                    onfocus="focus_Blur(this, '#E0FFFF');"
+                                                    onblur="focus_Blur(this, 'white');">
                                         </td>
                                         <td>
                                             <select class="form-control" required="required" id="tipoEmpresa" name="">
@@ -423,52 +423,52 @@
                                     <tr>
                                         <td>
                                             <input type="email" 
-                                            id="email" 
-                                            style="text-transform:uppercase"
-                                            name="" 
-                                            maxlength="40"
-                                            size="40" 
-                                            required="required" 
-                                            class="form-control"
-                                            placeholder="E-mail" 
-                                            tabindex="1" 
-                                            type="text" 
-                                            onfocus="focus_Blur(this, '#E0FFFF');"
-                                            onblur="focus_Blur(this, 'white');">
+                                                    id="email" 
+                                                    style="text-transform:uppercase"
+                                                    name="" 
+                                                    maxlength="40"
+                                                    size="40" 
+                                                    required="required" 
+                                                    class="form-control"
+                                                    placeholder="E-mail" 
+                                                    tabindex="1" 
+                                                    type="text" 
+                                                    onfocus="focus_Blur(this, '#E0FFFF');"
+                                                    onblur="focus_Blur(this, 'white');">
                                         </td>
                                         <td>
                                             <input type="text" 
-                                            id="telefone1" 
-                                            onkeypress="telefoneMascara(this)"
-                                            onkeypress="mascara(this, '## ####-####')" 
-                                            onkeyup="validar(this,'num');"
-                                            maxlength="14"  
-                                            name="" 
-                                            size="20" 
-                                            required="required"
-                                            class="form-control" 
-                                            placeholder="Telefone Residencial" 
-                                            tabindex="1" 
-                                            type="text"
-                                            onfocus="focus_Blur(this, '#E0FFFF');" 
-                                            onblur="focus_Blur(this, 'white');">
+                                                    id="telefone1" 
+                                                    onkeypress="telefoneMascara(this)"
+                                                    onkeypress="mascara(this, '## ####-####')" 
+                                                    onkeyup="validar(this,'num');"
+                                                    maxlength="14"  
+                                                    name="" 
+                                                    size="20" 
+                                                    required="required"
+                                                    class="form-control" 
+                                                    placeholder="Telefone Residencial" 
+                                                    tabindex="1" 
+                                                    type="text"
+                                                    onfocus="focus_Blur(this, '#E0FFFF');" 
+                                                    onblur="focus_Blur(this, 'white');">
                                         </td>
                                         <td>
                                             <input type="text" 
-                                            id="telefone2" 
-                                            onkeyup="validar(this,'num');"
-                                            onkeypress="telefoneMascara(this)"
-                                            onkeypress="mascara(this, '## ####-####')" 
-                                            maxlength="14"
-                                            name="" 
-                                            size="20" 
-                                            required="required"
-                                            class="form-control" 
-                                            placeholder="Telefone Celular" 
-                                            tabindex="1" 
-                                            type="text"
-                                            onfocus="focus_Blur(this, '#E0FFFF');" 
-                                            onblur="focus_Blur(this, 'white');">
+                                                    id="telefone2" 
+                                                    onkeyup="validar(this,'num');"
+                                                    onkeypress="telefoneMascara(this)"
+                                                    onkeypress="mascara(this, '## ####-####')" 
+                                                    maxlength="14"
+                                                    name="" 
+                                                    size="20" 
+                                                    required="required"
+                                                    class="form-control" 
+                                                    placeholder="Telefone Celular" 
+                                                    tabindex="1" 
+                                                    type="text"
+                                                    onfocus="focus_Blur(this, '#E0FFFF');" 
+                                                    onblur="focus_Blur(this, 'white');">
                                         </td>
                                     </tr>
                                 </table>
