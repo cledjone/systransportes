@@ -117,9 +117,10 @@ function verificacaoSenha(){
 
 	if (senha != confirmaSenha) {
 		window.alert('Senhas diferentes');
-		senha.focus();
-		senha = '' ;
-		confirmaSenha = '' ;
+		//senha.focus();
+		document.getElementById('senha').focus();			
+		document.getElementById('confirmaSenha').value ="";		
+		document.getElementById('senha').value ="";			
 		return false;
 		
 	}
@@ -137,7 +138,7 @@ function validar(dom,tipo){
 //----------------------VALIDAÇÃO DE LETRAS--------------------------
 
 
-
+//------------------------MASCARA PARA TELEFONE RESIDENCIAL E CELULAR-------------------------
 function telefoneMascara(telefone){ 
    if(telefone.value.length == 0)
      telefone.value = '(' + telefone.value; //quando começamos a digitar, o script irá inserir um parênteses no começo do campo.
@@ -147,4 +148,19 @@ function telefoneMascara(telefone){
  if(telefone.value.length == 9)
      telefone.value = telefone.value + '-'; //quando o campo já tiver 8 caracteres, o script irá inserir um tracinho, para melhor visualização do telefone.
   
+}
+//------------------------MASCARA PARA TELEFONE RESIDENCIAL E CELULAR-------------------------
+
+
+function MascaraCNPJ(cnpj){
+	var cnpj = document.getElementById('cnpj').value;
+	
+    if(cnpj(cnpj)==""){
+
+        event.returnValue = false;
+
+    }    
+
+    return formataCampo(cnpj, '00.000.000/0000-00', event);
+
 }

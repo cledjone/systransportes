@@ -26,6 +26,11 @@
         <script type="text/javascript" src="../js/scriptsCidades.js">
          
         </script>
+
+         <!--JavaScript de validações de campos-->
+        <script type="text/javascript" src="../js/validacaoCampo.js"></script> 
+        <!--JavaScript de validações de campos-->
+
     </head>
     
     <body>
@@ -79,9 +84,20 @@
                                         </tr>
                                         <tr>
                                             <td>
-                                                <input type="text" id="razaoSocial" name="" size="95" required="required"
-                                                class="form-control" placeholder="Razão Social" tabindex="1" type="text"
-                                                onfocus="focus_Blur(this, '#E0FFFF');" onblur="focus_Blur(this, 'white');">
+                                                <input type="text" 
+                                                        id="razaoSocial"
+                                                        maxlength="40" 
+                                                        style="text-transform:uppercase"
+                                                        onkeyup="validar(this,'text');"
+                                                        name="" 
+                                                        size="95" 
+                                                        required="required"
+                                                        class="form-control" 
+                                                        placeholder="Razão Social" 
+                                                        tabindex="1" 
+                                                        type="text"
+                                                        onfocus="focus_Blur(this, '#E0FFFF');" 
+                                                        onblur="focus_Blur(this, 'white');">
                                             </td>
                                         </tr>
                                 </table>
@@ -105,13 +121,34 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            <input type="text" id="nomeFantasia" name="" size="30" required="required"
-                                            class="form-control" placeholder="Nome Fantasia" tabindex="1" type="text"
-                                            onfocus="focus_Blur(this, '#E0FFFF');" onblur="focus_Blur(this, 'white');">
+                                            <input type="text" 
+                                                    id="nomeFantasia" 
+                                                    maxlength="40"
+                                                    style="text-transform:uppercase"
+                                                    onkeyup="validar(this,'text');"
+                                                    name="" 
+                                                    size="30" 
+                                                    required="required"
+                                                    class="form-control" 
+                                                    placeholder="Nome Fantasia" 
+                                                    tabindex="1" 
+                                                    type="text"
+                                                    onfocus="focus_Blur(this, '#E0FFFF');" 
+                                                    onblur="focus_Blur(this, 'white');">
                                         </td>
                                         <td>
-                                            <input type="text" id="cnpj" name="" size="30" required="required" class="form-control"
-                                            placeholder="CNPJ" tabindex="1" type="text" onfocus="focus_Blur(this, '#E0FFFF');"
+                                            <input type="text" 
+                                            id="cnpj" 
+                                            onKeyPress="MascaraCNPJ(this);"
+                                            maxlength="14"
+                                            name="" 
+                                            size="14"
+                                            required="required" 
+                                            class="form-control"
+                                            placeholder="CNPJ" 
+                                            tabindex="1" 
+                                            type="text" 
+                                            onfocus="focus_Blur(this, '#E0FFFF');"
                                             onblur="focus_Blur(this, 'white');">
                                         </td>
                                         <td>
@@ -148,13 +185,35 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            <input type="text" id="cep" name="" size="30" required="required" class="form-control"
-                                            placeholder="CEP" tabindex="1" type="text" onfocus="focus_Blur(this, '#E0FFFF');"
-                                            onblur="focus_Blur(this, 'white');">
+                                            <input type="text" 
+                                                    id="cep" 
+                                                    onkeypress="mascaraCep(this, '#####-###')" 
+                                                    onkeyup="validar(this,'num');"
+                                                    maxlength="9"
+                                                    name="" 
+                                                    size="30" 
+                                                    required="required" 
+                                                    class="form-control"
+                                                    placeholder="CEP" 
+                                                    tabindex="1" 
+                                                    type="text" 
+                                                    onfocus="focus_Blur(this, '#E0FFFF');"
+                                                    onblur="focus_Blur(this, 'white');">
                                             <td>
-                                                <input type="text" id="logradouro" name="" size="58" required="required"
-                                                class="form-control" placeholder="Logradouro" tabindex="1" type="text"
-                                                onfocus="focus_Blur(this, '#E0FFFF');" onblur="focus_Blur(this, 'white');">
+                                                <input type="text" 
+                                                        id="logradouro" 
+                                                        maxlength="40"
+                                                        style="text-transform:uppercase"
+                                                        onkeyup="validar(this,'text');"
+                                                        name="" 
+                                                        size="58" 
+                                                        required="required"
+                                                        class="form-control" 
+                                                        placeholder="Logradouro" 
+                                                        tabindex="1" 
+                                                        type="text"
+                                                        onfocus="focus_Blur(this, '#E0FFFF');" 
+                                                        onblur="focus_Blur(this, 'white');">
                                             </td>
                                         </td>
                                     </tr>
@@ -179,19 +238,49 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            <input type="text" id="numero" name="" size="30" required="required" class="form-control"
-                                            placeholder="Número" tabindex="1" type="text" onfocus="focus_Blur(this, '#E0FFFF');"
-                                            onblur="focus_Blur(this, 'white');">
+                                            <input type="text" 
+                                                    id="numero" 
+                                                    onkeyup="validar(this,'num');"
+                                                    maxlength="5"
+                                                    name="" 
+                                                    size="30" 
+                                                    required="required"
+                                                    class="form-control"
+                                                    placeholder="Número" 
+                                                    tabindex="1" type="text" 
+                                                    onfocus="focus_Blur(this, '#E0FFFF');"
+                                                    onblur="focus_Blur(this, 'white');">
                                         </td>
                                         <td>
-                                            <input type="text" id="bairro" name="" size="20" required="required" class="form-control"
-                                            placeholder="Bairro" tabindex="1" type="text" onfocus="focus_Blur(this, '#E0FFFF');"
-                                            onblur="focus_Blur(this, 'white');">
+                                            <input type="text" 
+                                                    id="bairro" 
+                                                    maxlength="40"
+                                                    style="text-transform:uppercase"
+                                                    onkeyup="validar(this,'text');"
+                                                    name="" 
+                                                    size="20" 
+                                                    required="required" 
+                                                    class="form-control"
+                                                    placeholder="Bairro" 
+                                                    tabindex="1" 
+                                                    type="text" 
+                                                    onfocus="focus_Blur(this, '#E0FFFF');"
+                                                    onblur="focus_Blur(this, 'white');">
                                         </td>
                                         <td>
-                                            <input type="text" id="complemento" name="" size="30" required="required"
-                                            class="form-control" placeholder="Complemento" tabindex="1" type="text"
-                                            onfocus="focus_Blur(this, '#E0FFFF');" onblur="focus_Blur(this, 'white');">
+                                            <input type="text" 
+                                                    id="complemento" 
+                                                    maxlength="40"
+                                                    style="text-transform:uppercase"
+                                                    name="" 
+                                                    size="30" 
+                                                    required="required"
+                                                    class="form-control" 
+                                                    placeholder="Complemento" 
+                                                    tabindex="1" 
+                                                    type="text"
+                                                    onfocus="focus_Blur(this, '#E0FFFF');" 
+                                                    onblur="focus_Blur(this, 'white');">
                                         </td>
                                     </tr>
                                 </table>
@@ -333,19 +422,53 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            <input type="email" id="email" name="" size="40" required="required" class="form-control"
-                                            placeholder="E-mail" tabindex="1" type="text" onfocus="focus_Blur(this, '#E0FFFF');"
+                                            <input type="email" 
+                                            id="email" 
+                                            style="text-transform:uppercase"
+                                            name="" 
+                                            maxlength="40"
+                                            size="40" 
+                                            required="required" 
+                                            class="form-control"
+                                            placeholder="E-mail" 
+                                            tabindex="1" 
+                                            type="text" 
+                                            onfocus="focus_Blur(this, '#E0FFFF');"
                                             onblur="focus_Blur(this, 'white');">
                                         </td>
                                         <td>
-                                            <input type="text" id="telefone1" name="" size="20" required="required"
-                                            class="form-control" placeholder="Telefone Residencial" tabindex="1" type="text"
-                                            onfocus="focus_Blur(this, '#E0FFFF');" onblur="focus_Blur(this, 'white');">
+                                            <input type="text" 
+                                            id="telefone1" 
+                                            onkeypress="telefoneMascara(this)"
+                                            onkeypress="mascara(this, '## ####-####')" 
+                                            onkeyup="validar(this,'num');"
+                                            maxlength="14"  
+                                            name="" 
+                                            size="20" 
+                                            required="required"
+                                            class="form-control" 
+                                            placeholder="Telefone Residencial" 
+                                            tabindex="1" 
+                                            type="text"
+                                            onfocus="focus_Blur(this, '#E0FFFF');" 
+                                            onblur="focus_Blur(this, 'white');">
                                         </td>
                                         <td>
-                                            <input type="text" id="telefone2" name="" size="20" required="required"
-                                            class="form-control" placeholder="Telefone Celular" tabindex="1" type="text"
-                                            onfocus="focus_Blur(this, '#E0FFFF');" onblur="focus_Blur(this, 'white');">
+                                            <input type="text" 
+                                            id="telefone2" 
+                                            onkeyup="validar(this,'num');"
+                                            onkeypress="telefoneMascara(this)"
+                                            onkeypress="mascara(this, '## ####-####')" 
+                                            maxlength="14"
+                                            name="" 
+                                            size="20" 
+                                            required="required"
+                                            class="form-control" 
+                                            placeholder="Telefone Celular" 
+                                            tabindex="1" 
+                                            type="text"
+                                            onfocus="focus_Blur(this, '#E0FFFF');" 
+                                            onblur="focus_Blur(this, 'white');">
                                         </td>
                                     </tr>
                                 </table>
@@ -379,19 +502,35 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            <input type="text" id="login" name="" size="30" required="required" class="form-control"
+                                            <input type="text" id="login" name="" size="30" maxlength="40" required="required" class="form-control"
                                             placeholder="Usuário" tabindex="1" type="text" onfocus="focus_Blur(this, '#E0FFFF');"
                                             onblur="focus_Blur(this, 'white');">
                                         </td>
                                         <td>
-                                            <input type="text" name="" size="25" required="required" class="form-control"
-                                            placeholder="Senha" tabindex="1" type="text" onfocus="focus_Blur(this, '#E0FFFF');"
-                                            onblur="focus_Blur(this, 'white');">
+                                            <input type="password" 
+                                                    size="25" 
+                                                    required="required" 
+                                                    class="form-control" 
+                                                    id="senha"
+                                                    placeholder="Senha" 
+                                                    tabindex="1" 
+                                                    type="text" 
+                                                    onfocus="focus_Blur(this, '#E0FFFF');"
+                                                    onblur="focus_Blur(this, 'white');">
                                         </td>
                                         <td>
-                                            <input type="text" id="senha" name="" size="25" required="required" class="form-control"
-                                            placeholder="Confirme  sua senha" tabindex="1" type="text" onfocus="focus_Blur(this, '#E0FFFF');"
-                                            onblur="focus_Blur(this, 'white');">
+                                            <input type="password" 
+                                                    id="confirmaSenha" 
+                                                    name="" 
+                                                    size="25" 
+                                                    required="required" 
+                                                    class="form-control" 
+                                                    placeholder="Confirme  sua senha" 
+                                                    tabindex="1" 
+                                                    type="text" 
+                                                    onChange="verificacaoSenha()"
+                                                    onfocus="focus_Blur(this, '#E0FFFF');"
+                                                    onblur="focus_Blur(this, 'white');">
                                         </td>
                                     </tr>
                                 </table>
