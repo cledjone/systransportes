@@ -3,8 +3,7 @@
 	require_once ("veiculo.php");
 
 	class VeiculoSql {
-
-		//Método responsável em adicionar um determinado veículo
+			//Método responsável em adicionar um determinado veículo
 		public static function adicionar(Veiculo $veiculo) {
 			//Criando a conexão com o banco de dados
 			$conexao 			= Conexao :: getInstance() -> getConexao();
@@ -33,11 +32,11 @@
 			mysql_close();
 			
 			//Retorno do método adicionar
-			return ($resultado === true)
+			return ($resultado === true);
 		}
 
 		//Método responsável em alterar um determinado veículo
-		public static function alterar(Veiculo veiculo) {
+		public static function alterar(Veiculo $veiculo) {
 			//Criando a conexão com o banco de dados
 			$conexao 			= Conexao :: getInstance() -> getConexao();
 
@@ -51,7 +50,7 @@
 
 			///Alteração na tabela de veiculo relacionada ao banco de dados systransporte
 			$sql       			= "update veiculos set placa='$placa', capacidadeKg='$capacidadeKg', capacidadeM3='$capacidadeM3',
-								  ano='$ano', tipo='$tipo' where placa = $placa"			
+								  ano='$ano', tipo='$tipo' where placa = '$placa' ";			
 			$resultado = @mysql_query($sql, $conexao);
 
 			//Validação com o intúito de verificar se o veículo foi ou não alterado
@@ -69,7 +68,7 @@
 		}
 
 		//Método responsável em remover um determinado veículo
-		public static function remover(Veiculo veiculo) {
+		public static function remover(Veiculo $veiculo) {
 			//Criando a conexão com o banco de dados
 			$conexao 			= Conexao :: getInstance() -> getConexao();
 
@@ -78,7 +77,7 @@
 			$placa 				= mysql_real_escape_string($veiculo->getPlaca(), $conexao);
 
 			//Remoção na tabela de veiculo relacionada ao banco de dados systransporte
-			$sql       			= "delete from veiculos where placa = $placa"			
+			$sql       			= "delete from veiculos where placa = '$placa' ";			
 			$resultado = @mysql_query($sql, $conexao);
 
 			//Validação com o intúito de verificar se o veículo foi ou não removido
@@ -96,7 +95,7 @@
 		}
 
 		//Método responsável em pesquisar um determinado veículo
-		public static function pesquisar(Veiculo veiculo) {
+		public static function pesquisar(Veiculo $veiculo) {
 			//Criando a conexão com o banco de dados
 			$conexao 			= Conexao :: getInstance() -> getConexao();
 
@@ -121,6 +120,22 @@
 			//Retorno do método pesquisar
 			return ($resultado === true);
 		}
-		}
-	}
+
+		public static function carregarLista() {
+	      //Conexão com o banco
+	      $conexao = Conexao::getInstance()->getConexao();     
+
+			$rs = mysql_query('select * from veiculos');
+			$result = array();
+			while($row = mysql_fetch_object($rs)){
+				array_push($result, $row);
+			}
+			echo json_encode($result);
+        }
+      
+
+
+    }
+		
+	
 ?>

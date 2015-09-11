@@ -33,19 +33,15 @@
 	}
 
 
-	if (isset($_GET["consultaVeiculo"])) {			
-		$veiculo = new Veiculo();		
-		$listarVeiculos = VeiculoSql::pesquisar($veiculo);
-		for ($i = 0; $i < count($listaCotacoes); $i++) {					
+	if ($_GET["editSave"] == "carregarVeiculo") {			
+		
+		if (VeiculoSql::carregarLista()){
 			$resultado[] = array(				
-				'placa'	=>  $listarVeiculos[$i] -> getPlaca(),
-				'capacidadeKg'	=>  $listarVeiculos[$i] -> getCapacidadeKg(),	
-				'capacidadeM3'	=>  $listarVeiculos[$i] -> getCapacidadeM3(),	
-				'ano'	=>  $listarVeiculos[$i] -> getAno(),	
-				'tipo'	=>  $listarVeiculos[$i] -> getTipo(),									
-			);
+				'oka'	=>  'oks',						
+			);			
 		}			
-		echo( json_encode( $resultado ) );		
 	}
+
+	
 
 ?>
