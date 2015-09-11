@@ -11,7 +11,7 @@
 
 	//CONSULTA USUÁRIO
 	
-	if ($_GET["editSave"] == "incluirUsuario"){			
+	if ($_GET["editSave"] == "incluirUsuarioAdmin"){			
 		//Classe de Usuário
 		$usuario = new Usuario();	
 
@@ -49,7 +49,9 @@
 		
 		echo(json_encode($resultado ));			
 	}
-	else if ($_GET["editSave"] == "alterarUsuario"){			
+	
+	///////////////////////// ADMIN CRUD /////////////////////////
+	if ($_GET["editSave"] == "alterarUsuario"){			
 		//Classe de Usuário
 		$usuario = new Usuario();	
 

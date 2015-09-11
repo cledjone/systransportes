@@ -34,10 +34,10 @@
          $(function(){
              $("div.easyui-layout").layout();
              $('#dg').edatagrid({
-                 url: '../webServices/usuariosWebServiceAdmin.php?editSave=carregarUsuario',
-                 saveUrl: '../webServices/usuariosWebServiceAdmin.php?editSave=incluirUsuario',
-                 updateUrl: '../webServices/usuariosWebServiceAdmin.php?editSave=alterarUsuario',
-                 destroyUrl: '../webServices/usuariosWebServiceAdmin.php?editSave=deletarUsuario',
+                 url: '../webServices/usuariosWebService.php?editSave=carregarUsuario',
+                 saveUrl: '../webServices/usuariosWebService.php?editSave=incluirUsuarioAdmin',
+                 updateUrl: '../webServices/usuariosWebService.php?editSave=alterarUsuario',
+                 destroyUrl: '../webServices/usuariosWebService.php?editSave=deletarUsuario',
                  fitColumns: true
              });
              var dg = $('#dg');

@@ -106,18 +106,6 @@
     public static function carregarLista() {
       //Conexão com o banco
       $conexao = Conexao::getInstance()->getConexao();     
-	  
-	  //Atributo da tabela usuário
-	  //$id = mysql_real_escape_string($usuario->getId(), $conexao);
-
-  	  //Delet para a tabela de Usuários do banco de dados
-	  //$sql = "select * from usuarios"; 
-	  //$rs = mysql_query('select * from usuarios');     //echo ($sql);
-      
-      //$resultado = @mysql_query($sql, $conexao);
-
-       //echo($sql);	
-      //return ($resultado === true);
 
 		$rs = mysql_query('select * from usuarios');
 		$result = array();
