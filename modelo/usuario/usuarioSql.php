@@ -77,14 +77,55 @@
 	  $login = mysql_real_escape_string($usuario->getLogin(), $conexao);     
 	  $senha = mysql_real_escape_string($usuario->getSenha(), $conexao);    
   
-  	  //Insert para a tabela de Usuários do banco de dados
-		$sql = "update usuarios set perfil='$perfil',nomeCompleto='$nomeCompleto',razaoSocial='$razaoSocial',nomeFantasia='$nomeFantasia',tipoEmpresa='$tipoEmpresa',rg='$rg',orgaoExpedidor='$orgaoExpedidor',cpf='$cpf',cnpj='$cnpj',email='$email',telefone1='$telefone1',telefone2='$telefone2',logradouro='$logradouro',bairro='$bairro',numero='$numero',complemento='$complemento',uf='$uf',cidade='$cidade',cep='$cep',login='$login',senha='$senha'  where id=$id";
+  	  //Update para a tabela de Usuários do banco de dados
+	  $sql = "update usuarios set perfil='$perfil',nomeCompleto='$nomeCompleto',razaoSocial='$razaoSocial',nomeFantasia='$nomeFantasia',tipoEmpresa='$tipoEmpresa',rg='$rg',orgaoExpedidor='$orgaoExpedidor',cpf='$cpf',cnpj='$cnpj',email='$email',telefone1='$telefone1',telefone2='$telefone2',logradouro='$logradouro',bairro='$bairro',numero='$numero',complemento='$complemento',uf='$uf',cidade='$cidade',cep='$cep',login='$login',senha='$senha'  where id=$id";
       //echo ($sql);
       $resultado = @mysql_query($sql, $conexao);
 
        //echo($sql);	
       return ($resultado === true);
     }
+
+    public static function deletar(Usuario $usuario) {
+      //Conexão com o banco
+      $conexao = Conexao::getInstance()->getConexao();     
+	  
+	  //Atributo da tabela usuário
+	  $id = mysql_real_escape_string($usuario->getId(), $conexao);
+
+  	  //Delet para a tabela de Usuários do banco de dados
+	  $sql = "delete from usuarios where id=$id";      //echo ($sql);
+      
+      $resultado = @mysql_query($sql, $conexao);
+
+       //echo($sql);	
+      return ($resultado === true);
+
+    }
 	
+    public static function carregarLista() {
+      //Conexão com o banco
+      $conexao = Conexao::getInstance()->getConexao();     
+	  
+	  //Atributo da tabela usuário
+	  //$id = mysql_real_escape_string($usuario->getId(), $conexao);
+
+  	  //Delet para a tabela de Usuários do banco de dados
+	  //$sql = "select * from usuarios"; 
+	  //$rs = mysql_query('select * from usuarios');     //echo ($sql);
+      
+      //$resultado = @mysql_query($sql, $conexao);
+
+       //echo($sql);	
+      //return ($resultado === true);
+
+		$rs = mysql_query('select * from usuarios');
+		$result = array();
+		while($row = mysql_fetch_object($rs)){
+			array_push($result, $row);
+		}
+		echo json_encode($result);
+    }
+
   }
 ?>

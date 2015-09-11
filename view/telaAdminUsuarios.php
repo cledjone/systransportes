@@ -34,10 +34,10 @@
          $(function(){
              $("div.easyui-layout").layout();
              $('#dg').edatagrid({
-                 url: 'getCadastroAdmin.php',
+                 url: '../webServices/usuariosWebServiceAdmin.php?editSave=carregarUsuario',
                  saveUrl: '../webServices/usuariosWebServiceAdmin.php?editSave=incluirUsuario',
                  updateUrl: '../webServices/usuariosWebServiceAdmin.php?editSave=alterarUsuario',
-                 destroyUrl: 'destroyCadastroAdmin.php',
+                 destroyUrl: '../webServices/usuariosWebServiceAdmin.php?editSave=deletarUsuario',
                  fitColumns: true
              });
              var dg = $('#dg');

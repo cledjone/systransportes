@@ -16,7 +16,6 @@
 		$usuario = new Usuario();	
 
 		//Atributos da classe Usuário/Valores 
-
 		$usuario->setPerfil($_REQUEST['perfil']); 
 		$usuario->setNomeCompleto($_REQUEST['nomeCompleto']); 
 		$usuario->setRazaoSocial($_REQUEST['razaoSocial']); 
@@ -50,13 +49,13 @@
 		
 		echo(json_encode($resultado ));			
 	}
-
 	else if ($_GET["editSave"] == "alterarUsuario"){			
 		//Classe de Usuário
 		$usuario = new Usuario();	
 
+		//Atributos da classe Usuário/Valores
 		$usuario->setId($_REQUEST['id']);
-		//Atributos da classe Usuário/Valores 
+		 
 		$usuario->setPerfil($_REQUEST['perfil']); 
 		$usuario->setNomeCompleto($_REQUEST['nomeCompleto']); 
 		$usuario->setRazaoSocial($_REQUEST['razaoSocial']); 
@@ -88,11 +87,37 @@
 			);			
 		}	
 		
-		echo(json_encode($resultado ));			
-		
-		
+		echo(json_encode($resultado ));				
 	}
 
+	else if ($_GET["editSave"] == "deletarUsuario"){
+
+		//Classe de Usuário
+		$usuario = new Usuario();	
+
+		//Atributos da classe Usuário/Valores
+		$usuario->setId($_REQUEST['id']);
+
+		if (UsuarioSql::deletar($usuario)){
+			$resultado[] = array(				
+				'oka'	=>  'oks',						
+			);			
+		}	
+	}
+	else if ($_GET["editSave"] == "carregarUsuario"){
+
+		//Classe de Usuário
+		//$usuario = new Usuario();	
+
+		//Atributos da classe Usuário/Valores
+		//$usuario->setId($_REQUEST['id']);
+
+		if (UsuarioSql::carregarLista()){
+			$resultado[] = array(				
+				'oka'	=>  'oks',						
+			);			
+		}	
+	}
 			
 ?>
 	
