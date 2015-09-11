@@ -5,6 +5,13 @@
 	var aguardaDigitar; 	
 	var webServiceCotacao = '../../webServices/cotacaoWebService.php';	
 	
+	//OCULTAR O MAPA SEM CONSULTA
+	$(document).ready(function(){	
+		$("#totalGeral").hide("slow");
+		$("#mapaGoogle").hide("slow");
+		$("#ufOrigem").focus();
+	});	
+	
 	//CONSULTA COTAÇÕES
 	function consultaCotacoes(campoDigitado) {			   		 
 		var realizaConsulta=false;
@@ -44,6 +51,8 @@
 		var codCidadeOrigem = cidadeOrigem.substring(0,7);							
 		var cidadeDestino = document.getElementById('cidadeDestino').value;
 		var codCidadeDestino = cidadeDestino.substring(0,7);						
+		var descricao = document.getElementById('descricao');										
+		var status = document.getElementById('idStatus');				
 		
 		var altura = document.getElementById('altura');	
 		var tira_Virgula = altura.value.replace(".", "");
@@ -64,20 +73,24 @@
 		var valorCarga = document.getElementById('valor');		
 		var tira_Virgula = valorCarga.value.replace(".", "");
 		valorCarga = tira_Virgula.replace("," ,".");	
+		
+		var valorFrete = document.getElementById('valorFrete');		
+		var tira_Virgula = valorFrete.value.replace(".", "");
+		valorFrete = tira_Virgula.replace("," ,".");	
+		valorFrete = valorFrete.substr(3,valorFrete.length);
 			
-		var prazo = '0';
-		var valorFrete = '0';
-		var descricao = 'nada';
-		var aprovadoCliente = 0;
-		var aprovadoAtendente = 0;		
-		var idUsuario = 1;		
-		var status = 1;		
+		var txtPrazo = document.getElementById('txtTempo');		
+		pegaPrazo = txtPrazo.value;
+		var prazo = pegaPrazo.substr(0,(pegaPrazo.length-7));		
+		
+		var idUsuario = 1;				
+		
 		
 		if (acao=='incluir'){
-			jsonParametros = {incluirCotacao: 'sim', idUsuario: idUsuario, aprovadoAtendente: aprovadoAtendente, aprovadoCliente: aprovadoCliente, descricao: descricao, valorFrete: valorFrete, prazo: prazo, altura: altura, largura: largura, peso: peso, comprimento: comprimento, quantidadeCaixas: qtdCaixas.value, valorCarga: valorCarga, codCidadeOrigem: codCidadeOrigem, codCidadeDestino: codCidadeDestino, status: status};	
+			jsonParametros = {incluirCotacao: 'sim', idUsuario: idUsuario, descricao: descricao.value, valorFrete: valorFrete, prazo: prazo, altura: altura, largura: largura, peso: peso, comprimento: comprimento, quantidadeCaixas: qtdCaixas.value, valorCarga: valorCarga, codCidadeOrigem: codCidadeOrigem, codCidadeDestino: codCidadeDestino, status: status.value};	
 		}		
 		if (acao=='alterar'){
-			jsonParametros = {alterarCotacao: 'sim', idCotacao: idCotacao.value, idUsuario: idUsuario, aprovadoAtendente: aprovadoAtendente, aprovadoCliente: aprovadoCliente, descricao: descricao, valorFrete: valorFrete, prazo: prazo, altura: altura, largura: largura, peso: peso, comprimento: comprimento, quantidadeCaixas: qtdCaixas.value, valorCarga: valorCarga, codCidadeOrigem: codCidadeOrigem, codCidadeDestino: codCidadeDestino, status: status};	
+			jsonParametros = {alterarCotacao: 'sim', idCotacao: idCotacao.value, idUsuario: idUsuario, descricao: descricao.value, valorFrete: valorFrete, prazo: prazo, altura: altura, largura: largura, peso: peso, comprimento: comprimento, quantidadeCaixas: qtdCaixas.value, valorCarga: valorCarga, codCidadeOrigem: codCidadeOrigem, codCidadeDestino: codCidadeDestino, status: status.value};	
 		}		
 		if (acao=='cancelar'){
 			jsonParametros = {statusCotacao: 'sim',  status: 0, idCotacao: idCotacao.value};	
@@ -108,14 +121,30 @@
 	
 	//TRATA RESULTADO WEBSERVICE
 	function trataResultadoWebService(resultadoXml) {	
+		if (resultadoXml[0].resultado=='ok'){
+			irPara('viewConsulta.php','consultar');
+		}
 		if (resultadoXml[0].resultado=='consulta'){
-			for (var i = 0; i < resultadoXml.length; i++) {													
+			for (var i = 0; i < resultadoXml.length; i++) {
+				var status = 'AGUARDANDO ATENDENTE';
+				if (i==0){		
+					var trLinhaTitulo = document.createElement("tr");	
+					trLinhaTitulo.style.background = 'black';					
+					trLinhaTitulo.style.color = 'white';					
+					trLinhaTitulo.innerHTML = '<td>ID</td><td>Cidade Origem</td><td>UF</td><td>Cidade Destino</td><td>UF</td><td>Valor Carga</td><td>Frete</td><td>PRAZO</td><td>STATUS</td>';
+					document.getElementById('tabelaConsulta').appendChild(trLinhaTitulo);					
+				}				
 				var trLinha = document.createElement("tr");
 				trLinha.setAttribute("class", "itens");
-				trLinha.setAttribute("onClick", "selecionaCotacao(this)");			
+				trLinha.setAttribute("onClick", "selecionaCotacao(this)");		
+				if (resultadoXml[i].status ==0){
+					trLinha.style.background = 'red';					
+					trLinha.style.color = 'white';					
+					status = 'CANCELADO';
+				}								
 				trLinha.name = resultadoXml[i].id;
 				trLinha.id = 'trLinha'+(resultadoXml[i].id);				
-				trLinha.innerHTML = '<td id="idCotacao'+resultadoXml[i].id+'">'+resultadoXml[i].id+'</td><td>'+(resultadoXml[i].cidadeOrigem).substr(0,20)+'</td><td>'+resultadoXml[i].ufOrigem+'</td><td>'+(resultadoXml[i].cidadeDestino).substr(0,20)+'</td><td>'+resultadoXml[i].ufDestino+'</td><td>'+resultadoXml[i].valorCarga+'</td><td>'+resultadoXml[i].valorFrete+'</td><td>'+resultadoXml[i].prazo+'</td><td>'+resultadoXml[i].status+'</td>';
+				trLinha.innerHTML = '<td id="idCotacao'+resultadoXml[i].id+'">'+resultadoXml[i].id+'</td><td>'+(resultadoXml[i].cidadeOrigem).substr(0,20)+'</td><td>'+resultadoXml[i].ufOrigem+'</td><td>'+(resultadoXml[i].cidadeDestino).substr(0,20)+'</td><td>'+resultadoXml[i].ufDestino+'</td><td>'+resultadoXml[i].valorCarga+'</td><td>'+resultadoXml[i].valorFrete+'</td><td>'+resultadoXml[i].prazo+'</td><td>'+status+'</td>';
 				document.getElementById('tabelaConsulta').appendChild(trLinha);					
 			}
 		}
@@ -183,9 +212,6 @@
 	}	
 	
 	
-	
-	
-	
 	// PEGAS AS CAIXAS DE DIGITAÇAO E CONCATENA NO CAMPO DE CONSULTA OCULTO
 	function juntaCidadeUf(){
 		var caixaCidadeOrigem = document.getElementById('cidadeOrigem');
@@ -201,16 +227,22 @@
 	}
 	
 	function CalculaDistancia() {
-        $('#litResultado').html('Aguarde...');
-        // Instancia o DistanceMatrixService.
-        var service = new google.maps.DistanceMatrixService();
-        // Executa o DistanceMatrixService.
-        service.getDistanceMatrix({
-            origins: [$("#txtOrigem").val()], // Origem
-            destinations: [$("#txtDestino").val()], // Destino
-            travelMode: google.maps.TravelMode.DRIVING, // Modo (DRIVING | WALKING | BICYCLING)
-            unitSystem: google.maps.UnitSystem.METRIC // Sistema de medida (METRIC | IMPERIAL)
-        }, callback); // Vai chamar o callback
+		var cidadeOrigem = document.getElementById('cidadeOrigem').value;	
+		var cidadeDestino = document.getElementById('cidadeOrigem').value;	
+		var peso = document.getElementById('peso').value;	
+		var valor = document.getElementById('valor').value;	
+		if (cidadeOrigem!="" && cidadeDestino!="" && peso!="" && valor!=""){
+			$('#litResultado').html('Aguarde...');
+			// Instancia o DistanceMatrixService.
+			var service = new google.maps.DistanceMatrixService();
+			// Executa o DistanceMatrixService.
+			service.getDistanceMatrix({
+				origins: [$("#txtOrigem").val()], // Origem
+				destinations: [$("#txtDestino").val()], // Destino
+				travelMode: google.maps.TravelMode.DRIVING, // Modo (DRIVING | WALKING | BICYCLING)
+				unitSystem: google.maps.UnitSystem.METRIC // Sistema de medida (METRIC | IMPERIAL)
+			}, callback); // Vai chamar o callback
+		}
       }
 
       // Tratar o retorno do DistanceMatrixService
@@ -219,17 +251,17 @@
         if (status != google.maps.DistanceMatrixStatus.OK) { // Se o status não for "OK".
             $("#litResultado").html(status);
         } else { // Se o status for "OK".
-            $("#litResultado").html("&nbsp;"); // Remove o "aguarde".
-
-            // Popula os campos.         
-            $("#txtDistancia").val(response.rows[0].elements[0].distance.text);
-					
+            $("#litResultado").html("&nbsp;"); // Remove o "aguarde".           
 			
 			//PEGA O VALOR DO KM TOTAL E RETIRA OS STRINGS
 			var pegaDistancia = response.rows[0].elements[0].distance.text;
-			pegaDistancia = pegaDistancia.substr(0,(pegaDistancia.length-3)); //PEGA  APENAS OS NUMNEROS			
-			var valorMySql = pegaDistancia.replace(".", ""); // TIRA OS PONTOS DE MILHAR
+			// Popula os campos.         
+            $("#txtDistancia").val(pegaDistancia);
+			
+			var distanciaSemKm = pegaDistancia.substr(0,(pegaDistancia.length-3)); //PEGA  APENAS OS NUMNEROS			
+			var valorMySql = distanciaSemKm.replace(".", ""); // TIRA OS PONTOS DE MILHAR
 			pegaDistancia = valorMySql.replace("," ,".");	  // VIRGULA DE CASA DECIMAL VIRA PONTO (PADRÃO AMERICANO)
+				
 			
 			// CALCULO EM REAL, NECESSITAREMOS DE UMA TABELA PRA CASO O CLIENTE QUEIRA ALTERAR
 			var fretePelaDistancia = pegaDistancia*(0.9);// ME FALARAM QUE O PREÇO POR KM É 0,90;
@@ -270,29 +302,73 @@
 			
 			//EXPECIFICA UM PERCENTUAL BASEADO NO TAMANHO DO CAMINHÃO E O PESO DA CARGA
 			var percentualCobrado = pesoMercadoria/capacidadeCaminhao*100;
+								
+			//CALCULA O PERCENTUAL REFERENTE AO  ESPAÇO NO CAMINHAO
+			var valorFrete = (fretePelaDistancia*percentualCobrado)/100; //PRONTO! FRETE CALCULADO!
 			
 			//TAXA MINIMA SEMPRE SOMADA PARA DISTANCIAS MUITO CURTAS EX: RECIFE(AEROPORTO) / RECIFE(AFOGADOS)
 			var freteMinimo = 30;  //OUTRO VALOR A SER COLOCADO NO BANCO PRA A TRANSPORTADORA ALTERAR SE QUISER
 			
 			//SOMA OS VALORES 
-			var valorFrete = fretePelaDistancia+freteMinimo+valorSeguro;
-						
-			//CALCULA O PERCENTUAL REFERENTE AO  ESPAÇO NO CAMINHAO
-			var valorFinalFrete = (valorFrete*percentualCobrado)/100; //PRONTO! FRETE CALCULADO!
+			var valorFinalFrete = valorFrete+freteMinimo+valorSeguro;
 			
 			
 			valorFinalFrete = moeda(valorFinalFrete,2,',','.'); 
 						
 			//JOGA O VALOR NA CAIXA DE TEXTO
-			$("#valorFrete").val(valorFinalFrete);			
+			$("#valorFrete").val('R$:'+valorFinalFrete);			
 			
 			
-            var tempo = response.rows[0].elements[0].duration.text;			
-            tempo = tempo.replace("day", "dia").replace("hour", "hora").replace("min", "minuto");
-            $("#txtTempo").val(tempo);
+            var tempo = response.rows[0].elements[0].duration.text;
+			tempo = tempo.replace("day", "dia").replace("hour", "hora").replace("min", "minuto");
+			var escreveTempo = "";
+			var diaFinal = "";
+			var horaFinal = 0;
+			var ponteiroFinal = 0;
+			var menosDeUmaHora = true;
+			if(tempo.match(/dia/)){
+				menosDeUmaHora = false;	
+				for (var i = 0; i < tempo.length; i++) {     
+					if (tempo[i]==" "){						
+						for (var y = i; y < tempo.length; y++) {     
+							if(tempo.match(/hora/)){				
+								if (tempo[y]>0){
+									if (tempo[y]==" "){						
+										break;
+									}else{
+										horaFinal = horaFinal+tempo[y];
+									}			 
+								}
+							}
+						}						
+					    diaFinal = (parseInt(diaFinal)*6)+parseInt(Math.ceil(horaFinal/4));											
+						break;
+					}else{
+						diaFinal = diaFinal+tempo[i];
+					}			  
+				}			  
+			}else {			
+				if(tempo.match(/hora/)){
+					menosDeUmaHora = false;						
+					for (var i = ponteiroFinal; i < tempo.length; i++) {     					
+						if (tempo[i]==" "){						
+							break;
+						}else{
+							horaFinal = horaFinal+tempo[i];
+						}			 					
+					}
+				  diaFinal = diaFinal+(Math.ceil(horaFinal/4));
+				}						
+			}
+            if (menosDeUmaHora){
+				diaFinal = 1;
+			}				
+            $("#txtTempo").val(diaFinal+' Dia(s)');
 
             //Atualizar o mapa.
             $("#map").attr("src", "https://maps.google.com/maps?saddr=" + response.originAddresses + "&daddr=" + response.destinationAddresses + "&output=embed");
+			$("#totalGeral").show(400);					
+			$("#mapaGoogle").show(400);					
         }
       }
 	  

@@ -21,9 +21,7 @@
 		$cotacao->setComprimento($comprimento); 
 		$cotacao->setQuantidadeCaixas($quantidadeCaixas); 	
 		$cotacao->setPrazo($prazo); 	
-		$cotacao->setDescricao($descricao); 	
-		$cotacao->setAprovadoCliente($aprovadoCliente); 	
-		$cotacao->setAprovadoAtendente($aprovadoAtendente); 	
+		$cotacao->setDescricao($descricao); 				
 		if (isset($_GET["incluirCotacao"]))
 			$status = 1;
 		$cotacao->setStatus($status); 	
@@ -83,7 +81,13 @@
 			$resultadoConsulta ='idCotacao'; 
 		}
 		$listaCotacoes = CotacaoSql::consultar($cotacao);
-		for ($i=0; $i<count($listaCotacoes); $i++ ){					
+		for ($i=0; $i<count($listaCotacoes); $i++ ){							
+			$valorCarga = number_format($listaCotacoes[$i]->getValorCarga(), 2, ',', '.');				
+			$valorFrete = number_format($listaCotacoes[$i]->getValorFrete(), 2, ',', '.');				
+			$altura = number_format($listaCotacoes[$i]->getAltura(), 2, ',', '.');				
+			$largura = number_format($listaCotacoes[$i]->getLargura(), 2, ',', '.');				
+			$peso = number_format($listaCotacoes[$i]->getPeso(), 2, ',', '.');				
+			$comprimento = number_format($listaCotacoes[$i]->getComprimento(), 2, ',', '.');				
 			$resultado[] = array(				
 				'id'	=>  $listaCotacoes[$i]->getId(),					
 				'idUsuario'	=>   $listaCotacoes[$i]->getObjUsuario()->getId(),				
@@ -94,12 +98,12 @@
 				'codCidadeDestino'	=>   $listaCotacoes[$i]->getObjCidadeDestino()->getCodigo(),				
 				'cidadeDestino'	=>  $listaCotacoes[$i]->getObjCidadeDestino()->getDescricao(),	
 				'ufDestino'	=>  $listaCotacoes[$i]->getObjCidadeDestino()->getUf(),								
-				'valorCarga'	=>  $listaCotacoes[$i]->getValorCarga(),					
-				'valorFrete'	=>  $listaCotacoes[$i]->getValorFrete(),					
-				'altura'	=>  $listaCotacoes[$i]->getAltura(),					
-				'largura'	=>  $listaCotacoes[$i]->getLargura(),					
-				'peso'	=>  $listaCotacoes[$i]->getPeso(),					
-				'comprimento'	=>  $listaCotacoes[$i]->getComprimento(),					
+				'valorCarga'	=>  $valorCarga,					
+				'valorFrete'	=>  $valorFrete,					
+				'altura'	=>  $altura,			
+				'largura'	=>  $largura,
+				'peso'	=>  $peso,
+				'comprimento'	=>  $comprimento,
 				'quantidadeCaixas'	=>  $listaCotacoes[$i]->getQuantidadeCaixas(),					
 				'prazo'	=>  $listaCotacoes[$i]->getPrazo(),					
 				'descricao'	=>  $listaCotacoes[$i]->getDescricao(),					

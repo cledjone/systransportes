@@ -17,11 +17,9 @@
 	  $comprimento = mysql_real_escape_string($u->getComprimento(), $conexao);      
 	  $quantidadeCaixas = mysql_real_escape_string($u->getQuantidadeCaixas(), $conexao);   
 	  $prazo = mysql_real_escape_string($u->getPrazo(), $conexao);   
-	  $descricao = mysql_real_escape_string($u->getDescricao(), $conexao);   
-	  $aprovadoCliente = mysql_real_escape_string($u->getAprovadoCliente(), $conexao);   
-	  $aprovadoAtendente = mysql_real_escape_string($u->getAprovadoAtendente(), $conexao);   
+	  $descricao = mysql_real_escape_string($u->getDescricao(), $conexao);   	
 	  $status = mysql_real_escape_string($u->getStatus(), $conexao);   
-	  $sql = "insert into cotacoes (idUsuario, codCidadeOrigem, codCidadeDestino, valorCarga, valorFrete, altura, largura, peso, comprimento, quantidadeCaixa, prazo, descricao, aprovadoCliente, aprovadoAtendente, status) values ($idUsuario, $codCidadeOrigem, $codCidadeDestino, $valorCarga, $valorFrete, $altura, $largura, $peso, $comprimento, $quantidadeCaixas, $prazo, '$descricao', $aprovadoCliente, $aprovadoAtendente, $status)";	 
+	  $sql = "insert into cotacoes (idUsuario, codCidadeOrigem, codCidadeDestino, valorCarga, valorFrete, altura, largura, peso, comprimento, quantidadeCaixa, prazo, descricao, status) values ($idUsuario, $codCidadeOrigem, $codCidadeDestino, $valorCarga, $valorFrete, $altura, $largura, $peso, $comprimento, $quantidadeCaixas, $prazo, '$descricao', $status)";	 	  
       $resultado = @mysql_query($sql, $conexao);
       return ($resultado === true);
     }
@@ -40,11 +38,9 @@
 	  $comprimento = mysql_real_escape_string($u->getComprimento(), $conexao);      
 	  $quantidadeCaixas = mysql_real_escape_string($u->getQuantidadeCaixas(), $conexao);   
 	  $prazo = mysql_real_escape_string($u->getPrazo(), $conexao);   
-	  $descricao = mysql_real_escape_string($u->getDescricao(), $conexao);   
-	  $aprovadoCliente = mysql_real_escape_string($u->getAprovadoCliente(), $conexao);   
-	  $aprovadoAtendente = mysql_real_escape_string($u->getAprovadoAtendente(), $conexao);   
+	  $descricao = mysql_real_escape_string($u->getDescricao(), $conexao);   	 
 	  $status = mysql_real_escape_string($u->getStatus(), $conexao);   
-	  $sql = "update cotacoes set idUsuario=$idUsuario, codCidadeOrigem=$codCidadeOrigem, codCidadeDestino=$codCidadeDestino, valorCarga=$valorCarga, valorFrete=$valorFrete, altura=$altura, largura=$largura, peso=$peso, comprimento=$comprimento, quantidadeCaixa=$quantidadeCaixas, prazo=$prazo, descricao='$descricao', aprovadoCliente=$aprovadoCliente, aprovadoAtendente=$aprovadoAtendente, status=$status where id=$id";	  
+	  $sql = "update cotacoes set idUsuario=$idUsuario, codCidadeOrigem=$codCidadeOrigem, codCidadeDestino=$codCidadeDestino, valorCarga=$valorCarga, valorFrete=$valorFrete, altura=$altura, largura=$largura, peso=$peso, comprimento=$comprimento, quantidadeCaixa=$quantidadeCaixas, prazo=$prazo, descricao='$descricao', status=$status where id=$id";	  
       $resultado = @mysql_query($sql, $conexao);
       return ($resultado === true);
     }

@@ -81,29 +81,34 @@
             </div>
         </div>
         <div class="navbar-wrapper">
-			<nav class="navbar">
-				<div class="container">                        
-					<div class="container">        
-						<div class="box">         						
-							<center>
-							<br><br>    
-								<div class="col-lg-12">                     
-									<b><font color="red" size="4">CADASTRO DE COTAÇÕES</font></b>                       
-								</div>          
-							<br><br><br>
-							<table border="1" width="100%" id="tabelaConsulta">
-						
-							</table>
-							<input type="image" src='../../img/incluirBtn.png' id="btnIncluir" onClick="irPara('viewCadastro.php','incluir')">
-							<input type="image" src='../../img/alterarBtn.png' id="btnAlterar" onClick="irPara('viewCadastro.php','alterar')">
-							<input type="image" src='../../img/aprovarBtn.png' id="btnAprovar" onClick="irPara('viewCadastro.php', 'aprovar')">
-							<input type="image" src='../../img/cancelarBtn.png' id="btnCancelar" onClick="irPara('viewCadastro.php','cancelar')">
-							<input type="image" src='../../img/sairBtn.png' id="btnSair" onClick="irPara('../../index.php','index')">
+            <div class="container-fluid">
+                <nav class="navbar">
+                    <div class="container">
+                        <div class="navbar-header">
+                        </div>
+                        <div id="navbar" class="navbar-collapse collapse">
+							<center>                         
+									
+									<br><br>    
+										<div class="col-lg-12">                     
+											<b><font color="red" size="4">CADASTRO DE COTAÇÕES</font></b>                       
+										</div>          
+									<br><br><br>
+									<table border="1" width="100%" id="tabelaConsulta">
+								
+									</table>
+									<br><br>
+									<input type="image" src='../../img/incluirBtn.png' id="btnIncluir" onClick="irPara('viewCadastro.php','incluir')">
+									<input type="image" src='../../img/alterarBtn.png' id="btnAlterar" onClick="irPara('viewCadastro.php','alterar')">
+									<input type="image" src='../../img/aprovarBtn.png' id="btnAprovar" onClick="irPara('viewCadastro.php', 'aprovar')">
+									<input type="image" src='../../img/cancelarBtn.png' id="btnCancelar" onClick="irPara('viewCadastro.php','cancelar')">
+									<input type="image" src='../../img/sairBtn.png' id="btnSair" onClick="irPara('../../index.php','index')">
+                                                           
 							</center>
-						</div>
-					</div>
-                </div>
-            </nav>
+                        </div>
+                    </div>
+                </nav>
+            </div>
         </div>
     </body>
 </html>

@@ -6,7 +6,8 @@
         <meta charset="utf-8">        
         <title>SysTransportes</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">                        
+        <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">    
+		<script src="http://maps.google.com/maps/api/js?sensor=false"></script> 		
 		<link href="../../css/style.css" rel="stylesheet" type="text/css" charset="utf-8" />
 		<script type="text/javascript" src="../../js/jquery.js"> </script>		
 		<script type="text/javascript" src="../../js/scriptsCotacoes.js"> </script>		
@@ -91,17 +92,17 @@
 						<div class="box">         						
 							<center>
 							<br><br>    
-								<div class="col-lg-12">                     
-									<b><font color="red" size="4">CADASTRO DE COTAÇÕES</font></b>                       
-								</div>          
-							<br><br><br>
+								 <h1>
+											Cadastro de Cotações
+                                 </h1>
+							<br>
 							<table>
 								<tr>
 									<td>
 									  <table style="border: 1px solid;">
 											<tr>
 												<td colspan="2" style="border: 1px solid;">
-													<b><font size="3" color="red">ORIGEM</font></b>
+													<b><font size="3" >ORIGEM</font></b>
 												</td>																	
 											</tr>																				
 											<tr>								
@@ -110,7 +111,7 @@
 											</tr>								
 											<tr>								
 												<td>					
-													<select tabindex="14" onfocus="focus_Blur(this, 'yellow');" onblur="focus_Blur(this, 'white');" id="ufOrigem" onChange="consultaCidades('cidadeOrigem', 'ufOrigem','0','Escolha a Cidade!')">  
+													<select tabindex="1" onfocus="focus_Blur(this, 'yellow');" onblur="focus_Blur(this, 'white');" id="ufOrigem" onChange="consultaCidades('cidadeOrigem', 'ufOrigem','0','Escolha a Cidade!')">  
 														<option value="">??</option>			
 														<option value="PE">PE</option>			
 														<option value="AC">AC</option>			
@@ -142,7 +143,7 @@
 													</select>
 												</td>								
 												<td>							
-													<select onfocus="focus_Blur(this, 'yellow');" tabindex="7" onblur="focus_Blur(this, 'white');" id="cidadeOrigem" name="cidadeOrigem"  onChange="juntaCidadeUf()">
+													<select onfocus="focus_Blur(this, 'yellow');" tabindex="2" onblur="focus_Blur(this, 'white');" id="cidadeOrigem" name="cidadeOrigem"  onChange="juntaCidadeUf(); CalculaDistancia();">
 														<option size="35" value="">ESCOLHA O ESTADO ORIGEM</option>									
 													</select>																	
 												</td>																	
@@ -156,7 +157,7 @@
 									  <table style="border: 1px solid;">
 											<tr>
 												<td colspan="2"  style="border: 1px solid;">
-													<b><font size="3" color="red">DESTINO</font></b>
+													<b><font size="3">DESTINO</font></b>
 												</td>																	
 											</tr>																				
 											<tr>								
@@ -165,7 +166,7 @@
 											</tr>								
 											<tr>								
 												<td>					
-													<select tabindex="14" onfocus="focus_Blur(this, 'yellow');" onblur="focus_Blur(this, 'white');" id="ufDestino" onChange="consultaCidades('cidadeDestino', 'ufDestino', '0','Escolha a Cidade!')" >  
+													<select tabindex="3" onfocus="focus_Blur(this, 'yellow');" onblur="focus_Blur(this, 'white');" id="ufDestino" onChange="consultaCidades('cidadeDestino', 'ufDestino', '0','Escolha a Cidade!')" >  
 														<option value="">??</option>			
 														<option value="PE">PE</option>			
 														<option value="AC">AC</option>			
@@ -197,7 +198,7 @@
 													</select>
 												</td>								
 												<td>							
-													<select onfocus="focus_Blur(this, 'yellow');" tabindex="7" onblur="focus_Blur(this, 'white');" id="cidadeDestino" name="cidadeDestino"  onChange="juntaCidadeUf()">
+													<select onfocus="focus_Blur(this, 'yellow');" tabindex="4" onblur="focus_Blur(this, 'white');" id="cidadeDestino" name="cidadeDestino"  onChange="juntaCidadeUf(); CalculaDistancia();">
 														<option size="35" value="">ESCOLHA O ESTADO DESTINO</option>									
 													</select>																	
 												</td>																	
@@ -210,74 +211,95 @@
 							<table style="border: 1px solid;">
 								<tr>
 									<td colspan="20" style="border: 1px solid;"> 
-										<center><font color="red" size="4">DADOS DA CARGA:</font></center>
+										<center><font size="4">DADOS DA CARGA:</font></center>
 									</td> 															
 									</tr>
 									<tr style="border: 1px solid;">			
-										<td width="80">Altura</td>
-										<td width="80">Largura</td>
-										<td width="80">Peso</td>
-										<td width="80">Comprimento</td>
-										<td width="80">QtdCaixas</td>						
-										<td width="80">Valor</td>						
+										<td width="110">Altura/Mts</td>
+										<td width="110">Largura/Mts</td>
+										<td width="100">Peso/Kgs</td>
+										<td width="130">Comprim/Mts</td>
+										<td width="110">QtdVolumes</td>						
+										<td width="110">Valor/R$</td>						
 									</tr>						
 									<tr style="border: 1px solid;">	
 										<td>								
-											<input type="text" size="7" tabindex="1" type="text" onfocus="focus_Blur(this, 'yellow');"onblur="focus_Blur(this, 'white');" value="" id="altura" name="altura"  onKeyPress="return(MascaraMoeda(this,'.',',',event))">
+											<input type="text" size="7" tabindex="5" type="text" onfocus="focus_Blur(this, 'yellow');"onblur="focus_Blur(this, 'white');" value="" id="altura" name="altura"  onKeyPress="return(MascaraMoeda(this,'.',',',event))">
 										</td>					
 										<td >													
-											<input type="text" size="7" tabindex="1" type="text" onfocus="focus_Blur(this, 'yellow');"onblur="focus_Blur(this, 'white');" value=""  id="largura" name="largura"  onKeyPress="return(MascaraMoeda(this,'.',',',event))">
+											<input type="text" size="7" tabindex="6" type="text" onfocus="focus_Blur(this, 'yellow');"onblur="focus_Blur(this, 'white');" value=""  id="largura" name="largura"  onKeyPress="return(MascaraMoeda(this,'.',',',event))">
 										</td>  														
 										<td>								
-											<input type="text" size="7" tabindex="1" type="text" onfocus="focus_Blur(this, 'yellow');"onblur="focus_Blur(this, 'white');" value="" id="peso" name="peso"  onKeyPress="return(MascaraMoeda(this,'.',',',event))">
+											<input type="text" size="7" tabindex="7" type="text" onfocus="focus_Blur(this, 'yellow');"onblur="focus_Blur(this, 'white'); CalculaDistancia();" value="" id="peso" name="peso"  onKeyPress="return(MascaraMoeda(this,'.',',',event))">
 										</td>					
 										<td >													
-											<input type="text" size="10" tabindex="1" type="text" onfocus="focus_Blur(this, 'yellow');"onblur="focus_Blur(this, 'white');" value="" id="comprimento" name="comprimento"  onKeyPress="return(MascaraMoeda(this,'.',',',event))">
+											<input type="text" size="7" tabindex="8" type="text" onfocus="focus_Blur(this, 'yellow');"onblur="focus_Blur(this, 'white');" value="" id="comprimento" name="comprimento"  onKeyPress="return(MascaraMoeda(this,'.',',',event))">
 										</td>  								
 										<td>								
-											<input type="text" size="7" tabindex="1" type="text" onfocus="focus_Blur(this, 'yellow');"onblur="focus_Blur(this, 'white');" value=""  id="qtdCaixas" name="qtdCaixas" onKeyPress="return(mascaraInteiro())">
+											<input type="text" size="7" tabindex="9" type="text" onfocus="focus_Blur(this, 'yellow');"onblur="focus_Blur(this, 'white');" value=""  id="qtdCaixas" name="qtdCaixas" onKeyPress="return(mascaraInteiro())">
 										</td>															
 										<td style="border-right: 1px solid;">									
-											<input type="text" size="7" tabindex="1" type="text" onfocus="focus_Blur(this, 'yellow');"  value=""  id="valor" name="valor"  onKeyPress="return(MascaraMoeda(this,'.',',',event))"  onBlur="CalculaDistancia()">
+											<input type="text" size="7" tabindex="10" type="text" onfocus="focus_Blur(this, 'yellow');"  value=""  id="valor" name="valor"  onKeyPress="return(MascaraMoeda(this,'.',',',event))"  onBlur="focus_Blur(this, 'white'); CalculaDistancia();">
 										</td>								
 									</tr>
 							</table>	
 							</br>
-							<center>
 							<table style="border: 1px solid;">
 								<tr>
 									<td colspan="20" style="border: 1px solid;"> 
-										<center><font color="red" size="4">TOTAL:</font></center>
+										<center><font size="4">OBSERVAÇÕES:</font></center>
+									</td> 															
+								</tr>
+								<tr>			
+									<td>
+										<textarea name="descricao"  id="descricao" cols="80" rows="5"  tabindex="11" title="Informações sobre o Transporte"></textarea>		
+									</td>														
+								</tr>	
+							</table>
+							</br>
+							<table style="border: 1px solid;"  id="totalGeral">
+								<tr>
+									<td colspan="20" style="border: 1px solid;"> 
+										<center><font size="4">TOTAL ESTIMADO:</font></center>
 									</td> 															
 									</tr>
 									<tr style="border: 1px solid;" height="20">			
-										<td width="80">DISTANCIA </td>
-										<td width="80">FRETE<sup><font color="red"><b>*</b></font></sup> </td>
-										<td width="80" style="border-right: 1px solid;">PRAZO</td>								
+										<td width="120" ><center>DISTANCIA</center> </td>
+										<td width="130"><center>FRETE</center></td>
+										<td  width="120"style="border-right: 1px solid;"><center>PRAZO</center></td>
+										<td  width="150" colspan="2" style="border-right: 1px solid;"><center>STATUS</center></td>								
 									</tr>						
 									<tr style="border: 1px solid;">	
 										<td>								
-											<input name="distancia" readonly="readonly" type="text" id="txtDistancia" value="" /> 	  
-										</td>					
+											<input name="distancia" size="8" readonly type="text" id="txtDistancia" value="" /> 	  
+										</td>															
 										<td>								
-											<input type="text" size="7" tabindex="1" type="text" onfocus="focus_Blur(this, 'yellow');"onblur="focus_Blur(this, 'white');" id="valorFrete" value="">
-										</td>					
-										<td style="border-right: 1px solid;">													
-											<input name="tempo" readonly="readonly" type="text" id="txtTempo" value="" />	 
-										</td>  																						
+											<input type="text" size="11" readonly tabindex="1" type="text" id="valorFrete" value="">
+										</td>										
+										<td >													
+											<center><input name="tempo" readonly size="8" type="text" id="txtTempo" value=""  style="border-right: 1px solid;"/></center>	 
+										</td>  																					
+										<td>													
+											<input readonly size="1" type="text" id="idStatus" value="1" />
+										</td>													
+										<td>													
+											<input readonly size="25" type="text" id="status" value="EM DIGITAÇÃO"  style="border-right: 1px solid;"/>	 
+										</td>  													
 									</tr>
-							</table>
-							</center>						
+							</table>	     
+							<div><span id="litResultado">&nbsp;</span></div>    						
+							 <div  id="mapaGoogle"  style="padding: 10px 0 0; clear: both">
+								 <iframe width="650" scrolling="no" height="300" frameborder="0" id="map" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?saddr=S&atilde;o Paulo&daddr=Rio de Janeiro&output=embed"></iframe>
+							</div>
 							
-			  <label for="txtDistancia"><strong>Dist&acirc;ncia</strong></label>
-			  
-			  <label for="txtTempo"><strong>Tempo</strong></label>
-			  </br>						
 							<input type="hidden" id="idCotacao" value="<?php echo($idCotacao);?>">						 	
-							<input type="hidden" id="txtOrigem" value="">						 	
-							<input type="hidden" id="txtDestino" value="">						 	
+							<input name="resultadoOrigem" type="hidden" id="txtOrigemResultado" class="field"  value="" />
+							<input name="resultadoDestino" type="hidden" id="txtDestinoResultado" class="field" value="" />
+							<input name="pesquisaOrigem" type="hidden" id="txtOrigem" class="field" value="S&atilde;o Paulo" />
+							<input name="pesquisaDestino" type="hidden" id="txtDestino" class="field" value="Rio de Janeiro" />
 							<input type="image" src='../../img/<?php echo($acao);?>Btn.png' onClick="crudCotacao('<?php echo($acao);?>')">
 							<input type="image" src='../../img/sairBtn.png' id="btnSair" onClick="irPara('viewConsulta.php','consultar')">
+							</br>							
 							</center>
 						</div>
 					</div>
