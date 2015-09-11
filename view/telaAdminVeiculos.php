@@ -13,15 +13,6 @@
       <link rel="stylesheet" type="text/css" href="../css/easyui.css">
       <link rel="stylesheet" type="text/css" href="../css/icon.css">
       <link rel="stylesheet" type="text/css" href="../css/demo.css">
-
-      <!-- 
-      <link rel="stylesheet" type="text/php" href="../modelo/usuario/update_cadastroclientes.php">
-      <link rel="stylesheet" type="text/php" href="../modelo/usuario/save_cadastroclientes.php">
-      <link rel="stylesheet" type="text/php" href="../modelo/usuario/get_cadastroclientes.php">
-      <link rel="stylesheet" type="text/php" href="../modelo/usuario/destroy_cadastroclientes.php">
-      <link rel="stylesheet" type="text/php" href="../modelo/usuario/conn.php">
-      -->
-
       <script type="text/javascript" src="../js/jquery-1.6.min.js"></script>
       <script type="text/javascript" src="../js/jquery.easyui.min.js"></script>
       <script type="text/javascript" src="../js/jquery.edatagrid.js"></script>
@@ -72,10 +63,10 @@
             <thead>
                <tr>
                   <th field="placa" width="50" editor="{type:'validatebox',options:{required:true}}">Placa</th>
-                  <th field="nomeCompleto" width="70" editor="text">Capacidade(Kg)</th>
-                  <th field="razaoSocial" width="50" editor="text">Capacidade(M3)</th>
-                  <th field="nomeFantasia" width="50" editor="text">Ano</th>
-                  <th field="tipoEmpresa" width="50" editor="text">Tipo</th>
+                  <th field="capacidadeKg" width="70" editor="text">Capacidade(Kg)</th>
+                  <th field="capacidadeM3" width="50" editor="text">Capacidade(M3)</th>
+                  <th field="ano" width="50" editor="text">Ano</th>
+                  <th field="tipo" width="50" editor="text">Tipo</th>
                </tr>
             </thead>
          </table>

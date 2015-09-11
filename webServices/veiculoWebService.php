@@ -5,25 +5,52 @@
 	extract ($_REQUEST);
 	extract ($_SESSION);
 
-	if (isset($_GET["incluirVeiculo"])){
+
+	if ($_GET["editSave"] == "incluirVeiculo"){			
+		//Classe de Usuário
+		$veiculo = new veiculo();	
+
+		//Atributos da classe Usuário/Valores 
+		$veiculo->setPlaca($_REQUEST['placa']); 
+		$veiculo->setCapacidadeKg($_REQUEST['capacidadeKg']); 
+		$veiculo->setCapacidadeM3($_REQUEST['capacidadeM3']); 
+		$veiculo->setAno($_REQUEST['ano']);
+		$veiculo->setTipo($_REQUEST['tipo']); 				
+		
 		if (VeiculoSql::adicionar($veiculo)){
 			$resultado[] = array(				
-				'ok'	=>  'ok',						
+				'oka'	=>  'oks',						
 			);			
-		}			
-		echo( json_encode( $resultado ) );				
-	}			
+		}	
+		
+		echo(json_encode($resultado ));			
+	}
 	
-	if (isset($_GET["alterarVeiculo"])){
+	if ($_GET["editSave"] == "alterarVeiculo"){	
+		$veiculo = new veiculo();	
+
+		//Atributos da classe Usuário/Valores 
+		$veiculo->setPlaca($_REQUEST['placa']); 
+		$veiculo->setCapacidadeKg($_REQUEST['capacidadeKg']); 
+		$veiculo->setCapacidadeM3($_REQUEST['capacidadeM3']); 
+		$veiculo->setAno($_REQUEST['ano']);
+		$veiculo->setTipo($_REQUEST['tipo']); 				
+		
 		if (VeiculoSql::alterar($veiculo)){
 			$resultado[] = array(				
-				'ok'	=>  'ok',						
+				'oka'	=>  'oks',						
 			);			
-		}			
-		echo( json_encode( $resultado ) );				
+		}	
+		
+		echo(json_encode($resultado ));						
 	}	
 
-	if (isset($_GET["removerVeiculo"])){
+	
+	if ($_GET["editSave"] == "deletarVeiculo"){	
+		$veiculo = new veiculo();	
+
+		$veiculo->setPlaca($_REQUEST['placa']);  
+
 		if (VeiculoSql::remover($veiculo)){
 			$resultado[] = array(				
 				'ok'	=>  'ok',						
@@ -32,7 +59,7 @@
 		echo( json_encode( $resultado ) );				
 	}
 
-
+	
 	if ($_GET["editSave"] == "carregarVeiculo") {			
 		
 		if (VeiculoSql::carregarLista()){
