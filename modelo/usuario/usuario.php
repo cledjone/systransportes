@@ -3,6 +3,7 @@
 
   //Atributos
   private $id;    
+  private $status;
   private $perfil;
   private $nomeCompleto;  
   private $razaoSocial;  
@@ -24,6 +25,7 @@
   private $complemento;
   private $uf;
   private $cidade;
+  private $codCidade;
 
   private $login;
   private $senha;
@@ -37,6 +39,14 @@
   public function getId() {
     return $this->id;
   }
+
+  //Status
+  public function setStatus($Status) {
+    $this->Status = trim($Status);
+  }
+  public function getStatus() {
+    return $this->Status;
+  } 
 
   //Perfil
 	public function setPerfil($perfil) {
@@ -190,6 +200,13 @@
     return $this->cidade;
   } 
 
+  //codCidade
+  public function setCodCidade($codCidade) {
+    $this->codCidade = trim($codCidade);
+  }
+  public function getCodCidade() {
+    return $this->codCidade;
+  } 
 
 
   //login

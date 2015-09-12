@@ -1,7 +1,8 @@
 	//CONSULTA AJAX
 	function consultaAJAXPF( ) {	
 		var servicoHttp = "../webServices/usuariosWebService.php";				
-		
+
+		var status = 1;												
 		var perfil = document.getElementById('perfil').value;										
 		var nomeCompleto = document.getElementById('nomeCompleto').value;								
 		var razaoSocial = "NULL"; //document.getElementById('razaoSocial').value;								
@@ -21,14 +22,13 @@
 		var numero = document.getElementById('numero').value;								
 		var complemento = document.getElementById('complemento').value;																
 		var cep = document.getElementById('cep').value;			
-		var uf = document.getElementById('ufDestino').value;
-		var cidade = document.getElementById('cidadeDestino').value;
-		cidade = cidade.substring(7,cidade.length);
+		var codCidade = document.getElementById('cidadeDestino').value;
+		codCidade = codCidade.substring(0,7);
 
 		var login = document.getElementById('login').value;								
 		var senha = document.getElementById('senha').value;							
 		
-		jsonParametros = {incluirUsuario: 'sim',  perfil,nomeCompleto,razaoSocial,nomeFantasia,tipoEmpresa,rg,orgaoExpedidor,cpf,cnpj,email,telefone1,telefone2,logradouro,bairro,numero,complemento,cep,uf,cidade,login,senha};
+		jsonParametros = {incluirUsuario: 'sim',  perfil,nomeCompleto,razaoSocial,nomeFantasia,tipoEmpresa,rg,orgaoExpedidor,cpf,cnpj,email,telefone1,telefone2,logradouro,bairro,numero,complemento,cep,codCidade,login,senha};
 	
 		var $xhr = $.getJSON(servicoHttp, jsonParametros);		
 		
@@ -66,14 +66,13 @@
 		var numero = document.getElementById('numero').value;								
 		var complemento = document.getElementById('complemento').value;																
 		var cep = document.getElementById('cep').value;			
-		var uf = document.getElementById('ufDestino').value;
-		var cidade = document.getElementById('cidadeDestino').value;
-		cidade = cidade.substring(7,cidade.length);
+		var codCidade = document.getElementById('cidadeDestino').value;
+		codCidade = codCidade.substring(0,7);
 
 		var login = document.getElementById('login').value;								
 		var senha = document.getElementById('senha').value;							
 		
-		jsonParametros = {incluirUsuario: 'sim',  perfil,nomeCompleto,razaoSocial,nomeFantasia,tipoEmpresa,rg,orgaoExpedidor,cpf,cnpj,email,telefone1,telefone2,logradouro,bairro,numero,complemento,cep,uf,cidade,login,senha};
+		jsonParametros = {incluirUsuario: 'sim',  perfil,nomeCompleto,razaoSocial,nomeFantasia,tipoEmpresa,rg,orgaoExpedidor,cpf,cnpj,email,telefone1,telefone2,logradouro,bairro,numero,complemento,cep,codCidade,login,senha};
 	
 		var $xhr = $.getJSON(servicoHttp, jsonParametros);		
 		

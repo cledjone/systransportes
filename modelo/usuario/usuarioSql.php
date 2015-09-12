@@ -9,7 +9,8 @@
       $conexao = Conexao::getInstance()->getConexao();     
 	  
 	  //Atributo da tabela usuário
-	  $perfil = mysql_real_escape_string($usuario->getPerfil(), $conexao);      
+	  $idPerfil = mysql_real_escape_string($usuario->getPerfil(), $conexao);      
+	  $idStatus = mysql_real_escape_string($usuario->getStatus(), $conexao);      
 	  $nomeCompleto = mysql_real_escape_string($usuario->getNomeCompleto(), $conexao);      
 	  $razaoSocial = mysql_real_escape_string($usuario->getRazaoSocial(), $conexao);      
 	  $nomeFantasia = mysql_real_escape_string($usuario->getnomeFantasia(), $conexao);      
@@ -28,15 +29,14 @@
 	  $numero = mysql_real_escape_string($usuario->getNumero(), $conexao);
 	  $complemento = mysql_real_escape_string($usuario->getComplemento(), $conexao);
 	  $cep = mysql_real_escape_string($usuario->getCep(), $conexao);  
-	  $uf = mysql_real_escape_string($usuario->getUf(), $conexao);
-	  $cidade = mysql_real_escape_string($usuario->getCidade(), $conexao);
+	  $codCidade = mysql_real_escape_string($usuario->getCodCidade(), $conexao);
 
 	  //Login e senha do usuário    
 	  $login = mysql_real_escape_string($usuario->getLogin(), $conexao);     
 	  $senha = mysql_real_escape_string($usuario->getSenha(), $conexao);    
   
   	  //Insert para a tabela de Usuários do banco de dados
-	  $sql = "insert into usuarios (perfil, nomeCompleto, razaoSocial, nomeFantasia, tipoEmpresa, rg, orgaoExpedidor, cpf, cnpj, email, telefone1, telefone2, logradouro, bairro, numero, complemento, cep, uf, cidade, login, senha) values ('$perfil', '$nomeCompleto', '$razaoSocial', '$nomeFantasia', '$tipoEmpresa', '$rg', '$orgaoExpedidor', '$cpf','$cnpj', '$email', '$telefone1', '$telefone2', '$logradouro', '$bairro', '$numero', '$complemento', '$cep','$uf','$cidade', '$login', '$senha')";	  
+	  $sql = "insert into usuarios (idStatus ,idPerfil, nomeCompleto, razaoSocial, nomeFantasia, tipoEmpresa, rg, orgaoExpedidor, cpf, cnpj, email, telefone1, telefone2, logradouro, bairro, numero, complemento, cep, codCidade, login, senha) values ($idStatus, $idPerfil, '$nomeCompleto', '$razaoSocial', '$nomeFantasia', '$tipoEmpresa', '$rg', '$orgaoExpedidor', '$cpf','$cnpj', '$email', '$telefone1', '$telefone2', '$logradouro', '$bairro', '$numero', '$complemento', '$cep',$codCidade, '$login', '$senha')";	  
       $resultado = @mysql_query($sql, $conexao);
 
       return ($resultado === true);
@@ -48,7 +48,8 @@
 	  
 	  //Atributo da tabela usuário
 	  $id = mysql_real_escape_string($usuario->getId(), $conexao); 
-	  $perfil = mysql_real_escape_string($usuario->getPerfil(), $conexao);      
+	  $idPerfil = mysql_real_escape_string($usuario->getPerfil(), $conexao);      
+	  $idStatus = mysql_real_escape_string($usuario->getStatus(), $conexao);      
 	  $nomeCompleto = mysql_real_escape_string($usuario->getNomeCompleto(), $conexao);      
 	  $razaoSocial = mysql_real_escape_string($usuario->getRazaoSocial(), $conexao);      
 	  $nomeFantasia = mysql_real_escape_string($usuario->getnomeFantasia(), $conexao);      
@@ -67,15 +68,14 @@
 	  $numero = mysql_real_escape_string($usuario->getNumero(), $conexao);
 	  $complemento = mysql_real_escape_string($usuario->getComplemento(), $conexao);
 	  $cep = mysql_real_escape_string($usuario->getCep(), $conexao);  
-	  $uf = mysql_real_escape_string($usuario->getUf(), $conexao);
-	  $cidade = mysql_real_escape_string($usuario->getCidade(), $conexao);
+	  $codCidade = mysql_real_escape_string($usuario->getCodCidade(), $conexao);
 
 	  //Login e senha do usuário    
 	  $login = mysql_real_escape_string($usuario->getLogin(), $conexao);     
 	  $senha = mysql_real_escape_string($usuario->getSenha(), $conexao);    
   
   	  //Update para a tabela de Usuários do banco de dados
-	  $sql = "update usuarios set perfil='$perfil',nomeCompleto='$nomeCompleto',razaoSocial='$razaoSocial',nomeFantasia='$nomeFantasia',tipoEmpresa='$tipoEmpresa',rg='$rg',orgaoExpedidor='$orgaoExpedidor',cpf='$cpf',cnpj='$cnpj',email='$email',telefone1='$telefone1',telefone2='$telefone2',logradouro='$logradouro',bairro='$bairro',numero='$numero',complemento='$complemento',uf='$uf',cidade='$cidade',cep='$cep',login='$login',senha='$senha'  where id=$id";
+	  $sql = "update usuarios set idStatus=$idStatus,idPerfil=$idPerfil,nomeCompleto='$nomeCompleto',razaoSocial='$razaoSocial',nomeFantasia='$nomeFantasia',tipoEmpresa='$tipoEmpresa',rg='$rg',orgaoExpedidor='$orgaoExpedidor',cpf='$cpf',cnpj='$cnpj',email='$email',telefone1='$telefone1',telefone2='$telefone2',logradouro='$logradouro',bairro='$bairro',numero='$numero',complemento='$complemento',codCidade=$codCidade,cep='$cep',login='$login',senha='$senha'  where id=$id";
       $resultado = @mysql_query($sql, $conexao);
 
       return ($resultado === true);

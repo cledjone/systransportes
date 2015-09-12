@@ -12,7 +12,8 @@
 		$usuario = new Usuario();	
 
 		//Atributos da classe Usuário/Valores 
-		$usuario->setPerfil($perfil); 
+		$usuario->setPerfil($perfil);
+		$usuario->setStatus($status); 
 		$usuario->setNomeCompleto($nomeCompleto); 
 		$usuario->setRazaoSocial($razaoSocial); 
 		$usuario->setnomeFantasia($nomeFantasia); 
@@ -30,8 +31,7 @@
 		$usuario->setComplemento($complemento); 
 		$usuario->setNumero($numero); 
 		$usuario->setCep($cep); 
-		$usuario->setUf($uf); 
-		$usuario->setCidade($cidade); 
+		$usuario->setCodCidade($codCidade); 
 
 		$usuario->setLogin($login); 
 		$usuario->setSenha($senha); 				
@@ -50,7 +50,8 @@
 		$usuario = new Usuario();	
 
 		//Atributos da classe Usuário/Valores 
-		$usuario->setPerfil($_REQUEST['perfil']); 
+		$usuario->setStatus($_REQUEST['idStatus']); 
+		$usuario->setPerfil($_REQUEST['idPerfil']); 
 		$usuario->setNomeCompleto($_REQUEST['nomeCompleto']); 
 		$usuario->setRazaoSocial($_REQUEST['razaoSocial']); 
 		$usuario->setnomeFantasia($_REQUEST['nomeFantasia']); 
@@ -68,8 +69,7 @@
 		$usuario->setComplemento($_REQUEST['numero']); 
 		$usuario->setNumero($_REQUEST['complemento']); 
 		$usuario->setCep($_REQUEST['cep']); 
-		$usuario->setUf($_REQUEST['uf']); 
-		$usuario->setCidade($_REQUEST['cidade']); 
+		$usuario->setCodCidade($_REQUEST['codCidade']); 
 
 		$usuario->setLogin($_REQUEST['login']); 
 		$usuario->setSenha($_REQUEST['senha']); 				
@@ -91,7 +91,8 @@
 		//Atributos da classe Usuário/Valores
 		$usuario->setId($_REQUEST['id']);
 		 
-		$usuario->setPerfil($_REQUEST['perfil']); 
+		$usuario->setStatus($_REQUEST['idStatus']); 
+		$usuario->setPerfil($_REQUEST['idPerfil']); 
 		$usuario->setNomeCompleto($_REQUEST['nomeCompleto']); 
 		$usuario->setRazaoSocial($_REQUEST['razaoSocial']); 
 		$usuario->setnomeFantasia($_REQUEST['nomeFantasia']); 
@@ -109,8 +110,7 @@
 		$usuario->setComplemento($_REQUEST['numero']); 
 		$usuario->setNumero($_REQUEST['complemento']); 
 		$usuario->setCep($_REQUEST['cep']); 
-		$usuario->setUf($_REQUEST['uf']); 
-		$usuario->setCidade($_REQUEST['cidade']); 
+		$usuario->setCodCidade($_REQUEST['codCidade']); 
 
 		$usuario->setLogin($_REQUEST['login']); 
 		$usuario->setSenha($_REQUEST['senha']); 				
