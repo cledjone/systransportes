@@ -8,27 +8,15 @@
             SysTransportes
         </title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
-        rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="../css/paginaTemplate.css">
-        <script src="http://code.jquery.com/jquery-1.11.1.min.js">
-         
-        </script>
-        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js">
-         
-        </script>
-        <script type="text/javascript" src="../js/jquery-ui.js">
-         
-        </script>
-        <script type="text/javascript" src="../js/scriptsUsuarios.js">
-         
-        </script>
-        <script type="text/javascript" src="../js/scriptsCidades.js">
-         
-        </script>
-        <script type="text/javascript" src="../js/scriptsLoginUsuarios.js">
-         
-        </script>
+        <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../../css/paginaTemplate.css">
+        
+        <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="../../js/jquery-ui.js"></script>
+        <script type="text/javascript" src="../../js/scriptsUsuarios.js"></script>
+        <script type="text/javascript" src="../../js/scriptsCidades.js"></script>
+        <script type="text/javascript" src="../../js/scriptsLoginUsuarios.js"></script>
     </head>
     
     <body>
@@ -54,7 +42,7 @@
                         <div id="navbar" class="navbar-collapse collapse">
                             <ul class="nav navbar-nav">
                                 <li class="active">
-                                    <a href="../index.php" class="">Home</a>
+                                    <a href="../../index.php" class="">Home</a>
                                 </li>
 
                             </ul>

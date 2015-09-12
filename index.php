@@ -115,7 +115,7 @@
                                     aria-haspopup="true" aria-expanded="false">Signed in as  <span class="caret"></span></a>
                                     <ul class="dropdown-menu">
                                         <li>
-                                            <a href="view/login.php">Meu Perfil</a>
+                                            <a href="view/usuario/login.php">Meu Perfil</a>
                                         </li>
 
                                     </ul>

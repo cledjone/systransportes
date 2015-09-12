@@ -7,28 +7,26 @@
          SysTransportes
       </title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
-      <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
-         rel="stylesheet">
-      <link rel="stylesheet" type="text/css" href="../css/paginaTemplate.css">
-      <link rel="stylesheet" type="text/css" href="../css/easyui.css">
-      <link rel="stylesheet" type="text/css" href="../css/icon.css">
-      <link rel="stylesheet" type="text/css" href="../css/demo.css">
-      <script type="text/javascript" src="../js/jquery-1.6.min.js"></script>
-      <script type="text/javascript" src="../js/jquery.easyui.min.js"></script>
-      <script type="text/javascript" src="../js/jquery.edatagrid.js"></script>
-      <script type="text/javascript" src="../js/datagrid-filter.js"></script>
-      
+      <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
+      <link rel="stylesheet" type="text/css" href="../../css/easyui.css">
+      <link rel="stylesheet" type="text/css" href="../../css/icon.css">
+      <link rel="stylesheet" type="text/css" href="../../css/demo.css">
 
+      <script type="text/javascript" src="../../js/jquery-1.6.min.js"></script>
+      <script type="text/javascript" src="../../js/jquery.easyui.min.js"></script>
+      <script type="text/javascript" src="../../js/jquery.edatagrid.js"></script>
+      <script type="text/javascript" src="../../js/datagrid-filter.js"></script>
 
+      <link rel="stylesheet" type="text/css" href="../../css/paginaTemplate.css">
 
       <script type="text/javascript">
          $(function(){
              $("div.easyui-layout").layout();
              $('#dg').edatagrid({
-                 url: '../webServices/veiculoWebService.php?editSave=carregarVeiculo',
-                 saveUrl: '../webServices/veiculoWebService.php?editSave=incluirVeiculo',
-                 updateUrl: '../webServices/veiculoWebService.php?editSave=alterarVeiculo',
-                 destroyUrl: '../webServices/veiculoWebService.php?editSave=deletarVeiculo',
+                 url: '../../webServices/veiculoWebService.php?editSave=carregarVeiculo',
+                 saveUrl: '../../webServices/veiculoWebService.php?editSave=incluirVeiculo',
+                 updateUrl: '../../webServices/veiculoWebService.php?editSave=alterarVeiculo',
+                 destroyUrl: '../../webServices/veiculoWebService.php?editSave=deletarVeiculo',
                  fitColumns: true
              });
              var dg = $('#dg');

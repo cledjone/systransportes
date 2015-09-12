@@ -13,23 +13,13 @@
         </title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="../css/paginaTemplate.css">
+        <link rel="stylesheet" type="text/css" href="../../css/paginaTemplate.css">
         
-        <script src="http://code.jquery.com/jquery-1.11.1.min.js">
-         
-        </script>
-        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js">
-         
-        </script>
-        <script type="text/javascript" src="../js/jquery-ui.js">
-         
-        </script>
-        <script type="text/javascript" src="../js/scriptsUsuarios.js">
-         
-        </script>
-        <script type="text/javascript" src="../js/scriptsCidades.js">
-         
-        </script>
+        <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="../../js/jquery-ui.js"></script>
+        <script type="text/javascript" src="../../js/scriptsUsuarios.js"></script>
+        <script type="text/javascript" src="../../js/scriptsCidades.js"></script>
       
     </head>
     
@@ -56,7 +46,7 @@
                         <div id="navbar" class="navbar-collapse collapse">
                             <ul class="nav navbar-nav">
                                 <li class="active">
-                                    <a href="../index.php" class="">Home</a>
+                                    <a href="../../index.php" class="">Home</a>
                                 </li>
                             </ul>
                         </div>
@@ -70,7 +60,7 @@
                     <div class="container">
                         <ul class="nav navbar-nav">
                             <form>
-                                
+                            
                                 <table>
                                     <!--Dados Pessoais -->
                                     <h2>
@@ -297,7 +287,7 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            <select tabindex="1" required="required" class="form-control" onfocus="focus_Blur(this, '#E0FFFF');"
+                                            <select tabindex="1" class="form-control" onfocus="focus_Blur(this, '#E0FFFF');"
                                             onblur="focus_Blur(this, 'white');" id="ufDestino" onChange="consultaCidades('cidadeDestino', 'ufDestino')">
                                                 <option value="">
                                                     Escolha seu Estado
@@ -386,7 +376,7 @@
                                             </select>
                                         </td>
                                         <td>
-                                            <select onfocus="focus_Blur(this, '#E0FFFF');" required="required" class="form-control"
+                                            <select onfocus="focus_Blur(this, '#E0FFFF');" class="form-control"
                                             tabindex="7" onblur="focus_Blur(this, 'white');" id="cidadeDestino" name="cidadeDestino"
                                             onChange="juntaCidadeUf()">
                                                 <option size="30" value="">

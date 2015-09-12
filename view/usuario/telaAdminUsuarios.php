@@ -8,25 +8,25 @@
       </title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
-      <link rel="stylesheet" type="text/css" href="../css/easyui.css">
-      <link rel="stylesheet" type="text/css" href="../css/icon.css">
-      <link rel="stylesheet" type="text/css" href="../css/demo.css">
+      <link rel="stylesheet" type="text/css" href="../../css/easyui.css">
+      <link rel="stylesheet" type="text/css" href="../../css/icon.css">
+      <link rel="stylesheet" type="text/css" href="../../css/demo.css">
 
-      <script type="text/javascript" src="../js/jquery-1.6.min.js"></script>
-      <script type="text/javascript" src="../js/jquery.easyui.min.js"></script>
-      <script type="text/javascript" src="../js/jquery.edatagrid.js"></script>
-      <script type="text/javascript" src="../js/datagrid-filter.js"></script>
+      <script type="text/javascript" src="../../js/jquery-1.6.min.js"></script>
+      <script type="text/javascript" src="../../js/jquery.easyui.min.js"></script>
+      <script type="text/javascript" src="../../js/jquery.edatagrid.js"></script>
+      <script type="text/javascript" src="../../js/datagrid-filter.js"></script>
 
-      <link rel="stylesheet" type="text/css" href="../css/paginaTemplate.css">
+      <link rel="stylesheet" type="text/css" href="../../css/paginaTemplate.css">
       
       <script type="text/javascript">
          $(function(){
              $("div.easyui-layout").layout();
              $('#dg').edatagrid({
-                 url: '../webServices/usuariosWebService.php?editSave=carregarUsuario',
-                 saveUrl: '../webServices/usuariosWebService.php?editSave=incluirUsuarioAdmin',
-                 updateUrl: '../webServices/usuariosWebService.php?editSave=alterarUsuario',
-                 destroyUrl: '../webServices/usuariosWebService.php?editSave=deletarUsuario',
+                 url: '../../webServices/usuariosWebService.php?editSave=carregarUsuario',
+                 saveUrl: '../../webServices/usuariosWebService.php?editSave=incluirUsuarioAdmin',
+                 updateUrl: '../../webServices/usuariosWebService.php?editSave=alterarUsuario',
+                 destroyUrl: '../../webServices/usuariosWebService.php?editSave=deletarUsuario',
                  fitColumns: true
              });
              var dg = $('#dg');
