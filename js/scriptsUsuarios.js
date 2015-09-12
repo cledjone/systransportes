@@ -28,7 +28,7 @@
 		var login = document.getElementById('login').value;								
 		var senha = document.getElementById('senha').value;							
 		
-		jsonParametros = {incluirUsuario: 'sim',  perfil,nomeCompleto,razaoSocial,nomeFantasia,tipoEmpresa,rg,orgaoExpedidor,cpf,cnpj,email,telefone1,telefone2,logradouro,bairro,numero,complemento,cep,codCidade,login,senha};
+		jsonParametros = {incluirUsuario: 'sim',  status,perfil,nomeCompleto,razaoSocial,nomeFantasia,tipoEmpresa,rg,orgaoExpedidor,cpf,cnpj,email,telefone1,telefone2,logradouro,bairro,numero,complemento,cep,codCidade,login,senha};
 	
 		var $xhr = $.getJSON(servicoHttp, jsonParametros);		
 		
@@ -47,6 +47,7 @@
 	function consultaAJAXPJ( ) {	
 		var servicoHttp = "../webServices/usuariosWebService.php";				
 		
+		var status = 1;	
 		var perfil = document.getElementById('perfil').value;										
 		var nomeCompleto = "NULL"; //document.getElementById('nomeCompleto').value;								
 		var razaoSocial = document.getElementById('razaoSocial').value;								
@@ -72,7 +73,7 @@
 		var login = document.getElementById('login').value;								
 		var senha = document.getElementById('senha').value;							
 		
-		jsonParametros = {incluirUsuario: 'sim',  perfil,nomeCompleto,razaoSocial,nomeFantasia,tipoEmpresa,rg,orgaoExpedidor,cpf,cnpj,email,telefone1,telefone2,logradouro,bairro,numero,complemento,cep,codCidade,login,senha};
+		jsonParametros = {incluirUsuario: 'sim',  status,perfil,nomeCompleto,razaoSocial,nomeFantasia,tipoEmpresa,rg,orgaoExpedidor,cpf,cnpj,email,telefone1,telefone2,logradouro,bairro,numero,complemento,cep,codCidade,login,senha};
 	
 		var $xhr = $.getJSON(servicoHttp, jsonParametros);		
 		
