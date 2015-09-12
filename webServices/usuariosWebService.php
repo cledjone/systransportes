@@ -36,8 +36,6 @@
 		$usuario->setLogin($login); 
 		$usuario->setSenha($senha); 				
 		
-		//echo('1');
-
 		if (UsuarioSql::adicionar($usuario)){
 			$resultado[] = array(				
 				'oka'	=>  'oks',						
@@ -85,6 +83,7 @@
 		
 		echo(json_encode($resultado ));			
 	}
+	
 	else if ($_GET["editSave"] == "alterarUsuario"){			
 		//Classe de Usuário
 		$usuario = new Usuario();	
@@ -140,13 +139,8 @@
 			);			
 		}	
 	}
+
 	else if ($_GET["editSave"] == "carregarUsuario"){
-
-		//Classe de Usuário
-		//$usuario = new Usuario();	
-
-		//Atributos da classe Usuário/Valores
-		//$usuario->setId($_REQUEST['id']);
 
 		if (UsuarioSql::carregarLista()){
 			$resultado[] = array(				

@@ -14,22 +14,11 @@
       <link rel="stylesheet" type="text/css" href="../css/icon.css">
       <link rel="stylesheet" type="text/css" href="../css/demo.css">
 
-      <!-- 
-      <link rel="stylesheet" type="text/php" href="../modelo/usuario/update_cadastroclientes.php">
-      <link rel="stylesheet" type="text/php" href="../modelo/usuario/save_cadastroclientes.php">
-      <link rel="stylesheet" type="text/php" href="../modelo/usuario/get_cadastroclientes.php">
-      <link rel="stylesheet" type="text/php" href="../modelo/usuario/destroy_cadastroclientes.php">
-      <link rel="stylesheet" type="text/php" href="../modelo/usuario/conn.php">
-      -->
-
       <script type="text/javascript" src="../js/jquery-1.6.min.js"></script>
       <script type="text/javascript" src="../js/jquery.easyui.min.js"></script>
       <script type="text/javascript" src="../js/jquery.edatagrid.js"></script>
       <script type="text/javascript" src="../js/datagrid-filter.js"></script>
       
-
-
-
       <script type="text/javascript">
          $(function(){
              $("div.easyui-layout").layout();
@@ -45,6 +34,7 @@
              dg.edatagrid('enableFilter');    // enable filter
          });
       </script>
+
    </head>
    <body>
       <div class="navbar-wrapper">
@@ -65,6 +55,7 @@
             </nav>
          </div>
       </div>
+
       <center>
          <table id="dg" title="Cadastro de Usuários" style="width:1250px;height:450px; border:1px solid #ccc;"
             toolbar="#toolbar" pagination="true" idField="id"
@@ -103,5 +94,6 @@
          </div>
          </div>
       </center>
+      
    </body>
 </html>

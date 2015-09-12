@@ -9,7 +9,6 @@
       $conexao = Conexao::getInstance()->getConexao();     
 	  
 	  //Atributo da tabela usuário
-	  //$idUsuario = '1';
 	  $perfil = mysql_real_escape_string($usuario->getPerfil(), $conexao);      
 	  $nomeCompleto = mysql_real_escape_string($usuario->getNomeCompleto(), $conexao);      
 	  $razaoSocial = mysql_real_escape_string($usuario->getRazaoSocial(), $conexao);      
@@ -38,10 +37,8 @@
   
   	  //Insert para a tabela de Usuários do banco de dados
 	  $sql = "insert into usuarios (perfil, nomeCompleto, razaoSocial, nomeFantasia, tipoEmpresa, rg, orgaoExpedidor, cpf, cnpj, email, telefone1, telefone2, logradouro, bairro, numero, complemento, cep, uf, cidade, login, senha) values ('$perfil', '$nomeCompleto', '$razaoSocial', '$nomeFantasia', '$tipoEmpresa', '$rg', '$orgaoExpedidor', '$cpf','$cnpj', '$email', '$telefone1', '$telefone2', '$logradouro', '$bairro', '$numero', '$complemento', '$cep','$uf','$cidade', '$login', '$senha')";	  
-      //echo ($sql);
       $resultado = @mysql_query($sql, $conexao);
 
-       //echo($sql);	
       return ($resultado === true);
     }
 
@@ -79,10 +76,8 @@
   
   	  //Update para a tabela de Usuários do banco de dados
 	  $sql = "update usuarios set perfil='$perfil',nomeCompleto='$nomeCompleto',razaoSocial='$razaoSocial',nomeFantasia='$nomeFantasia',tipoEmpresa='$tipoEmpresa',rg='$rg',orgaoExpedidor='$orgaoExpedidor',cpf='$cpf',cnpj='$cnpj',email='$email',telefone1='$telefone1',telefone2='$telefone2',logradouro='$logradouro',bairro='$bairro',numero='$numero',complemento='$complemento',uf='$uf',cidade='$cidade',cep='$cep',login='$login',senha='$senha'  where id=$id";
-      //echo ($sql);
       $resultado = @mysql_query($sql, $conexao);
 
-       //echo($sql);	
       return ($resultado === true);
     }
 
@@ -94,11 +89,10 @@
 	  $id = mysql_real_escape_string($usuario->getId(), $conexao);
 
   	  //Delet para a tabela de Usuários do banco de dados
-	  $sql = "delete from usuarios where id=$id";      //echo ($sql);
+	  $sql = "delete from usuarios where id=$id";
       
       $resultado = @mysql_query($sql, $conexao);
 
-       //echo($sql);	
       return ($resultado === true);
 
     }
