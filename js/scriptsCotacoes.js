@@ -13,21 +13,27 @@
 	});	
 	
 	//CONSULTA COTAÇÕES
-	function consultaCotacoes(campoDigitado) {			   		 
+	function consultaCotacoes(campoDigitado)
+	{			   		 
 		var realizaConsulta=false;
 		var argumento = "";		
-		if (typeof campoDigitado != "undefined"){
-			if (campoDigitado.value.length!=contaNumero){
+		if (typeof campoDigitado != "undefined")
+		{
+			if (campoDigitado.value.length!=contaNumero)
+			{
 				contaNumero = campoDigitado.value.length; 						
 				campoDigitado.style.background = "black";	 			
 				campoDigitado.style.color = "white";
 				argumento = campoDigitado.value;				
 				realizaConsulta=true;
 			}
-		} else {
+		} 
+		else 
+		{
 			realizaConsulta=true;				
 		}			
-		if (realizaConsulta){	
+		if (realizaConsulta)
+		{	
 			var jsonParametros = {consultaCotacao: 'sim', argumento: argumento};			
 			clearTimeout(aguardaDigitar);						
 			aguardaDigitar = setInterval(function(){acessoWebService(jsonParametros, webServiceCotacao);},1000);				
@@ -86,17 +92,49 @@
 		var idUsuario = 1;				
 		
 		
-		if (acao=='incluir'){
-			jsonParametros = {incluirCotacao: 'sim', idUsuario: idUsuario, descricao: descricao.value, valorFrete: valorFrete, prazo: prazo, altura: altura, largura: largura, peso: peso, comprimento: comprimento, quantidadeCaixas: qtdCaixas.value, valorCarga: valorCarga, codCidadeOrigem: codCidadeOrigem, codCidadeDestino: codCidadeDestino, status: status.value};	
+		if (acao=='incluir')
+		{
+			jsonParametros = {incluirCotacao: 'sim',
+			idUsuario: idUsuario,
+			descricao: descricao.value,
+			valorFrete: valorFrete,
+			prazo: prazo, altura: altura,
+			largura: largura,
+			peso: peso,
+			comprimento: comprimento,
+			quantidadeCaixas: qtdCaixas.value,
+			valorCarga: valorCarga,
+			codCidadeOrigem: codCidadeOrigem,
+			codCidadeDestino: codCidadeDestino,
+			status: status.value};	
 		}		
-		if (acao=='alterar'){
-			jsonParametros = {alterarCotacao: 'sim', idCotacao: idCotacao.value, idUsuario: idUsuario, descricao: descricao.value, valorFrete: valorFrete, prazo: prazo, altura: altura, largura: largura, peso: peso, comprimento: comprimento, quantidadeCaixas: qtdCaixas.value, valorCarga: valorCarga, codCidadeOrigem: codCidadeOrigem, codCidadeDestino: codCidadeDestino, status: status.value};	
+		if (acao=='alterar')
+		{
+			jsonParametros = {alterarCotacao: 'sim',
+			idCotacao: idCotacao.value,
+			idUsuario: idUsuario,
+			descricao: descricao.value,
+			valorFrete: valorFrete,
+			prazo: prazo, altura: altura,
+			largura: largura, peso: peso,
+			comprimento: comprimento,
+			quantidadeCaixas: qtdCaixas.value,
+			valorCarga: valorCarga,
+			codCidadeOrigem: codCidadeOrigem,
+			codCidadeDestino: codCidadeDestino,
+			status: status.value};	
 		}		
-		if (acao=='cancelar'){
-			jsonParametros = {statusCotacao: 'sim',  status: 0, idCotacao: idCotacao.value};	
+		if (acao=='cancelar')
+		{
+			jsonParametros = {statusCotacao: 'sim', 
+			status: 0,
+			idCotacao: idCotacao.value};	
 		}		
-		if (acao=='aprovar'){
-			jsonParametros = {aprovarCotacao: 'sim', idCotacao: idCotacao.value, aprovadoCliente: 1};	
+		if (acao=='aprovar')
+		{
+			jsonParametros = {aprovarCotacao: 'sim',
+			idCotacao: idCotacao.value,
+			aprovadoCliente: 1};	
 		}		
 		acessoWebService(jsonParametros, webServiceCotacao);
 		
@@ -120,34 +158,64 @@
 	}			
 	
 	//TRATA RESULTADO WEBSERVICE
-	function trataResultadoWebService(resultadoXml) {	
-		if (resultadoXml[0].resultado=='ok'){
+	function trataResultadoWebService(resultadoXml)
+	{	
+		if (resultadoXml[0].resultado=='ok')
+		{
 			irPara('viewConsulta.php','consultar');
 		}
-		if (resultadoXml[0].resultado=='consulta'){
-			for (var i = 0; i < resultadoXml.length; i++) {
+		if (resultadoXml[0].resultado=='consulta')
+		{
+			for (var i = 0; i < resultadoXml.length; i++)
+			{
 				var status = 'AGUARDANDO ATENDENTE';
-				if (i==0){		
+				if (i==0)
+				{
+					//Cria a tabela
 					var trLinhaTitulo = document.createElement("tr");	
 					trLinhaTitulo.style.background = 'black';					
-					trLinhaTitulo.style.color = 'white';					
-					trLinhaTitulo.innerHTML = '<td>ID</td><td>Cidade Origem</td><td>UF</td><td>Cidade Destino</td><td>UF</td><td>Valor Carga</td><td>Frete</td><td>PRAZO</td><td>STATUS</td>';
+					trLinhaTitulo.style.color = 'white';
+					
+					trLinhaTitulo.innerHTML = '<td>ID</td>'
+											+'<td>Cidade Origem</td>'
+											+'<td>UF</td>'
+											+'<td>Cidade Destino</td>'
+											+'<td>UF</td>'
+											+'<td>Valor Carga</td>'
+											+'<td>Frete</td>'
+											+'<td>PRAZO</td>'
+											+'<td>STATUS</td>';
+											
 					document.getElementById('tabelaConsulta').appendChild(trLinhaTitulo);					
-				}				
+				}
+				
+				//Pega a tabela pelo id
 				var trLinha = document.createElement("tr");
 				trLinha.setAttribute("class", "itens");
 				trLinha.setAttribute("onClick", "selecionaCotacao(this)");		
-				if (resultadoXml[i].status ==0){
+				if (resultadoXml[i].status ==0)
+				{
 					trLinha.style.background = 'red';					
 					trLinha.style.color = 'white';					
 					status = 'CANCELADO';
 				}								
 				trLinha.name = resultadoXml[i].id;
 				trLinha.id = 'trLinha'+(resultadoXml[i].id);				
-				trLinha.innerHTML = '<td id="idCotacao'+resultadoXml[i].id+'">'+resultadoXml[i].id+'</td><td>'+(resultadoXml[i].cidadeOrigem).substr(0,20)+'</td><td>'+resultadoXml[i].ufOrigem+'</td><td>'+(resultadoXml[i].cidadeDestino).substr(0,20)+'</td><td>'+resultadoXml[i].ufDestino+'</td><td>'+resultadoXml[i].valorCarga+'</td><td>'+resultadoXml[i].valorFrete+'</td><td>'+resultadoXml[i].prazo+'</td><td>'+status+'</td>';
+				trLinha.innerHTML = '<td id="idCotacao'+resultadoXml[i].id
+									+'">'+resultadoXml[i].id
+									+'</td><td>'+(resultadoXml[i].cidadeOrigem).substr(0,20)
+									+'</td><td>'+resultadoXml[i].ufOrigem
+									+'</td><td>'+(resultadoXml[i].cidadeDestino).substr(0,20)
+									+'</td><td>'+resultadoXml[i].ufDestino
+									+'</td><td>'+resultadoXml[i].valorCarga
+									+'</td><td>'+resultadoXml[i].valorFrete
+									+'</td><td>'+resultadoXml[i].prazo
+									+'</td><td>'+status+'</td>';
+									
 				document.getElementById('tabelaConsulta').appendChild(trLinha);					
 			}
 		}
+		
 		if (resultadoXml[0].resultado=='idCotacao'){					
 			var qtdCaixas = document.getElementById('qtdCaixas');										
 			var caixaPesquisaOrigem = document.getElementById('txtOrigem');		
