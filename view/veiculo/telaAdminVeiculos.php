@@ -46,7 +46,7 @@
                   <div id="navbar" class="navbar-collapse collapse">
                      <ul class="nav navbar-nav">
                         <li class="active">
-                           <a href="telaAdmin.php" class="">ADMIN</a>
+                           <a href="../telaAdmin.php" class="">ADMIN</a>
                         </li>
                      </ul>
                   </div>

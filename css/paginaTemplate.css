@@ -68,27 +68,8 @@ body {
             .nav li:hover:nth-child(8n+8),
             .nav li.active:nth-child(8n+8){ border-bottom: #62C2E4 3px solid; }
 
-    padding-top: 90px;
+            .padding-top: 90px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

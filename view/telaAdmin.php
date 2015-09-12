@@ -9,14 +9,12 @@
         </title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="../../css/paginaTemplate.css">
+        <link rel="stylesheet" type="text/css" href="../css/paginaTemplate.css">
         
         <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="../../js/jquery-ui.js"></script>
-        <script type="text/javascript" src="../../js/scriptsUsuarios.js"></script>
-        <script type="text/javascript" src="../../js/scriptsCidades.js"></script>
-        <script type="text/javascript" src="../../js/scriptsLoginUsuarios.js"></script>
+        <script type="text/javascript" src="../js/jquery-ui.js"></script>
+
     </head>
     
     <body>
@@ -42,7 +40,7 @@
                         <div id="navbar" class="navbar-collapse collapse">
                             <ul class="nav navbar-nav">
                                 <li class="active">
-                                    <a href="../../index.php" class="">Home</a>
+                                    <a href="../index.php" class="">Home</a>
                                 </li>
 
                             </ul>
@@ -52,7 +50,7 @@
                                     aria-haspopup="true" aria-expanded="false">Signed in as  <span class="caret"></span></a>
                                     <ul class="dropdown-menu">
                                         <li>
-                                            <a href="login.php">Meu Perfil</a>
+                                            <a href="usuario/login.php">Meu Perfil</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -86,7 +84,7 @@
             
         </li>
         <li>
-        <a class="btn btn-lg btn-primary" href="telaAdminusuarios.php">
+        <a class="btn btn-lg btn-primary" href="usuario/telaAdminusuarios.php">
         <i class="glyphicon glyphicon-user pull-left"></i><span>Usuário<br><small>Usuários do Sistema</small></span></a> 
             
         </li>
@@ -96,7 +94,7 @@
             
         </li>
         <li>
-        <a class="btn btn-lg btn-danger" href="#">
+        <a class="btn btn-lg btn-danger" href="veiculo/telaAdminVeiculos.php">
         <i class="glyphicon glyphicon-road pull-left"></i><span>Veiculos<br><small>Lorem ipsum dolor</small></span></a> 
             
         </li>
