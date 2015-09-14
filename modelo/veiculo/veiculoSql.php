@@ -1,10 +1,13 @@
 <?php
 	require_once ("../modelo/banco.php");
 	require_once ("veiculo.php");
+	
+
 
 	class VeiculoSql {
 			//Método responsável em adicionar um determinado veículo
 		public static function adicionar(Veiculo $veiculo) {
+		
 			//Criando a conexão com o banco de dados
 			$conexao = Conexao::getInstance()->getConexao();
 
@@ -17,10 +20,9 @@
 			$tipo 				= mysql_real_escape_string($veiculo->getTipo(), $conexao);
 
 			//Inserção na tabela de veiculo relacionada ao banco de dados systransporte
-			$sql    = "insert into veiculos (placa, capacidadeKg, capacidadeM3, ano, tipo) values ('$placa',
+		    $sql    = "insert into veiculos (placa, capacidadeKg, capacidadeM3, ano, tipo) values ('$placa',
 								  $capacidadeKg, $capacidadeM3, '$ano', $tipo)";			
 		    $resultado = @mysql_query($sql, $conexao);
-
 		    return ($resultado === true);
 		}
 
