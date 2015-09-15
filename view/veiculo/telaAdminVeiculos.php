@@ -61,10 +61,10 @@
             <thead>
                <tr>
                   <th field="placa" width="50" editor="{type:'validatebox',options:{required:true}}">Placa</th>
-                  <th field="capacidadeKg" width="70" editor="text">Capacidade(Kg)</th>
-                  <th field="capacidadeM3" width="50" editor="text">Capacidade(M3)</th>
-                  <th field="ano" width="50" editor="text">Ano</th>
-                  <th field="tipo" width="50" editor="text">Tipo</th>
+                  <th field="capacidadeKg" width="70" editor="{type:'validatebox',options:{required:true}}">Capacidade(Kg)</th>
+                  <th field="capacidadeM3" width="50" editor="{type:'validatebox',options:{required:true}}">Capacidade(M3)</th>
+                  <th field="ano" width="50" editor="{type:'validatebox',options:{required:true}}">Ano</th>
+                  <th field="tipo" width="50" editor="{type:'validatebox',options:{required:true}}">Tipo</th>
                </tr>
             </thead>
          </table>

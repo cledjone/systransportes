@@ -30,6 +30,7 @@
 		$veiculo = new veiculo();	
 
 		//Atributos da classe Usuário/Valores 
+		$veiculo->setIdVeiculo($_REQUEST['id']); 
 		$veiculo->setPlaca($_REQUEST['placa']); 
 		$veiculo->setCapacidadeKg($_REQUEST['capacidadeKg']); 
 		$veiculo->setCapacidadeM3($_REQUEST['capacidadeM3']); 
@@ -49,7 +50,7 @@
 	if ($_GET["editSave"] == "deletarVeiculo"){	
 		$veiculo = new veiculo();	
 
-		$veiculo->setPlaca($_REQUEST['placa']);  
+		$veiculo->setIdVeiculo($_REQUEST['id']);  
 
 		if (VeiculoSql::remover($veiculo)){
 			$resultado[] = array(				
