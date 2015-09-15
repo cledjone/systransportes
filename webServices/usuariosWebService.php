@@ -42,7 +42,8 @@
 			);			
 		}	
 		
-		echo(json_encode($resultado ));				
+		echo(json_encode($resultado ));	
+		die;			
 	}
 
 	if ($_GET["editSave"] == "incluirUsuarioAdmin"){			
