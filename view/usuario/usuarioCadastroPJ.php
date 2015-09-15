@@ -13,6 +13,7 @@
         
         <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="../../js/jquery.js"> </script>      
         <script type="text/javascript" src="../../js/jquery-ui.js"></script>
         <script type="text/javascript" src="../../js/scriptsUsuarios.js"></script>
         <script type="text/javascript" src="../../js/scriptsCidades.js"></script>
@@ -75,16 +76,12 @@
                                                         id="razaoSocial"
                                                         maxlength="40" 
                                                         style="text-transform:uppercase"
-                                                        onkeyup="validar(this,'text');"
                                                         name="" 
                                                         size="95" 
-                                                        required="required"
                                                         class="form-control" 
                                                         placeholder="Razão Social" 
                                                         tabindex="1" 
-                                                        type="text"
-                                                        onfocus="focus_Blur(this, '#E0FFFF');" 
-                                                        onblur="focus_Blur(this, 'white');">
+                                                        type="text">
                                             </td>
                                         </tr>
                                 </table>
@@ -112,34 +109,26 @@
                                                     id="nomeFantasia" 
                                                     maxlength="40"
                                                     style="text-transform:uppercase"
-                                                    onkeyup="validar(this,'text');"
                                                     name="" 
                                                     size="30" 
-                                                    required="required"
                                                     class="form-control" 
                                                     placeholder="Nome Fantasia" 
                                                     tabindex="1" 
-                                                    type="text"
-                                                    onfocus="focus_Blur(this, '#E0FFFF');" 
-                                                    onblur="focus_Blur(this, 'white');">
+                                                    type="text">
                                         </td>
                                         <td>
                                             <input type="text" 
                                                     id="cnpj" 
-                                                    onKeyPress="MascaraCNPJ(this);"
                                                     maxlength="14"
                                                     name="" 
                                                     size="14"
-                                                    required="required" 
                                                     class="form-control"
                                                     placeholder="CNPJ" 
                                                     tabindex="1" 
-                                                    type="text" 
-                                                    onfocus="focus_Blur(this, '#E0FFFF');"
-                                                    onblur="focus_Blur(this, 'white');">
+                                                    type="text" >
                                         </td>
                                         <td>
-                                            <select class="form-control" required="required" id="tipoEmpresa" name="">
+                                            <select class="form-control" id="tipoEmpresa" name="">
                                                 <option value="0">
                                                     --- Selecione o tipo ---
                                                 </option>
@@ -174,33 +163,24 @@
                                         <td>
                                             <input type="text" 
                                                     id="cep" 
-                                                    onkeypress="mascaraCep(this, '#####-###')" 
-                                                    onkeyup="validar(this,'num');"
                                                     maxlength="9"
                                                     name="" 
                                                     size="30" 
-                                                    required="required" 
                                                     class="form-control"
                                                     placeholder="CEP" 
                                                     tabindex="1" 
-                                                    type="text" 
-                                                    onfocus="focus_Blur(this, '#E0FFFF');"
-                                                    onblur="focus_Blur(this, 'white');">
+                                                    type="text">
                                             <td>
                                                 <input type="text" 
                                                         id="logradouro" 
                                                         maxlength="40"
                                                         style="text-transform:uppercase"
-                                                        onkeyup="validar(this,'text');"
                                                         name="" 
                                                         size="58" 
-                                                        required="required"
                                                         class="form-control" 
                                                         placeholder="Logradouro" 
                                                         tabindex="1" 
-                                                        type="text"
-                                                        onfocus="focus_Blur(this, '#E0FFFF');" 
-                                                        onblur="focus_Blur(this, 'white');">
+                                                        type="text">
                                             </td>
                                         </td>
                                     </tr>
@@ -227,32 +207,24 @@
                                         <td>
                                             <input type="text" 
                                                     id="numero" 
-                                                    onkeyup="validar(this,'num');"
                                                     maxlength="5"
                                                     name="" 
                                                     size="30" 
-                                                    required="required"
                                                     class="form-control"
                                                     placeholder="Número" 
-                                                    tabindex="1" type="text" 
-                                                    onfocus="focus_Blur(this, '#E0FFFF');"
-                                                    onblur="focus_Blur(this, 'white');">
+                                                    tabindex="1" type="text">
                                         </td>
                                         <td>
                                             <input type="text" 
                                                     id="bairro" 
                                                     maxlength="40"
                                                     style="text-transform:uppercase"
-                                                    onkeyup="validar(this,'text');"
                                                     name="" 
                                                     size="20" 
-                                                    required="required" 
                                                     class="form-control"
                                                     placeholder="Bairro" 
                                                     tabindex="1" 
-                                                    type="text" 
-                                                    onfocus="focus_Blur(this, '#E0FFFF');"
-                                                    onblur="focus_Blur(this, 'white');">
+                                                    type="text">
                                         </td>
                                         <td>
                                             <input type="text" 
@@ -261,13 +233,10 @@
                                                     style="text-transform:uppercase"
                                                     name="" 
                                                     size="30" 
-                                                    required="required"
                                                     class="form-control" 
                                                     placeholder="Complemento" 
                                                     tabindex="1" 
-                                                    type="text"
-                                                    onfocus="focus_Blur(this, '#E0FFFF');" 
-                                                    onblur="focus_Blur(this, 'white');">
+                                                    type="text">
                                         </td>
                                     </tr>
                                 </table>
@@ -286,101 +255,40 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            <select tabindex="1" required="required" class="form-control" onfocus="focus_Blur(this, '#E0FFFF');"
-                                            onblur="focus_Blur(this, 'white');" id="ufDestino" onChange="consultaCidades('cidadeDestino', 'ufDestino')">
-                                                <option value="">
-                                                    Escolha seu Estado
-                                                </option>
-                                                <option value="PE">
-                                                    PE
-                                                </option>
-                                                <option value="AC">
-                                                    AC
-                                                </option>
-                                                <option value="AL">
-                                                    AL
-                                                </option>
-                                                <option value="AM">
-                                                    AM
-                                                </option>
-                                                <option value="AP">
-                                                    AP
-                                                </option>
-                                                <option value="BA">
-                                                    BA
-                                                </option>
-                                                <option value="CE">
-                                                    CE
-                                                </option>
-                                                <option value="DF">
-                                                    DF
-                                                </option>
-                                                <option value="ES">
-                                                    ES
-                                                </option>
-                                                <option value="GO">
-                                                    GO
-                                                </option>
-                                                <option value="MA">
-                                                    MA
-                                                </option>
-                                                <option value="MG">
-                                                    MG
-                                                </option>
-                                                <option value="MS">
-                                                    MS
-                                                </option>
-                                                <option value="MT">
-                                                    MT
-                                                </option>
-                                                <option value="PA">
-                                                    PA
-                                                </option>
-                                                <option value="PB">
-                                                    PB
-                                                </option>
-                                                <option value="PI">
-                                                    PI
-                                                </option>
-                                                <option value="PR">
-                                                    PR
-                                                </option>
-                                                <option value="RJ">
-                                                    RJ
-                                                </option>
-                                                <option value="RN">
-                                                    RN
-                                                </option>
-                                                <option value="RO">
-                                                    RO
-                                                </option>
-                                                <option value="RR">
-                                                    RR
-                                                </option>
-                                                <option value="RS">
-                                                    RS
-                                                </option>
-                                                <option value="SC">
-                                                    SC
-                                                </option>
-                                                <option value="SE">
-                                                    SE
-                                                </option>
-                                                <option value="SP">
-                                                    SP
-                                                </option>
-                                                <option value="TO">
-                                                    TO
-                                                </option>
-                                            </select>
+                                      <select tabindex="3" class="form-control" id="ufDestino" onChange="consultaCidades('cidadeDestino', 'ufDestino', '0','Escolha a Cidade!')" >  
+                                                        <option value="">??</option>            
+                                                        <option value="PE">PE</option>          
+                                                        <option value="AC">AC</option>          
+                                                        <option value="AL">AL</option>          
+                                                        <option value="AM">AM</option>          
+                                                        <option value="AP">AP</option>          
+                                                        <option value="BA">BA</option>          
+                                                        <option value="CE">CE</option>          
+                                                        <option value="DF">DF</option>          
+                                                        <option value="ES">ES</option>          
+                                                        <option value="GO">GO</option>          
+                                                        <option value="MA">MA</option>          
+                                                        <option value="MG">MG</option>          
+                                                        <option value="MS">MS</option>          
+                                                        <option value="MT">MT</option>          
+                                                        <option value="PA">PA</option>          
+                                                        <option value="PB">PB</option>          
+                                                        <option value="PI">PI</option>          
+                                                        <option value="PR">PR</option>          
+                                                        <option value="RJ">RJ</option>          
+                                                        <option value="RN">RN</option>          
+                                                        <option value="RO">RO</option>          
+                                                        <option value="RR">RR</option>          
+                                                        <option value="RS">RS</option>          
+                                                        <option value="SC">SC</option>
+                                                        <option value="SE">SE</option>
+                                                        <option value="SP">SP</option>          
+                                                        <option value="TO">TO</option>          
+                                                    </select>
                                         </td>
                                         <td>
-                                            <select onfocus="focus_Blur(this, '#E0FFFF');" required="required" class="form-control"
-                                            tabindex="7" onblur="focus_Blur(this, 'white');" id="cidadeDestino" name="cidadeDestino"
-                                            onChange="juntaCidadeUf()">
-                                                <option size="30" value="">
-                                                    Escolha sua Cidade
-                                                </option>
+                                            <select tabindex="4" class="form-control" id="cidadeDestino" name="cidadeDestino" >
+                                                <option size="35" value="">ESCOLHA O ESTADO DESTINO</option>                                    
                                             </select>
                                         </td>
                                     </tr>
@@ -415,47 +323,32 @@
                                                     name="" 
                                                     maxlength="40"
                                                     size="40" 
-                                                    required="required" 
                                                     class="form-control"
                                                     placeholder="E-mail" 
                                                     tabindex="1" 
-                                                    type="text" 
-                                                    onfocus="focus_Blur(this, '#E0FFFF');"
-                                                    onblur="focus_Blur(this, 'white');">
+                                                    type="text">
                                         </td>
                                         <td>
                                             <input type="text" 
                                                     id="telefone1" 
-                                                    onkeypress="telefoneMascara(this)"
-                                                    onkeypress="mascara(this, '## ####-####')" 
-                                                    onkeyup="validar(this,'num');"
                                                     maxlength="14"  
                                                     name="" 
                                                     size="20" 
-                                                    required="required"
                                                     class="form-control" 
                                                     placeholder="Telefone Residencial" 
                                                     tabindex="1" 
-                                                    type="text"
-                                                    onfocus="focus_Blur(this, '#E0FFFF');" 
-                                                    onblur="focus_Blur(this, 'white');">
+                                                    type="text">
                                         </td>
                                         <td>
                                             <input type="text" 
                                                     id="telefone2" 
-                                                    onkeyup="validar(this,'num');"
-                                                    onkeypress="telefoneMascara(this)"
-                                                    onkeypress="mascara(this, '## ####-####')" 
                                                     maxlength="14"
                                                     name="" 
                                                     size="20" 
-                                                    required="required"
                                                     class="form-control" 
                                                     placeholder="Telefone Celular" 
                                                     tabindex="1" 
-                                                    type="text"
-                                                    onfocus="focus_Blur(this, '#E0FFFF');" 
-                                                    onblur="focus_Blur(this, 'white');">
+                                                    type="text">
                                         </td>
                                     </tr>
                                 </table>
@@ -464,9 +357,9 @@
                                     <h2>
                                         Login/Senha
                                     </h2>
-                                    <select class="form-control" required="required" id="perfil" name="perfil"
+                                    <select class="form-control" id="perfil" name="perfil"
                                     disabled>
-                                        <option value="Pessoa Jurídica">
+                                        <option value="2">
                                             Pessoa Jurídica
                                         </option>
                                     </select>
@@ -489,35 +382,27 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            <input type="text" id="login" name="" size="30" maxlength="40" required="required" class="form-control"
-                                            placeholder="Usuário" tabindex="1" type="text" onfocus="focus_Blur(this, '#E0FFFF');"
-                                            onblur="focus_Blur(this, 'white');">
+                                            <input type="text" id="login" name="" size="30" maxlength="40" class="form-control"
+                                            placeholder="Usuário" tabindex="1" type="text" >
                                         </td>
                                         <td>
                                             <input type="password" 
                                                     size="25" 
-                                                    required="required" 
                                                     class="form-control" 
                                                     id="senha"
                                                     placeholder="Senha" 
                                                     tabindex="1" 
-                                                    type="text" 
-                                                    onfocus="focus_Blur(this, '#E0FFFF');"
-                                                    onblur="focus_Blur(this, 'white');">
+                                                    type="text" >
                                         </td>
                                         <td>
                                             <input type="password" 
                                                     id="confirmaSenha" 
                                                     name="" 
                                                     size="25" 
-                                                    required="required" 
                                                     class="form-control" 
                                                     placeholder="Confirme  sua senha" 
                                                     tabindex="1" 
-                                                    type="text" 
-                                                    onChange="verificacaoSenha()"
-                                                    onfocus="focus_Blur(this, '#E0FFFF');"
-                                                    onblur="focus_Blur(this, 'white');">
+                                                    type="text">
                                         </td>
                                     </tr>
                                 </table>

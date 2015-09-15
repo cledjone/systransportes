@@ -7,7 +7,7 @@
 
 	//CONSULTA USUÁRIO
 	if (isset($_GET["incluirUsuario"])) {			
-		
+	//if ($_GET["editSave"] == "incluirUsuario"){		
 		//Classe de Usuário
 		$usuario = new Usuario();	
 

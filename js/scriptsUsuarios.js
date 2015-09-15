@@ -1,6 +1,6 @@
 	//CONSULTA AJAX
 	function consultaAJAXPF( ) {	
-		var servicoHttp = "../webServices/usuariosWebService.php";				
+		var servicoHttp = "../../webServices/usuariosWebService.php";				
 
 		var status = 1;												
 		var perfil = document.getElementById('perfil').value;										
@@ -45,7 +45,7 @@
 
 	//CONSULTA AJAX
 	function consultaAJAXPJ( ) {	
-		var servicoHttp = "../webServices/usuariosWebService.php";				
+		var servicoHttp = "../../webServices/usuariosWebService.php";				
 		
 		var status = 1;	
 		var perfil = document.getElementById('perfil').value;										
