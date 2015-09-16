@@ -1,4 +1,4 @@
-<?php     require_once("/opt/lampp/htdocs/dashboard/systransportes/modelo/cotacao/cotacaoSql.php");
+<?php     require_once("/../modelo/cotacao/cotacaoSql.php");
 
 	class Mercadoria
 	{

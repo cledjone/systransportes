@@ -1,10 +1,13 @@
 <?php
 	require_once ("../modelo/banco.php");
 	require_once ("veiculo.php");
+	
+
 
 	class VeiculoSql {
 			//Método responsável em adicionar um determinado veículo
 		public static function adicionar(Veiculo $veiculo) {
+		
 			//Criando a conexão com o banco de dados
 			$conexao = Conexao::getInstance()->getConexao();
 
@@ -17,10 +20,9 @@
 			$tipo 				= mysql_real_escape_string($veiculo->getTipo(), $conexao);
 
 			//Inserção na tabela de veiculo relacionada ao banco de dados systransporte
-			$sql    = "insert into veiculos (placa, capacidadeKg, capacidadeM3, ano, tipo) values ('$placa',
+		    $sql    = "insert into veiculo (placa, capacidadeKg, capacidadeM3, ano, tipo) values ('$placa',
 								  $capacidadeKg, $capacidadeM3, '$ano', $tipo)";			
 		    $resultado = @mysql_query($sql, $conexao);
-
 		    return ($resultado === true);
 		}
 
@@ -31,6 +33,7 @@
 
 			//Atributos da classe veiculo sendo definidas em uma variável, obtidas em um método para realização da
 			//obtenção do valor e logo em seguida, realizando a chamada do banco	
+			$id 				= mysql_real_escape_string($veiculo->getIdVeiculo(), $conexao);
 			$placa 				= mysql_real_escape_string($veiculo->getPlaca(), $conexao);
 			$capacidadeKg 		= mysql_real_escape_string($veiculo->getCapacidadeKg(), $conexao);
 			$capacidadeM3 		= mysql_real_escape_string($veiculo->getCapacidadeM3(), $conexao);
@@ -38,8 +41,8 @@
 			$tipo 				= mysql_real_escape_string($veiculo->getTipo(), $conexao);
 
 			///Alteração na tabela de veiculo relacionada ao banco de dados systransporte
-			$sql  = "update veiculos set placa='$placa', capacidadeKg='$capacidadeKg', capacidadeM3='$capacidadeM3',
-								  ano='$ano', tipo='$tipo' where placa = '$placa' ";			
+			$sql  = "update veiculo set placa='$placa', capacidadeKg='$capacidadeKg', capacidadeM3='$capacidadeM3',
+								  ano='$ano', tipo='$tipo' where id = $id ";			
 		    $resultado = @mysql_query($sql, $conexao);
 
 		    return ($resultado === true);
@@ -52,10 +55,10 @@
 
 			//Atributo da classe veiculo sendo definida em uma variável, obtida em um método para realização da
 			//obtenção do valor e logo em seguida, realizando a chamada do banco de dados
-			$placa 				= mysql_real_escape_string($veiculo->getPlaca(), $conexao);
+			$id 				= mysql_real_escape_string($veiculo->getIdVeiculo(), $conexao);
 
 			//Remoção na tabela de veiculo relacionada ao banco de dados systransporte
-			$sql       			= "delete from veiculos where placa = '$placa' ";			
+			$sql       			= "delete from veiculo where id = '$id' ";			
 		    $resultado = @mysql_query($sql, $conexao);
 
 		    return ($resultado === true);
@@ -92,7 +95,7 @@
 	      //Conexão com o banco
 	      $conexao = Conexao::getInstance()->getConexao();     
 
-			$rs = mysql_query('select * from veiculos');
+			$rs = mysql_query('select * from veiculo');
 			$result = array();
 			while($row = mysql_fetch_object($rs)){
 				array_push($result, $row);

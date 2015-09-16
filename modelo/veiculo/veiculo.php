@@ -1,11 +1,22 @@
 <?php
 	class Veiculo {
 		//Atributos da classe Veículo
+		private $idVeiculo;
 		private $placa;
 		private $capacidadeKg;
 		private $capacidadeM3;
 		private $ano;
 		private $tipo;
+
+		//Método responsável para definir o id do veículo
+		public function setIdVeiculo($idVeiculo) {
+			$this -> idVeiculo = trim($idVeiculo);
+		}
+
+		//Método responsável para obter o id do veículo
+		public function getIdVeiculo() {
+			return $this -> idVeiculo;
+		}
 
 		//Método responsável para definir a placa do veículo
 		public function setPlaca($placa) {
