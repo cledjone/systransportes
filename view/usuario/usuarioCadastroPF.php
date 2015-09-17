@@ -18,11 +18,12 @@
         <script type="text/javascript" src="../../js/jquery-ui.js"></script>
         <script type="text/javascript" src="../../js/scriptsUsuarios.js"></script>
         <script type="text/javascript" src="../../js/scriptsCidades.js"></script>
+        <script type="text/javascript" src="../../js/validacaoCampo.js"></script> 
 
 
     </head>
     
-    <body>
+ <body>
         <div class="navbar-wrapper">
             <div class="container-fluid">
                 <nav class="navbar">
@@ -76,13 +77,14 @@
                                             <td>
                                                 <input type="text" 
                                                         style="text-transform:uppercase"
-                                                        id="nomeCompleto" 
+                                                        id="nomeCompleto"                                                                    
                                                         name="" 
                                                         size="96" 
                                                         class="form-control" 
                                                         placeholder="Nome Completo" 
                                                         tabindex="1" 
-                                                        type="text">    
+                                                        type="text"
+                                                        onkeyup="validar(this,'text');">    
                                             </td>
                                         </tr>
                                 </table>
@@ -114,7 +116,9 @@
                                                     maxlength="14"
                                                     placeholder="CPF" 
                                                     tabindex="1" 
-                                                    type="text">
+                                                    type="text"
+                                                    onblur="javascript: validarCPF(this.value);" 
+                                                    onkeypress="javascript: mascara(this, cpf_mask);">
                                         </td>
                                         <td>
                                             <input type="text" 
@@ -124,7 +128,8 @@
                                                     class="form-control"
                                                     maxlength="9"
                                                     placeholder="RG" 
-                                                    tabindex="1" type="text">
+                                                    tabindex="1" type="text"
+                                                    onkeypress="javascript: mascara(this, Rg);">
                                         </td>
                                         <td>
                                             <input type="text" 
@@ -135,7 +140,8 @@
                                                     class="form-control" 
                                                     placeholder="Orgão Expedidor" 
                                                     tabindex="1" 
-                                                    type="text">
+                                                    type="text"
+                                                    onkeyup="validar(this,'text');">
                                         </td>
                                     </tr>
                                 </table>
@@ -161,12 +167,14 @@
                                             <input type="text" 
                                                     id="cep" 
                                                     name="" 
-                                                    size="30" w
+                                                    size="30" 
                                                     class="form-control"
                                                     maxlength="9"
                                                     placeholder="CEP" 
                                                     tabindex="1"
-                                                    type="text">
+                                                    type="text"
+                                                    onkeypress="mascaraCep(this, '#####-###')" 
+                                                    onkeyup="validar(this,'num');">
                                             <td>
                                                 <input type="text" 
                                                         id="logradouro" 
@@ -209,7 +217,8 @@
                                                     class="form-control"
                                                     placeholder="Número" 
                                                     tabindex="1" 
-                                                    type="text">
+                                                    type="text"
+                                                    onkeyup="validar(this,'num');">
                                         </td>
                                         <td>
                                             <input type="text" 
@@ -220,7 +229,8 @@
                                                     class="form-control"
                                                     placeholder="Bairro" 
                                                     tabindex="1" 
-                                                    type="text">
+                                                    type="text"
+                                                    onkeyup="validar(this,'text');">
                                         </td>
                                         <td>
                                             <input type="text"
@@ -250,7 +260,7 @@
                                     <tr>
                                         <td>
                                             <select tabindex="3" class="form-control" id="ufDestino" onChange="consultaCidades('cidadeDestino', 'ufDestino', '0','Escolha a Cidade!')" >  
-                                                        <option value="">??</option>            
+                                                        <option value="">Escolha o seu Estado</option>            
                                                         <option value="PE">PE</option>          
                                                         <option value="AC">AC</option>          
                                                         <option value="AL">AL</option>          
@@ -282,7 +292,7 @@
                                         </td>
                                         <td>
                                             <select tabindex="4" class="form-control" id="cidadeDestino" name="cidadeDestino" >
-                                                <option size="35" value="">ESCOLHA O ESTADO DESTINO</option>                                    
+                                                <option size="35" value="">Escolha a sua Cidade</option>                                    
                                             </select>
                                         </td>
                                     </tr>
@@ -330,7 +340,10 @@
                                                     maxlength="12"                                            
                                                     class="form-control" 
                                                     placeholder="Telefone Residencial" 
-                                                    tabindex="1" type="text">
+                                                    tabindex="1" type="text"
+                                                    onkeyup="validar(this,'num');"
+                                                    onkeypress="telefoneMascara(this)"
+                                                    onkeypress="mascara(this, '## ####-####')">
 
                                         </td>
                                         <td>
@@ -341,7 +354,10 @@
                                                     maxlength="14"
                                                     class="form-control"                                     
                                                     placeholder="Telefone Celular"
-                                                    tabindex="1" type="text">
+                                                    tabindex="1" type="text"
+                                                    onkeyup="validar(this,'num');"
+                                                    onkeypress="telefoneMascara(this)"
+                                                    onkeypress="mascara(this, '## ####-####')">
                                         </td>
                                     </tr>
                                 </table>
@@ -394,7 +410,8 @@
                                                     class="form-control" 
                                                     placeholder="Confirme  sua senha" 
                                                     tabindex="1" 
-                                                    type="text">
+                                                    type="text"
+                                                    onChange="verificacaoSenha()">
 
                                         </td>
                                         

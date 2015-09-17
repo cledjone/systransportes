@@ -5,6 +5,8 @@ function validarCPF( cpf ){
 	if(!filtro.test(cpf))
 	{
 		window.alert("CPF inválido. Tente novamente.");
+		document.getElementById('cpf').focus();			
+		document.getElementById('cpf').value ="";		
 		return false;
 	}
    
@@ -17,6 +19,8 @@ function validarCPF( cpf ){
 		cpf == "88888888888" || cpf == "99999999999")
 	{
 		window.alert("CPF inválido. Tente novamente.");
+		document.getElementById('cpf').focus();			
+		document.getElementById('cpf').value ="";		
 		return false;
    }
 
@@ -33,6 +37,8 @@ function validarCPF( cpf ){
 	}
 	if(resto != parseInt(cpf.charAt(9))){
 		window.alert("CPF inválido. Tente novamente.");
+		document.getElementById('cpf').focus();			
+		document.getElementById('cpf').value ="";		
 		return false;
 	}
 	
@@ -49,6 +55,8 @@ function validarCPF( cpf ){
 	
 	if(resto != parseInt(cpf.charAt(10))){
 		window.alert("CPF inválido. Tente novamente.");
+		document.getElementById('cpf').focus();			
+		document.getElementById('cpf').value ="";		
 		return false;
 	}
 	
@@ -164,3 +172,4 @@ function MascaraCNPJ(cnpj){
     return formataCampo(cnpj, '00.000.000/0000-00', event);
 
 }
+

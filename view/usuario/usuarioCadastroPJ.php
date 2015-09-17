@@ -76,6 +76,7 @@
                                                         id="razaoSocial"
                                                         maxlength="40" 
                                                         style="text-transform:uppercase"
+                                                        onkeyup="validar(this,'text');"
                                                         name="" 
                                                         size="95" 
                                                         class="form-control" 
@@ -109,6 +110,7 @@
                                                     id="nomeFantasia" 
                                                     maxlength="40"
                                                     style="text-transform:uppercase"
+                                                    onkeyup="validar(this,'text');"
                                                     name="" 
                                                     size="30" 
                                                     class="form-control" 
@@ -119,6 +121,7 @@
                                         <td>
                                             <input type="text" 
                                                     id="cnpj" 
+                                                    onkeyup="formataCampo(this, event)"
                                                     maxlength="14"
                                                     name="" 
                                                     size="14"
@@ -162,7 +165,9 @@
                                     <tr>
                                         <td>
                                             <input type="text" 
-                                                    id="cep" 
+                                                    id="cep"
+                                                    onkeypress="mascaraCep(this, '#####-###')" 
+                                                    onkeyup="validar(this,'num');" 
                                                     maxlength="9"
                                                     name="" 
                                                     size="30" 
@@ -172,7 +177,7 @@
                                                     type="text">
                                             <td>
                                                 <input type="text" 
-                                                        id="logradouro" 
+                                                        id="logradouro"
                                                         maxlength="40"
                                                         style="text-transform:uppercase"
                                                         name="" 
@@ -207,6 +212,7 @@
                                         <td>
                                             <input type="text" 
                                                     id="numero" 
+                                                    onkeyup="validar(this,'num');"
                                                     maxlength="5"
                                                     name="" 
                                                     size="30" 
@@ -224,7 +230,8 @@
                                                     class="form-control"
                                                     placeholder="Bairro" 
                                                     tabindex="1" 
-                                                    type="text">
+                                                    type="text"
+                                                     onkeyup="validar(this,'text');">
                                         </td>
                                         <td>
                                             <input type="text" 
@@ -256,7 +263,7 @@
                                     <tr>
                                         <td>
                                       <select tabindex="3" class="form-control" id="ufDestino" onChange="consultaCidades('cidadeDestino', 'ufDestino', '0','Escolha a Cidade!')" >  
-                                                        <option value="">??</option>            
+                                                        <option value="">Escolha o seu Estado</option>            
                                                         <option value="PE">PE</option>          
                                                         <option value="AC">AC</option>          
                                                         <option value="AL">AL</option>          
@@ -288,7 +295,7 @@
                                         </td>
                                         <td>
                                             <select tabindex="4" class="form-control" id="cidadeDestino" name="cidadeDestino" >
-                                                <option size="35" value="">ESCOLHA O ESTADO DESTINO</option>                                    
+                                                <option size="35" value="">Escolha a sua Cidade</option>                                    
                                             </select>
                                         </td>
                                     </tr>
@@ -337,7 +344,10 @@
                                                     class="form-control" 
                                                     placeholder="Telefone Residencial" 
                                                     tabindex="1" 
-                                                    type="text">
+                                                    type="text"
+                                                    onkeypress="telefoneMascara(this)"
+                                                    onkeypress="mascara(this, '## ####-####')" 
+                                                    onkeyup="validar(this,'num');">
                                         </td>
                                         <td>
                                             <input type="text" 
@@ -348,7 +358,10 @@
                                                     class="form-control" 
                                                     placeholder="Telefone Celular" 
                                                     tabindex="1" 
-                                                    type="text">
+                                                    type="text"
+                                                    onkeyup="validar(this,'num');"
+                                                    onkeypress="telefoneMascara(this)"
+                                                    onkeypress="mascara(this, '## ####-####')" >
                                         </td>
                                     </tr>
                                 </table>
@@ -402,7 +415,8 @@
                                                     class="form-control" 
                                                     placeholder="Confirme  sua senha" 
                                                     tabindex="1" 
-                                                    type="text">
+                                                    type="text"
+                                                    onChange="verificacaoSenha()">
                                         </td>
                                     </tr>
                                 </table>
