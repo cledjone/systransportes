@@ -1,11 +1,11 @@
 //Caixa de consultas 
- $(function() { 
-	var dialogVeiculo;        
+ $(function() {
+	var dialogVeiculo;
 	dialogGeral = $( "#dialogVeiculo-form" ).dialog({
 	autoOpen: false,
 	height: 370,
 	width: 950,
-	modal: true,      
+	modal: true,
 	});   	  		 	
 });		
 

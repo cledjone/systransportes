@@ -1,5 +1,5 @@
 <?php
-	require_once ("../modelo/banco.php");
+	require_once ("/../banco.php");
 	require_once ("veiculo.php");
 	
 
@@ -21,7 +21,7 @@
 
 			//Inserção na tabela de veiculo relacionada ao banco de dados systransporte
 		    $sql    = "insert into veiculo (placa, capacidadeKg, capacidadeM3, ano, tipo) values ('$placa',
-								  $capacidadeKg, $capacidadeM3, '$ano', $tipo)";			
+								  '$capacidadeKg', '$capacidadeM3', '$ano', '$tipo')";			
 		    $resultado = @mysql_query($sql, $conexao);
 		    return ($resultado === true);
 		}

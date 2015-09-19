@@ -1,58 +1,70 @@
 <?php
-
-
-//Criar função para excluir todas as mercadorias da cotação!!!!!!!!!!
-
 	require_once("../modelo/mercadoria/mercadoriaSql.php");
 	session_start();
 
 	extract ($_REQUEST);
 	extract ($_SESSION);
 
-	//CONSULTA Mercadoria
-	if (isset($_GET["incluirMercadoria"]))
-	{
+
+	if ($_GET["editSave"] == "incluirMercadoria"){
 		//Classe de Mercadoria
 		$mercadoria = new Mercadoria();
 
-		//Atributos da classe Mercadoria
-		$mercadoria -> getObjCotacao() -> setId($idCotacao);
-		$mercadoria -> setDescricaoMercadoria($descricao);
-		$mercadoria -> setPeso($peso);
+		//Atributos da classe Mercadoria/Valores
+		$mercadoria -> getObjCotacao() -> setId($_REQUEST['idCotacoes']);
+		$mercadoria -> setDescricaoMercadoria($_REQUEST['descricao']);
+		$mercadoria -> setPeso($_REQUEST['peso']);
+
+		if (mercadoriaSql::adicionar($mercadoria)){
+			$resultado[] = array(
+				'oka'	=>  'oks',
+			);
+		}
+
+		echo(json_encode($resultado ));
 	}
 
-	if(isset($_GET["incluirMercadoria"]))
-	{
-		if (MercadoriaSql::adicionar($mercadoria))
-		{
-			//$resultado = $usuario;
-			echo "Mercadoria incluída com êxito!!";
-		}
-		else
-		{
-			echo "Erro ao incluir mercadoria, ".$descricao."!";
-			echo "<br />";
-			echo json_encode($resultado);
-		}
-	}
-
-	//Consultar Mercadorias
-	if (isset($_GET["consultaMercadoria"]))
-	{
+	if ($_GET["editSave"] == "alterarMercadoria"){
 		$mercadoria = new Mercadoria();
-		$listaMercadorias = mercadoriaSql::consultar($mercadoria);
 
-		for ($i=0; $i<count($listaMercadorias); $i++ )
-		{
-			$resultado[] = array
-			(
-				'idCotacao'	=>   $listaMercadorias[$i]->getObjCotacao()->getId(),
-				'peso'		=>  $listaMercadorias[$i]->getPeso(),
-				'descricao'	=>  $listaMercadorias[$i]->getDescricaoMercadoria(),
+		//Atributos da classe Mercadoria/Valores
+		$mercadoria->setId($_REQUEST['id']);
+		$mercadoria->getObjCotacao() -> setId($_REQUEST['idCotacoes']);
+		$mercadoria->setDescricaoMercadoria($_REQUEST['descricao']);
+		$mercadoria->setPeso($_REQUEST['peso']);
+
+		if (mercadoriaSql::alterar($mercadoria)){
+			$resultado[] = array(
+				'oka'	=>  'oks',
+			);
+		}
+
+		echo(json_encode($resultado ));
+	}
+
+
+	if ($_GET["editSave"] == "deletarMercadoria"){
+		$mercadoria = new Mercadoria();
+
+		$mercadoria->setId($_REQUEST['id']);
+
+		if (mercadoriaSql::remover($mercadoria)){
+			$resultado[] = array(
+				'ok'	=>  'ok',
 			);
 		}
 		echo( json_encode( $resultado ) );
 	}
+
+
+	if ($_GET["editSave"] == "carregarMercadoria")
+	{
+
+		if (mercadoriaSql::carregarLista())
+		{
+			$resultado[] = array(
+				'oka'	=>  'oks',
+			);
+		}
+	}
 ?>
-
-

@@ -1,79 +1,79 @@
 <?php
-	require_once ("/../modelo/banco.php");
+	require_once ("/../banco.php");
 	require_once ("mercadoria.php");
 
-	class MercadoriaSql
-	{
 
-		public static function adicionar (  Mercadoria $mercadoria  )
-		{
-			//Conexão com o banco
-			$conexao  = Conexao::  getInstance (  )  ->  getConexao (  );
 
-			//Atributo da tabela mercadoria
+	class MercadoriaSql {
+			//Método responsável em adicionar um determinado veículo
+		public static function adicionar(Mercadoria $mercadoria) {
 
-			//$idMercadoria = mysql_real_escape_string($mercadoria -> getId(), $conexao);
-			$idCotacao  = mysql_real_escape_string (  $mercadoria  ->  getObjCotacao (  )  ->  getId (  ) ,  $conexao  );
-			$descricaoMercadoria  = mysql_real_escape_string (  $mercadoria  ->  getDescricaoMercadoria (  ) ,  $conexao  );
-			$pesoMercadoria  = mysql_real_escape_string (  $mercadoria  ->  getPeso (  ) ,  $conexao  );
+			//Criando a conexão com o banco de dados
+			$conexao = Conexao::getInstance()->getConexao();
 
-			//Insert para a tabela de Mercadoria do banco de dados
-			$sql  = "
-        insert into mercadorias (
-          idCotacoes,
-          descricao,
-          peso)
+			//Atributos da classe Mercadoria sendo definidas em uma variável, obtidas em um método para realização da
+			//obtenção do valor e logo em seguida, realizando a chamada do banco
 
-         values (
-          '$idCotacao',
-          '$descricaoMercadoria',
-          '$pesoMercadoria')";
+			$idCotacao		= mysql_real_escape_string($mercadoria-> getObjCotacao() -> getId(), $conexao);
+			$descricao 		= mysql_real_escape_string($mercadoria->getDescricaoMercadoria(), $conexao);
+			$peso 			= mysql_real_escape_string($mercadoria->getPeso(), $conexao);
 
-			$resultado  = @mysql_query (  $sql ,  $conexao  );
-
-			//echo($sql);
-			return ($resultado  === true);
+			//Inserção na tabela de Mercadoria relacionada ao banco de dados systransporte
+		    $sql    = "insert into mercadorias (idCotacoes, descricao, peso) values ('$idCotacao', '$descricao', '$peso')";
+		    $resultado = @mysql_query($sql, $conexao);
+		    return ($resultado === true);
 		}
 
-		public static function consultar (  Mercadoria $busca  )
+		//Método responsável em alterar um determinado veículo
+		public static function alterar(Mercadoria $mercadoria) {
+			//Criando a conexão com o banco de dados
+			$conexao = Conexao::getInstance()->getConexao();
+
+			//Atributos da classe Mercadoria sendo definidas em uma variável, obtidas em um método para realização da
+			//obtenção do valor e logo em seguida, realizando a chamada do banco
+			$id 				= mysql_real_escape_string($mercadoria->getId(), $conexao);
+			$idCotacao			= mysql_real_escape_string($mercadoria-> getObjCotacao() -> getId(), $conexao);
+			$descricaoMercadoria 		= mysql_real_escape_string($mercadoria->getDescricaoMercadoria(), $conexao);
+			$peso 				= mysql_real_escape_string($mercadoria->getPeso(), $conexao);
+
+
+			///Alteração na tabela de Mercadoria relacionada ao banco de dados systransporte
+			$sql  = "update mercadorias set idCotacoes='$idCotacao', descricao='$descricaoMercadoria', peso = '$peso' where id = $id ";
+		    $resultado = @mysql_query($sql, $conexao);
+
+		    return ($resultado === true);
+		}
+
+		//Método responsável em remover um determinado veículo
+		public static function remover(Mercadoria $mercadoria) {
+			//Criando a conexão com o banco de dados
+			$conexao = Conexao::getInstance()->getConexao();
+
+			//Atributo da classe Mercadoria sendo definida em uma variável, obtida em um método para realização da
+			//obtenção do valor e logo em seguida, realizando a chamada do banco de dados
+			$id 				= mysql_real_escape_string($mercadoria->getId(), $conexao);
+
+			//Remoção na tabela de Mercadoria relacionada ao banco de dados systransporte
+			$sql       			= "delete from mercadorias where id = '$id' ";
+		    $resultado = @mysql_query($sql, $conexao);
+
+		    return ($resultado === true);
+		}
+
+		public static function carregarLista()
 		{
+		      //Conexão com o banco
+		      $conexao = Conexao::getInstance()->getConexao();
 
-			$conexao  = Conexao::  getInstance (  )  ->  getConexao (  );
-
-			$sql  = "
-	      Select
-	      mercadorias.id,
-	      mercadorias.idCotacoes,
-	      mercadorias.descricao,
-	      mercadorias.peso
-	
-	      from
-	
-	      mercadorias
-		inner join cotacoes
-	      on
-	      mercadorias.idCotacoes = cotacoes.id
-	      where 1=1";
-
-			$resultado  = @mysql_query (  $sql ,  $conexao  );
-			if (  $resultado  )
+			$rs = mysql_query('select * from mercadorias');
+			$resultado = array();
+			while($row = mysql_fetch_object($rs))
 			{
-				$retorno  = array (  );
-				while (  $linha  = mysql_fetch_array (  $resultado  )  )
-				{
-					$u  = new Mercadoria (  );
-					
-					$u  ->  setId (  $linha [  "id"  ]  );
-					$u  ->  getObjCotacao (  )  ->  setId (  $linha [  "idCotacoes"  ]  );
-					$u  ->  setDescricaoMercadoria (  $linha [  "descricao"  ]  );
-					$u  ->  setPeso (  $linha [  "peso"  ]  );
-					$retorno [  ]  = $u;
-				}
-				return ($retorno);
+				array_push($resultado, $row);
 			}
-			else
-				return null;
-		}
+			echo json_encode($resultado);
+        }
+    }
 
-	}
+
 ?>
