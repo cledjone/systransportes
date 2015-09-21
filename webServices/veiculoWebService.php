@@ -6,7 +6,7 @@
 	extract ($_SESSION);
 
 
-	if ($_GET["editSave"] == "incluirVeiculo"){			
+	if ($_GET["editSave"] == "incluirVeiculo"){		 
 		//Classe de Usuário
 		$veiculo = new veiculo();	
 

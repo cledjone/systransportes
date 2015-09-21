@@ -1,5 +1,5 @@
 <?php
-	require_once ("/../banco.php");
+	require_once ("banco.php");
 	require_once ("veiculo.php");
 	
 
@@ -20,7 +20,7 @@
 			$tipo 				= mysql_real_escape_string($veiculo->getTipo(), $conexao);
 
 			//Inserção na tabela de veiculo relacionada ao banco de dados systransporte
-		    $sql    = "insert into veiculo (placa, capacidadeKg, capacidadeM3, ano, tipo) values ('$placa',
+		    $sql    = "insert into veiculos (placa, capacidadeKg, capacidadeM3, ano, tipo) values ('$placa',
 								  '$capacidadeKg', '$capacidadeM3', '$ano', '$tipo')";			
 		    $resultado = @mysql_query($sql, $conexao);
 		    return ($resultado === true);
@@ -41,7 +41,7 @@
 			$tipo 				= mysql_real_escape_string($veiculo->getTipo(), $conexao);
 
 			///Alteração na tabela de veiculo relacionada ao banco de dados systransporte
-			$sql  = "update veiculo set placa='$placa', capacidadeKg='$capacidadeKg', capacidadeM3='$capacidadeM3',
+			$sql  = "update veiculos set placa='$placa', capacidadeKg='$capacidadeKg', capacidadeM3='$capacidadeM3',
 								  ano='$ano', tipo='$tipo' where id = $id ";			
 		    $resultado = @mysql_query($sql, $conexao);
 
@@ -58,7 +58,7 @@
 			$id 				= mysql_real_escape_string($veiculo->getIdVeiculo(), $conexao);
 
 			//Remoção na tabela de veiculo relacionada ao banco de dados systransporte
-			$sql       			= "delete from veiculo where id = '$id' ";			
+			$sql       			= "delete from veiculos where id = '$id' ";			
 		    $resultado = @mysql_query($sql, $conexao);
 
 		    return ($resultado === true);
@@ -95,7 +95,7 @@
 	      //Conexão com o banco
 	      $conexao = Conexao::getInstance()->getConexao();     
 
-			$rs = mysql_query('select * from veiculo');
+			$rs = mysql_query('select * from veiculos');
 			$result = array();
 			while($row = mysql_fetch_object($rs)){
 				array_push($result, $row);
