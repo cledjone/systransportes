@@ -9,7 +9,7 @@
 		<script type="text/javascript" src="../../js/scriptsCotacoes.js"> </script>		
 		<script type="text/javascript" src="../../js/validacoes.js"> </script>		
     </head>    
-    <body onload="consultaCotacoes()">
+    <body onload="consultaCotacoes('false')">
          <div class="navbar-wrapper">
             <div class="container-fluid">
                 <nav class="navbar">
@@ -89,16 +89,20 @@
                         <div id="navbar" class="navbar-collapse collapse">
 							<center>                         
 									
-									<br><br>    
-										<div class="col-lg-12">                     
-											<b><font color="red" size="4">CADASTRO DE COTAÇÕES</font></b>                       
-										</div>          
-									<br><br><br>
+									<br><br> 
+										<center>	
+										<h1>
+											Consulta Cotações
+										</h1>  
+											<sup><b>*</b></sup>Selecione uma Cotação para Interagir Com a Mesma
+										</center>
+									<br>
 									<table border="1" width="100%" id="tabelaConsulta">
 								
 									</table>
 									<br><br>
 									<input type="image" src='../../img/incluirBtn.png' id="btnIncluir" onClick="irPara('viewCadastro.php','incluir')">
+									<input type="image" src='../../img/visualizarBtn.png' id="btnVisualizar" onClick="irPara('viewCadastro.php','visualizar')">
 									<input type="image" src='../../img/alterarBtn.png' id="btnAlterar" onClick="irPara('viewCadastro.php','alterar')">
 									<input type="image" src='../../img/aprovarBtn.png' id="btnAprovar" onClick="irPara('viewCadastro.php', 'aprovar')">
 									<input type="image" src='../../img/cancelarBtn.png' id="btnCancelar" onClick="irPara('viewCadastro.php','cancelar')">

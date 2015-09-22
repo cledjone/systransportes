@@ -1,20 +1,33 @@
 	//VARIAVEIS UTEIS
 	var contaNumero = 0;
+	var contaLinha = 0;	
 	var contaLinha = 0;
 	var idCotacao = 0;
+	var idStatus = 0;
+	var statusCotacao = 0;
+	var listaDeCotacoes = "";
 	var aguardaDigitar; 	
 	var webServiceCotacao = '../../webServices/cotacaoWebService.php';	
+	var backgroundAnterior = "";
+	var corAnterior = "";
 	
 	//OCULTAR O MAPA SEM CONSULTA
 	$(document).ready(function(){	
 		$("#totalGeral").hide("slow");
 		$("#mapaGoogle").hide("slow");
 		$("#ufOrigem").focus();
+		var acao = document.getElementById('acao').value;								
+		if (acao=='visualizar'){
+			$("#gravarBtn").hide("slow");
+		}
 	});	
 	
 	//CONSULTA COTAÇÕES
-	function consultaCotacoes(campoDigitado)
-	{			   		 
+	function consultaCotacoes(aguardarDigitar,campoDigitado) {			   		 
+		$("#btnVisualizar").hide("slow");
+		$("#btnAlterar").hide("slow");
+		$("#btnCancelar").hide("slow");
+		$("#btnAprovar").hide("slow");
 		var realizaConsulta=false;
 		var argumento = "";		
 		if (typeof campoDigitado != "undefined")
@@ -32,11 +45,14 @@
 		{
 			realizaConsulta=true;				
 		}			
-		if (realizaConsulta)
-		{	
+		if (realizaConsulta){
 			var jsonParametros = {consultaCotacao: 'sim', argumento: argumento};			
-			clearTimeout(aguardaDigitar);						
-			aguardaDigitar = setInterval(function(){acessoWebService(jsonParametros, webServiceCotacao);},1000);				
+			if (aguardaDigitar){
+				clearTimeout(aguardaDigitar);						
+				aguardaDigitar = setInterval(function(){acessoWebService(jsonParametros, webServiceCotacao);},1000);				
+			} else {
+				acessoWebService(jsonParametros, webServiceCotacao);
+			}
 		}	
 	}
 	
@@ -44,13 +60,35 @@
 	function consultaCotacao(idCotacao) {	
 		if (idCotacao>0){
 			var jsonParametros = {consultaCotacao: 'sim', idCotacao: idCotacao};					
-			acessoWebService(jsonParametros, webServiceCotacao);						
+			acessoWebService(jsonParametros, webServiceCotacao);								
 		}
 	}
 	
 	
 	//VALIDA DIGITAÇÃO DO CAMPO DE CONSULTAS DA COTAÇÃO
-	function crudCotacao(acao) {			
+	function crudCotacao(acao) {	
+		//VALIDAR ANTES DE INCLUIR
+		if (document.getElementById('cidadeOrigem').value.length == 0){
+			alert ('Por Favor, informe a Cidade de Origem!');		 
+			document.getElementById('cidadeOrigem').focus();
+			return;
+		}	   	
+		if (document.getElementById('cidadeDestino').value.length == 0){
+			alert ('Por Favor, informe a Cidade de Destino!');		 
+			document.getElementById('cidadeDestino').focus();
+			return;
+		}	   	
+		if (document.getElementById('peso').value.length == 0){
+			alert ('Por Favor, informe o Peso da Mercadoria!');		 
+			document.getElementById('peso').focus();
+			return;
+		}	   	
+		if (document.getElementById('valor').value.length == 0){
+			alert ('Por Favor, informe o Valor da Mercadoria!');		 
+			document.getElementById('valor').focus();
+			return;
+		}
+		
 		var idCotacao = document.getElementById('idCotacao');								
 		var qtdCaixas = document.getElementById('qtdCaixas');										
 		var cidadeOrigem = document.getElementById('cidadeOrigem').value;	
@@ -80,6 +118,11 @@
 		var tira_Virgula = valorCarga.value.replace(".", "");
 		valorCarga = tira_Virgula.replace("," ,".");	
 		
+		var distancia = document.getElementById('txtDistancia');	
+		var distanciaSemKm = distancia.value.substr(0,(distancia.value.length-3)); //PEGA  APENAS OS NUMNEROS			
+		var valorMySql = distanciaSemKm.replace(".", ""); // TIRA OS PONTOS DE MILHAR
+		distancia = valorMySql.replace("," ,".");	  // VIRGULA DE CASA DECIMAL VIRA PONTO (PADRÃO AMERICANO)
+				
 		var valorFrete = document.getElementById('valorFrete');		
 		var tira_Virgula = valorFrete.value.replace(".", "");
 		valorFrete = tira_Virgula.replace("," ,".");	
@@ -89,7 +132,8 @@
 		pegaPrazo = txtPrazo.value;
 		var prazo = pegaPrazo.substr(0,(pegaPrazo.length-7));		
 		
-		var idUsuario = 1;				
+		var idUsuario = 1;
+		
 		
 		
 		if (acao=='incluir')
@@ -98,8 +142,10 @@
 			idUsuario: idUsuario,
 			descricao: descricao.value,
 			valorFrete: valorFrete,
-			prazo: prazo, altura: altura,
+			prazo: prazo, 
+			altura: altura,
 			largura: largura,
+			distancia: distancia,
 			peso: peso,
 			comprimento: comprimento,
 			quantidadeCaixas: qtdCaixas.value,
@@ -117,6 +163,7 @@
 			valorFrete: valorFrete,
 			prazo: prazo, altura: altura,
 			largura: largura, peso: peso,
+			distancia: distancia,
 			comprimento: comprimento,
 			quantidadeCaixas: qtdCaixas.value,
 			valorCarga: valorCarga,
@@ -158,16 +205,14 @@
 	}			
 	
 	//TRATA RESULTADO WEBSERVICE
-	function trataResultadoWebService(resultadoXml)
-	{	
-		if (resultadoXml[0].resultado=='ok')
-		{
+	function trataResultadoWebService(resultadoXml) {	
+		if (resultadoXml[0].resultado=='ok'){
+			alert('Operação Realizada Com Sucesso!');
 			irPara('viewConsulta.php','consultar');
 		}
-		if (resultadoXml[0].resultado=='consulta')
-		{
-			for (var i = 0; i < resultadoXml.length; i++)
-			{
+		if (resultadoXml[0].resultado=='consulta'){
+			listaDeCotacoes = resultadoXml;
+			for (var i = 0; i < resultadoXml.length; i++) {
 				var status = 'AGUARDANDO ATENDENTE';
 				if (i==0)
 				{
@@ -193,14 +238,24 @@
 				var trLinha = document.createElement("tr");
 				trLinha.setAttribute("class", "itens");
 				trLinha.setAttribute("onClick", "selecionaCotacao(this)");		
-				if (resultadoXml[i].status ==0)
-				{
+				if (resultadoXml[i].status =='0'){
+
 					trLinha.style.background = 'red';					
 					trLinha.style.color = 'white';					
 					status = 'CANCELADO';
 				}								
+				if (resultadoXml[i].status =='2'){
+					trLinha.style.background = 'BLUE';					
+					trLinha.style.color = 'white';					
+					status = 'AGUARDANDO SUA AUTORIZAÇÃO';
+				}								
+				if (resultadoXml[i].status =='3'){
+					trLinha.style.background = 'GREEN';					
+					trLinha.style.color = 'white';					
+					status = 'AUTORIZADO';
+				}								
 				trLinha.name = resultadoXml[i].id;
-				trLinha.id = 'trLinha'+(resultadoXml[i].id);				
+				trLinha.id = i;				
 				trLinha.innerHTML = '<td id="idCotacao'+resultadoXml[i].id
 									+'">'+resultadoXml[i].id
 									+'</td><td>'+(resultadoXml[i].cidadeOrigem).substr(0,20)
@@ -210,8 +265,8 @@
 									+'</td><td>'+resultadoXml[i].valorCarga
 									+'</td><td>'+resultadoXml[i].valorFrete
 									+'</td><td>'+resultadoXml[i].prazo
-									+'</td><td>'+status+'</td>';
-									
+									+'</td><td>'+status+'</td>';									
+
 				document.getElementById('tabelaConsulta').appendChild(trLinha);					
 			}
 		}
@@ -230,33 +285,83 @@
 			var comprimento = document.getElementById('comprimento');													
 			var valorCarga = document.getElementById('valor');								
 			var valorFrete = document.getElementById('valorFrete');								
-			var descricao = document.getElementById('descricao');
+			var descricao = document.getElementById('descricao');			
+			var prazo = document.getElementById('txtTempo');
+			var idStatus = document.getElementById('idStatus');			
+			var status = document.getElementById('status');
+						
 			qtdCaixas.value = resultadoXml[0].quantidadeCaixas;			
 			ufOrigem.value = resultadoXml[0].ufOrigem;	
 			consultaCidades('cidadeOrigem', 'ufOrigem', resultadoXml[0].codCidadeOrigem, resultadoXml[0].cidadeOrigem);						
 			ufDestino.value = resultadoXml[0].ufDestino;			
 			consultaCidades('cidadeDestino', 'ufDestino', resultadoXml[0].codCidadeDestino, resultadoXml[0].cidadeDestino);						
 			altura.value = resultadoXml[0].altura;			
+			idStatus.value = resultadoXml[0].status;			
+			var verificaIdStatus = resultadoXml[0].status;			
+			if (verificaIdStatus=='0'){
+				status.value="CANCELADO";				
+				status.style.background = 'red';					
+				status.style.color = 'white';					
+			}
+			if (verificaIdStatus=='1'){
+				status.value="AGUARDANDO ATENDENTE";								
+			}
+			if (verificaIdStatus=='2'){
+				status.value='AGUARDANDO SUA AUTORIZAÇÃO';
+				status.style.background = 'blue';					
+				status.style.color = 'white';					
+			}
+			if (verificaIdStatus=='3'){
+				status.value="AUTORIZADO";				
+				status.style.background = 'green';					
+				status.style.color = 'white';					
+			}				
 			largura.value = resultadoXml[0].largura;			
 			peso.value = resultadoXml[0].peso;			
 			comprimento.value = resultadoXml[0].comprimento;			
-			valorCarga.value = resultadoXml[0].valorCarga;						
-			valorFrete.value = resultadoXml[0].valorFrete;			
-			//descricao.value = resultadoXml[0].descricao;			
+			valorCarga.value = resultadoXml[0].valorCarga;		
+			prazo.value = resultadoXml[0].prazo+' Dia(s)';					
+			valorFrete.value = 'R$:'+resultadoXml[0].valorFrete;			
+			descricao.value = resultadoXml[0].descricao;			
 			caixaPesquisaOrigem.value = resultadoXml[0].cidadeOrigem+' '+ufOrigem.value;
-			caixaPesquisaDestino.value = resultadoXml[0].cidadeDestino+' '+ufDestino.value;	
-			
+			caixaPesquisaDestino.value = resultadoXml[0].cidadeDestino+' '+ufDestino.value;				
+			clearTimeout(aguardaDigitar);						
+			aguardaDigitar = setInterval(function(){CalculaDistancia();},1000);							
 		}
 	}			
 
 	//SELECIONA COTACAO
 	function selecionaCotacao(cotacaoSelecionada){				
 	  if (idCotacao!=0){
-	    var restauraCor = document.getElementById('trLinha'+(idCotacao));
-		restauraCor.style.background = '#E8EBE8';
-	  }	
+	    var restauraCor = document.getElementById(idStatus);
+		restauraCor.style.background = backgroundAnterior;
+		restauraCor.style.color = corAnterior;
+	  }
+	  backgroundAnterior = 	cotacaoSelecionada.style.background;
+	  corAnterior = 	cotacaoSelecionada.style.color;
 	  cotacaoSelecionada.style.background = 'yellow';
+	  cotacaoSelecionada.style.color = 'black';
 	  idCotacao= cotacaoSelecionada.name;							
+	  idStatus = cotacaoSelecionada.id;							
+	  statusCotacao = listaDeCotacoes[idStatus].status;	  
+	  if (statusCotacao=='1'){		  
+		$("#btnAlterar").show(400);			   												
+		$("#btnCancelar").show(400);			   												
+		$("#btnAprovar").hide("slow");
+		$("#btnVisualizar").show(400);			   												
+	  } else {
+		  if (statusCotacao=='2'){		  
+			$("#btnAlterar").hide("slow");
+			$("#btnCancelar").show(400);			   												
+			$("#btnAprovar").show(400);			   												
+			$("#btnVisualizar").show(400);			   												
+		  }else {
+			$("#btnAlterar").hide("slow");
+			$("#btnCancelar").hide("slow");
+			$("#btnAprovar").hide("slow");
+			$("#btnVisualizar").show(400);
+		  }
+	  }
 	}	
 	
 	//MUDA DE PÁGINA
@@ -295,6 +400,7 @@
 	}
 	
 	function CalculaDistancia() {
+		clearInterval(aguardaDigitar);
 		var cidadeOrigem = document.getElementById('cidadeOrigem').value;	
 		var cidadeDestino = document.getElementById('cidadeOrigem').value;	
 		var peso = document.getElementById('peso').value;	
@@ -383,9 +489,6 @@
 			
 			valorFinalFrete = moeda(valorFinalFrete,2,',','.'); 
 						
-			//JOGA O VALOR NA CAIXA DE TEXTO
-			$("#valorFrete").val('R$:'+valorFinalFrete);			
-			
 			
             var tempo = response.rows[0].elements[0].duration.text;
 			tempo = tempo.replace("day", "dia").replace("hour", "hora").replace("min", "minuto");
@@ -431,17 +534,16 @@
             if (menosDeUmaHora){
 				diaFinal = 1;
 			}				
-            $("#txtTempo").val(diaFinal+' Dia(s)');
-
+			
+			//JOGA O VALOR NA CAIXA DE TEXTO
+			var acao = document.getElementById('acao').value;								
+			if (acao=='alterar' || acao=='incluir'){			
+				$("#valorFrete").val('R$:'+valorFinalFrete);			
+				$("#txtTempo").val(diaFinal+' Dia(s)');
+			}
             //Atualizar o mapa.
             $("#map").attr("src", "https://maps.google.com/maps?saddr=" + response.originAddresses + "&daddr=" + response.destinationAddresses + "&output=embed");
 			$("#totalGeral").show(400);					
 			$("#mapaGoogle").show(400);					
         }
-      }
-	  
-	  /*  
-	  	var servicoHttp = "../webServices/cotacaoWebService.php";				
-		
-		
-		*/
+      } 

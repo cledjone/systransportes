@@ -107,7 +107,7 @@
 											</tr>																				
 											<tr>								
 												<td>UF</td>			
-												<td>Cidade</td>																		
+												<td><b>*Cidade</b></td>																		
 											</tr>								
 											<tr>								
 												<td>					
@@ -162,7 +162,7 @@
 											</tr>																				
 											<tr>								
 												<td>UF</td>			
-												<td>Cidade</td>																		
+												<td><b>*Cidade</b></td>																		
 											</tr>								
 											<tr>								
 												<td>					
@@ -206,30 +206,7 @@
 										</table>
 									</td>
 								</tr>
-							</table>
-							</br>
-							<table style="border: 1px solid;">
-								<tr>
-									<td colspan="20" style="border: 1px solid;"> 
-										<center><font size="4"><b>MERCADORIAS A SEREM TRANSPORTADAS:</b></font></center>
-									</td> 															
-									</tr>
-									<tr style="border: 1px solid;">			
-										<td width="530"><center>Descrição<center></td>
-										<td width="110" colspan="2">Peso/Kgs</td>																
-									</tr>						
-									<tr style="border: 1px solid;">	
-										<td>								
-											<input type="text" size="60" tabindex="5" type="text" onfocus="focus_Blur(this, 'yellow');"onblur="focus_Blur(this, 'white');" value="" id="descricaoMercadoria">
-										</td>					
-										<td>													
-											<input type="text" size="7" tabindex="6" type="text" onfocus="focus_Blur(this, 'yellow');"onblur="focus_Blur(this, 'white');" value=""  id="largura" name="largura"  onKeyPress="return(MascaraMoeda(this,'.',',',event))">
-										</td>  							
-										<td style="border-right: 1px solid;" width="35">	
-											<center><input type="image" src='../../img/salvar.gif'  onClick="incluirMercadoria();"></center>
-										</td>
-									</tr>
-							</table>	
+							</table>							
 							</br>	
 							<table id="itensMercadoria">
 							</table>
@@ -243,26 +220,26 @@
 									<tr style="border: 1px solid;">			
 										<td width="105">Altura/Mts</td>
 										<td width="105">Largura/Mts</td>
-										<td width="100">Peso/Kgs</td>
+										<td width="100"><b>*Peso/Kgs</b></td>
 										<td width="130">Comprim/Mts</td>
 										<td width="110">QtdVolumes</td>						
-										<td width="110">Valor/R$</td>						
+										<td width="110"><b>*Valor/R$</b></td>						
 									</tr>						
 									<tr style="border: 1px solid;">	
 										<td>								
-											<input type="text" size="7" tabindex="7" type="text" onfocus="focus_Blur(this, 'yellow');"onblur="focus_Blur(this, 'white');" value="" id="altura" name="altura"  onKeyPress="return(MascaraMoeda(this,'.',',',event))">
+											<input type="text" size="7" tabindex="7" type="text" onfocus="focus_Blur(this, 'yellow');"onblur="focus_Blur(this, 'white');" value="0,00" id="altura" name="altura"  onKeyPress="return(MascaraMoeda(this,'.',',',event))">
 										</td>					
 										<td >													
-											<input type="text" size="7" tabindex="8" type="text" onfocus="focus_Blur(this, 'yellow');"onblur="focus_Blur(this, 'white');" value=""  id="largura" name="largura"  onKeyPress="return(MascaraMoeda(this,'.',',',event))">
+											<input type="text" size="7" tabindex="8" type="text" onfocus="focus_Blur(this, 'yellow');"onblur="focus_Blur(this, 'white');" value="0,00"  id="largura" name="largura"  onKeyPress="return(MascaraMoeda(this,'.',',',event))">
 										</td>  														
 										<td>								
 											<input type="text" size="7" tabindex="9" type="text" onfocus="focus_Blur(this, 'yellow');"onblur="focus_Blur(this, 'white'); CalculaDistancia();" value="" id="peso" name="peso"  onKeyPress="return(MascaraMoeda(this,'.',',',event))">
 										</td>					
 										<td >													
-											<input type="text" size="7" tabindex="10" type="text" onfocus="focus_Blur(this, 'yellow');"onblur="focus_Blur(this, 'white');" value="" id="comprimento" name="comprimento"  onKeyPress="return(MascaraMoeda(this,'.',',',event))">
+											<input type="text" size="7" tabindex="10" type="text" onfocus="focus_Blur(this, 'yellow');"onblur="focus_Blur(this, 'white');" value="0,00" id="comprimento" name="comprimento"  onKeyPress="return(MascaraMoeda(this,'.',',',event))">
 										</td>  								
 										<td>								
-											<input type="text" size="7" tabindex="11" type="text" onfocus="focus_Blur(this, 'yellow');"onblur="focus_Blur(this, 'white');" value=""  id="qtdCaixas" name="qtdCaixas" onKeyPress="return(mascaraInteiro())">
+											<input type="text" size="7" tabindex="11" type="text" onfocus="focus_Blur(this, 'yellow');"onblur="focus_Blur(this, 'white');" value="0"  id="qtdCaixas" name="qtdCaixas" onKeyPress="return(mascaraInteiro())">
 										</td>															
 										<td style="border-right: 1px solid;">									
 											<input type="text" size="7" tabindex="12" type="text" onfocus="focus_Blur(this, 'yellow');"  value=""  id="valor" name="valor"  onKeyPress="return(MascaraMoeda(this,'.',',',event))"  onBlur="focus_Blur(this, 'white'); CalculaDistancia();">
@@ -319,11 +296,13 @@
 							</div>
 							
 							<input type="hidden" id="idCotacao" value="<?php echo($idCotacao);?>">						 	
+							<input type="hidden" id="acao" value="<?php echo($acao);?>">						 	
 							<input name="resultadoOrigem" type="hidden" id="txtOrigemResultado" class="field"  value="" />
 							<input name="resultadoDestino" type="hidden" id="txtDestinoResultado" class="field" value="" />
 							<input name="pesquisaOrigem" type="hidden" id="txtOrigem" class="field" value="S&atilde;o Paulo" />
 							<input name="pesquisaDestino" type="hidden" id="txtDestino" class="field" value="Rio de Janeiro" />
-							<input type="image" src='../../img/<?php echo($acao);?>Btn.png' onClick="crudCotacao('<?php echo($acao);?>')">
+							<center><sup><b>*</sup>Campos Obrigatórios</b></center>
+							<input type="image" src='../../img/<?php echo($acao);?>Btn.png' id="gravarBtn" onClick="crudCotacao('<?php echo($acao);?>')">
 							<input type="image" src='../../img/sairBtn.png' id="btnSair" onClick="irPara('viewConsulta.php','consultar')">
 							</br>							
 							</center>

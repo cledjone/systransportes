@@ -15,6 +15,7 @@
 	private $comprimento;  	
 	private $quantidadeCaixas;  	
 	private $prazo;
+	private $distancia;
 	private $descricao;
 	private $aprovadoCliente;
 	private $aprovadoAtendente;
@@ -125,6 +126,14 @@
     
     public function getPrazo() {
       return $this->prazo;
+    }	
+	
+	public function setDistancia($l) {
+      $this->distancia = trim($l);
+    }
+    
+    public function getDistancia() {
+      return $this->distancia;
     }	
 	
 	public function setDescricao($l) {
