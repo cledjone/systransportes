@@ -186,7 +186,7 @@ CREATE TABLE IF NOT EXISTS `usuariostatus` (
 -- Exportação de dados foi desmarcado.
 
 
--- Copiando estrutura para tabela systransportes.cheque
+-- Copiando estrutura para tabela systransportes.cheques
 CREATE TABLE IF NOT EXISTS `cheques` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `parcela` varchar(5) DEFAULT NULL,
