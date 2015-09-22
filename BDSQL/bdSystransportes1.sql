@@ -186,6 +186,19 @@ CREATE TABLE IF NOT EXISTS `usuariostatus` (
 -- Exportação de dados foi desmarcado.
 
 
+-- Copiando estrutura para tabela systransportes.cheque
+CREATE TABLE IF NOT EXISTS `cheques` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `parcela` varchar(5) DEFAULT NULL,
+  `numero` varchar(5) DEFAULT NULL,
+  `valor` float DEFAULT NULL,
+  `vencimento` date DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- Exportação de dados foi desmarcado.
+
+
 -- Copiando estrutura para tabela systransportes.veiculos
 CREATE TABLE IF NOT EXISTS `veiculos` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
